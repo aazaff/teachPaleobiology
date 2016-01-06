@@ -86,7 +86,9 @@ Look at the search bar prompt in the top right corner. Navigator will allow you 
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure7.png" align="left" height="450" width="500" ></a>
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure8.png" align="right" height="110" width="110" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure8.png" align="center" height="180" width="220" ></a>
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure9.jpg" align="center" height="180" width="220" ></a>
 
 1. Zoom in so that you can see from Texas to Florida, and from Florida to New York. Some of the occurrences are orange and other are yellow, what is the significance of the different colors?
 
