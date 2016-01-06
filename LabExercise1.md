@@ -80,6 +80,8 @@ In the meantime, return to the **SPLASH** page, and enter the PBDB [navigator](h
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure6.png" align="center" height="450" width="500" ></a>
 
-Look at the search bar prompt in the top right corner. Navigator will allow you to enter a geologic time period, a taxon, an authorizer, or a geologic unit. Let's look for the taxon Abra.
+Look at the search bar prompt in the top right corner. Navigator will allow you to enter a geologic time period, a taxon, an authorizer, or a geologic unit. Let's look for the genus *Abra*.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure7.png" align="right" height="110" width="110" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure7.png" align="left" height="450" width="500" ></a>
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure8.png" align="right" height="110" width="110" ></a>
