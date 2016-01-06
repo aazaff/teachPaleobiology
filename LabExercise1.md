@@ -144,6 +144,6 @@ The next part of the exam is free form, in that you can find the answer to the f
 
 3. What is the age of the oldest occurrence of *Gastrocopta*?
 
-4. Is *Nomacalathus*  present in Canada?
+4. Is *Namacalathus*  present in Canada?
 
-5. There are two occurrences of *Nomacalathus* in Sibera. What geologic formations are they found in?
+5. There are two occurrences of *Namacalathus* in Sibera. What geologic formations are they found in?
