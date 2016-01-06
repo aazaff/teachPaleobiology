@@ -136,7 +136,7 @@ For the following questions generate the appropriate URL for the following data 
 
 #### Exercise Questions 4
 
-The next part of the exam is free form, in that you can find the answer to the following questions using any of the PBDB tools discussed so far.
+The next set of questions is free form, in that you can find the answer to the following questions using any of the PBDB tools discussed so far.
 
 1. What family does the genus **Gastrocopta** belong to?
 
