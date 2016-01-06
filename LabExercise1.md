@@ -108,3 +108,42 @@ Use the new and more detailed download form instead. Return to the **SPLASH** pa
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure8.png" align="center" height="450" width="500" ></a>
 
+Let's try downloading all collections of both *Ambonychia* and *Abra* as a tab-separated file. 
+
+1. Select Collections
+2. Select Tab-separated values (tsv)
+3. Enter Abra, Ambonychia into the Taxon textbar.
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure9.png" align="center" height="450" width="500" ></a>
+
+If you were successful you should have gotten a blue URL, describing your data request.
+
+https://paleobiodb.org/data1.2/colls/list.tsv?datainfo&rowcount&base_name=Abra,Ambonychia
+
+#### Exercise Questions 3
+
+For the following questions generate the appropriate URL for the following data queries.
+
+1. What is the appropriate URL for downloading all occurrences of Ambonychia in the Lexington Limestone as a JSON?
+
+2. What is the appropriate URL for downloading all occurrences of mammals present in the Paleocene through Oligocene epochs as a csv?
+
+3. What is the appropriate URL for downloading all opinions on the order Testudines in the Mesozoic?
+
+4. What is the appropriate URL for downloading all collections of Aves, Marsupialia, and Sirenia in the United States as a csv?
+
+5. What is the approopriate URL for downloading all occurrences of the gastropod genus, *Ficus* as a csv?
+
+#### Exercise Questions 4
+
+The next part of the exam is free form, in that you can find the answer to the following questions using any of the PBDB tools discussed so far.
+
+1. What family does the genus **Gastrocopta** belong to?
+
+2. Is the ecology of *Gastrocopta* epifaunal or infaunal?
+
+3. What is the age of the oldest occurrence of *Gastrocopta*?
+
+4. Is *Nomacalathus*  present in Canada?
+
+5. There are two occurrences of *Nomacalathus* in Sibera. What geologic formations are they found in?
