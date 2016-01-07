@@ -35,7 +35,6 @@ Topics | Description
 + [Biogeography](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Biogeography.pdf)
 + [Climate and Mammals](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Climate%20and%20Mammals.pdf)
 + [Evolutionary Developmental Biology](https://github.com/aazaff/paleobiologyWebsite/blob/master/Evolutionary%20Developmental%20Biology.pdf)
-+ [Extinction Selectivity](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Extintion%20Selectivity.pdf)
 + [Geographic Range Size](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Geographic%20Range%20Size.pdf)
 + [Interspecific Relationships](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Interspecific%20Relationships.pdf)
 + [Multivariate Analyses](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Multivariate%20Analyses.pdf)
