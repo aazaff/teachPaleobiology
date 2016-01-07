@@ -7,7 +7,7 @@ This respository contains course materials and information for the GEOSCIENCE 54
 Resources | Description
 --------- | ----------
 [Course Syllabus](https://github.com/aazaff/paleobiologyWebsite/blob/master/CourseDocuments/PaleontologySyllabus.pdf) | A description of how the course is organized and topics to be covered.
-[Reading Exercises]() | PDF versions of the weekly reading assignments.
+[Reading Exercises]() | The weekly reading assignments.
 [Writing Exercises]() | An example writing assignment and a blank template sheet.
 [Additional Reading]() | A set of review papers that provide additional insight into various class topics. A good place to start for your research proposals.
 [Lab Exercises]() | The weekly lab assignments.
