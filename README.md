@@ -9,6 +9,6 @@ Resources | Description
 [Course Syllabus](https://github.com/aazaff/paleobiologyWebsite/blob/master/CourseDocuments/PaleontologySyllabus.pdf) | A description of how the course is organized and topics to be covered.
 [Reading Exercises]() | The weekly reading assignments.
 [Writing Exercises]() | An example writing assignment and a blank template sheet.
-[Additional Reading]() | A set of review papers that provide additional insight into various class topics. A good place to start for your research proposals.
+[Additional Reading](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/AdditionalReading.md) | A set of review papers that provide additional insight into various class topics. A good place to start for your research proposals.
 [Lab Exercises]() | The weekly lab assignments.
 [R Tutorial Repository](https://github.com/aazaff/startLearn.R/blob/master/README.md) | Resources for learning or refreshing your R skills
