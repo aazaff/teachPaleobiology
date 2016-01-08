@@ -1,6 +1,6 @@
 **Chris Maxwell**
 
-**[Abundance Not Linked to Survival across the End-Cretaceous Mass Extinction:Patterns in North American Bivalves
+**[Abundance Not Linked to Survival across the End-Cretaceous Mass Extinction: Patterns in North American Bivalves
 by Rowan Lockwood (2003)](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/Lockwood%202003.pdf)**
 
 #### Article Summary
