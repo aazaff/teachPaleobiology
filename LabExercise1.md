@@ -86,7 +86,7 @@ Look at the search bar prompt in the top right corner. Navigator will allow you 
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure7.png" align="center" height="450" width="500" ></a>
 
-1. Zoom in so that you can see from Texas to Florida and from Florida to New York. Some of the occurrences are orange and others are yellow, what is the significance of the different colors?
+1. Zoom in so that you can see from Texas to Florida and from Florida to New York. Some of the occurrences are oranges and others are yellow, what is the significance of the different colors?
 
 2. Zoom back out. Add an additional filter into the searchbar, the Ypresian stage. In what countries are there Ypresian occurrences of *Abra*?
 
