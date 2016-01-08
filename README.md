@@ -12,4 +12,4 @@ Resources | Description
 [Additional Reading](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/AdditionalReading.md) | A set of review papers that provide additional insight into various class topics.
 [ResearchProposals]() | Instructions and example research proposals.
 [Lab Exercises](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercises.md) | The weekly lab assignments.
-[R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md) | Resources for learning or refreshing your R skills
+[R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md) | Resources for developing your R skills like a pro.
