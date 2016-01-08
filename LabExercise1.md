@@ -138,12 +138,12 @@ For the following questions generate the appropriate URL for the following data 
 
 The next set of questions is free form, in that you can find the answer to the following questions using any of the PBDB tools discussed so far.
 
-1. What family does the genus **Gastrocopta** belong to?
+1. What family does the genus *Gastrocopta* belong to?
 
 2. Is the ecology of *Gastrocopta* epifaunal or infaunal?
 
 3. What is the age of the oldest occurrence of *Gastrocopta*?
 
-4. Is *Namacalathus*  present in Canada?
+4. Is *Tiktaalik* present in Greenland?
 
 5. There are two occurrences of *Namacalathus* in Sibera. What geologic formations are they found in?
