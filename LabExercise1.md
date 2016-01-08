@@ -4,7 +4,7 @@
 
 Lab exercise 1 is broken into two components. The first part is an introduction to the Paleobiology Database Website. The second part is an introduction to the R computer language. The R tutorials and associated exercises are kept in a separate repository named [startLearn.R](https://github.com/aazaff/startLearn.R/blob/master/README.md).
 
-You will likely be able to complete the first part during lab period, but will have to finish the second part as homework. Both components are due at the start of the next lab period: **Wednesday January 27th**. 
+You will be able to complete the first part during lab period, but will likely have to finish the second part as homework. Both components are due at the start of the next lab period: **Wednesday January 27th**. 
 
 ## Finding the Paleobiology Database Website
 
