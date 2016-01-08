@@ -1,8 +1,8 @@
 **Chris Maxwell**
 
-**Abundance Not Linked to Survival across the End-Cretaceous Mass Extinction:
+**[Abundance Not Linked to Survival across the End-Cretaceous Mass Extinction:
 Patterns in North American Bivalves
-Rowan Lockwood Proceedings of the National Academy of Sciences of the United States of America, Vol. 100, No. 5. (Mar. 4, 2003), pp. 2478-2482.**
+Rowan Lockwood Proceedings of the National Academy of Sciences of the United States of America, Vol. 100, No. 5. (Mar. 4, 2003), pp. 2478-2482.](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/Lockwood%202003.pdf**
 
 #### Article Summary
 Lockwood investigates the relationship between abundance of taxa in the fossil record and survivability across the K/T mass extinction. The author first explains that ecological studies within live organisms have shown that abundant species are less likely to go extinct than rarer ones.  Lockwood then connects this idea to the fossil record by citing research showing that the abundance of the living community of benthic mollusks and the mollusks preserved in the fossil record are correlated.  Abundance information from the costal plain of North America was complied from published data.  Abundance was measured in three ways: raw, which was measured as the number of valves at a locality, rank, which ranks genera according to their rank of abundance in the assemblage, and proportional, which is the raw abundance relative to the total abundance of the preserved community.  Lockwood found that no correlation existed between the abundance of taxa and survivability in any of the abundance metrics across the K/T extinction and therefore concluded that the factors involved in mass extinction events are different from factors involved in background extinction.
