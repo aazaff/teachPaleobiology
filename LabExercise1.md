@@ -140,10 +140,10 @@ The next set of questions is free form, in that you can find the answer to the f
 
 1. What family does the genus *Gastrocopta* belong to?
 
-2. Is the ecology of *Gastrocopta* epifaunal or infaunal?
+2. There is only once occurrence of *Isoetes* in Portugal. What age is it?
 
 3. What is the age of the oldest occurrence of *Gastrocopta*?
 
-4. Is *Tiktaalik* present in Greenland?
+4. There is only one occurrence of *Tiktaalik* in the Paleobiology Database? Was that occurrence located in the tropics or the extratropics when it was alive?
 
 5. There are two occurrences of *Namacalathus* in Sibera. What geologic formations are they found in?
