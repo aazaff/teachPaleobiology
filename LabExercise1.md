@@ -10,7 +10,7 @@ You will be able to complete the first part during lab period, but will likely h
 
 The URL for the Paleobiology Database is [www.paleobiodb.org](https://paleobiodb.org). However, because you are all honorary members of the development team, you can also use the special development server at [www.training.paleobiodb.org](https://training.paleobiodb.org).  Go there now in your web browser. The first thing that you should see is the **SPLASH** page. 
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab1Figures/Figure1.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab1Figures/Figure1.png" align="center" height="450" width="500" ></a>
 
 The Paleobiology Database (**PBDB** for short) splash page has a lot of information packed into it. At the bottom of the screen you will see some basic stats on the types and quantity of data located in the database.
 
