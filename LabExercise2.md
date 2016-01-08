@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Lab Exercise 2 is composed of four parts with several smaller parts. Write up your answers to all four parts in a separate word document and turn it in, **as a hard copy**, by the start of the next Lab on **February 3, 2016**.
+Lab Exercise 2 is composed of three parts with several smaller parts. Write up your answers to all three parts in a separate word document and turn it in, **as a hard copy**, by the start of the next Lab on **February 3, 2016**.
 
 ## Part I
 
@@ -49,18 +49,23 @@ Examine the following cladogram and answer the questions.
 
 7.	Traditionally, the five taxa are grouped into three families. Determine if each family is monophyletic, paraphyletic, or polyphyletic.
 
-+ Family 1 contains species A. 
-+ Family 2 contains species B and C.
-+ Family 3 contains species D and E. 
+Family | Species
+--------- | ----------
+Family 1 | Contains species A. 
+Family 2 | Contains species B and C.
+Family 3 | contains species D and E. 
 
 8.	More recently, species A has been grouped in a family with species D and E. Is this advisable? Why or why not?
 
 9.	Determine if the following groups are monophyletic, paraphyletic, or polyphyletic. 
-+ Species A, B, C. 
-+ Species C, D, E. 
-+ Species C and D. 
-+ Species A and B. 
-+ Species B, D, E.
+
+Group | Species
+--------- | ----------
+Group 1 | Species A, B, C. 
+Group 2 | Species C, D, E. 
+Group 3 | Species C and D. 
+Group 4 | Species A and B. 
+Group 5 | Species B, D, E.
 
 ## Part III
 
@@ -84,5 +89,3 @@ The following figure shows the ontogeny of the trilobite Olenellus lapworthi (th
 2. Which species of *Gryphaea* has undergone a greater degree of heterochrony?
 
 3. What type of heterochrony is represented in the *Ollenus* example??
-
-## Part IV
