@@ -10,6 +10,6 @@ Resources | Description
 [Reading Exercises](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | The weekly reading assignments.
 [Writing Exercises](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/WritingExample.md) | An example writing assignment.
 [Additional Reading](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/AdditionalReading.md) | A set of review papers that provide additional insight into various class topics.
-[Grant Proposal]() | Instructions and example research proposals.
+[Grant Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/ProposalInformation.md) | Instructions and example research proposals.
 [Lab Exercises](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercises.md) | The weekly lab assignments.
 [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md) | Resources for developing your R skills like a pro.
