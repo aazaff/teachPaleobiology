@@ -1,5 +1,7 @@
 ## Instructions
 
+Each week you will tasked with reading one scientific article or popular science essay. The reading list can be found [here](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) with the various start and due dates. In addition to reading, you will have to write a short summary of the article. 
+
 The [following](#example-write-up) is an example write-up by Chris Maxwell. Your write-ups should follow the same general format, tone, and style. 
 
 The [first section](#article-summary) should be an article summary, which covers the overarching question, the hypotheses tested, the data and methods used, and the ultimate conclusion of the paper. 
