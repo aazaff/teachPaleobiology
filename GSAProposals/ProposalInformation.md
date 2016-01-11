@@ -4,7 +4,7 @@
 
 Towards the latter half of the course (starting March 16th), you will design a (hypothetical) research project utilizing the [Paleobiology Database](https://paleobiodb.org/#/) to test a hypothesis related to one of the biodiversification, dispersal, or extinction events covered in the class. Students can also cover topics not covered in the class with my approval. 
 
-You will write up the proposal following the Geological Society of America graduate research grant [guidelines](http://www.geosociety.org/grants/gradgrants.htm). The GSA website provides several excellent [tips](http://www.geosociety.org/grants/ap_tips.htm) on how to construct a good proposal. You can also examine [examples](#Examples) of successful research grants on the course website. 
+You will write up the proposal following the Geological Society of America graduate research grant [guidelines](http://www.geosociety.org/grants/gradgrants.htm). The GSA website provides several excellent [tips](http://www.geosociety.org/grants/ap_tips.htm) on how to construct a good proposal. You can also examine [examples](#examples) of successful research grants on the course website. 
 
 You will not have to actually carry out the proposed research project, but your proposal will be evaluated based on its scientific accuracy, clarity, and feasibility. The grading rubric and further details will be disseminated once we begin the grant-writing process.
 
