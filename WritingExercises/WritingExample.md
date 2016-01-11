@@ -12,6 +12,8 @@ The [fourth section](#evaluate-the-graphs-and-figures-if-any) should explain (1)
 
 The total length of the document should be approximately one single-spaced page, Times New Roman font, size 12, and a margin width of 1-inch on all sides.
 
+## Example Write-up
+
 **Chris Maxwell**
 
 **[Abundance Not Linked to Survival across the End-Cretaceous Mass Extinction: Patterns in North American Bivalves
