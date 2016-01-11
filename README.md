@@ -1,6 +1,6 @@
 # GEOSCIENCE 541: Paleobiology
 
-This respository contains course materials and information for the GEOSCIENCE 541: Paleobiology course at the Universty of Wisconsin - Madison. Maintained by Andrew Zaffos.
+This respository contains course materials and information for the GEOSCIENCE 541: Paleobiology course at the University of Wisconsin - Madison. Maintained by Andrew Zaffos.
 
 ## Resources in this Repository
 
