@@ -1,8 +1,10 @@
+# Example Write-Up
+
 ## Instructions
 
 Each week you will tasked with reading one scientific article or popular science essay. The reading list can be found [here](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) with the various start and due dates. In addition to reading, you will have to write a short summary of the article. 
 
-The [following](#example-write-up) is an example write-up by Chris Maxwell. Your write-ups should follow the same general format, tone, and style. 
+The [following](#an-example-by-chris-maxwell) is an example write-up by Chris Maxwell. Your write-ups should follow the same general format, tone, and style. 
 
 The [first section](#article-summary) should be an article summary, which covers the overarching question, the hypotheses tested, the data and methods used, and the ultimate conclusion of the paper. 
 
@@ -14,7 +16,7 @@ The [fourth section](#evaluate-the-graphs-and-figures-if-any) should explain (1)
 
 The total length of the document should be a minimum of one single-spaced page and a maximum of two single-spaced pages. A total of 650 words is a good target. Use size 12 Times New Roman font, and a margin width of 1-inch on all sides. 
 
-## Example Write-up
+## An Example by Chris Maxwell
 
 **Chris Maxwell**
 
