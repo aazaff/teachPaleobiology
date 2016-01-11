@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Every week you must read each of the following papers or essays. You will then hand in a write-up on the article the following Monday. You will also have to be prepared to discuss the paper in class. If the quality of discussion is low, you may be called upon to read excerpts from your write-up to the class. An [example writing exercise](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/WritingExample.md) is available on the course website with instructions.
+Every week you must read each of the following papers or essays. You will then hand in a write-up on the article the following Monday. You will also have to be prepared to discuss the paper in class. If the quality of discussion is low, you may be called upon to read excerpts from your write-up to the class. An [example writing exercise](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/WritingExample.md) is available with instructions.
 
 ## Warning!!!
 
