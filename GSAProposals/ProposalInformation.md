@@ -1,1 +1,27 @@
 # GSA Research Proposal Project
+
+## Instructions
+
+Towards the latter half of the course (starting March 16th), you will design a (hypothetical) research project utilizing the [Paleobiology Database](https://paleobiodb.org/#/) to test a hypothesis related to one of the biodiversification, dispersal, or extinction events covered in the class. Students can also cover topics not covered in the class with my approval. 
+
+You will write up the proposal following the Geological Society of America graduate research grant [guidelines](http://www.geosociety.org/grants/gradgrants.htm). The GSA website provides several excellent [tips](http://www.geosociety.org/grants/ap_tips.htm) on how to construct a good proposal. You can also examine [examples](#Examples) of successful research grants on the course website. 
+
+You will not have to actually carry out the proposed research project, but your proposal will be evaluated based on its scientific accuracy, clarity, and feasibility. The grading rubric and further details will be disseminated once we begin the grant-writing process.
+
+## Timeline
+
+Date | Descriptions
+------- | -------
+March 16 | We will spend the lap period reviewing the grant poposal instructions and grading rubric more closely. We will then split into groups and brainstorm hypotheses.
+March 28 | You will turn in your finalized topic and hypothesis.
+April 6 | You will come to the lab period with your grant proposal rough drafts. You will break into groups and *constructively* critique your peer's proposals.
+April 11 | You will turn in your first rough draft. This draft will be worth 30 points.
+April 25 | I will return comments and grades on your first draft.
+May 4 | You will hand in your final proposal drafts.
+
+## Examples
+
+Name | Proposal Description
+------- | -------
+[McMullen Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/McMullenGSA2015.pdf) | Controls on the stratigraphic distribution of non-marine fossils.
+[McMullen Figure](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/McMullenFigure.pdf) | McMullen example figure.
