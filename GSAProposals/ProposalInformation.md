@@ -23,6 +23,8 @@ May 4 | You will hand in your final proposal drafts.
 
 Name | Proposal Description
 ------- | -------
+[Kusnerik Propposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/KusnerikGSA2015.pdf) | Paleontology of the Jurassic Western Interior.
+[Kusnerik Figure] (https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/KusnerikFigure.pdf) | Kusnerik example figure.
 [Marshall Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/MarshallGSA2015.pdf) | Large-scale taphonomy in the Phosphoria Formation.
 [Marshall Figure](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/MarshallFigure.pdf) | Marshall example figure.
 [McMullen Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/McMullenGSA2015.pdf) | Controls on the stratigraphic distribution of non-marine fossils.
