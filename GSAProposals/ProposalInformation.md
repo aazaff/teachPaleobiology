@@ -12,7 +12,7 @@ You will not have to actually carry out the proposed research project, but your 
 
 Important Dates | Descriptions
 ------- | -------
-March 16 | We will spend the lap period reviewing the grant poposal instructions and grading rubric more closely. We will then split into groups and brainstorm hypotheses.
+March 16 | We will spend the lab period reviewing the grant proposal instructions and grading rubric more closely. You will then split into groups and brainstorm hypotheses.
 March 28 | You will turn in your finalized topic and hypothesis.
 April 6 | You will come to the lab period with your grant proposal rough drafts. You will break into groups and *constructively* critique your peer's proposals.
 April 11 | You will turn in your first rough draft. This draft will be worth 30 points.
