@@ -4,7 +4,7 @@ The [following](#example-write-up) is an example write-up by Chris Maxwell. Your
 
 The [first section](#article-summary) should be an article summary, which covers the overarching question, the hypotheses tested, the data and methods used, and the ultimate conclusion of the paper. 
 
-The [second section](#things-you-liked-about-the-paper) should illustrate elements that you liked about the paper. Vacuous statements praising the paper without examples or evidence (e.g., Chris's first paragraph) are discouraged. Praising specific analyses is encouraged (e.g., Chris's second paragraph). This paragraph is your opportunity to show off how closely you read and understood what was said.
+The [second section](#things-you-liked-about-the-paper) should illustrate elements that you liked about the paper. Vacuous statements praising the paper without examples or evidence (e.g., Chris's first line of the section) are discouraged. Praising specific analyses is encouraged (e.g., Chris's second paragraph). This paragraph is your opportunity to show off how closely you read and understood what was said.
 
 The [third section](#things-you-did-not-like-about-the-paper) should illustrate elements that you did not like about the paper. Again, simply criticizing the paper is discouraged. You should offer *constructive* insights into how the paper or study could be *improved* - e.g., testing additional hypotheses, adding additional data. This paragraph is your opportunity to show off your critical thinking skills, and to fold in material you've learned elsewhere in the class.
 
