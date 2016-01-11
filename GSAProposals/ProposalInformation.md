@@ -10,7 +10,7 @@ You will not have to actually carry out the proposed research project, but your 
 
 ## Timeline
 
-Date | Descriptions
+Important Dates | Descriptions
 ------- | -------
 March 16 | We will spend the lap period reviewing the grant poposal instructions and grading rubric more closely. We will then split into groups and brainstorm hypotheses.
 March 28 | You will turn in your finalized topic and hypothesis.
@@ -23,5 +23,9 @@ May 4 | You will hand in your final proposal drafts.
 
 Name | Proposal Description
 ------- | -------
+[Marshall Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/MarshallGSA2015.pdf) | Large-scale taphonomy in the Phosphoria Formation.
+[Marshall Figure](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/MarshallFigure.pdf) | Marshall example figure.
 [McMullen Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/McMullenGSA2015.pdf) | Controls on the stratigraphic distribution of non-marine fossils.
 [McMullen Figure](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/McMullenFigure.pdf) | McMullen example figure.
+[Wychech Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/WychechGSA2015.pdf) | Using foraminifera to reconstruct ancient sea surface conditions. 
+[Wychech Figure](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/WychechFigure.pdf) | Wychech example figure.
