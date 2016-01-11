@@ -13,3 +13,5 @@ Resources | Description
 [Grant Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/ProposalInformation.md) | Instructions and example research proposals.
 [Lab Exercises](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercises.md) | The weekly lab assignments.
 [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md) | Resources for developing your R skills like a pro.
+
+Additionally, the weekly tests, as oultined in the [syllabus]((https://github.com/aazaff/paleobiologyWebsite/blob/master/CourseDocuments/PaleontologySyllabus.pdf)), can be accessed at [learnuw.wisc.edu](learnuw.wisc.edu).
