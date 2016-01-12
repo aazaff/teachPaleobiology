@@ -86,15 +86,15 @@ Look at the search bar prompt in the top right corner. Navigator will allow you 
 
 <a href="url"><img src="/Lab1Figures/Figure7.png" align="center" height="450" width="500" ></a>
 
-1. Zoom in so that you can see from Texas to Florida and from Florida to New York. Some of the occurrences are oranges and others are yellow, what is the significance of the different colors?
+1. Zoom in so that you can see from Texas to Florida and from Florida to New York. Some of the occurrences are orange and others are yellow, what is the significance of the different colors?
 
-2. Zoom back out. Add an additional filter into the searchbar, the Ypresian stage. In what countries are there Ypresian occurrences of *Abra*?
+2. Zoom back out. Add an additional filter into the searchbar, the Ypresian stage. The Ypresian is a time interval ranging from 47.8–56.0 million years ago. In what countries are there Ypresian occurrences of *Abra*?
 
 3. Clear the *Abra* and Ypresian filters from the search. Look for the genus *Ambonychia*. Within the United States find the city with the most occurrences of *Ambonychia*. What is the name of this city? 
 
 4. What age (Period) are most *Ambonychia* occurrences?
 
-Add in your answer to question 4 as an additional filter. Click on the little icon of South America breaking away from Africa on the left side of the screen. This icon rotates the continents back to their position in the specified time-period. Note that it requires you to have set a specific time-period as a filter. 
+Add in your answer to question 4 as an additional filter. Click on the little icon of South America breaking away from Africa on the left side of the screen. This icon rotates the continents back to their position in the specified time-period. **Note that it requires you to have set a specific time-period as a filter**. 
 
 5. During this time-period, were most occurrences of *Ambonychia* arrayed parallel or perpendicular to the equator?
 
@@ -102,9 +102,9 @@ Add in your answer to question 4 as an additional filter. Click on the little ic
 
 ## Downloading Data
 
-You can the data displayed in your Navigator window using the little arrow icon on the left side of the screen, but its options are limited. 
+You can download the data displayed in your Navigator window using the little arrow icon on the left side of the screen, but its options are limited. 
 
-Use the new and more detailed download form instead. Return to the **SPLASH** page and click on [Download Data](https://paleobiodb.org/cgi-bin/bridge.pl?a=displayDownloadGenerator). This download form uses the new Paleobiology Database **API**. Once you are more advanced, you will be able to donwnload data directly into R using the **API**, and will no longer need to use Navigator or the download form.
+Use the new and more detailed download form instead. Return to the **SPLASH** page and click on [Download Data](https://paleobiodb.org/cgi-bin/bridge.pl?a=displayDownloadGenerator). This download form uses the new Paleobiology Database **API**. Once you are more advanced you will be able to donwnload data directly into R using the **API**, and will no longer need to use Navigator or the download form.
 
 <a href="url"><img src="/Lab1Figures/Figure8.png" align="center" height="450" width="500" ></a>
 
