@@ -68,7 +68,7 @@ For example, collection **72438** from the above example represents a single sam
 
 In contrast, collection **91240** represents a single sample in a study by Ivany et al. 2009, Ref# 30540. In that study, a sample was defined as an entire rock outcrop (multiple beds), generally several square meters in extent. 
 
-If you blindly compared these two collections, you would be making an apples and orange comparison.
+If you blindly compared these two collections, you would be making an apples and oranges comparison.
 
 ## Occurrences
 
