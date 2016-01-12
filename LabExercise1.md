@@ -86,7 +86,7 @@ Look at the search bar prompt in the top right corner. Navigator will allow you 
 
 <a href="url"><img src="/Lab1Figures/Figure7.png" align="center" height="450" width="500" ></a>
 
-1. Zoom in so that you can see from Texas to Florida and from Florida to New York. Some of the occurrences are orange and others are yellow, what is the significance of the different colors?
+1. Zoom in so that you can see from Texas to Florida and from Florida to New York. You can zoome using the mouse wheel, by double-clicking, or clicking the **+** and **-** signs. Some of the occurrences are orange and others are yellow, what is the significance of the different colors?
 
 2. Zoom back out. Add an additional filter into the searchbar, the Ypresian stage. The Ypresian is a time interval ranging from 47.8–56.0 million years ago. In what countries are there Ypresian occurrences of *Abra*?
 
