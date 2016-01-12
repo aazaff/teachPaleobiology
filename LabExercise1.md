@@ -132,7 +132,7 @@ For the following questions generate the appropriate URL for the following data 
 
 4. What is the appropriate URL for downloading all collections of Aves, Marsupialia, and Sirenia in the United States as a csv?
 
-5. What is the approopriate URL for downloading all occurrences of the gastropod genus, *Ficus* as a csv?
+5. What is the approopriate URL for downloading all occurrences of the gastropod genus *Ficus* as a csv?
 
 #### Exercise Questions 4
 
