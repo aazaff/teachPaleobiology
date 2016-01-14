@@ -15,3 +15,9 @@ Resources | Description
 [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md) | Resources for developing your R skills like a pro.
 
 Additionally, the weekly tests, as oultined in the [syllabus](https://github.com/aazaff/paleobiologyWebsite/blob/master/CourseDocuments/PaleontologySyllabus.pdf), can be accessed at [learnuw.wisc.edu](https://learnuw.wisc.edu).
+
+## Acknowledgments
+
+This course and all of its publically available content is funded by the University of Wisconsin - Madison and the [National Science Foundation](http://www.nsf.gov/). Our intention is to leverage the [Paleobiology Database](www.paleobiodb.org) for research, education, mentorship, and interoperability.
+
+Several of the lab materials used in this repository were modified from materials created by [Matt E. Clapham](http://people.ucsc.edu/~mclapham/) at the University of Santa Cruz.
