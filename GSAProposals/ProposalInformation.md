@@ -8,6 +8,10 @@ You will write up the proposal following the Geological Society of America gradu
 
 You will not have to actually carry out the proposed research project, but your proposal will be evaluated based on its scientific accuracy, clarity, and feasibility. The grading rubric and further details will be disseminated once we begin the grant-writing process.
 
+## GEOSCIENCE 376: Spring Break Trip
+
+Those of you also taking GEOSCICENCE 376 with can build your proposal around the Spring Break Trip.
+
 ## Timeline
 
 Important Dates | Descriptions
