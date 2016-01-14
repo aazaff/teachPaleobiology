@@ -10,7 +10,7 @@ You will not have to actually carry out the proposed research project, but your 
 
 ## GEOSCIENCE 376: Spring Break Trip
 
-Those of you also taking GEOSCICENCE 376 with can build your proposal around the Spring Break Trip.
+Those of you also taking GEOSCIENCE 376 with can build your proposal around the Spring Break Trip.
 
 ## Timeline
 
