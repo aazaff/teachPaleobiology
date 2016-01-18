@@ -87,7 +87,7 @@ WED: Mar 02 | [Reading 7](https://github.com/aazaff/teachPaleobiology/blob/maste
 MON: Mar 07 | [Lab 7](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Hendy (2009) 2. Unlithified vs. lithified sediments 3. Increased bioturbation 4. Pull-of-the Recent
 WED: Mar 09 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Siliciclastic vs. carbonate environments 2. High vs. low latitude paleocontinents 3. Epicontinental vs. open ocean 4. Ice House vs. green House
 MON: Mar 14 | [Lab 8](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Ediacran biota 3. Cambrian Explosion 4. Ordovician Radiation
-WED: Mar 16 | [Reading 8]((https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md)) | Review grant proposal instructions and grading rubric.
+WED: Mar 16 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | Review grant proposal instructions and grading rubric.
 | | | **BREAK FREE ON SPRING BREAK** 
 MON: Mar 28 | [Lab 9](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Late Ordovician extinction 
 WED: Mar 30 | [Reading 9](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Terrestrial transition 2. Late Devonian mass extinction
