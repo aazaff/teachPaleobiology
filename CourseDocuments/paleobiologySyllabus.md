@@ -69,7 +69,7 @@ You are not graded on attendance, but it is highly recommended that you make an 
 
 ## Course Schedule
 
-Calendar | Assignments | Topics
+Calendars | Assignments | Topics
 ------ | ----- | ----- |
 WED: Jan 20 | [Reading 1](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Course overview 2. Definition of paleontology 3. Definition of fossil
 MON: Jan 25 | [Lab 1](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Morphology and Morphometrics
