@@ -18,7 +18,7 @@ Important Dates | Descriptions
 ------- | -------
 March 16 | We will review the grant proposal instructions and grading rubric in class.
 March 28 | You will turn in your finalized topic and hypothesis.
-April 6 | You will come to the lab period with your grant proposal rough drafts. You will break into groups and *constructively* critique your peer's proposals.
+April 04 | You will come to the lab period with your grant proposal rough drafts. You will break into groups and *constructively* critique your peer's proposals.
 April 11 | You will turn in your first rough draft. This draft will be worth 30 points.
 April 25 | I will return comments and grades on your first draft.
 May 4 | You will hand in your final proposal drafts.
@@ -28,7 +28,7 @@ May 4 | You will hand in your final proposal drafts.
 Name | Proposal Description
 ------- | -------
 [Kusnerik Propposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/KusnerikGSA2015.pdf) | Paleontology of the Jurassic Western Interior.
-[Kusnerik Figure] (https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/KusnerikFigure.pdf) | Kusnerik example figure.
+[Kusnerik Figure](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/KusnerikFigure.pdf) | Kusnerik example figure.
 [Marshall Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/MarshallGSA2015.pdf) | Large-scale taphonomy in the Phosphoria Formation.
 [Marshall Figure](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/MarshallFigure.pdf) | Marshall example figure.
 [McMullen Proposal](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/McMullenGSA2015.pdf) | Controls on the stratigraphic distribution of non-marine fossils.
