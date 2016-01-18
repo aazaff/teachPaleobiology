@@ -23,7 +23,7 @@ The course is split into two phases. In the first phase, we discuss the ontogeny
 
 In addition to the theoretical framework discussed above, this course places a strong emphasis on practical skills, especially data analytics. This includes downloading data sets, entering and editing data, and statistical analysis of those data. Ideally, at the end of this course, you will be able to construct and test your own paleobiological hypotheses using available online databases.
 
-In particular, we will use the [R statistical software](https://github.com/aazaff/startLearn.R/blob/master/README.md), the [Paleobiology Database](https://paleobiodb.org/#/), and the [Macrostrat Database](https://macrostrat.org/). All of these services are free, available online, and work with Mac, Windows, or Linux systems. R is an especially powerful tool that is highly sought after in the job market. Companies like Google, Microsoft, and Amazon, as well as most major Universities and graduate programs are looking for R proficiency.
+In particular, we will use the [R statistical software](https://github.com/aazaff/startLearn.R/blob/master/README.md), the [Paleobiology Database](https://paleobiodb.org/#/), [Github](https://github.com), and the [Macrostrat Database](https://macrostrat.org/). All of these services are free, available online, and work with Mac, Windows, or Linux systems. R is an especially powerful tool that is highly sought after in the job market. Companies like Google, Microsoft, and Amazon, as well as most major Universities and graduate programs are looking for R and Git proficiency.
 	
 ## COURSEWORK ORGANIZATION	
 
@@ -71,22 +71,22 @@ You are not graded on attendance, but it is highly recommended that you make an 
 
 Class Dates | Assignments | Topics
 ------ | ----- | ----- |
-WED: January 20 | [Reading 1](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Course overview 2. Definition of paleontology 3. Definition of fossil
-MON: January 25 | [Lab 1](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Morphology and Morphometrics
-WED: January 27 | [Reading 2](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Ontogeny 2. Heterochrony 3. Phylogeny and Cladistics
-MON: February 01 | [Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Abiogenesis 3. Genetic drift and neutral theory 4. Molecular clocks
-WED: February 03 | [Reading 3](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Sexual Selection 2. Geographic models of speciation
-MON: February 08 | [Lab 3](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Ecological niche 3. Ecological competition and facilitation 4. Ecological gradients
-WED: February 10 | [Reading 4](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Anatomical and behavioral mechanisms of dispersal 3. Common patterns of species distribution
-MON: February 15 | [Lab 4](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Determinants of extinction 3. Pseudoextinction
-WED: February 17 | [Reading 5](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Measuring biodiversity 2. Measuring extinction 3. Measuring origination 4. Measuring evenness
-MON: February 22 | [Lab 5](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Review and catch-up session
-WED: February 24 | [Reading 6](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Types of fossils. 2. Ideal fossilization conditions (lagerstätten) 3. Fossilization processes. 4. Diagenesis
-MON: February 29 | [Lab 6](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Fossil transport 3. Time-averaging 4. Taphonomically active zone 5. Condensed sections
-WED: March 02 | [Reading 7](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Lazarus, Elvis, and Zombie taxa 2. Signore-Lipps effect 3. Holland effect 4. Common-cause hypothesis
-MON: March 07 | [Lab 7](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Hendy (2009) 2. Unlithified vs. lithified sediments 3. Increased bioturbation 4. Pull-of-the Recent
-WED: March 09 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Siliciclastic vs. carbonate environments 2. High vs. low latitude paleocontinents 3. Epicontinental vs. open ocean 4. Ice House vs. green House
-MON: March 14 | Lab 8 | 1. Review Reading 2. Ediacran biota 3. Cambrian Explosion 4. Ordovician Radiation
-WED: March 16 | Reading 8 and Grant Proposal | Review grant proposal instructions and grading rubric.
+WED: Jan 20 | [Reading 1](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Course overview 2. Definition of paleontology 3. Definition of fossil
+MON: Jan 25 | [Lab 1](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Morphology and Morphometrics
+WED: Jan 27 | [Reading 2](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Ontogeny 2. Heterochrony 3. Phylogeny and Cladistics
+MON: Feb 01 | [Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Abiogenesis 3. Genetic drift and neutral theory 4. Molecular clocks
+WED: Feb 03 | [Reading 3](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Sexual Selection 2. Geographic models of speciation
+MON: Feb 08 | [Lab 3](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Ecological niche 3. Ecological competition and facilitation 4. Ecological gradients
+WED: Feb 10 | [Reading 4](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Anatomical and behavioral mechanisms of dispersal 3. Common patterns of species distribution
+MON: Feb 15 | [Lab 4](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Determinants of extinction 3. Pseudoextinction
+WED: Feb 17 | [Reading 5](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Measuring biodiversity 2. Measuring extinction 3. Measuring origination 4. Measuring evenness
+MON: Feb 22 | [Lab 5](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Review and catch-up session
+WED: Feb 24 | [Reading 6](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Types of fossils. 2. Ideal fossilization conditions (lagerstätten) 3. Fossilization processes. 4. Diagenesis
+MON: Feb 29 | [Lab 6](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Fossil transport 3. Time-averaging 4. Taphonomically active zone 5. Condensed sections
+WED: Mar 02 | [Reading 7](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Lazarus, Elvis, and Zombie taxa 2. Signore-Lipps effect 3. Holland effect 4. Common-cause hypothesis
+MON: Mar 07 | [Lab 7](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Hendy (2009) 2. Unlithified vs. lithified sediments 3. Increased bioturbation 4. Pull-of-the Recent
+WED: Mar 09 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Siliciclastic vs. carbonate environments 2. High vs. low latitude paleocontinents 3. Epicontinental vs. open ocean 4. Ice House vs. green House
+MON: Mar 14 | Lab 8 | 1. Review Reading 2. Ediacran biota 3. Cambrian Explosion 4. Ordovician Radiation
+WED: Mar 16 | Reading 8 and Grant Proposal | Review grant proposal instructions and grading rubric.
 | | | **BREAK FREE ON SPRING BREAK** 
-WED: March 28 | 
+WED: Mar 28 | | | 
