@@ -14,7 +14,7 @@ Link | Start Reading | Due Dates | Title
 --------- | ---------- | ----------- | ----------
 [Reading01](http://www.theguardian.com/science/punctuated-equilibrium/2010/oct/20/3) | January 20 | January 25 | How many species concepts are there?
 [Reading02](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Hydrothermal%20vents.pdf) | January 27 | February 1 | Hydrothermal vents and the origin of life.
-[Reading03](https://github.com/aazaff/teachPaleobiology/blob/master/AdditionalReading/Ecological%20Niche.pdf) | February 3 | February 8 | Grinellian and Eltonian niches and geographic distributions of species.
+[Reading03](https://github.com/aazaff/teachPaleobiology/blob/master/AdditionalReading/Dispersal.pdf) | February 3 | February 8 | Rapid evolution of seed dispersal in an urban environment.
 [Reading04](https://github.com/aazaff/teachPaleobiology/blob/master/AdditionalReading/Extinction%20Selectivity.pdf) | February 10 | February 15 | Extinction vulnerability and selectivity.
 [Reading05](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/BiodiversityScenarios.pdf) | February 17 | February 22 | Global biodiversity scenarios for the year 2100.
 [Reading06](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Live%20Dead.pdf) | February 24 | February 29 | How good was the fossil record? Clues from the California Pleistocene.
