@@ -69,7 +69,7 @@ You are not graded on attendance, but it is highly recommended that you make an 
 
 ## Course Schedule
 
-Class Dates | Assignments | Topics
+Calendar | Assignments | Topics
 ------ | ----- | ----- |
 WED: Jan 20 | [Reading 1](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Course overview 2. Definition of paleontology 3. Definition of fossil
 MON: Jan 25 | [Lab 1](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Morphology and Morphometrics
@@ -87,6 +87,15 @@ WED: Mar 02 | [Reading 7](https://github.com/aazaff/teachPaleobiology/blob/maste
 MON: Mar 07 | [Lab 7](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Hendy (2009) 2. Unlithified vs. lithified sediments 3. Increased bioturbation 4. Pull-of-the Recent
 WED: Mar 09 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Siliciclastic vs. carbonate environments 2. High vs. low latitude paleocontinents 3. Epicontinental vs. open ocean 4. Ice House vs. green House
 MON: Mar 14 | Lab 8 | 1. Review Reading 2. Ediacran biota 3. Cambrian Explosion 4. Ordovician Radiation
-WED: Mar 16 | Reading 8 and Grant Proposal | Review grant proposal instructions and grading rubric.
+WED: Mar 16 | Reading 8 | Review grant proposal instructions and grading rubric.
 | | | **BREAK FREE ON SPRING BREAK** 
-WED: Mar 28 | | | 
+MON: Mar 28 | Lab 9 | 1. Late Ordovician extinction 
+WED: Mar 30 | Reading 9 | 1. Terrestrial transition 2. Late Devonian mass extinction
+MON: Apr 04 | Lab 10 | 1. Review Reading 2. Mid-Carboniferous Rainforest Collapse
+WED: Apr 06 | Reading 10 | 1. Late Permian Mass Extinction.
+MON: Apr 11 | Lab 11 | 1. Review Reading 2. Early Triassic fossil gap 3. Late Triassic Extinction
+WED: Apr 13 | Reading 11 | 1. Mesozoic plant revolution 2. Mesozoic vertebrates 3. Mesozoic microfossil revolution
+MON: Apr 25 | Lab 12 |1. Review Reading 2. End Cretaceous Mass Extinction
+WED: Apr 27 | Reading 12 | 1. Cenozoic biogeography 2. Cenozoic Climate Change 3. Cenozoic mass extinctions
+MON: May 02 | Lab 13 | 1. Review Reading 2. The “sixth” mass extinction.
+WED: May 04 | | 1. Review Class Material. 2. Class Evaluation
