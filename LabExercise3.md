@@ -10,7 +10,7 @@ You will be able to complete the first part during lab period, but will likely h
 
 The URL for the Paleobiology Database is [www.paleobiodb.org](https://paleobiodb.org). However, because you are all honorary members of the development team, you can also use the special development server at [www.training.paleobiodb.org](https://training.paleobiodb.org).  Go there now in your web browser. The first thing that you should see is the **SPLASH** page. 
 
-<a href="url"><img src="/Lab1Figures/Figure1.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure1.png" align="center" height="450" width="500" ></a>
 
 The Paleobiology Database (**PBDB** for short) splash page has a lot of information packed into it. At the bottom of the screen you will see some basic stats on the types and quantity of data located in the database.
 
@@ -28,13 +28,13 @@ Data Type | Definition
 All data in the PBDB can ultimatley be traced back to one or more references. The interface for searching and viewing references is currently being overhauled this semester, which is why there is no search button on the splash page. You can still access the old references search feature by clicking [here](https://training.paleobiodb.org/cgi-bin/bridge.pl?a=displaySearchRefs&type=view).
 
 The references search page should look something like this.
-<a href="url"><img src="/Lab1Figures/Figure2.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure2.png" align="center" height="450" width="500" ></a>
 
 #### Exercise Questions 1
 
 Let's take a look at a great scientific paper by Steven M. Holland and Mark E. Patzkowsky. 
 
-<a href="url"><img src="/Lab1Figures/Figure3.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure3.png" align="center" height="450" width="500" ></a>
 
 Use the reference search tool to look up collections associated with this paper and answer the following questions.
 
@@ -44,11 +44,11 @@ Use the reference search tool to look up collections associated with this paper 
 
 Once you have answered the above questions, click the **view collections** hyperlink to see a print out of the collections associated with the study.
 
-<a href="url"><img src="/Lab1Figures/Figure4.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure4.png" align="center" height="450" width="500" ></a>
 
 Click on collection no. **72438**. Answer the following questions about this collection.
 
-<a href="url"><img src="/Lab1Figures/Figure5.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure5.png" align="center" height="450" width="500" ></a>
 
 1. The first taxon in the taxonomic list is *Rafinesquina alternata*. Next to the taxonomic name is the citation (Conrad 1830), what is the significance of this citation?
 
@@ -80,11 +80,11 @@ Therefore, as we progress in this class, you will see that often times the first
 
 Return to the **SPLASH** page, and enter the PBDB [navigator](https://paleobiodb.org/navigator/) tool. This tool is the best way to visualize the age and location of collections in the PBDB.
 
-<a href="url"><img src="/Lab1Figures/Figure6.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure6.png" align="center" height="450" width="500" ></a>
 
 Look at the search bar prompt in the top right corner. Navigator will allow you to enter a geologic time period, a taxon, an authorizer, or a geologic unit. Let's look for the genus *Abra*.
 
-<a href="url"><img src="/Lab1Figures/Figure7.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure7.png" align="center" height="450" width="500" ></a>
 
 1. Zoom in so that you can see from Texas to Florida and from Florida to New York. You can zoom using the mouse wheel, by double-clicking, or clicking the **+** and **-** signs. Some of the occurrences are orange and others are yellow, what is the significance of the different colors?
 
@@ -106,7 +106,7 @@ You can download the data displayed in your Navigator window using the little ar
 
 Use the new and more detailed download form instead. Return to the **SPLASH** page and click on [Download Data](https://paleobiodb.org/cgi-bin/bridge.pl?a=displayDownloadGenerator). This download form uses the new Paleobiology Database **API**. Once you are more advanced you will be able to donwnload data directly into R using the **API**, and will no longer need to use Navigator or the download form.
 
-<a href="url"><img src="/Lab1Figures/Figure8.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure8.png" align="center" height="450" width="500" ></a>
 
 Let's try downloading all collections of both *Ambonychia* and *Abra* as a tab-separated file. 
 
@@ -114,7 +114,7 @@ Let's try downloading all collections of both *Ambonychia* and *Abra* as a tab-s
 2. Select Tab-separated values (tsv)
 3. Enter Abra, Ambonychia into the Taxon textbar.
 
-<a href="url"><img src="/Lab1Figures/Figure9.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab3Figures/Figure9.png" align="center" height="450" width="500" ></a>
 
 If you were successful you should have gotten a blue URL, describing your data request.
 
