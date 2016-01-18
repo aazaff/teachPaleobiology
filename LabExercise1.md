@@ -4,7 +4,7 @@
 
 Lab exercise 1 is broken into two components. The first part is an introduction to the Paleobiology Database Website. The second part is an introduction to the R computer language. The R tutorials and associated exercises are kept in a separate repository named [startLearn.R](https://github.com/aazaff/startLearn.R/blob/master/README.md).
 
-You will be able to complete the first part during lab period, but will likely have to finish the second part as homework. Both components are due at the start of the next lab period: **Wednesday January 27th**. 
+You will be able to complete the first part during lab period, but will likely have to finish the second part as homework. Both components are due at the start of the next lab period: **Monday Feb 1st**. 
 
 ## Finding the Paleobiology Database Website
 
@@ -104,7 +104,7 @@ Add in your answer to question 4 as an additional filter. Click on the little ic
 
 You can download the data displayed in your Navigator window using the little arrow icon on the left side of the screen, but its options are limited. 
 
-Use the new and more detailed download form instead. Return to the **SPLASH** page and click on [Download Data](https://paleobiodb.org/cgi-bin/bridge.pl?a=displayDownloadGenerator). This download form uses the new Paleobiology Database **API**. Once you are more advanced you will be able to donwnload data directly into R using the **API**, and will no longer need to use Navigator or the download form.
+To customize the data you want, use the new and more detailed download form. To find the form, return to the **SPLASH** page and click on [Download Data](https://paleobiodb.org/cgi-bin/bridge.pl?a=displayDownloadGenerator). This download form uses the new Paleobiology Database **API**. Once you are more advanced, you will be able to download data directly into R using the **API**, and will no longer need to use Navigator or the download form.
 
 <a href="url"><img src="/Lab1Figures/Figure8.png" align="center" height="450" width="500" ></a>
 

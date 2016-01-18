@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Lab Exercise 2 is composed of three parts with several smaller parts. Write up your answers to all three parts in a separate word document and turn it in, **as a hard copy**, by the start of the next Lab on **February 3, 2016**.
+Lab Exercise 2 is composed of three parts with several smaller parts. Write up your answers to all three parts in a separate word document and turn it in, **as a hard copy**, by the start of the next Lab on **February 8, 2016**.
 
 ## Part I
 
