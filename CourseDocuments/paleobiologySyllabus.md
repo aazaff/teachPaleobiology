@@ -31,7 +31,7 @@ There are no midterms or final exams in this course. Instead, coursework is brok
 
 #### TESTING (10 POINTS EACH)
 
-Short weekly tests will be given online over the weekend. Tests will generally consist of 10 short answer or multiple-choice questions related to the material covered that week.
+Short weekly tests will be given online over the weekend. Tests will generally consist of 10 short answer or multiple-choice questions related to the material covered that week. The tests are administrated via the learuw.wisc.edu tool.
 
 #### READING AND WRITING (10 POINTS EACH)
 
