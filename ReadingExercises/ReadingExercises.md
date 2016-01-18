@@ -13,9 +13,9 @@ I *may* substitute in different readings if the class decides it wants to explor
 Link | Start Reading | Due Dates | Title
 --------- | ---------- | ----------- | ----------
 [Reading01](http://www.theguardian.com/science/punctuated-equilibrium/2010/oct/20/3) | January 20 | January 25 | How many species concepts are there?
-[Reading02](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Hydrothermal%20vents.pdf) | January 27 | February 1 | Hydrothermal vents and the origin of life.
-[Reading03](https://github.com/aazaff/teachPaleobiology/blob/master/AdditionalReading/Extinction%20Selectivity.pdf) | February 08 | February 15 | **TBD**
-[Reading04](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Dispersal.pdf) | February 03 | February 10 | Rapid evolution of seed dispersal in an urban environment.
+[Reading02](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Hydrothermal%20vents.pdf) | January 27 | February 01 | Hydrothermal vents and the origin of life.
+[Reading03](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Niche%20Conservatism.pdf) | February 08 | February 15 | Niche conservatism above the species level.
+[Reading04](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Latitude.pdf) | February 03 | February 10 | Latitudinal response curves.
 [Reading05](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/BiodiversityScenarios.pdf) | February 17 | February 22 | Global biodiversity scenarios for the year 2100.
 [Reading06](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Live%20Dead.pdf) | February 24 | February 29 | How good was the fossil record? Clues from the California Pleistocene.
 [Reading07](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/Lithification.pdf) | March 02 | March 07 | The influence of lithification on Cenozoic marine biodiveristy trends.
