@@ -53,7 +53,7 @@ In the event of a truly significant medical (or other) emergency that spans for 
 
 Towards the latter half of the course (starting March 16th), you will design a (hypothetical) research project utilizing the Paleobiology Database to test a hypothesis related to one of the biodiversification, dispersal, or extinction events covered in the class. Students can also cover topics not covered in the class with my approval. 
 
-You will write up the proposal following the Geological Society of America graduate research grant [guidelines](http://www.geosociety.org/grants/gradgrants.htm). You can examine [examples](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/ProposalInformation.md) of successful research grants on the course website. You can also find a detailed breakdown of due dates on the [website](https://github.com/aazaff/teachPaleobiology/blob/master/README.md).
+You will write up the proposal following the Geological Society of America graduate research grant [guidelines](http://www.geosociety.org/grants/gradgrants.htm). You can examine [examples](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/ProposalInformation.md) of successful research grants on the course website. You can also find a detailed breakdown of [due dates](https://github.com/aazaff/teachPaleobiology/blob/master/README.md) on the website.
 
 You will not have to actually carry out the proposed research project, but your proposal will be evaluated based on its scientific accuracy, clarity, and feasibility. The grading rubric and further details will be disseminated once we begin the grant-writing process.
 
