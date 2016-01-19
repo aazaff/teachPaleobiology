@@ -89,15 +89,15 @@ WED: Mar 02 | [Reading 7](https://github.com/aazaff/teachPaleobiology/blob/maste
 MON: Mar 07 | [Lab 7](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Hendy (2009) 2. Unlithified vs. lithified sediments 3. Increased bioturbation 4. Pull-of-the Recent
 WED: Mar 09 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Siliciclastic vs. carbonate environments 2. High vs. low latitude paleocontinents 3. Epicontinental vs. open ocean 4. Ice House vs. green House
 MON: Mar 14 | [Lab 8](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Ediacran biota 3. Cambrian Explosion 4. Ordovician Radiation
-WED: Mar 16 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | Review grant proposal instructions and grading rubric.
+WED: Mar 16 | [Reading 9](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | Review grant proposal instructions and grading rubric.
 | | | **BREAK FREE ON SPRING BREAK** 
-MON: Mar 28 | [Lab 9](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Late Ordovician extinction 
-WED: Mar 30 | [Reading 9](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Terrestrial transition 2. Late Devonian mass extinction
+MON: Mar 28 | [Lab 9](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading. 2. Late Ordovician extinction 
+WED: Mar 30 | [Reading 10](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Terrestrial transition 2. Late Devonian mass extinction
 MON: Apr 04 | [Lab 10](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Mid-Carboniferous Rainforest Collapse
-WED: Apr 06 | [Reading 10](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Late Permian Mass Extinction.
+WED: Apr 06 | [Reading 1	](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Late Permian Mass Extinction.
 MON: Apr 11 | [Lab 11](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Early Triassic fossil gap 3. Late Triassic Extinction
-WED: Apr 13 | [Reading 11](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Mesozoic plant and microfossil revolution 2. Dinosaurs
+WED: Apr 13 | [Reading 12](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Mesozoic plant and microfossil revolution 2. Dinosaurs
 MON: Apr 25 | [Lab 12](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) |1. Review Reading 2. End Cretaceous Mass Extinction
-WED: Apr 27 | [Reading 12](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Cenozoic biogeography 2. Cenozoic Climate Change 3. Cenozoic mass extinctions
+WED: Apr 27 | [Reading 13](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Cenozoic biogeography 2. Cenozoic Climate Change 3. Cenozoic mass extinctions
 MON: May 02 | [Lab 13](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. The “sixth” mass extinction.
 WED: May 04 | | 1. Review Class Material. 2. Class Evaluation
