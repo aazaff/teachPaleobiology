@@ -37,7 +37,7 @@ Short weekly tests will be given online over the weekend. Tests will generally c
 
 [Reading assignments](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md#reading-schedule) will be given each week throughout the semester. These assignments may be formal scientific articles or popular science essays. You must read these papers and be prepared to discuss them in the following class. 
 
-In addition, you will write a two-page summary of the article describing the overarching question it addresses, the hypothesis tested, data, methods, results, and conclusions. An example [write-up](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/WritingExample.md), with more detailed directions, is available online. Write-ups are due at the beginning of the next class.
+In addition, you will write a two-page summary of the article describing the overarching question it addresses, the hypothesis tested, data, methods, results, and conclusions. An example [writing exercise](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/WritingExample.md), with more detailed directions, is available online. Write-ups are due at the beginning of the next class.
 
 #### LAB ASSIGNMENTS (20 POINTS EACH)
 
@@ -47,7 +47,7 @@ You will have open access to the lab area and can complete unfinished lab assign
 
 There are no make-ups for missed assignments. Instead, your lowest assignment grade is dropped at the end of the semester – i.e., you get one “freebie” to use for emergencies or even if you just want to take a day off. It will automatically be dropped when calculating your final grade, and you do not need to notify me in order for the grade to be dropped.
 
-In the event of a truly significant medical (or other) emergency that spans for more than two weeks (significance determined entirely at my discretion), you can petition me directly to substitute one two-page essay for each missed lab assignment. These essays will require you to write an opinion piece that takes a stance on a controversial topic in paleontology, where your arguments are buttressed by peer-reviewed literature. You can see an example make-up essay on the course website.
+In the event of a truly significant medical (or other) emergency that spans for more than two weeks (significance determined entirely at my discretion), you can petition me directly to substitute two additional [writing exercises](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/WritingExample.md) for each missed lab assignment. These make-up articles will generally be longer and more sophisticated than the regular readings.
 
 #### RESEARCH PROPOSAL (60 POINTS TOTAL)
 
