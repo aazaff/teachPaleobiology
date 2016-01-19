@@ -16,10 +16,6 @@ Resources | Description
 
 Additionally, the weekly tests, as oultined in the [syllabus](https://github.com/aazaff/paleobiologyWebsite/blob/master/CourseDocuments/PaleontologySyllabus.pdf), can be accessed at [learnuw.wisc.edu](https://learnuw.wisc.edu).
 
-## Issues and Corrections
-
-If you see any inaccuracies in this repository, please submit an issue or a pull request.
-
 ### Acknowledgments
 
 This course and all of its publically available content is funded by the University of Wisconsin - Madison and the [National Science Foundation](http://www.nsf.gov/). Our intention is to leverage the [Paleobiology Database](www.paleobiodb.org) as part of the NSF Geoinformatics grant 0949416 (supplement) initiative for enhancing geoscience education.
