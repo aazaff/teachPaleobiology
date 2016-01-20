@@ -14,7 +14,7 @@ The [third section](#things-you-did-not-like-about-the-paper) should illustrate 
 
 The [fourth section](#evaluate-the-graphs-and-figures-if-any) should explain (1) what the figures were attempted to convey and (2) what you felt could be improved about them. If the paper does not have figures or tables, you can skip this section.
 
-The total length of the document should be a minimum of one single-spaced page and a maximum of two single-spaced pages. A total of 650 words is a good target. Use size 12 Times New Roman font, and a margin width of 1-inch on all sides. 
+The total length of the document should be a minimum of one single-spaced page and a maximum of two single-spaced pages. A total of 650 words is a good target. Use size 12 Times New Roman font, and a margin width of 1-inch on all sides. Hand in the first [write-up](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) as a typed hard-copy. Subsequent write-ups will be submitted via GitHub.
 
 ## An Example by Chris Maxwell
 
