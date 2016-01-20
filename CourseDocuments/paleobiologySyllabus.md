@@ -73,7 +73,7 @@ You are not graded on attendance, but it is highly recommended that you make an 
 
 CalendarDate | Assignments | Topics
 ------ | ----- | ----- |
-WED: Jan 20 | [Reading 1](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Course overview 2. Definition of paleontology 3. Definition of fossil
+WED: Jan 20 | [Reading 1](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Course overview 2. Definition of paleontology
 MON: Jan 25 | [Lab 1](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Morphology and Morphometrics
 WED: Jan 27 | [Reading 2](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Ontogeny 2. Heterochrony 3. Phylogeny and Cladistics
 MON: Feb 01 | [Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Abiogenesis 3. Genetic drift and neutral theory 4. Molecular clocks
