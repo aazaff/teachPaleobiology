@@ -7,7 +7,7 @@
 + OFFICE: WEEKS HALL 487
 + EMAIL: AZAFFOS@WISC.EDU
 + CLASS HOURS: 1:20-2:10 MONDAY, WEDNESDAY.
-+ LAB HOURS: 3:30-5:30 MONDAY.
++ LAB HOURS: 4:00-6:00 MONDAY.
 + OFFICE HOURS:	12:00-2:00 WEDNESDAY, FRIDAY OR BY APPOINTMENT
 + COURSE WEBSITE: HTTPS://GITHUB.COM/AAZAFF/TEACHPALEOBIOLOGY
 
@@ -41,7 +41,7 @@ In addition, you will write a two-page summary of the article describing the ove
 
 #### LAB ASSIGNMENTS (20 POINTS EACH)
 
-You will have open access to the lab area and can complete unfinished lab assignments at your convenience. Many labs will be lengthy and require you to continue working on them, as homework, after the official lab period has ended. Many labs will require the use of a computer, so please bring your laptop if you have one. [Lab assignments](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) will generally be due at the start of the next lab period, unless otherwise specified.
+You will have open access to the lab area and can complete unfinished lab assignments at your convenience. Many labs will be lengthy and require you to continue working on them, as homework, after the official lab period has ended. Most labs will require the use of a computer, so please bring your laptop if you have one. [Lab assignments](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) will generally be due at the start of the next lab period, unless otherwise specified.
 
 #### MAKE-UPS
 
@@ -63,7 +63,7 @@ Final grades are the sum total of all points you earned throughout the semester 
 
 #### TEXTBOOK
 
-Several textbooks have been put on reserve in the geology library. Although the course listing recommends Principles of Paleontology by Foote and Miller, it is an optional purchase. Several supplemental texts are also on reserve in the [Geology Library](http://geoscience.wisc.edu/library/index.html)
+Several textbooks have been put on reserve in the [Geology Library](http://geoscience.wisc.edu/library/index.html). Although the course listing recommends Principles of Paleontology by Foote and Miller, it is an optional purchase.
 	
 #### LAB ATTENDANCE
 
