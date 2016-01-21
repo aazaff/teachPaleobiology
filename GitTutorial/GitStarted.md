@@ -80,3 +80,8 @@ git push origin master
 ````
 
 You will now see your new commit and the changes to `test.txt` show up on Github.
+
+
+## Additional Commands
+
+You can find a recap, plus some additional information, about many of the commands used in this tutorial [here](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/BasicGitCommands.md).
