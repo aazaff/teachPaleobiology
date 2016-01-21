@@ -1,6 +1,21 @@
 # Getting started with git
 This assumes you already have git installed on your computer (if you are running OS X or any flavor of Linux you do). To confirm, open up a terminal and type `which git`. If a directory is returned, you are good to go! If you are running Windows you can download git [here](https://git-scm.com/download/win) (install using all the defaults, and then open Git Bash).
 
+## What
+Git is an open-source application for tracking revisions of text-based documents. It is most commonly used to track code, but it can be used for managing myriad projects, such as [home renovations](http://www.wired.com/2013/01/this-old-house/). However, while it does not have a great reputation for [being user friendly](https://xkcd.com/1597/), it is fairly straightforward to master a few essential commands to leverage the power of git.
+
+
+## Why
+You're right, Microsoft Word can track changes, and Google Docs allows you to collaboratively track and edit documents with your colleagues in a far more user friendly way than git.
+
+However, imagine this hypothetical situation: you are working on a paper (`FameAndGlory.md`) with a few colleagues, you all agree that the abstract is the definition of academic perfection (`branch:master`), but you have different ideas for how the rest of the paper should be organized. You don't want to offend your colleagues by simply deleting three of their paragraphs and rewriting them, so what do you do? 
+
+If you are using git, you could create `branch:alternative-approach` and work on your own version while continuously updating your version from the `master` version. When you are ready to present your version to your colleagues, you could submit a *pull request* to *merge* your version of the document. At this point you and your colleagues and talk about the relative merits of each version, make their own changes, and *merge* your version into the `master` branch if it is determined to be superior (which it is).
+
+While that is a far more complex example than what will be required for this class, it demonstrates the use of one of git's most powerful features -- branches. Branches allow you to experiment with different ideas without permanently altering a master copy.
+
+
+
 
 ## Setup
 If you have never used `git` before, you should configure your name and email address.
