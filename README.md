@@ -7,7 +7,7 @@ This respository contains course materials and information for the GEOSCIENCE 54
 Resources | Description
 --------- | ----------
 [Course Syllabus](https://github.com/aazaff/teachPaleobiology/blob/master/CourseDocuments/paleobiologySyllabus.md) | A description of how the course is organized and topics to be covered.
-[Lecture Slides](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/LectureSlides.md)
+[Lecture Slides](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/LectureSlides.md) | PDF versions of the lectures..
 [Reading Exercises](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | The weekly reading assignments.
 [Writing Exercises](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/WritingExample.md) | An example writing assignment and instructions.
 [Additional Reading](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/AdditionalReading.md) | A set of review papers that provide additional insight into various class topics.
