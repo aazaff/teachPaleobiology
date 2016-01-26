@@ -6,25 +6,25 @@ This tutorial is for Windows users. Mac users should use the [gitAppple]() tutor
 
 Step 1: Go to [github.com](https://github.com/) and make an account.
 
-<a href="url"><img src="/gitWindows/Figure1.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure1.PNG" align="center" height="450" width="500" ></a>
 
 Step 2: Immediately proceed to your profile.
 
-<a href="url"><img src="/gitWindows/Figure2.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure2.PNG" align="center" height="450" width="500" ></a>
 
 Step 3: Your profile should currently be empty of any repositories, public activity, or contributions. Do nothing and proceed to the next step, [Downloading Git](#downloading-git)
 
-<a href="url"><img src="/gitWindows/Figure3.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure3.PNG" align="center" height="450" width="500" ></a>
 
 ## Downloading Git
 
 Step 4: Go to https://git-scm.com/download/win. Download the program and install it using the default settings.
 
-<a href="url"><img src="/gitWindows/Figure4.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure4.PNG" align="center" height="450" width="500" ></a>
 
 Step 5: Find and open the program git bash
 
-<a href="url"><img src="/gitWindows/Figure5.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure5.PNG" align="center" height="450" width="500" ></a>
 
 Step 6: You must configure your machine to your GitHub account. **You only ever need to do this once.** Type the following code into bash, but substitute your GitHub account name for Kylo Ren and your email address for kylo@firstorder.org.
 
@@ -33,7 +33,7 @@ git config --global user.name "Kylo Ren"
 git config --global user.email kylo@firstorder.org
 ````
 
-<a href="url"><img src="/gitWindows/Figure6.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure6.PNG" align="center" height="450" width="500" ></a>
 
 ## Creating the local copy of your repository
 
@@ -43,7 +43,7 @@ Step 7: Create the new folder for your repository wherever you choose.
 
 Step 8: Copy the directory path to your clipboard.
 
-<a href="url"><img src="/gitWindows/Figure8.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure7.PNG" align="center" height="450" width="500" ></a>
 
 ## Initiate git in the local repository
 
