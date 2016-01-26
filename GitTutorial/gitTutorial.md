@@ -43,7 +43,11 @@ Step 1: Write your answers down in a text editor (e.g., sublime text) and save t
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure5.PNG" align="center" height="450" width="500" ></a>
 
-Step 2: Open Terminal and type the following three commands. Substitute any message in the ````" "```` that you want associated with the file. GitHub requires that you leave a message of some kind. This could be something as simple as "Upload" or "New File" or "Screw You GitHub I don't want to leave a message".
+Step 2: Open terminal and move to the folder using the ````cd```` command.
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.PNG" align="center" height="450" width="500" ></a>
+
+Step 3: Type the following three commands inot terminal. Substitute any message in the ````" "```` that you want associated with the file. GitHub requires that you leave a message of some kind. This could be something as simple as "Upload" or "New File" or "Screw You GitHub I don't want to leave a message".
 
 ````
 git add .
@@ -51,4 +55,4 @@ git commit -m "Your Message"
 git push
 ````
 
-Step 3: You are done! DONE! You will now see the file online in your GitHub Repository. Repeat Step 2 if you make any changes to the file on your local machine.
+Step 4: You are done! DONE! You will now see the file online in your GitHub Repository. Repeat Steps 2-3 if you make any changes to the file on your local machine and want them uploaded to GitHub.
