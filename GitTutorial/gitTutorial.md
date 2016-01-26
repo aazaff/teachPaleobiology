@@ -9,7 +9,9 @@ The key to successfully working with git is navigating the relationship between 
 1. Pulling is when you take a file that you added or edited on GitHub and sync it with your local machine.
 2. Pushing is when you take a file that you added or edited to your local machine and sync it with GitHub.
 
-The primary issue then for you, as a git user, is whether you (1) want to add and edit files on the GitHub website, and only sync to your computer after the fact or (2) want to add and edit your computer and only sync (upload) your files to GitHub after the fact. I discuss the first scenario in the [Working from GitHub First](#working-from-github-first) section and the latter scenario in the [Working from your Computer First](#working-from-github-first) section.
+The primary issue then for you, as a git user, is whether you (1) want to add and edit files on the GitHub website, and only sync to your computer after the fact or (2) want to add and edit your computer and only sync (upload) your files to GitHub after the fact. I discuss the first scenario in the [Working from GitHub First](#working-from-github-first) section and the latter scenario in the [Local Machine First](#local-machine-first) section.
+
+**Importantly, you ideally do NOT want to do both. Choose one of the two workflows. Either [GitHub First](#working-from-github-first) or [Local Machine First](#local-machine-first).**
 
 ## Working from GitHub First
 
@@ -23,4 +25,30 @@ Step 3: Write your answers in the new file. Scroll down to the bottom of the pag
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure2.PNG" align="center" height="450" width="500" ></a>
 
-Step 4: 
+Step 4: Now that you have successfully commited your file to GitHub, you need to sync the file with your local machine. To do this you need to open terminal, and move to the folder using the ````cd```` command.
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.PNG" align="center" height="450" width="500" ></a>
+
+Step 5: Then use the ````git pull``` command.
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure4.PNG" align="center" height="450" width="500" ></a>
+
+Step 6: Your files are now synced, and you will now see the file you uploaded on GitHub downloaded to your computer and in the repository folder. You are done! DONE!
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure5.PNG" align="center" height="450" width="500" ></a>
+
+## Local Machine First
+
+Step 1: Write your answers down in a text editor (e.g., sublime text) and save them to your computer repository.
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure5.PNG" align="center" height="450" width="500" ></a>
+
+Step 2: Open Terminal and type the following three commands. Substitute any message in the ````" "```` that you want associated with the file. GitHub requires that you leave a message of some kind. This could be something as simple as "Upload" or "New File" or "Screw You GitHub I don't want to leave a message".
+
+````
+git add .
+git commit -m "Your Message"
+git push
+````
+
+Step 3: You are done! DONE! You will now see the file online in your GitHub Repository. Repeat Step 2 if you make any changes to the file on your local machine.
