@@ -13,5 +13,14 @@ The primary issue then for you, as a git user, is whether you (1) want to add an
 
 ## Working from GitHub First
 
-Step 1: Navigate to your repository on the GitHub website
+Step 1: Navigate to your repository on the GitHub website.
 
+Step 2: Create a new file
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure1.PNG" align="center" height="450" width="500" ></a>
+
+Step 3: Write your answers in the new file. Scroll down to the bottom of the page and click the Commit changes button
+
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure2.PNG" align="center" height="450" width="500" ></a>
+
+Step 4: 
