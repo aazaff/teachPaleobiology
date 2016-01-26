@@ -20,7 +20,7 @@ Step 3: Your profile should currently be empty of any repositories, public activ
 
 Step 4: Open the program **terminal** on your mac. Terminal is installed on all macs by default.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure1.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure1.png" align="center" height="450" width="500" ></a>
 
 Step 5: Configure your machine to your GitHub account. **You only ever need to do this once.** Type the following code into bash, but substitute your GitHub account name for Kylo Ren and your email address for kylo@firstorder.org.
 
@@ -29,7 +29,7 @@ git config --global user.name "Kylo Ren"
 git config --global user.email kylo@firstorder.org
 ````
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure2.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure2.png" align="center" height="450" width="500" ></a>
 
 ## Creating the local copy of your repository
 
