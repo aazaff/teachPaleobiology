@@ -47,9 +47,11 @@ Step 8: Return to terminal. Use the ````cd```` command to 'change directory' to 
 
 My specific example is...
 
-````cd /Users/zaffos/Box\ Sync/GitRepositories/````
+````cd /Users/zaffos/Box\ Sync/GitRepositories/exampleRepository/````
 
-Your example will be something like
+The ````\```` is needed for directory names with spaces - e.g., Box Sync is Box\ Sync.
+
+Your example will probably be something like
 
 ````cd /Users/You/Repository/````
 
