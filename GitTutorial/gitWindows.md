@@ -65,11 +65,11 @@ Step 10: Initialize git using the ````git init```` command. **LEAVE GIT BASH OPE
 
 Step 11: Return to your GitHub profile page. Click on create a new repository. Give the repository a name.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure10.PNG" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure10.PNG" align="center" height="450" width="500" ></a>
 
 Step 12: Copy the code under the section header "...or push an existing repository from the command line" into git bash. Type it in precisely. You will be asked to enter your GitHub username and password in git bash.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure11.PNG" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure11.PNG" align="center" height="450" width="500" ></a>
 
 ## The End
 
