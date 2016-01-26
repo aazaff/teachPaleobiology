@@ -1,6 +1,6 @@
 # Installing Git and Creating Your First Repository
 
-This tutorial is for Windows users. Mac users should use the [gitAppple]() tutorial. Proceed in chronological order and do not deviate from the script.
+This tutorial is for Windows users. Mac users should use the [gitAppple](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/gitApple.md) tutorial. Proceed in chronological order and do not deviate from the script.
 
 ## Make a GitHub Account
 
