@@ -22,7 +22,7 @@ Step 4: Go to https://git-scm.com/download/win. Download the program and install
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure4.PNG" align="center" height="450" width="500" ></a>
 
-Step 5: Find and open the program git bash
+Step 5: Find and open the program **git bash**
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure5.PNG" align="center" height="450" width="500" ></a>
 
