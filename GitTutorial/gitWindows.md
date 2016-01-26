@@ -73,4 +73,4 @@ Step 12: Copy the code under the section header "...or push an existing reposito
 
 ## The End
 
-You now have a repository that is linked between GitHub and your local machine. To see how to add, edit, delete, or sync files between your local machine and GitHub, see the [gitTutorial]().
+You now have a repository that is linked between GitHub and your local machine. To see how to add, edit, delete, or sync files between your local machine and GitHub, see the [gitTutorial](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/gitTutorial.md).
