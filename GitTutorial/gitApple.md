@@ -6,15 +6,15 @@ This tutorial is for Apple users. Windows users should use the [gitWindows](http
 
 Step 1: Go to [github.com](https://github.com/) and make an account.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure1.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure1.PNG" align="center" height="450" width="500" ></a>
 
 Step 2: Immediately proceed to your profile.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure2.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure2.PNG" align="center" height="450" width="500" ></a>
 
 Step 3: Your profile should currently be empty of any repositories, public activity, or contributions. Do nothing and proceed to the next step, [Downloading Git](#downloading-git)
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure3.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure3.PNG" align="center" height="450" width="500" ></a>
 
 ## Open Terminal
 
