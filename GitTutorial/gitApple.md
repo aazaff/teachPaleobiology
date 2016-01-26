@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Installing Git and Creating Your First Repository
 
 This tutorial is for Apple users. Windows users should use the [gitWindows](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/gitWindows.md) tutorial. Proceed in chronological order and do not deviate from the script.
@@ -144,4 +143,3 @@ Step 11: Copy the code under the section header "...or push an existing reposito
 ## The End
 
 You now have a repository that is linked between GitHub and your local machine. To see how to add, edit, delete, or sync files between your local machine and GitHub, see the [gitTutorial]().
->>>>>>> 6cf30224e8b417f8ac9196fbeee64a9bcfe82b6a
