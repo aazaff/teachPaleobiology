@@ -1,4 +1,4 @@
-# An Introduction to git
+# Installing Git and Creating Your First Repository
 
 This tutorial is for Windows users. Mac users should use the [gitAppple]() tutorial. Proceed in chronological order and do not deviate from the script.
 
