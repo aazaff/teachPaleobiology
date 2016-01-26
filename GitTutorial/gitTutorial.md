@@ -19,33 +19,33 @@ Step 1: Navigate to your repository on the GitHub website.
 
 Step 2: Create a new file
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure1.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure1.png" align="center" height="450" width="500" ></a>
 
 Step 3: Write your answers in the new file. Scroll down to the bottom of the page and click the Commit changes button
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure2.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure2.png" align="center" height="450" width="500" ></a>
 
 Step 4: Now that you have successfully commited your file to GitHub, you need to sync the file with your local machine. To do this you need to open terminal, and move to the folder using the ````cd```` command.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.png" align="center" height="450" width="500" ></a>
 
 Step 5: Then use the ````git pull``` command.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure4.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure4.png" align="center" height="450" width="500" ></a>
 
 Step 6: Your files are now synced, and you will now see the file you uploaded on GitHub downloaded to your computer and in the repository folder. You are done! DONE!
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure5.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure5.png" align="center" height="450" width="500" ></a>
 
 ## Local Machine First
 
 Step 1: Write your answers down in a text editor (e.g., sublime text) and save them to your computer repository.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure5.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure5.png" align="center" height="450" width="500" ></a>
 
 Step 2: Open terminal and move to the folder using the ````cd```` command.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.png" align="center" height="450" width="500" ></a>
 
 Step 3: Type the following three commands inot terminal. Substitute any message in the ````" "```` that you want associated with the file. GitHub requires that you leave a message of some kind. This could be something as simple as "Upload" or "New File" or "Screw You GitHub I don't want to leave a message".
 
