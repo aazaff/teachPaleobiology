@@ -43,7 +43,7 @@ Step 7: Create the new folder for your repository wherever you choose.
 
 Step 8: Copy the directory path to your clipboard.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure7.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure8.PNG" align="center" height="450" width="500" ></a>
 
 ## Initiate git in the local repository
 
