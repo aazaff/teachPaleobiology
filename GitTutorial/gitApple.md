@@ -37,13 +37,13 @@ Your git repository exists in two places simultaneously: online at GitHub and on
 
 Step 6: Create the new folder for your repository wherever you choose.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure3.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure3.png" align="center" height="450" width="500" ></a>
 
 ## Initiate git in the local repository
 
 Step 8: Return to terminal. Use the ````cd```` command to 'change directory' to where your newly made repository is saved. If you do not know where this is, you can *drag* your folder into the terminal window.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure4.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure4.png" align="center" height="450" width="500" ></a>
 
 My specific example is...
 
@@ -53,7 +53,7 @@ Your example will be something like
 
 ````cd /Users/You/Repository/````
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure5.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure5.png" align="center" height="450" width="500" ></a>
 
 Step 9: Initialize git using the ````git init```` command in terminal. **LEAVE TERMINAL OPEN**.
 
