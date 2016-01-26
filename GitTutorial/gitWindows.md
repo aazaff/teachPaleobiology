@@ -56,7 +56,7 @@ Your example will be something like
 
 Step 10: Initialize git using the ````git init```` command. **LEAVE GIT BASH OPEN**.
 
-<a href="url"><img src="/gitWindows/Figure9.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure8.PNG" align="center" height="450" width="500" ></a>
 
 ## Creating the GitHub copy of the repository
 
