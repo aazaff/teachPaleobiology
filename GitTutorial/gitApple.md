@@ -12,7 +12,7 @@ Step 2: Immediately proceed to your profile.
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure2.PNG" align="center" height="450" width="500" ></a>
 
-Step 3: Your profile should currently be empty of any repositories, public activity, or contributions. Do nothing and proceed to the next step, [Downloading Git](#downloading-git)
+Step 3: Your profile should currently be empty of any repositories, public activity, or contributions. Do nothing and proceed to the next step.
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure3.PNG" align="center" height="450" width="500" ></a>
 
