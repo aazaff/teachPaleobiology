@@ -5,17 +5,21 @@ This tutorial is for Windows users. Mac users should use the [gitAppple]() tutor
 ## Make a GitHub Account
 
 Step 1: Go to [github.com](https://github.com/) and make an account.
+
 <a href="url"><img src="/gitWindows/Figure1.png" align="center" height="450" width="500" ></a>
 
 Step 2: Immediately proceed to your profile.
+
 <a href="url"><img src="/gitWindows/Figure2.png" align="center" height="450" width="500" ></a>
 
 Step 3: Your profile should currently be empty of any repositories, public activity, or contributions. Do nothing and proceed to the next step, [Downloading Git](#downloading-git)
+
 <a href="url"><img src="/gitWindows/Figure3.png" align="center" height="450" width="500" ></a>
 
 ## Downloading Git
 
 Step 4: Go to https://git-scm.com/download/win. Download the program and install it using the default settings.
+
 <a href="url"><img src="/gitWindows/Figure4.png" align="center" height="450" width="500" ></a>
 
 Step 5: Find and open the program git bash
