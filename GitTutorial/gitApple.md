@@ -117,29 +117,29 @@ Step 6: Create the new folder for your repository wherever you choose.
 
 Step 8: Return to terminal. Use the ````cd```` command to 'change directory' to where your newly made repository is saved. If you do not know where this is, you can *drag* your folder into the terminal window.
 
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure4.PNG" align="center" height="450" width="500" ></a>
+
 My specific example is...
 
-````cd "C:\Users\Andrew\Box Sync\GitRepositories"````
+````cd /Users/zaffos/Box\ Sync/GitRepositories/````
 
 Your example will be something like
 
-````cd "C::\Users\You\Repository"````
+````cd /Users/You/Repository/````
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure4.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure5.PNG" align="center" height="450" width="500" ></a>
 
-Step 9: Initialize git using the ````git init```` command. **LEAVE GIT BASH OPEN**.
-
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure9.PNG" align="center" height="450" width="500" ></a>
+Step 9: Initialize git using the ````git init```` command in terminal. **LEAVE TERMINAL OPEN**.
 
 ## Creating the GitHub copy of the repository
 
 Step 10: Return to your GitHub profile page. Click on create a new repository. Give the repository a name.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure10.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure10.PNG" align="center" height="450" width="500" ></a>
 
-Step 11: Copy the code under the section header "...or push an existing repository from the command line" into git bash. Type it in precisely. You will be asked to enter your GitHub username and password in git bash.
+Step 11: Copy the code under the section header "...or push an existing repository from the command line" into terminal. Type it in precisely. You will be asked to enter your GitHub username and password in git bash.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitApple/Figure11.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitWindows/Figure11.PNG" align="center" height="450" width="500" ></a>
 
 ## The End
 
