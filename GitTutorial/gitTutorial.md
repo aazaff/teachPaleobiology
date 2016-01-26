@@ -27,7 +27,7 @@ Step 3: Write your answers in the new file. Scroll down to the bottom of the pag
 
 Step 4: Now that you have successfully commited your file to GitHub, you need to sync the file with your local machine. To do this you need to open terminal, and move to the folder using the ````cd```` command.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.png" align="center" height="350" width="500" ></a>
 
 Step 5: Then use the ````git pull``` command.
 
@@ -45,7 +45,7 @@ Step 1: Write your answers down in a text editor (e.g., sublime text) and save t
 
 Step 2: Open terminal and move to the folder using the ````cd```` command.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.png" align="center" height="350" width="500" ></a>
 
 Step 3: Type the following three commands inot terminal. Substitute any message in the ````" "```` that you want associated with the file. GitHub requires that you leave a message of some kind. This could be something as simple as "Upload" or "New File" or "Screw You GitHub I don't want to leave a message".
 
