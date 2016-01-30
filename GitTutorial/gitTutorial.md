@@ -21,7 +21,7 @@ The key to successfully working with git is navigating the relationship between 
 
 The primary issue then for you, as a git user, is whether you (1) want to add and edit files on the GitHub website, and only sync to your computer after the fact or (2) want to add and edit your computer and only sync (upload) your files to GitHub after the fact. I discuss the first scenario in the [Working from GitHub First](#working-from-github-first) section and the latter scenario in the [Local Machine First](#local-machine-first) section.
 
-**Importantly, you ideally do NOT want to do both. Choose one of the two workflows. Either [GitHub First](#working-from-github-first) or [Local Machine First](#local-machine-first).**
+**Importantly, you ideally do NOT want to do both when you are first starting out. Choose one of the two workflows and stick with it until you are more advanced. Either [GitHub First](#working-from-github-first) or [Local Machine First](#local-machine-first).**
 
 ## Working from GitHub First
 
