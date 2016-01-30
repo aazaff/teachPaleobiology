@@ -1,4 +1,8 @@
-# How to use git
+# Introduction
+
+The following is a revised version of the git and GitHub tutorial. You can (and should) use the new [gitWindows](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/gitWindows.md or [gitApple](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/gitApple.md) tutorials to install and setup git on your computer. You can still access the [old git tutorial](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/GitStarted.md) and list of [basic git commands](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/BasicGitCommands.md). However, everything you need to get started with git (other than installation) is included in this tutorial.
+
+## How to use git
 
 A git repository exists both on **GitHub** (online) and on your **local** machine. It can also exist on machines other than yours (e.g., a project collaborator), but we will ignore that possiblity for the moment.
 
