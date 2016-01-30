@@ -35,7 +35,7 @@ Step 3: Write your answers in the new file. Scroll down to the bottom of the pag
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure2.png" align="center" height="450" width="500" ></a>
 
-Step 4: Now that you have successfully commited your file to GitHub, you need to sync the file with your local machine. To do this you need to open terminal, and move to the folder using the ````cd```` command.
+Step 4: Now that you have successfully commited your file to GitHub, you need to sync the file with your local machine. To do this you need to open terminal, and move to the folder using the ````cd```` command. Revisit either the [gitWindows](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/gitWindows.md) or [gitApple](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/gitApple.md) if you do not remember how to do this.
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.png" align="center" height="350" width="500" ></a>
 
