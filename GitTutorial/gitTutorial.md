@@ -57,7 +57,7 @@ Step 2: Open terminal and move to the folder using the ````cd```` command.
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/Figure3.png" align="center" height="350" width="500" ></a>
 
-Step 3: Type the following three commands inot terminal. Substitute any message in the ````" "```` that you want associated with the file. GitHub requires that you leave a message of some kind. This could be something as simple as "Upload" or "New File" or "Screw You GitHub I don't want to leave a message".
+Step 3: Type the following three commands into terminal. Substitute any message in the ````" "```` that you want associated with the file. GitHub requires that you leave a message of some kind. This could be something as simple as "Upload" or "New File" or "Screw You GitHub I don't want to leave a message".
 
 ````
 git add .
