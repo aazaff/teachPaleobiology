@@ -14,6 +14,8 @@ The key to successfully working with git is navigating the relationship between 
 
 ## Pulling and Pushing
 
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/GitTutorial/gitTutorial/GITHUB.png" align="center" height="450" width="500" ></a>
+
 1. Pulling is when you take a file that you added or edited on GitHub and sync it with your local machine.
 2. Pushing is when you take a file that you added or edited to your local machine and sync it with GitHub.
 
