@@ -126,7 +126,7 @@ plotTangentSpace(ProcrustesPlethodon[["coords"]],warpgrids=FALSE,verbose=FALSE)
 
 #### Step 6
 
-Now that you have plotted the PCA, it should be obvious that the specimens cluster into 4 distinct groups based on their morphology - presumably this means that there are four different species in the data set.
+Now that you have plotted the PCA, it should be obvious that the specimens cluster into three distinct morphologic groups based on their morphology - presumably this means that there are three different species in the data set. Though, remember, there can be other sources of morphologic variation.
 
 #### Part II Questions - Subsection 2
 
