@@ -15,4 +15,4 @@ The variance is greater along axis 1 than it is on axis 2 in this new reference 
 In this case, axis 1 could be regarded as a size measure, with samples on the left having both small length and width and samples on the right having large length and width. Axis 2 could be regarded as a measure of shape, with samples at any axis 1 position (that is, of a given size) having different length to width ratios.
 
 These relationships may seem obvious, and you might wonder why you would need a PCA to sleuth them out. However, when one is dealing with *many* variables, this process allows one to assess much more quickly any relationships among variables. For data sets with many variables, the variance of some axes may be great, whereas others may be small that they can can be ignored. This is known as reducing the dimensionality of a data set. For example, one might start with thirty original variables, but end with only two or
-three meaningful axes.
+three axes that PCA identifies as meaningful.
