@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Lab Exercise 2 is composed of three parts with several smaller parts. Write up your answers to all three parts as a GitHub flavored markdown file by the start of the next Lab on **February 8, 2016**.
+Lab Exercise 2 is composed of four parts with several smaller parts. Write up your answers to all four parts in a text file, and submit it to GitHub by the start of the next Lab on **February 8, 2016**.
 
 ## Part I
 
@@ -13,13 +13,28 @@ Fossil species are recognized and classified on the basis of morphology. This in
 Click [here](https://github.com/aazaff/paleobiologyWebsite/blob/master/Lab2Figures/Figure1.pdf) to see illustrations of 25 ammonoid specimens. Your job will be to group them into species, keeping in mind the potential for intraspecific variability, ontogenetic change, and sexual dimorphism.
 
 #### Step 2
-Open the [ammonite_classify.R]() file in R. It is a data file containing shell coiling measurements traditionally used in ammonoid classification, including diameter (D), the ratio of umbilical width U to diameter (U/D), and the ratio of shell width W to diameter (W/D). The file also contains the stratigraphic position of each specimen. Follow the instructions in the R file to classify the specimens and make graphs.
+
+We are going to open the [ammonite_classify.csv](https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figures/ammon_classify.csv) file in R. CSV stands for **comma separated file**, it is one of the most common file formats used in R for storing two-dimensional arrays - i.e., matrices or data frames. You can also view, create, and edit them using a spreadsheet program like Microsoft Excel.
+
+It is a data file containing shell coiling measurements traditionally used in ammonoid classification, including diameter (D), the ratio of umbilical width U to diameter (U/D), and the ratio of shell width W to diameter (W/D). The file also contains the stratigraphic position (age) of each specimen.
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure2.png" align="center" height="150" width="200" ></a>
 
+To load the CSV file into R you will use the ````read.csv( )```` function.
+
+````
+# First record the URL of the file as a character string - i.e., use quotes
+URL<-"https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figures/ammon_classify.csv"
+
+# Save the CSV File as an object named Ammonites
+# We will also use the row.names argument to tell R that the first column of the CSV file
+# should be used as the rownames.
+Ammonites<-read.csv(URL,row.names=1)
+````
+
 #### Part I Questions
 
-1. Your identifications (how many species do you recognize in the group, and which specimens belong to which species).
+1. Your identifications (how many species do you recognize in the group, and which specimens belong to which species). Explain how and why you came to this conclusion.
 
 2. The morphological features you used to distinguish each species, including whatever combination of qualitative and quantitative traits you think are important.
  
