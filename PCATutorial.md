@@ -1,4 +1,4 @@
-#### A basic explanation of Principle Components Analysis
+# A basic explanation of Principle Components Analysis
 
 Here is a basic explanation of PCA that I modified from a tutorial written by my old Masters advisor, Steven M. Holland, at the University of Georgia.
 
