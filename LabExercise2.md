@@ -32,23 +32,29 @@ URL<-"https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figu
 Ammonites<-read.csv(URL,row.names=1)
 ````
 
+Step 3: Your basic workfow should be to first qualitatively (i.e., visually) decide which specimens you think belong to different species. Then you should subset the Ammonites array in R into several arrays based on your hypothesized species groupings. Using the techniques from the [expertConcepts](https://github.com/aazaff/startLearn.R/blob/master/expertConcepts.md) of the R tutorial (Lab 1), you can visualize, describe, or statistically test the different size and shape distributions of your hypothesized species. 
+
 #### Part I Questions
 
 1. Your identifications (how many species do you recognize in the group, and which specimens belong to which species). Explain how and why you came to this conclusion.
 
-2. The morphological features you used to distinguish each species, including whatever combination of qualitative and quantitative traits you think are important.
+2. The morphological features you used to distinguish each species, including whatever combination of qualitative or quantitative traits you think are important.
  
-3. The nature of ontogenetic change, if any, in the species
+3. The nature of ontogenetic change, if any, in the species. Explain your reasoning.
 
-4. The possibility of sexual dimorphism as a cause of morphological differences and how you evaluated that possibility (the illustrations and data contain enough information for you to assess sexual dimorphism).
+4. The possibility of sexual dimorphism as a cause of morphological differences and how you evaluated that possibility. You will find the following links helpful: [An introducton to ammonites](http://www.ukfossils.co.uk/guides/ammonites.html) and [Shell Anatomy and Diversity](https://en.wikipedia.org/wiki/Ammonoidea#Shell_anatomy_and_diversity).
 
 ## Part II
+
+We are going to attempt a simple landmark analysis of 
+ 
+## Part III
 
 Examine the following cladogram and answer the questions.
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure3.png" align="center" height="300" width="650" ></a>
 
-#### Part II Questions
+#### Part III Questions
 
 1.	What is the synapomorphy of the clade containing species D and E?
 
@@ -82,7 +88,7 @@ Group 3 | Species C and D.
 Group 4 | Species A and B. 
 Group 5 | Species B, D, E.
 
-## Part III
+## Part IV
 
 The following figure shows the pattern of shape change during ontogeny of the bivalve *Gryphaea arcuata*, from the early juvenile (A) to late juvenile (B) to adult (C). Note the magnification factors of the juvenile stages.
 
@@ -97,7 +103,7 @@ The following figure shows the ontogeny of the trilobite Olenellus lapworthi (th
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure7.png" align="center" height="300" width="600" ></a>
 
-#### Part III Questions
+#### Part IV Questions
 
 1. Assuming that *Gryphaea arcuata* represents the ancestor, what type of heterochrony is most likely responsible for evolution of these two species? 
 
