@@ -122,7 +122,7 @@ Because it can be used for a variety of purposes, not just morphometrics, there 
 plotTangentSpace(ProcrustesPlethodon[["coords"]],warpgrids=FALSE,verbose=FALSE)
 ````
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Plethodon.png" align="center" height="300" width="650" ></a>
+<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figures/Plethodon.png" align="center" height="300" width="650" ></a>
 
 #### Step 6
 
