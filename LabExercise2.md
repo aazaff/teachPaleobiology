@@ -32,7 +32,9 @@ URL<-"https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figu
 Ammonites<-read.csv(URL,row.names=1)
 ````
 
-Step 3: Your basic workfow should be to first qualitatively (i.e., visually) decide which specimens you think belong to different species. Then you should subset the Ammonites array in R into several arrays based on your hypothesized species groupings. Using the techniques from the [expertConcepts](https://github.com/aazaff/startLearn.R/blob/master/expertConcepts.md) of the R tutorial (Lab 1), you can visualize, describe, or statistically test the different size and shape distributions of your hypothesized species. 
+#### Step 3
+
+Your basic workfow should be to first qualitatively (i.e., visually) decide which specimens you think belong to different species. Then you should subset the Ammonites array in R into several arrays based on your hypothesized species groupings. Using the techniques from the [expertConcepts](https://github.com/aazaff/startLearn.R/blob/master/expertConcepts.md) of the R tutorial (Lab 1), you can visualize, describe, or statistically test the different size and shape distributions of your hypothesized species. 
 
 You will find the following articles extremely helpful, particularly for question 4: [An introducton to ammonites](http://www.ukfossils.co.uk/guides/ammonites.html) and [Shell Anatomy and Diversity](https://en.wikipedia.org/wiki/Ammonoidea#Shell_anatomy_and_diversity).
 
@@ -50,7 +52,9 @@ You will find the following articles extremely helpful, particularly for questio
 
 We are going to perform a simple landmark analysis in R on pre-measured landmark data.
 
-Step 1: We will need to install an external **package** named **geomorph** into R. A package is a set of functions that another R user wrote and released for others to use. To install geomorph we will use the ````install.packages( )```` function. You only ever need to do this step *once* per computer.
+#### Step 1
+
+We will need to install an external **package** named **geomorph** into R. A package is a set of functions that another R user wrote and released for others to use. To install geomorph we will use the ````install.packages( )```` function. You only ever need to do this step *once* per computer.
 
 ````
 install.packages("geomorph")
@@ -58,13 +62,17 @@ install.packages("geomorph")
 
 Some of you may recieve a prompt asking you to choose where you want to downlod the package from. You should ideally choose a location close to you, but it really doesn't matter.
 
-Step 2: You next need to activate the package. You only need to do installation (Step 1) once per computer, but you must load the package every new R session - i.e., every time you open R and want to use geomorph. You load packages using the ````library( )```` function.
+#### Step 2
+
+You next need to activate the package. You only need to do installation (Step 1) once per computer, but you must load the package every new R session - i.e., every time you open R and want to use geomorph. You load packages using the ````library( )```` function.
 
 ````
 library(geomorph)
 ````
- 
-Step 3: The geomorph package comes with several pre-loaded example datasets. We are going to use two of these. ````hummingbirds```` and ````plethodon````. Plethodons are a type of salamander.
+
+#### Step 3
+
+The geomorph package comes with several pre-loaded example datasets. We are going to use two of these. ````hummingbirds```` and ````plethodon````. Plethodons are a type of salamander.
 
 ````
 # Load the example data in using the data( ) function
@@ -74,7 +82,7 @@ data(plethodon)
 
 Take a look at the datasets. Notice that they are **lists** with several objects nested within them. Unfortunately, whoever made these datasets did not follow the first rule of R-club and it is fairly unclear what these objects are or mean. Let's do some ground-truthing using what you've learned about the properties of R objects.
 
-## Part II Questions - Subsection 1
+#### Part II Questions - Subsection 1
 
 1. Each element of the ````plethodon```` list has a name. What are they?
 
@@ -86,7 +94,9 @@ Based on the name, class, and structure of the first object in the ````plethodon
 
 This is the dataset we need to conduct a landmark analysis.
 
-Step 4: The first thing we need to do in a landmark analysis is a **procrustes** mathematical transformation. It takes its name from the ancient greek legend of Procrustes (Προκρούστης). Procrustes was a serial killer who would invite unsuspecting travellers to stay the night at his inn. If the travellers were too short for the bed, Procrustes would cruelly stretch out the travellers' bodies to fit the bed. If they were too tall for the bed, Procrustes would amputate their limbs until they fit.
+#### Step 4
+
+The first thing we need to do in a landmark analysis is a **procrustes** mathematical transformation. It takes its name from the ancient greek legend of Procrustes (Προκρούστης). Procrustes was a serial killer who would invite unsuspecting travellers to stay the night at his inn. If the travellers were too short for the bed, Procrustes would cruelly stretch out the travellers' bodies to fit the bed. If they were too tall for the bed, Procrustes would amputate their limbs until they fit.
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Procrustes.png" align="center" height="300" width="650" ></a>
 
@@ -98,17 +108,13 @@ The mathematics behind this is fairly complex, but luckily there is a funciton i
 ProcrustesPlethodon<-gpagen(plethodon[["land"]])
 ````
 
-Step 4: The next step we need to do is a **principle components analysis** (PCA) on the transformed data. PCA is one of the most common forms of **multivariate**. A large part of this class will be about various forms of multivariate analyses. We will go more into the underlying theory of multivariate analyses - in general - in later labs. [For now, we'll just explain the basic idea of PCA](https://github.com/aazaff/teachPaleobiology/blob/master/PCATutorial.md).
+#### Step 5
+
+The next step we need to do is a **principle components analysis** (PCA) on the transformed data. PCA is one of the most common forms of **multivariate**. A large part of this class will be about various forms of multivariate analyses. We will go more into the underlying theory of multivariate analyses - in general - in later labs. [For now, we'll just explain the basic idea of PCA](https://github.com/aazaff/teachPaleobiology/blob/master/PCATutorial.md).
 
 Because it can be used for a variety of purposes, not just morphometrics, there are several packages and functions for running a PCA in R. However, we will stick with the function built into the geomorph package, ````plotTangentSpace( )````.
 
 ````
-# We need to use the mshape( ) function to convert the Procrustes ouptut
-# into a format suitable for plotTangentSpace( ). There is nothing 
-# conceptually important about this step for you to learn, it is just
-# a peculiarity of how the plotTangentSpace( ) function is implemented in geomorph
-ref<-mshape(ProcrustesPlethodon[["coords"]])
-
 # plotTangentSpace both runs the PCA & plots it simultaneously. Other packages
 # that we will use later in the semester will not do both of these things simulateneously
 # so don't get confused. We are also going to turn of the warpgrids and verbose features,
@@ -118,9 +124,11 @@ plotTangentSpace(ProcrustesPlethodon[["coords"]],warpgrids=FALSE,verbose=FALSE)
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Plethodon.png" align="center" height="300" width="650" ></a>
 
-Step 5: Now that you have plotted the PCA, it should be obvious that the specimens cluster into 4 distinct groups based on their morphology - presumably species.
+#### Step 6
 
-## Part II Questions - Subsection 2
+Now that you have plotted the PCA, it should be obvious that the specimens cluster into 4 distinct groups based on their morphology - presumably this means that there are four different species in the data set.
+
+#### Part II Questions - Subsection 2
 
 1. Use the hummingbird dataset. Which object in the list records the landmark data?
 
@@ -181,7 +189,7 @@ Here are adults of *Gryphaea mccullochi* (D) and *Gryphaea gigantea* (E). They a
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure5.png" align="left"></a>
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure6.png" align="center"></a>
 
-The following figure shows the ontogeny of the trilobite Olenellus lapworthi (thin vertical arrow on left) and the evolutionary relationship of five species of Olenellus (large diagonal arrow). What type of heterochrony is represented?
+The following figure shows the ontogeny of the trilobite *Olenellus lapworthi* (thin vertical arrow on left) and the evolutionary relationship of five species of *Olenellus* (large diagonal arrow).
 
 <a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure7.png" align="center" height="300" width="600" ></a>
 
