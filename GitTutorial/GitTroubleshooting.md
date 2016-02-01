@@ -4,6 +4,13 @@
 Here is a great tutorial to introduce you to some basic commands - https://github.com/codeforamerica/howto/blob/master/Shell.md
 
 
+## Problem: I need more help understanding git
+Here are a few good resources:
++ [Think like a git](http://think-like-a-git.net/)
++ [git cheatsheet](http://cheat.errtheblog.com/s/git)
++ [Lynda.com tutorials](http://www.lynda.com/Git-training-tutorials/1383-0.html) - Free for UW-Students! Use them!
+
+
 ## Problem: nothing happens, ever
 If your prompt looks like this:
 
@@ -30,6 +37,17 @@ Simply type `:wq` to be on your way.
 
 ## Problem: `git` cannot be found
 You need to install git.
+
+
+## Problem: I really don't understand why we are using `git`
+`git` is a very popular piece of open source software for managing code versioning. It runs on any operating system, and is the defacto
+standard for source control management. If you are working with code, or any plaintext document, it is a great way to manage
+revisions to your code, backup your edits, and collaborate with others. Because it is free and open source, there are myriad tools
+for working with `git`, and you do not have to worry about a company unilaterally discontinuing it.
+
+Also, if you ever need to work with a software development team or programmers, it is extremely valuable to be able to be able to collaborate
+with them in the environment in which they work. Not to mention it is a very marketable skill.
+
 
 
 ## Other problems
