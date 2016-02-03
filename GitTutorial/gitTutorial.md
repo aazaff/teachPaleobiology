@@ -66,3 +66,7 @@ git push
 ````
 
 Step 4: You are done! DONE! You will now see the file online in your GitHub Repository. Repeat Steps 2-3 if you make any changes to the file on your local machine and want them uploaded to GitHub.
+
+## Trouble Shooting
+
+If you still have problems either with installing or using git, you can access this additional file on [troubleshooting git](https://github.com/aazaff/teachPaleobiology/blob/master/GitTutorial/GitTroubleshooting.md). If the tips in that file also do not work, please do not hesitate to contact me.
