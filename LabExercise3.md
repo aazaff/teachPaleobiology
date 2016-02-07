@@ -148,11 +148,21 @@ The next set of questions is free form, in that you can find the answer to the f
 
 ## Paleobiology Database API
 
-The acronym API stands for Application Programming Interface. Technical definitions aside, it is a way for the public to access data stored in an online database through web addresses (URLs). Companies that store a lot of data (e.g., Google, Twitter, Facebook) make API's available so that 3rd party developers can use their data to make applications. For example, if you've ever played a Facebook game (e.g., Candy Crush, Farmville), those programs were accessing information about you and your friends through the API.
+The acronym API stands for Application Programming Interface. Technical definitions aside, it is a way for users to access data stored in an online database through web addresses (URLs). Companies that store a lot of data (e.g., Google, Twitter, Facebook) make API's available so that 3rd party developers can use their data to make applications. For example, if you've ever played a Facebook game (e.g., Candy Crush, Farmville), those programs were accessing information about you and your friends through the API.
 
-The best way to think about using an API is to imagine it as a map to all the data stored online. You need to use this map to give the computer directions on how to find the particular data you want and access it. When you give directions to a location in the real world, we generally do so in two ways. We either give geographic coordinates (i.e., latitude, longitude, elevation), or a set of routes to get somewhere (e.g., Take I-90 E to Chicago, then I-80 W to Joliet).
+The best way to think about using an API is to imagine it as a map to all the data stored online. You need to use this map to give the computer directions on how to find the particular data you want and access it. When we give directions to a location in the real world, we generally do so in two ways. We either give geographic coordinates (i.e., latitude, longitude, elevation) that specify the destination, or a set of routes to get somewhere (e.g., Take I-90 E to Chicago, then I-80 W to Joliet).
 
 When we access data in R via **subscripting** (````Object[ ]````), we are using a coordinate system to point out the data in our object. In contrast, when we access data through an API we are defining a **route**. In fact, route is the formal terminology. Depending on the size of an API there may be dozens of routes, which may feel overwhelming at first. However, remember that a car map has thousands or hundreds of thousands of roads, most of which you will never travel upon, but you still know how to use a map. It is the same way with an API.
+
+Let's deconstruct a specific API **query** (i.e., URL) to identify the different **routes** that make it up.
+
+````
+https://paleobiodb.org/data1.2/occs/list.csv?base_name=Smilodon&interval=Pleistocene
+````
+
+The following figure deconstructs each element of this query.
+
+<a href="url"><img src="/Lab3Figures/API.png" align="center" height="550" width="700" ></a>
 
 <a href="url"><img src="/Lab3Figures/Figure10.png" align="center" height="450" width="500" ></a>
 
