@@ -154,7 +154,7 @@ The best way to think about using an API is to imagine it as a map to all the da
 
 When we access data in R via **subscripting** (````Object[ ]````), we are using a coordinate system to point out the data in our object. In contrast, when we access data through an API we are defining a **route**. In fact, route is the formal terminology. Depending on the size of an API there may be dozens of routes, which may feel overwhelming at first. However, remember that a car map has thousands or hundreds of thousands of roads, most of which you will never travel upon, but you still know how to use a map. It is the same way with an API.
 
-Let's deconstruct a specific API **query** (i.e., URL) to identify the different **routes** that make it up.
+Let's deconstruct a specific API **query** (i.e., URL).
 
 ````
 https://paleobiodb.org/data1.2/occs/list.csv?base_name=Smilodon&interval=Pleistocene
@@ -163,6 +163,16 @@ https://paleobiodb.org/data1.2/occs/list.csv?base_name=Smilodon&interval=Pleisto
 The following figure deconstructs each element of this query.
 
 <a href="url"><img src="/Lab3Figures/API.png" align="center" height="600" width="750" ></a>
+
+The first half of the query, before the **?** is fairly straightforward because there are only a few possible variations. However, the **parameters** that come afterwards can become quite cumbersome because there are many varieties of them, and many of them will change depending on what type of data you are using (i.e., collections vs. occurrences). You will need to use the documentation to see a full list of the possible paramters.
+
++ [Occurrences Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
++ [Collections Parameters](https://paleobiodb.org/data1.2/colls/list_doc.html)
++ [References Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
++ [Opinions Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
++ [Specimens Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
+
+
 
 <a href="url"><img src="/Lab3Figures/Figure10.png" align="center" height="450" width="500" ></a>
 
