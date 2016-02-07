@@ -162,7 +162,7 @@ https://paleobiodb.org/data1.2/occs/list.csv?base_name=Smilodon&interval=Pleisto
 
 The following figure deconstructs each element of this query.
 
-<a href="url"><img src="/Lab3Figures/API.png" align="center" height="550" width="700" ></a>
+<a href="url"><img src="/Lab3Figures/API.png" align="center" height="600" width="750" ></a>
 
 <a href="url"><img src="/Lab3Figures/Figure10.png" align="center" height="450" width="500" ></a>
 
