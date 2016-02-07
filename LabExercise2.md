@@ -199,4 +199,4 @@ The following figure shows the ontogeny of the trilobite *Olenellus lapworthi* (
 
 2. Which species of *Gryphaea* has undergone a greater degree of heterochrony?
 
-3. What type of heterochrony is represented in the *Ollenus* example??
+3. What type of heterochrony is represented in the *Olenellus* example??
