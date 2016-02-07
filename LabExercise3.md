@@ -168,15 +168,15 @@ The first half of the query, before the **?** is fairly straightforward because 
 
 + [Occurrences Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
 + [Collections Parameters](https://paleobiodb.org/data1.2/colls/list_doc.html)
-+ [References Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
-+ [Opinions Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
-+ [Specimens Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
++ [References Parameters](https://paleobiodb.org/data1.2/refs/list_doc.html)
++ [Opinions Parameters](https://paleobiodb.org/data1.2/opinions/list_doc.html)
++ [Specimens Parameters](https://paleobiodb.org/data1.2/specs/list_doc.html)
 
-
+You can also access the API documentation from the main SPLASH page.
 
 <a href="url"><img src="/Lab3Figures/Figure10.png" align="center" height="450" width="500" ></a>
 
-Go to the API documentation from the Paleobiology Database SPLASH page. This will take you to a page that lists a variety of different of different data data types that can be downloaded through the API. For now, let's click the [Fossil Occurrences](https://paleobiodb.org/data1.2/occs_doc.html) link. From there, head to the [Lists of Fossil Occurrences](https://paleobiodb.org/data1.2/occs/list_doc.html) link.
+This will take you to a page that lists a variety of different of different data data types that can be downloaded through the API. For now, let's click the [Fossil Occurrences](https://paleobiodb.org/data1.2/occs_doc.html) link. From there, head to the [Lists of Fossil Occurrences](https://paleobiodb.org/data1.2/occs/list_doc.html) link.
 
 <a href="url"><img src="/Lab3Figures/Figure11.png" align="center" height="450" width="500" ></a>
 
