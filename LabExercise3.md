@@ -184,15 +184,17 @@ This will take you to a page that lists the different data routes. If you click 
 https://paleobiodb.org/data1.2/colls/list.csv?base_name=Mammut&interval=Pliocene
 ````
 
-1. In [Lab Exercise 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#step-2) you downloaded a csv file of ammonite sizes from a github URL directly into R. How would you download the above PBDB data directly into R?
+1. In [Lab Exercise 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#step-2) you downloaded a csv file of ammonite sizes from a github URL directly into R.What cod would you use to download the above PBDB data directly into R? 
 
-2. Did the above call use the occurrences, collections, references, opinions, or specimens route?
+2. Download the above data into R. What are its dimensions?
 
-3. What genus is being called for? What is its colloquial name? What age did I limit the data query too?
+3. Did the above call use the occurrences, collections, references, opinions, or specimens route?
 
-4. Look through the service documentation for the appropriate route (based on your answer to Question 2). Find out how to extend the age search to range from the Miocene Epoch through to the Pleistocene Epoch. Give the new data query URL.
+4. What genus is being called for? What is its colloquial name? What age did I limit the data query too?
 
-5. I want the data query to show me the paleocoordinates (i.e., paleolatitude and paleolongitude) of each data point. Give the updated data query URL.
+5. Look through the service documentation for the appropriate route (based on your answer to Question 2). Find out how to extend the age search to range from the Miocene Epoch through to the Pleistocene Epoch. Give the new data query URL.
+
+6. I want the data query to show me the paleocoordinates (i.e., paleolatitude and paleolongitude) of each data point. Give the updated data query URL.
 
 ## Writing your own API function in R
 
