@@ -257,3 +257,15 @@ paste(LoveR,HateR,sep=" >> ")
 #### Question 6
 
 1. Write an R function that will take a taxonomic name (as a character string) and an interval (as a character string) as its argument, and will download all fossil occurrences into R. See above.
+
+## Morphologic Measurements
+
+Some species have morphologic data attached to them in the Paleobiology Database. Let's consider the following three species of Ammonite: *Glyptophiceras sinuatum*, *Xenoceltites variocostatus*, and *Submeekoceras mushbachanum*. 
+
+Each of these species have morphologic data (e.g., shell width measurements) attached to them in the paleobiology database. You can search for this information by searching taxonomic names [here](https://paleobiodb.org/cgi-bin/bridge.pl?a=beginTaxonInfo).
+
+1. Each of the ammonite specimens in [Part I of Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#part-i) belongs to one of these three species. Based on 1) the morphologic information on these three species in the Paleobiology Database and 2) the morphologic information from Lab 2, can you tell which specimens belong to which species? Explain your reasoning.
+
+2. Look up *Xenoceltites variocostatus* in the Paleobiology Database. Find the first person (journal paper/reference) to name this species. (Hint: Both the first and second author's last names start with "B"). What is the name of the article?
+
+3. Do a [google scholar](https://scholar.google.com/) search for this article. Open it and scroll down to the "Plates" subsection. You should see various pictures of diffeernt ammonites towards the very end of the article. Find the pictures of *Xenoceltites variocostatus*. Based on the features in these pictures, can you identify which specimens in [Part I of Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#part-i) belong to this species?
