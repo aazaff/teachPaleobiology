@@ -67,7 +67,7 @@ Several textbooks have been put on reserve in the [Geology Library](http://geosc
 	
 #### LAB ATTENDANCE
 
-You are not graded on attendance, but it is highly recommended that you make an effort to attend all labs. The lecture will continue for a portion of the lab period in my cases.
+You are not graded on attendance, but it is highly recommended that you make an effort to attend all labs. The lecture will continue for a portion of the lab period in some cases.
 
 ## Course Schedule
 
