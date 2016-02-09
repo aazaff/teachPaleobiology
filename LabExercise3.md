@@ -184,7 +184,7 @@ This will take you to a page that lists the different data routes. If you click 
 https://paleobiodb.org/data1.2/colls/list.csv?base_name=Mammut&interval=Pliocene
 ````
 
-1. In [Lab Exercise 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#step-2) you downloaded a csv file of ammonite sizes from a github URL directly into R.What cod would you use to download the above PBDB data directly into R? 
+1. In [Lab Exercise 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#step-2) you downloaded a csv file of ammonite sizes from a github URL directly into R. What code would you use to download the above PBDB data directly into R? 
 
 2. Download the above data into R. What are its dimensions?
 
