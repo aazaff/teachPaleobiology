@@ -1,7 +1,8 @@
-# Lab Exercise 1
+# Lab Exercise 3
 
 ## Instructions
 
+<<<<<<< HEAD
 <<<<<<< HEAD:LabExercise3.md
 Complete the following lab exercise and submit your answers as a GitHub flavored markdown file to your personal GitHub repository by Febrary 15, 2016.
 =======
@@ -9,6 +10,9 @@ Lab exercise 1 is broken into two components. The first part is an introduction 
 
 You will be able to complete the first part during lab period, but will likely have to finish the second part as homework. Both components are due at the start of the next lab period: **Monday Feb 1st**. 
 >>>>>>> 2de5d4b78da48672f042293d27a6978df0d5d00d:LabExercise1.md
+=======
+Complete the following lab exercise and submit your answers to your personal GitHub repository by **February 15, 2016**.
+>>>>>>> upstream/master
 
 ## Finding the Paleobiology Database Website
 
@@ -151,3 +155,127 @@ The next set of questions is free form, in that you can find the answer to the f
 4. There is only one occurrence of *Tiktaalik* in the Paleobiology Database? Was that occurrence located in the tropics or the extratropics when it was alive?
 
 5. There are two occurrences of *Namacalathus* in Sibera. What geologic formations are they found in?
+
+## Paleobiology Database API
+
+The acronym API stands for Application Programming Interface. Technical definitions aside, it is a way for users to access data stored in an online database through web addresses (URLs). Companies that store a lot of data (e.g., Google, Twitter, Facebook) make API's available so that 3rd party developers can use their data to make applications. For example, if you've ever played a Facebook game (e.g., Candy Crush, Farmville), those programs were accessing information about you and your friends through the API.
+
+The best way to think about using an API is to imagine it as a map to all the data stored online. You need to use this map to give the computer directions on how to find the particular data you want and access it. When we give directions to a location in the real world, we generally do so in two ways. We either give geographic coordinates (i.e., latitude, longitude, elevation) that specify the destination, or a set of routes to get somewhere (e.g., Take I-90 E to Chicago, then I-80 W to Joliet).
+
+When we access data in R via **subscripting** (````Object[ ]````), we are using a coordinate system to point out the data in our object. In contrast, when we access data through an API we are defining a **route**. In fact, route is the formal terminology. Depending on the size of an API there may be dozens of routes, which may feel overwhelming at first. However, remember that a car map has thousands or hundreds of thousands of roads, most of which you will never travel upon, but you still know how to use a map. It is the same way with an API.
+
+Let's deconstruct a specific API **query** (i.e., URL).
+
+````
+https://paleobiodb.org/data1.2/occs/list.csv?base_name=Smilodon&interval=Pleistocene
+````
+
+The following figure deconstructs each element of this query.
+
+<a href="url"><img src="/Lab3Figures/API.png" align="center" height="600" width="750" ></a>
+
+The first half of the query, before the **?** is fairly straightforward because there are only a few possible variations. However, the **parameters** that come afterwards can become quite cumbersome because there are many varieties of them, and many of them will change depending on what type of data you are using (i.e., collections vs. occurrences). You will need to use the documentation to see a full list of the possible paramters.
+
++ [Occurrences Parameters](https://paleobiodb.org/data1.2/occs/list_doc.html)
++ [Collections Parameters](https://paleobiodb.org/data1.2/colls/list_doc.html)
++ [References Parameters](https://paleobiodb.org/data1.2/refs/list_doc.html)
++ [Opinions Parameters](https://paleobiodb.org/data1.2/opinions/list_doc.html)
++ [Specimens Parameters](https://paleobiodb.org/data1.2/specs/list_doc.html)
+
+You can also access the API documentation from the main SPLASH page.
+
+<a href="url"><img src="/Lab3Figures/Figure10.png" align="center" height="450" width="500" ></a>
+
+This will take you to a page that lists the different data routes. If you click on those routes, it will take you to pages that describe different parameters associated with the chosen route. Let's take a breather though and answer some questions.
+
+#### Exercise Questions 5
+
+````
+https://paleobiodb.org/data1.2/colls/list.csv?base_name=Mammut&interval=Pliocene
+````
+
+1. In [Lab Exercise 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#step-2) you downloaded a csv file of ammonite sizes from a github URL directly into R. What code would you use to download the above PBDB data directly into R? 
+
+2. Download the above data into R. What are its dimensions?
+
+3. Did the above call use the occurrences, collections, references, opinions, or specimens route?
+
+4. What genus is being called for? What is its colloquial name? What age did I limit the data query too?
+
+5. Look through the service documentation for the appropriate route (based on your answer to Question 2). Find out how to extend the age search to range from the Miocene Epoch through to the Pleistocene Epoch. Give the new data query URL.
+
+6. I want the data query to show me the paleocoordinates (i.e., paleolatitude and paleolongitude) of each data point. Give the updated data query URL.
+
+## Writing your own API function in R
+
+Wouldn't it be really convenient if instead of typing out the URL every time, you could write an R function that takes a specific **taxon name** and **interval** and downloads the data into R automatically? 
+
+Specifically, your final question for this lab is to write a function in R that will take as its arguments a **taxon name** and an **interval**, and download all fossil occurrences from the PBDB as a CSV.
+
+Your final product should look like this:
+
+````
+# Download all instances of the genus Abra from the Pleistocene interval
+AbraData<-downloadPBDB(taxon="Abra",interval="Pleistocene")
+
+# Your output should look like this
+AbraData[1:6,1:6]
+  occurrence_no record_type reid_no flags collection_no identified_name
+1         94761         occ      NA    NA          7108   Abra aequalis
+2        256368         occ      NA    NA         20604   Abra aequalis
+3        256386         occ      NA    NA         20606   Abra aequalis
+4        425385         occ      NA    NA         41501   Abra aequalis
+5        427341         occ      NA    NA         41705   Abra aequalis
+6        427901         occ      NA    NA         41740   Abra aequalis
+
+# Download all instances of the genus Tyrannosaurus from the Mesozoic
+TRexData<-downloadPBDB(taxon="Tyrannosaurus",interval="Mesozoic")
+
+# Your output shoud look like this
+TRexData[1:6,1:6]
+  occurrence_no record_type reid_no flags collection_no       identified_name
+1        139292         occ   22878    NA         11917     Tyrannosaurus rex
+2        139293         occ      NA    NA         11918 Tyrannosaurus cf. rex
+3        219998         occ      NA    NA         22654     Tyrannosaurus rex
+4        220009         occ      NA    NA         22657     Tyrannosaurus rex
+5        280101         occ      NA    NA         26760     Tyrannosaurus rex
+6        291021         occ      NA    NA         14640 Tyrannosaurus cf. rex
+````
+
+In order to achieve this you will need to use the ````paste( )```` function. Here are some examples of the paste function in use. See if you can figure out how it fits into the problem.
+
+````
+# Example 1
+paste("We","Love","R",sep=" ")
+[1] "We Love R"
+
+# Example 2
+paste("We","Love","R",sep="")
+[1] "WeLoveR"
+
+# Example 3
+paste("We","Love","R",sep="!")
+[1] "We!Love!R"
+
+# Example 4
+LoveR<-c("We Love R")
+HateR<-c("We Hate R")
+paste(LoveR,HateR,sep=" >> ")
+[1] "We Love R >> We Hate R"
+````
+
+#### Question 6
+
+1. Write an R function that will take a taxonomic name (as a character string) and an interval (as a character string) as its argument, and will download all fossil occurrences into R. See above.
+
+## Morphologic Measurements
+
+Some species have morphologic data attached to them in the Paleobiology Database. Let's consider the following three species of Ammonite: *Glyptophiceras sinuatum*, *Xenoceltites variocostatus*, and *Submeekoceras mushbachanum*. 
+
+Each of these species have morphologic data (e.g., shell width measurements) attached to them in the paleobiology database. You can search for this information by searching taxonomic names [here](https://paleobiodb.org/cgi-bin/bridge.pl?a=beginTaxonInfo).
+
+1. Each of the ammonite specimens in [Part I of Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#part-i) belongs to one of these three species. Based on 1) the morphologic information on these three species in the Paleobiology Database and 2) the morphologic information from Lab 2, can you tell which specimens belong to which species? Explain your reasoning.
+
+2. Look up *Xenoceltites variocostatus* in the Paleobiology Database. Find the first person (journal paper/reference) to name this species. (Hint: Both the first and second author's last names start with "B"). What is the name of the article?
+
+3. Do a [google scholar](https://scholar.google.com/) search for this article. Open it and scroll down to the "Plates" subsection. You should see various pictures of different ammonites towards the very end of the article. Find the pictures of *Xenoceltites variocostatus*. Based on the features in these pictures, can you identify which specimens in [Part I of Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#part-i) belong to this species?

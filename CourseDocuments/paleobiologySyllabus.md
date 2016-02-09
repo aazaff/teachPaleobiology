@@ -8,7 +8,7 @@
 + EMAIL: AZAFFOS@WISC.EDU
 + CLASS HOURS: 1:20-2:10 MONDAY, WEDNESDAY.
 + LAB HOURS: 4:00-6:00 MONDAY.
-+ OFFICE HOURS:	12:00-2:00 WEDNESDAY, FRIDAY OR BY APPOINTMENT
++ OFFICE HOURS:	12:00-1:00 Wednesday, 1:00-3:00 Thursday, 1:00-3:00 Friday, or by appointment
 + COURSE WEBSITE: HTTPS://GITHUB.COM/AAZAFF/TEACHPALEOBIOLOGY
 
 ## COURSE PHILOSOPHY
@@ -67,7 +67,7 @@ Several textbooks have been put on reserve in the [Geology Library](http://geosc
 	
 #### LAB ATTENDANCE
 
-You are not graded on attendance, but it is highly recommended that you make an effort to attend all labs. The lecture will continue for a portion of the lab period in my cases.
+You are not graded on attendance, but it is highly recommended that you make an effort to attend all labs. The lecture will continue for a portion of the lab period in some cases.
 
 ## Course Schedule
 
@@ -79,7 +79,7 @@ WED: Jan 27 | [Reading 2](https://github.com/aazaff/teachPaleobiology/blob/maste
 MON: Feb 01 | [Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Abiogenesis 3. Genetic drift and neutral theory 4. Molecular clocks
 WED: Feb 03 | [Reading 3](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Sexual Selection 2. Geographic models of speciation
 MON: Feb 08 | [Lab 3](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Ecological niche 3. Ecological competition and facilitation 4. Ecological gradients
-WED: Feb 10 | [Reading 4](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Anatomical and behavioral mechanisms of dispersal 3. Common patterns of species distribution
+WED: Feb 10 | [Reading 4](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | <strike>1. Anatomical and behavioral mechanisms of dispersal</strike> 2. Niche conservatism 3. Common patterns of species distribution
 MON: Feb 15 | [Lab 4](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Determinants of extinction 3. Pseudoextinction
 WED: Feb 17 | [Reading 5](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Measuring biodiversity 2. Measuring extinction 3. Measuring origination 4. Measuring evenness
 MON: Feb 22 | [Lab 5](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Review and catch-up session

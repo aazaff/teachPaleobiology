@@ -7,7 +7,7 @@ The hyperlinks will take you to their github link. Some of the PDF's are larger 
 Topics | Description
 --------- | ----------
 [Species Concepts](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Species%20Concepts.pdf) | A somewhat more modern view of delimiting species. I'm not a fan, personally.
-[Mophometrics](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Morphometrics) | A fairly technical review of morphometircs from the perspective of anthropology.
+[Mophometrics](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Morphometrics) | A fairly technical review of morphometrics from the perspective of anthropology.
 [Phylogenetics](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Phylogenetics.pdf) | A  fairly technical review of different phylogenetic methods.
 [Abiogenesis](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Abiogenesis.pdf) | A gentle read on different abiogenesis hypotheses.
 [Genetic Neutral Theory](https://github.com/aazaff/paleobiologyWebsite/blob/master/AdditionalReading/Genetic%20Neutral%20Theory.pdf) | A good reivew of genetic neutral theory, but a bit bogged down in polemics.
