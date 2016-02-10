@@ -6,5 +6,5 @@ Lecture | Topic
 01-27-2016 | [Ontogeny, Phylogeny, and Heterochrony](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/OntogenyPhylogenyHeterochrony012172016.pdf)
 02-01-2016 | [Abiogenesis, Genetic Drift, Genetic Neutral Theory](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/Abiogenesis02012016.pdf)
 02-03-2016 | [Sexual Selection and Models of Geographic Speciation](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/SexualSelection02032016.pdf)
-02-08-2016 | 
+02-08-2016 | [Ecological Niches](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/EcologicalNiches02082016.pdf)
 02-10-2016 | [Niche Conservatism and Common Distributions](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/CommonDistributions02102016.pdf)
