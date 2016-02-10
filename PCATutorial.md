@@ -1,6 +1,6 @@
 # Introduction to Principle Components Analysis
 
-Here is a basic explanation of PCA that I modified from a tutorial written by my old Masters advisor, Steven M. Holland, at the University of Georgia. For a more in depth explanation, including a bit about the underlying math, you can see the original tutorial [here](http://strata.uga.edu/software/pdf/pcaTutorial.pdf).
+Here is a basic explanation of PCA by Steven M. Holland (modified), at the University of Georgia. For a more in depth explanation, including a bit about the underlying math, you can see the original tutorial [here](http://strata.uga.edu/software/pdf/pcaTutorial.pdf).
 
 Suppose we measure two variables, **length** and **width**, and plot them as shown below. Both variables have approximately the same variance (spread of the distribution - i.e., the **standard deviation** squared) and they are highly correlated with one another. We could pass a line through the long axis of the cloud of points and a second line at right angles to the first, with both lines passing through the centroid (center) of the data.
 
