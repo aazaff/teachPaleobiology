@@ -111,7 +111,7 @@ Polar ordination is the simplest form of ordination, and was originally invented
 
 The definition of the poles can be based on the calculation of a simlarity index (e.g., Jaccard) or could be two samples you hypothesize are at the ends of a gradient. Both approaches are fairly crude, so this method of ordination has largely been abandoned. As far as I know, there are no longer any functions in R for calculating polar ordination.
 
-#### Problem Set II
+#### Problem Set III
 
 1) Create a subset of the ````PresencePBDB```` matrix which contains just the following rows - "Pliocene", "Oligocene", "Paleocene", "Early Cretaceous", "Late Jurassic", and "Middle Jurassic". Name this subset ````RandomEpochs````. Show your code.
 
