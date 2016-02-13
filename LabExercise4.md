@@ -138,11 +138,13 @@ Identify which epochs of ````PresencePBDB```` belong to the Cambrian Period. Mak
 Use the following code to perform and plot a basic correspondence analysis on PostCambrian. Note that this requires that the ````vegan```` package be loaded.
 
 ````R
-# Run a correspondence analysis using the CCA( ) function of vegan
-PostCambrianCCA<-cca(PostCambrian)
+# Run a correspondence analysis using the decorana( ) function of vegan
+# ira = 1 tells it to run a basic correspondence analysis rather than detrended correspondence analysis
+PostCambrianCA<-decorana(PostCambrian,ira=1)
 
-# Plot the inferred sites 
-plot(PostCambrianCCA,display="sites)
+# Plot the inferred samples (sites).
+# If you want to see the taxa, use display="species"
+plot(PostCambrianCA,display="sites")
 ````
 
 Your final product should look like this.
@@ -151,16 +153,50 @@ Your final product should look like this.
 
 #### Step 3
 
-There are a few things you should notice about the above graph. First, the first axis (i.e, the horizontal axis, the x-axis) of the ordination has ordered the samples in terms of their age. On the far left of the x-axis is the Ordovician (the oldest epoch) and on the far right is the Pleistocene (the youngest epoch). Therefore, we can infer that *time* is the primary gradient.
+There are a few things you should notice about the above graph. First, the first axis (i.e, the horizontal axis, the x-axis) of the ordination has ordered the samples in terms of their age. On the far right of the x-axis is the Ordovician (the oldest epoch) and on the far left is the Pleistocene (the youngest epoch). Therefore, we can infer that *time* is the primary gradient.
 
 However, you may have also noticed two other patterns in the data. 
 
-First, when the second axis (i.e., the vertical axis, the y-axis) is taken into account, an interesting "Arch" shape forms in the data forms. This is arch does not represent a true ecological phenomenon, per se, but is actually a mathematical artefact of the correspondence analysis method. Brocard et al. (2013) describe the formation of the arch thusly,
+First, when the second axis (i.e., the vertical axis, the y-axis) is taken into account, an interesting **Arch** shape is apparent. This arch does not represent a true ecological phenomenon, per se, but is actually a mathematical artefact of the correspondence analysis method. Brocard et al. (2013) describe the formation of the arch thusly,
 
 > Long environmental gradients often support a succession of species. [Since species tend to have unimodal distributions along gradients], a long gradient may encompass sites that, at both ends of the gradient, have no species in common; thus, their distance reaches a maximum value (or their simi-larity is 0). But if one looks at either side of the succession, contiguous sites continue to grow more different from each other. Therefore, instead of a linear trend, the gradient is represented on a pair of CA axes as an arch.
 
-In other words, the Pleistocene and Early Ordovician have no species in common, thus they are on opposite ends of the first axis. However, they do share something in common, which is that they become progressively dissimilar from epochs further away from them. For this reason, the correspondence analysis plots them on the same end of the second axis, and the epochs that are at the midpoint between them (i.e., the Permo-Trissic boundary) on the other end of axis 2. This is not helpful information (in fact, it is just a geometrically weird restatement of the first axis) and we want to eliminate it for something more useful.
+In other words, the Pleistocene and Early Ordovician have no species in common, thus they are on opposite ends of the first axis. However, they do share something in common, which is that they become progressively dissimilar from epochs further away from them. For this reason, the correspondence analysis plots them on the same end of the second axis, and the epochs that are at the midpoint between them (i.e., the Permo-Trissic boundary) on the other end of the second axis. This is not helpful information (in fact, it is just a geometrically warped restatement of the information conveyed in the first axis) and we want to eliminate it for something more useful.
 
-The other thing you may have noticed is that there is compression towards the ends of the gradient. Meaning that all of the late Cenozoic epochs (i.e., Pleistocene, Pliocene, and Miocene) are overlain closely on top of each other - such that you probably have a hard time reading their text. This is also an artefact of correspondence analysis.
+The other thing you may have noticed is **compression** towards the ends of the gradient. Meaning that most of the Cenozoic epochs (i.e., Pleistocene, Pliocene, Miocene, Oligocene, and Eocene) are overlain closely on top of each other. So much so that you probably have a hard time reading their text. This is also an artefact of correspondence analysis, and not necessarily an indication that those epochs are more similar to each other, than say the (more legible) Early and Late Cretaceous epochs.
 
-For these reasons, it is rare for people to stil use correspondence analysis (reciprocal averaging).
+For these reasons, it is rare for people to still use correspondence analysis (reciprocal averaging). Though some scientists argue you should at least try correspondence analysis before turning to another technique (I am not one of them).
+
+## Detrended Correspondence Analysis
+
+The Arch effect and compression are both ameliorated by detrended correspondence analysis (DCA). DCA divides the first axis into a number of smaller segments. Within each segment it recalculates the second axis scores such that they have an average of zero.
+
+You can perform a DCA in R using the ````decorana( )```` function of the ````vegan```` package.
+
+````R
+# Peform a DCA on the Post Cambrian Dataset
+# ira = 0 is the default, so you do not need to put that part in.
+PostCambrianDCA<-decorana(PostCambrian,ira=0)
+
+# Plot the DCA
+plot(PostCambrianDCA,display="sites")
+````
+
+Your final product should look like this.
+
+<a href="url"><img src="/Lab4Figures/Figure2.png" align="center" height="450" width="500" ></a>
+
+You will notice that the arch effect is gone! This is good, but the DCA is suffering from a new problem known as the **Wedge** effect. You can envision the wedge effect by taking a piece of paper and twisting it, such that axis 1 is preserved reasonably undistorted, but the second axis of variation is expressed on DCA axis 2 on one end and on DCA axis 3 at the opposite end. This produces a pattern consisting of a tapering of sample points in axis 1-2 space and an opposing wedge in axis 1-3 space.
+
+Here, let's contrast our above DCA plot by plotting DCA Axis 1 and DCA Axis 3. Do you see another wedge running in the opposite direction?
+
+````R
+# Use the choices= argument to pick which ordination axes you want plotted.
+plot(PostCambrianDCA,display="sites",choices=c(1,3))
+````
+<a href="url"><img src="/Lab4Figures/Figure3.png" align="center" height="450" width="500" ></a>
+
+## Multi-dimensional Scaling
+
+Because of correspondence analysis suffers from the arch and detrended correspondence analysis can suffer from the wedge, many ecologists favour a completely different technique known as multi-dimensional scaling.
+
