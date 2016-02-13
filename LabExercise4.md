@@ -243,4 +243,4 @@ Of the ordination methods covered here, I recommend sticking with DCA. It is fai
 
 4) Perform a DCA on your new community matrix. Analyze your new DCA with a plot. Do you think that the orientation of samples along either axis 1 or axis 2 is related to the average latitude or longitude of each plate in question? Explain how you figured this out.
 
-5) Look at the species scores of your Ordovician DCA plot. Do you think that the orientation of species along either axis 1 or axis 2 is related to controlled by phylum - i.e., are species of the same Phylum grouping together in the ordination? How did you determine this? Show your code.
+5) Perform an NMDS on your community matrix. Look at the species scores of your Ordovician DCA plot. Do you think that the orientation of species along either axis 1 or axis 2 is controlled by phylum - i.e., are species of the same Phylum grouping together in the ordination? How did you determine this? Show your code.
