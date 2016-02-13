@@ -145,6 +145,24 @@ PostCambrianCA<-decorana(PostCambrian,ira=1)
 # Plot the inferred samples (sites).
 # If you want to see the taxa, use display="species"
 plot(PostCambrianCA,display="sites")
+
+# If you want to see/use the numerical values of the scores, not just a scatterplot
+# You can use the scores( ) function
+PostCambrianSpecies<-scores(PostCambrianDCA,display="species")
+
+# This shows the weighted average of all species abundances along each axis.
+# i.e., The weight-average of Amphiscapha is 5.22 along axis 1, and -3.799 along axis 2.
+head(PostCambrianSpecies)
+                    RA1       RA2       RA3        RA4
+Amphiscapha    5.221689 -3.799051 -2.998689 1.27944155
+Donaldina      5.460634 -1.936823 -1.439545 0.77634443
+Euphemites     5.472197 -2.781106 -2.433943 0.04989632
+Glabrocingulum 4.270209 -3.789545 -1.794858 1.37530975
+Palaeostylus   5.322415 -3.151507 -2.536464 0.60251234
+Meekospira     5.322415 -3.151507 -2.536464 0.60251234
+
+# You can do the same thing for sample scores as well.
+PostCambrianSamples<-scores(PostCambrianDCA,display="sites")
 ````
 
 Your final product should look like this.
@@ -239,7 +257,7 @@ Of the ordination methods covered here, I recommend sticking with DCA. It is fai
 
 2) Clean up the poorly resolved genus names. What function/code did you use?
 
-3) Turn your object ````Ordovician```` into a community matrix of samples by genera, where the samples the different geoplate codes. Cull this matrix so that each sample has a minimum of 25 taxa and each taxon occurs in at least two samples. Show your code.
+3) Turn your object ````Ordovician```` into a community matrix of samples by genera, where the samples are different geoplate codes. Geoplate codes denote different ancient paleocontinents - i.e., your community matrix will list which genera were present in which ancient paleocontinent. Cull this matrix so that each sample has a minimum of 25 taxa and each taxon occurs in at least two samples. Show your code.
 
 4) Perform a DCA on your new community matrix. Analyze your new DCA with a plot. Do you think that the orientation of samples along either axis 1 or axis 2 is related to the average latitude or longitude of each plate in question? Explain how you figured this out.
 
