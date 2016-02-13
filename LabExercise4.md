@@ -149,7 +149,7 @@ plot(PostCambrianCA,display="sites")
 
 Your final product should look like this.
 
-<a href="url"><img src="/Lab4Figures/Figure1.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab4Figures/Figure1.png" align="center" height="500" width="500" ></a>
 
 #### Step 3
 
@@ -184,7 +184,7 @@ plot(PostCambrianDCA,display="sites")
 
 Your final product should look like this.
 
-<a href="url"><img src="/Lab4Figures/Figure2.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab4Figures/Figure2.png" align="center" height="500" width="500" ></a>
 
 You will notice that the arch effect is gone! This is good, but the DCA is suffering from a new problem known as the **Wedge** effect. You can envision the wedge effect by taking a piece of paper and twisting it, such that axis 1 is preserved reasonably undistorted, but the second axis of variation is expressed on DCA axis 2 on one end and on DCA axis 3 at the opposite end. This produces a pattern consisting of a tapering of sample points in axis 1-2 space and an opposing wedge in axis 1-3 space.
 
@@ -194,7 +194,7 @@ Here, let's contrast our above DCA plot by plotting DCA Axis 1 and DCA Axis 3. D
 # Use the choices= argument to pick which ordination axes you want plotted.
 plot(PostCambrianDCA,display="sites",choices=c(1,3))
 ````
-<a href="url"><img src="/Lab4Figures/Figure3.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab4Figures/Figure3.png" align="center" height="500" width="500" ></a>
 
 ## Multi-dimensional Scaling
 
@@ -225,7 +225,7 @@ text(PostCambrianNMDS,display="sites")
 
 Your final product should look like this.
 
-<a href="url"><img src="/Lab4Figures/Figure4.png" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/Lab4Figures/Figure4.png" align="center" height="500" width="500" ></a>
 
 It's the Arch Effect again, just like in correspondence analysis!!! Despite the fact that many ecologists like to praise NMDS over CA and DCA, the differences between them are exaggerated. The reason for this is that all three only really suffer from their respective distortions (Arches and Wedges) when there isn't a strong gradient to pick up in the first place.
 
@@ -235,4 +235,12 @@ Of the ordination methods covered here, I recommend sticking with DCA. It is fai
 
 #### Problem Set IV
 
-1) 
+1) Download a dataset from the paleobioogy database of all Ordovician aged animals into R, and name the object ````Ordovician````. This may take a few minutes.  What R code did you use?
+
+2) Clean up the poorly resolved genus names. What function/code did you use?
+
+3) Turn your object ````Ordovician```` into a community matrix of samples by genera, where the samples the different geoplate codes. Cull this matrix so that each sample has a minimum of 25 taxa and each taxon occurs in at least two samples. Show your code.
+
+4) Perform a DCA on your new community matrix. Analyze your new DCA with a plot. Do you think that the orientation of samples along either axis 1 or axis 2 is related to the average latitude or longitude of each plate in question? Explain how you figured this out.
+
+5) Look at the species scores of your Ordovician DCA plot. Do you think that the orientation of species along either axis 1 or axis 2 is related to controlled by phylum - i.e., are species of the same Phylum grouping together in the ordination? How did you determine this? Show your code.
