@@ -131,7 +131,7 @@ Since we already explained the basics of reciprocal averaging in class, I will n
 
 #### Step 1
 
-Identify which epochs of ````PresencePBDB```` belong to the Cambrian Period. Make a new copy of ````PresencePBDB```` named ````PostCambrian````, which does not include any Cambrian epochs. 
+Identify which epochs of ````PresencePBDB```` belong to the Cambrian Period. Make a new copy of ````PresencePBDB```` named ````PostCambrian````, which does not include any Cambrian epochs. You also need to use ````cullMatrix( )```` again, this time set minDiversty=2 and minOccurrences=2.
 
 #### Step 2
 
@@ -198,5 +198,41 @@ plot(PostCambrianDCA,display="sites",choices=c(1,3))
 
 ## Multi-dimensional Scaling
 
-Because of correspondence analysis suffers from the arch and detrended correspondence analysis can suffer from the wedge, many ecologists favour a completely different technique known as multi-dimensional scaling.
+Because of correspondence analysis suffers from the arch and detrended correspondence analysis can suffer from the wedge, many ecologists favour a completely different technique known as non-metric multi-dimensional scaling (NMDS). The underlying theory behind NMDS is quite different from correspondence analysis. If you want to learn more there is a good introduction by [Steven M. Holland](http://strata.uga.edu/software/pdf/mdsTutorial.pdf).
 
+However, if you just want the highlights, here is what you need to know.
++ Most ordination methods result in a single unique solution. In contrast, NMDS is a brute force technique that iteratively seeks a solution via repeated trial and error, which means running the NMDS again will likely result in a somewhat different ordination.
++ NMDS, unlike correspondence analysis, is not based on weighted-averaging, but on the ecological distances (e.g., jaccard) of samples, similarly to polar ordination.
++ Correspondence Analysis (and derivatives) and Principal Components Analysis both order/rank the gradient axes based on how much variance they explain. NMDS does not do this, which means that your first axis may not be your best axis.
++ The species scores presented by NMDS are just the weighted-average of the final NMDS sample scores.
+
+Here is how you run an NMDS in R using the ````vegan```` package.
+
+````R
+PostCambrianNMDS<-metaMDS(PostCambrian)
+
+# The plotting defaults for metaMDS output is not as good as for decorana( )
+# We have to do some graphical fiddling.
+
+# Create a blank plot by setting type= to "n" (for nothing)
+plot(PostCambrianNMDS,display="sites",type="n"
+
+# Use the text( ) function, to fill in our blank plot with the names of the samples
+# Importantly, text( ) will not work if there is not already an open plot,
+# hence why we needed to make the blank plot first.
+text(PostCambrianNMDS,display="sites")
+````
+
+Your final product should look like this.
+
+<a href="url"><img src="/Lab4Figures/Figure4.png" align="center" height="450" width="500" ></a>
+
+It's the Arch Effect again, just like in correspondence analysis!!! Despite the fact that many ecologists like to praise NMDS over CA and DCA, the differences between them are exaggerated. The reason for this is that all three only really suffer from their respective distortions (Arches and Wedges) when there isn't a strong gradient to pick up in the first place.
+
+In these data, there is a very strong "time" gradient that is picked up in the first axis of all four ordination (polar, corresondence, detrended, and multidimensional) techniques that we've used so far. However, there is no secondary gradient (or tertiary etc.) that is obvious in these data, hence why all of the methods make up these (ecologically) meaningless wedges and arches along the second, third, and so on axes.
+
+Of the ordination methods covered here, I recommend sticking with DCA. It is fairly robust and easy to interpret, though *watch out for those wedges*!
+
+#### Problem Set IV
+
+1) 
