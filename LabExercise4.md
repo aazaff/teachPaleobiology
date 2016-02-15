@@ -59,7 +59,7 @@ Let's convert our PBDB dataset into a presence-absence dataset using the ````pre
 ````R
 # Create a PBDB collections by Taxa matrix
 # This may take a couple of minutes
-PresencePBDB<-presenceMatrix(DataPBDB,SampleDefinition="collection_no")
+PresencePBDB<-presenceMatrix(DataPBDB,SampleDefinition="early_interval")
 
 # In addition, let us clean up this new matrix and remove depauperate samples and rare taxa.
 # We will set it so that a sample needs at least 24 reported taxa for us to consider it reliable,
@@ -164,7 +164,7 @@ The first function is ````plot( )````, which you have used earlier in this lab a
 methods(plot)
 ````
 
-The **generic** version of plot (i.e, the version of plot that does not use any methods) produces a basic [scatter plot](http://www.statmethods.net/graphs/scatterplot.html) - i.e., points along an x and y axis. The ordination plots we used above are 
+The **generic** version of plot (i.e, the version of plot that does not use any methods) produces a basic [scatter plot](http://www.statmethods.net/graphs/scatterplot.html) - i.e., points along an x and y axis. The ordination plots we used above are an example of a scatter plot. Let's try and manually recreate the above plot.
 
 ````R
 # If you want to see/use the numerical values of the scores, not just a scatterplot
@@ -186,9 +186,8 @@ Meekospira     5.322415 -3.151507 -2.536464 0.60251234
 # You can also do this for sample ("sites") scores as well.
 PostCambrianSamples<-scores(PostCambrianDCA,display="Sites"
 
-# You can manually plot the scores as well. You simply need to define the
-# x variable and the y variable in the plot( ) function.
-plot(x=PostCambrianSpecies[,"RA1"],y=PostCambrianSpecies[,"RA1"
+# Now that we know the [x,y] values of each point, we can plot them.
+plot(x=PostCambrianSamples[,"RA1"],y=PostCambrianSamples[,"RA1")
 ````
 
 #### Step 3
