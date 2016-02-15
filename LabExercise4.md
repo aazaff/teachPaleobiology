@@ -25,7 +25,7 @@ source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/c
 
 #### Step 2:
 
-Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function. Next use the ````cleanGenus( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossl occurrences that have poor temporal constraint (i.e., are of unceratain age).
+Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function. Next use the ````cleanGenus( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
 
 ````R
 # Download data from the Paleobiology Database
@@ -48,6 +48,7 @@ DataPBDB<-constrainAges(DataPBDB,Epochs)
 Let's turn our newly downloaded and cleaned PBDB data into a community matrix. A community matrix is one of the most fundamental data formats in ecology. In such a matrix, the rows represent different samples, the columns represent different taxa, and the cell valuess represent the abundance of the species in that sample.
 
 Here are a few things to remember about community matrices.
+
 1. Samples are sometimes called sites or quadrats, but those are sub-discipline specific terms that should be avoided. Stick with samples because it has a universally applicable.
 2. The columns do not have to be species per se. Columns could be other levels of the Linnean Hierarchy (e.g., genera, families) or some other ecological grouping (e.g., different habits, different morphologies).
 3. Since there is no such thing as a negative abundance, there should be no negative data in a Community Matrix.
@@ -245,7 +246,7 @@ Your final product should look like this.
 
 <a href="url"><img src="/Lab4Figures/Figure4.png" align="center" height="500" width="500" ></a>
 
-It's the Arch Effect again, just like in correspondence analysis!!! Despite the fact that many ecologists like to praise NMDS over CA and DCA, the differences between them are exaggerated. The reason for this is that all three only really suffer from their respective distortions (Arches and Wedges) when there isn't a strong gradient to pick up in the first place.
+It's the Arch Effect again, just like in correspondence analysis!!! Despite the fact that many ecologists like to praise NMDS over CA and DCA, the differences between them are exaggerated. The reason for this is that all three are unreliable when there isn't a strong gradient to pick up in the first place.
 
 In these data, there is a very strong "time" gradient that is picked up in the first axis of all four ordination (polar, corresondence, detrended, and multidimensional) techniques that we've used so far. However, there is no secondary gradient (or tertiary etc.) that is obvious in these data, hence why all of the methods make up these (ecologically) meaningless wedges and arches along the second, third, and so on axes.
 
