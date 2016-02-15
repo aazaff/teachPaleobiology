@@ -69,7 +69,7 @@ PresencePBDB<-cullMatrix(PresencePBDB,minOccurrences=5,minDiversity=24)
 
 #### Problem Set I
 
-1) How many unique genera are in the Miocene,Early Jurasic, Cretaceous, and Pennsylvanian epochs (not total, each)? What code did you use to find out?
+1) How many unique genera are in the Miocene,Early Jurasic,Late Cretaceous, and Pennsylvanian epochs (not total, each)? What code did you use to find out?
 
 2) How many geologic epochs in general are in this dataset? What code did you use to find out?
 
