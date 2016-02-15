@@ -146,12 +146,33 @@ PostCambrianCA<-decorana(PostCambrian,ira=1)
 # Plot the inferred samples (sites).
 # If you want to see the taxa, use display="species"
 plot(PostCambrianCA,display="sites")
+````
 
+Your final product should look like this.
+
+<a href="url"><img src="/Lab4Figures/Figure1.png" align="center" height="500" width="500" ></a>
+
+#### Advanced plotting
+
+You may also wish to make a more complex/detailed plot. R has a dizzying variety of plotting functions, but here we'll only mention four basic functions.
+
+The first function is ````plot( )````, which you have used earlier in this lab and elsewhere in the course. It is a very versatile and easy to use function because it has many **methods** attached to it. Putting the technical definition of a **method** aside, a method is a set of pre-programmed settings or templates, that will make a different type of plot depending on what kind of data you give the function.
+
+````R
+# Use methods plot to see all the different types of methods
+# You don't interact with the methods, the basic plot( ) function does it for you.
+methods(plot)
+````
+
+The **generic** version of plot (i.e, the version of plot that does not use any methods) produces a basic [scatter plot](http://www.statmethods.net/graphs/scatterplot.html) - i.e., points along an x and y axis. The ordination plots we used above are 
+
+````R
 # If you want to see/use the numerical values of the scores, not just a scatterplot
 # You can use the scores( ) function
-PostCambrianSpecies<-scores(PostCambrianDCA,display="species")
+# Note that by scores we mean gradient values - e.g., a temperature of 5 degrees or a depth of 10m
+PostCambrianSpecies<-scores(PostCambrianCA,display="species")
 
-# This shows the weighted average of all species abundances along each axis.
+# This shows the weighted average of all species abundances along each inferred gradient axis.
 # i.e., The weight-average of Amphiscapha is 5.22 along axis 1, and -3.799 along axis 2.
 head(PostCambrianSpecies)
                     RA1       RA2       RA3        RA4
@@ -162,17 +183,13 @@ Glabrocingulum 4.270209 -3.789545 -1.794858 1.37530975
 Palaeostylus   5.322415 -3.151507 -2.536464 0.60251234
 Meekospira     5.322415 -3.151507 -2.536464 0.60251234
 
+# You can also do this for sample ("sites") scores as well.
+PostCambrianSamples<-scores(PostCambrianDCA,display="Sites"
 
 # You can manually plot the scores as well. You simply need to define the
-# x variable and the y variable
+# x variable and the y variable in the plot( ) function.
 plot(x=PostCambrianSpecies[,"RA1"],y=PostCambrianSpecies[,"RA1"
-
-
 ````
-
-Your final product should look like this.
-
-<a href="url"><img src="/Lab4Figures/Figure1.png" align="center" height="500" width="500" ></a>
 
 #### Step 3
 
@@ -221,12 +238,12 @@ plot(PostCambrianDCA,display="sites",choices=c(1,3))
 
 ## Multi-dimensional Scaling
 
-Because of correspondence analysis suffers from the arch and detrended correspondence analysis can suffer from the wedge, many ecologists favour a completely different technique known as non-metric multi-dimensional scaling (NMDS). The underlying theory behind NMDS is quite different from correspondence analysis. If you want to learn more there is a good introduction by [Steven M. Holland](http://strata.uga.edu/software/pdf/mdsTutorial.pdf).
+Because correspondence analysis suffers from the arch and detrended correspondence analysis can suffer from the wedge, many ecologists favour a completely different technique known as non-metric multi-dimensional scaling (NMDS). The underlying theory behind NMDS is quite different from correspondence analysis. If you want to learn more there is a good introduction by [Steven M. Holland](http://strata.uga.edu/software/pdf/mdsTutorial.pdf).
 
 However, if you just want the highlights, here is what you need to know.
+
 + Most ordination methods result in a single unique solution. In contrast, NMDS is a brute force technique that iteratively seeks a solution via repeated trial and error, which means running the NMDS again will likely result in a somewhat different ordination.
-+ NMDS, unlike correspondence analysis, is not based on weighted-averaging, but on the ecological distances (e.g., jaccard) of samples, similarly to polar ordination.
-+ Correspondence Analysis (and derivatives) and Principal Components Analysis both order/rank the gradient axes based on how much variance they explain. NMDS does not do this, which means that your first axis may not be your best axis.
++ NMDS, unlike correspondence analysis, is not based on weighted-averaging, but on the ecological distances (e.g., jaccard) of samples, similar to polar ordination.
 + The species scores presented by NMDS are just the weighted-average of the final NMDS sample scores.
 
 Here is how you run an NMDS in R using the ````vegan```` package.
