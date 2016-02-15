@@ -69,7 +69,7 @@ PresencePBDB<-cullMatrix(PresencePBDB,minOccurrences=5,minDiversity=24)
 
 #### Problem Set I
 
-1) How many genera are in the Miocene,Early Jurasic, Cretaceous, and Pennsylvanian epochs? What code did you use to find out?
+1) How many unique genera are in the Miocene,Early Jurasic, Cretaceous, and Pennsylvanian epochs (not total, each)? What code did you use to find out?
 
 2) How many geologic epochs in general are in this dataset? What code did you use to find out?
 
@@ -130,11 +130,11 @@ The next form of ordination is known as corresponence analysis, also known as re
 
 Since we already explained the basics of reciprocal averaging in class, I will not go into further detail on the underlying theory behind correspondence analysis. Instead, let us examine the difference between correspondence analysis and detrended correspondence analysis.
 
-#### Step 1
+#### Step 1 (Loading and Cleaning Data)
 
 Identify which epochs of ````PresencePBDB```` belong to the Cambrian Period. Make a new copy of ````PresencePBDB```` named ````PostCambrian````, which does not include any Cambrian epochs. You also need to use ````cullMatrix( )```` on ````PostCambrian```` after you have subset the matrix, this time set minDiversty=2 and minOccurrences=2.
 
-#### Step 2
+#### Step 2 (Initial Correspondence Analysis)
 
 Use the following code to perform and plot a basic correspondence analysis on PostCambrian. Note that this requires that the ````vegan```` package be loaded.
 
@@ -152,9 +152,9 @@ Your final product should look like this.
 
 <a href="url"><img src="/Lab4Figures/Figure1.png" align="center" height="500" width="500" ></a>
 
-#### Advanced plotting
+#### Step 3 (Advanced Plotting)
 
-You may also wish to make a more complex/detailed plot. R has a dizzying variety of plotting functions, but here we'll only mention four basic functions.
+You may also wish to make a more complex/detailed plot. R has a dizzying variety of plotting functions, but today we will only need two of the basic functions.
 
 The first function is ````plot( )````, which you have used earlier in this lab and elsewhere in the course. It is a very versatile and easy to use function because it has many **methods** attached to it. Putting the technical definition of a **method** aside, a method is a set of pre-programmed settings or templates, that will make a different type of plot depending on what kind of data you give the function.
 
@@ -164,11 +164,10 @@ The first function is ````plot( )````, which you have used earlier in this lab a
 methods(plot)
 ````
 
-The **generic** version of plot (i.e, the version of plot that does not use any methods) produces a basic [scatter plot](http://www.statmethods.net/graphs/scatterplot.html) - i.e., points along an x and y axis. The ordination plots we used above are an example of a scatter plot. Let's try and manually recreate the above plot.
+The **generic** version of plot (i.e, the version of plot that does not use any methods) produces a basic [scatter plot](http://www.statmethods.net/graphs/scatterplot.html) - i.e., points along an x and y axis. The ordination plots we used above are an example of a scatter plot. What if we want more customization than the basic ````plot.decorana```` method/template gives us?
 
 ````R
-# If you want to see/use the numerical values of the scores, not just a scatterplot
-# You can use the scores( ) function
+# Use the scores( ) function if you want to see/use the numerical values of the inferred gradient scores
 # Note that by scores we mean gradient values - e.g., a temperature of 5 degrees or a depth of 10m
 PostCambrianSpecies<-scores(PostCambrianCA,display="species")
 
@@ -184,13 +183,71 @@ Palaeostylus   5.322415 -3.151507 -2.536464 0.60251234
 Meekospira     5.322415 -3.151507 -2.536464 0.60251234
 
 # You can also do this for sample ("sites") scores as well.
-PostCambrianSamples<-scores(PostCambrianDCA,display="Sites"
+PostCambrianSamples<-scores(PostCambrianCA,display="sites")
 
 # Now that we know the [x,y] values of each point, we can plot them.
-plot(x=PostCambrianSamples[,"RA1"],y=PostCambrianSamples[,"RA1")
+plot(x=PostCambrianSamples[,"RA1"],y=PostCambrianSamples[,"RA2"])
 ````
 
-#### Step 3
+<a href="url"><img src="/Lab4Figures/Figure5.png" align="center" height="500" width="500" ></a>
+
+It certainly works, but is a lot uglier than what the ````plot.decorana```` method came up with. Here are a few things that we can do to improve the plot.
+
+````R
+plot(x=PostCambrianSamples[,"RA1"],y=PostCambrianSamples[,"RA2"],pch=16,las=1,xlab="Gradient Axis 1",ylab="Gradient Axis 2",cex=2)
+````
+
+Plotting Arguments | Description
+----- | -----
+````pch=```` | Dictates the symbol used for the points - e.g., ````pch = 16```` gives a solid circle, ````pch = 15```` gives a solid square. Try out different numbers.
+````cex=```` | Dictates the size of the points, the larger cex value the larger the points. Try out different values.
+````xlab=```` | Dictates the x-axis label, takes a **character** string.
+````ylab=```` | Dictates the y-axis label, takes a **character** string.
+````las=```` | Rotates the y-axis or x-axis tick marks. Play around with it.
+````col=```` | The col function sets the color of the points. This will take either a [hexcode](http://www.color-hex.com/) as a character string, ````col="#010101"```` or a [named color](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) in R, ````col="red"````
+
+There are a great many other arguments that can be given to the ````plot( )```` function, but we will discuss those as we need them.
+
+Although this plot is prettier than what we had before, it would probably be better to have text names for the points, stating which point is which epoch (i.e., like in the ````plot.decorana```` method). To do this we can use the ````text( )```` function. Importantly, you cannot use ````text( )```` without making a ````plot( )```` first.
+
+````R
+# Create plot empty of points (but scaled to the data) by adding the type="n" argument.
+plot(x=PostCambrianSamples[,"RA1"],y=PostCambrianSamples[,"RA2"],pch=16,las=1,xlab="Gradient Axis 1",ylab="Gradient Axis 2",type="n")
+
+# The text( ) function takes [x,y] coordinates just like plot
+# You also give it a labels= defintion, which states what text you want shown at those coordinates
+# In this case, the rownames of the PostCambrianSamples matrix - i.e., the epoch names
+text(x=PostCambrianSamples[,"RA1"],y=PostCambrianSamples[,"RA2"],labels=dimnames(PostCambrianSamples)[[1]])
+
+# You can also give the text function many of the arguments that you give to plot( )
+# Like cex= to increase the size or col= to change the color
+text(x=PostCambrianSamples[,"RA1"],y=PostCambrianSamples[,"RA2"],labels=dimnames(PostCambrianSamples)[[1]],cex=1.5,col="dodgerblue3")
+````
+
+Coloring is a very powerful visual aid. We might want to subset the data into different groupings, and color those grouping differently to look for clusters in the ordination space. Let's try splitting the dataset into three parts: Cenozoic Epochs (1-66 mys ago), Mesozoic Epochs (66-252 mys), and the Paleozoic (252-541 mys), and plot each with a different color.
+
+````R
+# Create plot empty of points (but scaled to the data) by adding the type="n" argument.
+plot(x=PostCambrianSamples[,"RA1"],y=PostCambrianSamples[,"RA2"],pch=16,las=1,xlab="Gradient Axis 1",ylab="Gradient Axis 2",type="n")
+
+# Separate out the epochs
+Cenozoic<-PostCambrianSamples[c("Pleistocene","Pliocene","Miocene","Oligocene","Eocene","Paleocene"),]
+Mesozoic<-PostCambrianSamples[c("Late Cretaceous","Early Cretaceous","Late Jurassic","Early Jurassic","Late Triassic","Middle Triassic","Early Triassic"),]
+Paleozoic<-PostCambrianSamples[c("Lopingian","Guadalupian","Cisuralian","Pennsylvanian","Mississippian","Late Devonian","Middle Devonian","Early Devonian","Pridoli","Ludlow","Wenlock","Llandovery","Late Ordovician","Middle Ordovician","Early Ordovician"),]
+
+# Plot Cenozoic in gold
+text(x=Cenozoic[,"RA1"],y=Cenozoic[,"RA2"],labels=dimnames(Cenozoic)[[1]],col="gold")
+# Plot Mesozoic in blue
+text(x=Mesozoic[,"RA1"],y=Mesozoic[,"RA2"],labels=dimnames(Mesozoic)[[1]],col="blue")
+# Plot Paleozoic in dark green
+text(x=Paleozoic[,"RA1"],y=Paleozoic[,"RA2"],labels=dimnames(Paleozoic)[[1]],col="darkgreen")
+````
+
+Your final output should look like this.
+
+<a href="url"><img src="/Lab4Figures/Figure7.png" align="center" height="500" width="500" ></a>
+
+#### Step 4 (Analysis)
 
 There are a few things you should notice about the above graph. First, the first axis (i.e, the horizontal axis, the x-axis) of the ordination has ordered the samples in terms of their age. On the far right of the x-axis is the Ordovician (the oldest epoch) and on the far left is the Pleistocene (the youngest epoch). Therefore, we can infer that *time* is the primary gradient.
 
@@ -258,7 +315,9 @@ plot(PostCambrianNMDS,display="sites",type="n"
 
 # Use the text( ) function, to fill in our blank plot with the names of the samples
 # Importantly, text( ) will not work if there is not already an open plot,
-# hence why we needed to make the blank plot first.
+# hence why we needed to make the blank plot first. Notice that we did not define the coordinates for
+# text( ). This is because by giving the text( ) function an NMDS output, 
+# it knows to use the text.metaMDS method/template.
 text(PostCambrianNMDS,display="sites")
 ````
 
