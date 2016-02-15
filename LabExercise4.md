@@ -49,7 +49,7 @@ Let's turn our newly downloaded and cleaned PBDB data into a community matrix. A
 
 Here are a few things to remember about community matrices.
 
-1. Samples are sometimes called sites or quadrats, but those are sub-discipline specific terms that should be avoided. Stick with samples because it has a universally applicable.
+1. Samples are sometimes called sites or quadrats, but those are sub-discipline specific terms that should be avoided. Stick with samples because it is universally applicable.
 2. The columns do not have to be species per se. Columns could be other levels of the Linnean Hierarchy (e.g., genera, families) or some other ecological grouping (e.g., different habits, different morphologies).
 3. Since there is no such thing as a negative abundance, there should be no negative data in a Community Matrix.
 4. Sometimes we may not have abundance data, in which case we can substitute presence-absence data - i.e, is the taxon present or absent in the sample. This is usually represented with a 0 for absent and a 1 for present.
@@ -79,7 +79,7 @@ PresencePBDB<-cullMatrix(PresencePBDB,minOccurrences=5,minDiversity=24)
 
 ## Basic similarity indices
 
-Many ordination techniques are based (either operationally or theoreticall) on the use of **similarity indices**. Such indices generally range from 0 to 1. In a **similarity index**, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity.
+Many ordination techniques are based (either operationally or theoretically) on the use of **similarity indices**. Such indices generally range from 0 to 1. In a **similarity index**, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity.
 
 #### Problem Set II
 
@@ -88,13 +88,13 @@ The Jaccard index is the simplest Similarity index. It is the intersection of tw
 1) Using your own custom R code, find the Jaccard similarity of the Pleistocene and Miocene "samples" in your PresencePBDB matrix. It is possible to code this entirely using only functions discussed in the [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md), but here are some additional functions that *may* be helpful.
 
 ````R
-# The match function
+# The match( ) function
 VectorA<-c("Bob","John","Jane")
 VectorB<-c("Frank","Bob","Tim","Susan","John","Jose")
 match(VectorA,VectorB)
 [1]  2  5 NA
 
-# The unique function
+# The unique( ) function
 VectorC<-c("Bob","Bob","Tim","Tim","Tim","Susan")
 unique(VectorC)
 [1] "Bob"   "Tim"   "Susan"
@@ -108,9 +108,9 @@ unique(VectorC)
 
 ## Polar Ordination
 
-Polar ordination is the simplest form of ordination, and was originally invented here at the University of Wisconsin in the late 50s. In polar ordination you define two "poles" of the gradient - i.e., the two samples that you think are the most dissimilar. You think order the samples into a gradient based on how similar they are to each "pole". 
+Polar ordination is the simplest form of ordination, and was originally invented here at the University of Wisconsin in the late 50s. In polar ordination you define two "poles" of the gradient - i.e., the two samples that you think are the most dissimilar. You then order the samples into a gradient based on how similar they are to each "pole". 
 
-The definition of the poles can be based on the calculation of a simlarity index (e.g., Jaccard) or could be two samples you hypothesize are at the ends of a gradient. Both approaches are fairly crude, so this method of ordination has largely been abandoned. As far as I know, there are no longer any functions in R for calculating polar ordination.
+The definition of the poles can be based on the calculation of a simlarity index (e.g., Jaccard) or could be two samples you hypothesize are at the ends of a gradient. Both approaches are fairly crude, so this method of ordination has largely been abandoned. As far as I know, there are no longer any working functions in R for calculating polar ordination.
 
 #### Problem Set III
 
@@ -126,13 +126,13 @@ The definition of the poles can be based on the calculation of a simlarity index
 
 ## Correspondence Analysis
 
-The next form of ordination is known as corresponence analysis, also known as reciprocal averaging. There are three primary varietys of correspondence analysis: correspondence analysis, detrended correspondence analysis, and canonical (constrained) correspondence analysis. 
+The next form of ordination is known as corresponence analysis, also known as reciprocal averaging (like we discussed in [lecture](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/CommonDistributions02102016.pdf)). There are three primary varietys of correspondence analysis: correspondence analysis, detrended correspondence analysis, and canonical (constrained) correspondence analysis. 
 
 Since we already explained the basics of reciprocal averaging in class, I will not go into further detail on the underlying theory behind correspondence analysis. Instead, let us examine the difference between correspondence analysis and detrended correspondence analysis.
 
 #### Step 1
 
-Identify which epochs of ````PresencePBDB```` belong to the Cambrian Period. Make a new copy of ````PresencePBDB```` named ````PostCambrian````, which does not include any Cambrian epochs. You also need to use ````cullMatrix( )```` again, this time set minDiversty=2 and minOccurrences=2.
+Identify which epochs of ````PresencePBDB```` belong to the Cambrian Period. Make a new copy of ````PresencePBDB```` named ````PostCambrian````, which does not include any Cambrian epochs. You also need to use ````cullMatrix( )```` on ````PostCambrian```` after you have subset the matrix, this time set minDiversty=2 and minOccurrences=2.
 
 #### Step 2
 
@@ -162,8 +162,12 @@ Glabrocingulum 4.270209 -3.789545 -1.794858 1.37530975
 Palaeostylus   5.322415 -3.151507 -2.536464 0.60251234
 Meekospira     5.322415 -3.151507 -2.536464 0.60251234
 
-# You can do the same thing for sample scores as well.
-PostCambrianSamples<-scores(PostCambrianDCA,display="sites")
+
+# You can manually plot the scores as well. You simply need to define the
+# x variable and the y variable
+plot(x=PostCambrianSpecies[,"RA1"],y=PostCambrianSpecies[,"RA1"
+
+
 ````
 
 Your final product should look like this.
