@@ -25,7 +25,7 @@ source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/c
 
 #### Step 2:
 
-Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function. Next use the ````cleanGenus( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
+Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function, this function is part of the [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package that you loaded in during Step 1. Next use the ````cleanGenus( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
 
 ````R
 # Download data from the Paleobiology Database
@@ -83,22 +83,9 @@ Many ordination techniques are based (either operationally or theoretically) on 
 
 #### Problem Set II
 
-The Jaccard index is the simplest Similarity index. It is the intersection of two samples divided by the union of two samples. In other words, the number of genera shared between two samples, divided by the total number of (unique) genera in both samples. 
+The Jaccard index is the simplest Similarity index. It is the intersection of two samples divided by the union of two samples. In other words, the number of genera shared between two samples, divided by the total number of (unique) genera in both samples. Or put even another way, it is the percentage of genera shared between two samples. 
 
-1) Using your own custom R code, find the Jaccard similarity of the Pleistocene and Miocene "samples" in your PresencePBDB matrix. It is possible to code this entirely using only functions discussed in the [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md), but here are some additional functions that *may* be helpful.
-
-````R
-# The match( ) function
-VectorA<-c("Bob","John","Jane")
-VectorB<-c("Frank","Bob","Tim","Susan","John","Jose")
-match(VectorA,VectorB)
-[1]  2  5 NA
-
-# The unique( ) function
-VectorC<-c("Bob","Bob","Tim","Tim","Tim","Susan")
-unique(VectorC)
-[1] "Bob"   "Tim"   "Susan"
-````
+1) Using your own custom R code, find the Jaccard similarity of the Pleistocene and Miocene "samples" in your PresencePBDB matrix. It is possible to code this entirely using only functions discussed in the [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md). The key is to use ````apply( )````, ````sum( )````, ````table( )````, and judicious use of matrix subscriptng.
 
 2) How can you convert your similarity index into a **distance**?
 
