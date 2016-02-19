@@ -326,7 +326,7 @@ Of the ordination methods covered here, I recommend sticking with DCA. It is fai
 
 2) Clean up the poorly resolved genus names. What function/code did you use?
 
-3) Turn your object ````Ordovician```` into a community matrix of samples by genera, where the samples are different geoplate codes. Geoplate codes denote different ancient paleocontinents - i.e., your community matrix will list which genera were present in which ancient paleocontinent. Cull this matrix so that each sample has a minimum of 25 taxa and each taxon occurs in at least two samples. Show your code.
+3) Turn your object ````Ordovician```` into a community matrix of samples by genera, where the samples are different ````geoplate```` codes. Geoplate codes denote different ancient paleocontinents - i.e., your community matrix will list which genera were present in which ancient paleocontinent. Cull this matrix so that each sample has a minimum of 25 taxa and each taxon occurs in at least two samples. Show your code.
 
 4) Perform a DCA on your new community matrix. Analyze your new DCA with a plot. Do you think that the orientation of samples along either axis 1 or axis 2 is related to the average latitude or longitude of each plate in question? Explain how you figured this out. Show your code.
 
