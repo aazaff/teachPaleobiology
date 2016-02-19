@@ -121,7 +121,7 @@ Since we already explained the basics of reciprocal averaging in class, I will n
 
 #### Step 1 (Loading and Cleaning Data)
 
-Identify which epochs of ````PresencePBDB```` belong to the Cambrian Period. Make a new copy of ````PresencePBDB```` named ````PostCambrian````, which does not include any Cambrian epochs. You also need to use ````cullMatrix( )```` on ````PostCambrian```` after you have subset the matrix, this time set minDiversty=2 and minOccurrences=2.
+Rename ````PresencePBDB```` as ````PostCambrian````.
 
 #### Step 2 (Initial Correspondence Analysis)
 
