@@ -114,7 +114,7 @@ The next step we need to do is a **principle components analysis** (PCA) on the 
 
 Because it can be used for a variety of purposes, not just morphometrics, there are several packages and functions for running a PCA in R. However, we will stick with the function built into the geomorph package, ````plotTangentSpace( )````.
 
-````
+````R
 # plotTangentSpace both runs the PCA & plots it simultaneously. Other packages
 # that we will use later in the semester will not do both of these things simulateneously
 # so don't get confused. We are also going to turn of the warpgrids and verbose features,
