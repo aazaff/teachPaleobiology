@@ -57,7 +57,7 @@ Here are a few things to remember about community matrices.
 Let's convert our PBDB dataset into a presence-absence dataset using the ````presenceMatrix( )```` function fo the PBDB package. This function requires that you define which column will count as samples. For now, let's use ````"early_interval"```` (i.e., geologic age) as the separator.
 
 ````R
-# Create a PBDB collections by Taxa matrix
+# Create a PBDB occurrences by taxa matrix
 # This may take a couple of minutes
 PresencePBDB<-presenceMatrix(DataPBDB,SampleDefinition="early_interval")
 
