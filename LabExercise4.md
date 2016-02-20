@@ -1,6 +1,6 @@
 # Lab Exercise 4
 
-Modelling ecological niches using multivariate data analyses.
+Modelling ecological gradients using multivariate data analyses.
 
 ## Basic Concepts
 
