@@ -119,10 +119,37 @@ InOrder
 
 This next step will use a **correlation coefficient** to determine whether changes in bivalve biodiversity are related to changes in brachiopod biodiversity. 
 
-At its heart, correlation asks whether two sets of **continuous data** co-vary. Co-variance means that when values fluctuate in one dataset they also fluctuate in the other data set.  Correlation is measurement of how strong covariance is. Most correlation metrics (all of the ones we will use today) ranges from -1 to 1. A value of -1 means that data is **negatively** correlated, such that when values go *up* in the first dataset, they go *down* in the second dataset. In other words, that the two datasets show the opposite behavior. A correlation value of 1 indicates that the data is **positively correlated**, meaning both datasets show the same behavior. A correlation value of 0 means that they show no relationship. Importantly, every data point in your first dataset (x) must be matched with a point in the second dataset (y). If the x coordinates and y coordinates are of unequal length, then you cannot perform a correlation.
+At its heart, correlation asks whether two sets of **continuous data** co-vary. Co-variance means that when values fluctuate in one dataset they also fluctuate in the other data set.  Correlation is measurement of how strong covariance is. Most correlation metrics (all of the ones we will use today) ranges from -1 to 1. A value of -1 means that data is **negatively** correlated, such that when values go *up* in the first dataset, they go *down* in the second dataset. In other words, that the two datasets show the opposite behavior. A correlation value of 1 indicates that the data is **positively correlated**, meaning both datasets show the same behavior. A correlation value of 0 means that they show no relationship. 
 
-For a more fundamental breakdown of the math behind correlation, you can consult this tutorial by [Steven M. Holland](http://strata.uga.edu/6370/lecturenotes/correlation.html).
+You can use the ````cor(x, y)``` function to find the correlation coefficient. Importantly, every data point in your first dataset (x) must be matched with a point in the second dataset (y). If the x coordinates and y coordinates are of unequal length, then you cannot perform a correlation.
 
-## Step 1
+````R
+# Correlation example for two vectors that are positive correlated
+# Both vectors go up by 1 in each step
+Vector1<-c(1,2,3,4,5,6,7,8,9,10)
+Vector2<-c(11,12,13,14,15,16,17,18,19,20)
+cor(Vector1,Vector2)
+[1] 1
 
-1) Now that you have these two vectors of richness values. Let us see if they are correlated. You can use 
+# Correlation example for two vectors that are negatively correlated
+Vector1<-c(1,2,3,4,5,6,7,8,9,10)
+Vector2<-c(20,19,18,17,16,15,14,13,12,11)
+cor(Vector1,Vector2)
+[1] -1
+
+# Correlation example for two vectors that are weakly correlated
+Vector1<-c(1,2,3,4,5,6,7,8,9,10)
+Vector2<-c(20,5,18,4,16,6,14,8,20,10)
+cor(Vector1,Vector2)
+[1] -0.04395502
+````
+
+For a more fundamental breakdown of the math behind correlation, you can consult this tutorial by [Steven M. Holland](http://strata.uga.edu/6370/lecturenotes/correlation.html). I recommend this if you find my explanation of correlation too confusing. 
+
+#### Problem Set 3
+
+Now that you have the two vectors of richness values. Let us see if they are correlated. You can use the ````cor( )``` function to find the correlation coefficient.
+
+1) Is brachiopod richness correlated with bivalve richness? Show your code?
+
+2) 
