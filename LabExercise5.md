@@ -80,6 +80,8 @@ You may not use ````vegan( )```` for this subsection.
 
 6) What is the percent change in Shannon's Entropy between the Late Cretaceous and the Paleocene? Can you think of any major events that happened between the Late Cretaceous and Paleocene that might be relevant to biodiversity? [Hint: Use google if you don't know.] Is this reflected in this index?
 
+7) What if you use the ````exp( )```` function to exponentiate the Shannon's Entropies you calculated in questions 4,5, and 6 (i.e., *e*^Shannon's Entropy)? What percent of diversity is gained/lost? Does this better reflect the change between the Late Cretaceous and Paleocene? Why or why not? 
+
 #### Problem Set 2
 
 Install (if you have not already) and load the vegan package into R. Read the help file for the ````diversity( )```` function - ````?diversity```` or ````help(diversity)````. You must have already loaded the vegan package in order for it to run.
@@ -153,6 +155,8 @@ Now that you have the two vectors of richness values. Let us see if they are cor
 1) Is brachiopod richness **positively**, **negatively**, or un-correlated with bivalve richness? Show your code?
 
 2) Is brachiopod biodiversity **positively**, **negatively**, or un-correlated with bivalve biodiversity when using the Gini-Simpson index? Show your code?
+
+3) Looking just at changes in brachiopod richness through time, when did the greatest drop in brachiopod richness occur (i.e., between what two consecutive epochs)? 
 
 ## Sampling standardization
 
