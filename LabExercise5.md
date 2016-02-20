@@ -94,11 +94,11 @@ Install (if you have not already) and load the vegan package into R. Read the he
 
 ## Comparing Bivalves and Brachiopods
 
-## Step 1
+#### Step 1
 
 Calculate the richness (however you choose) of bivalves in each epoch. Calculate the richness (however you choose) of brachiopods in each epoch. Ideally, these richness values should be expressed as **vectors** or as **1-dimensional arrays**.
 
-## Step 2
+#### Step 2
 
 Put these richness values in temporal order. There are many ways to do this. Here is one way to reorder numbers.
 
