@@ -150,6 +150,49 @@ For a more fundamental breakdown of the math behind correlation, you can consult
 
 Now that you have the two vectors of richness values. Let us see if they are correlated. You can use the ````cor( )``` function to find the correlation coefficient.
 
-1) Is brachiopod richness correlated with bivalve richness? Show your code?
+1) Is brachiopod richness **positively**, **negatively**, or un-correlated with bivalve richness? Show your code?
 
-2) 
+2) Is brachiopod biodiversity **positively**, **negatively**, or un-correlated with bivalve biodiversity when using the Gini-Simpson index? Show your code?
+
+## Sampling standardization
+
+Remember that richness can be an innaccurate measure of biodiversity because of the species-area effect (i.e., variable sampling intensity). We can correct for this by standardizing richness.
+
+#### Step 1
+
+Open R and load in the following modules of the beta version of the University of Wisconsion's [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package using the ````source( )```` function.
+
+````R
+source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/subsampleRichness.R")
+````
+
+#### Step 2
+
+Use the ````subsampleIndividuals( )```` function included in this module to find the subsampled diversity of each epoch. Standardizing your data to a set sample size (logically) requires you to pick a fixed sample size to standardize to. This number is usually the size of your smallest sample. Therefore we must find (1) find the samples with the smallest abundance and (2) use the ````subsampleIndividuals( )```` function.
+
+````R
+# Find the sample of the BivalveAbundance community matrix with the least total abundance
+SampleAbundances<-apply(BivalveAbundance,1,sum)
+SampleAbundances[which(SampleAbundances==min(SampleAbundances))]
+Early Ordovician 
+             124
+
+# Subsample each interval down to 124 observed individuals to find the standardized richness
+StandardizedRichness<-apply(BivalveAbundance,1,subsampleIndividuals,Quota=124)
+
+# View the first 6 results
+# Note, your numbers will be slightly different since subsampling is random.
+StandardizedRichness[1:6]
+Pennsylvanian Middle Ordovician   Late Ordovician        Llandovery           Wenlock            Ludlow 
+        44.09             37.33             41.90             37.50             45.86             43.03 
+````
+
+#### Problem Set 4
+
+1) Repeat the above steps, but for the ````BrachiopodAbundance```` community matrix. What is the standardized richness you got for brachiopods. Show your code.
+
+2) How does the standardized brachiopod richness (previous question) compare to the unstandardized brachiopod richness from Problem Set 3? Show your code. Explain your reasoning. [Hint: Don't forget to put your biodiversities in temporal order]
+
+3) Make a scatter plot of standardized brachiopod richness versus standardized bivalve richness. Make a second scatter plot of unstandardized brachiopod richness versus unstandardized bivalve richness. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail.
+
+4) Do you believe that there is any evidence in these analyses to support the idea that bivalves outcompeted brachiopods over time? Explain your reasoning.
