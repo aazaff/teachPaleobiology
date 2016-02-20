@@ -2,7 +2,7 @@
 
 Measuring biodiversity, evenness, extinction, and origination rates.
 
-## Calculating Basic Diveristy Indices
+## Calculating basic ecoinformatics
 
 #### Step 1
 
