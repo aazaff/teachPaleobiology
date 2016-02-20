@@ -322,7 +322,7 @@ Of the ordination methods covered here, I recommend sticking with DCA. It is fai
 
 #### Problem Set IV
 
-1) Download a dataset from the paleobioogy database of all Ordovician aged animals into R, and name the object ````Ordovician````. This may take a few minutes.  What R code did you use?
+1) Download a dataset from the paleobioogy database of all Ordovician aged animals (i.e., animalia) into R, and name the object ````Ordovician````. This may take a few minutes.  What R code did you use?
 
 2) Clean up the poorly resolved genus names. What function/code did you use?
 
