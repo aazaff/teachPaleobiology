@@ -150,8 +150,6 @@ For a more fundamental breakdown of the math behind correlation, you can consult
 
 #### Problem Set 3
 
-Now that you have the two vectors of richness values. Let us see if they are correlated. You can use the ````cor( )```` function to find the correlation coefficient.
-
 1) Is brachiopod richness **positively**, **negatively**, or un-correlated with bivalve richness? Show your code?
 
 2) Is brachiopod biodiversity **positively**, **negatively**, or un-correlated with bivalve biodiversity when using the Gini-Simpson index? Show your code?
