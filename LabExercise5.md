@@ -162,7 +162,7 @@ Remember that richness can be an innaccurate measure of biodiversity because of 
 
 #### Step 1
 
-Open R and load int the following function.
+Open R and load in the following function.
 
 ````R
 # A function for resampling by a fixed number of individuals
