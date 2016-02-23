@@ -162,10 +162,24 @@ Remember that richness can be an innaccurate measure of biodiversity because of 
 
 #### Step 1
 
-Open R and load in the following modules of the beta version of the University of Wisconsion's [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package using the ````source( )```` function.
+Open R and load int the following function.
 
 ````R
-source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/subsampleRichness.R")
+# A function for resampling by a fixed number of individuals
+subsampleIndividuals<-function(Abundance,Quota,Trials=100) {
+	  Richness<-vector("numeric",length=Trials)
+	  Abundance<-Abundance[Abundance>0]
+	  Pool<-rep(1:length(Abundance),times=Abundance)
+	  if (sum(Abundance) < Quota) {
+		    print("Fewer Individuals than Quota")
+		    return(length(unique(Pool)))
+		    }
+	  for (i in 1:Trials) {
+		    Subsample<-sample(Pool,Quota,replace=FALSE)
+		    Richness[i]<-length(unique(Subsample))
+		    }
+	  return(mean(Richness))
+	  }
 ````
 
 #### Step 2
