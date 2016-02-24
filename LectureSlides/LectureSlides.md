@@ -11,4 +11,4 @@ Lecture | Topic
 02-15-2016 | [Determinants of Extinction](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/ExtinctionRisk02152016.pdf)
 02-17-2016 | [Biodiveristy Metrics](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/Biodiversity02172016.pdf)
 02-22-2016 | [RWorkflow Review](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/RWorkflow.pdf)
-02-24-2016 | [Fossils](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/Fossils02242016.pdf)
+02-24-2016 | [Fossils and Fossilization](https://github.com/aazaff/teachPaleobiology/blob/master/LectureSlides/Fossils02242016.pdf)
