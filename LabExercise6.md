@@ -100,6 +100,6 @@ percentRare<-function(CandidateUnit,RareGenera) {
 PercentShared<-apply(CandidateMatrix,1,percentRare,RareGenera)
 ````
 
-2) Based on the output of ````PercentShared```` and your answer to [Problem Set 1 - Question 1](#problem-set-1) - i.e., the ranking of candidate units based on the number of orders represented, which four units do you think are most likely to qualify as Lagerstätten? Explain your reasoning. 
+2) Based on the output of ````PercentShared```` and your answer to [Problem Set 2 - Question 1](#problem-set-2) - i.e., the ranking of candidate units based on the number of orders represented, which four units do you think are most likely to qualify as Lagerstätten? Explain your reasoning. 
 
 3) Look closer into the into the four units you chose - using Google and information in the Paleobiology Database. One of these should be a very famous Lagerstätten. Which one? What is famous about it? What is its significant to Paleobiology?
