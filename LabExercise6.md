@@ -23,7 +23,7 @@ source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/c
 
 #### Step 2:
 
-Download a dataset of Plants and Animals from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function
+Download a global dataset of Plants and Animals from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function
 
 ````R
 # Download data from the Paleobiology Database
