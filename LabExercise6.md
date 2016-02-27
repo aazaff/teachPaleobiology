@@ -51,7 +51,7 @@ MacroPBDB<-macrostratMatch(DataPBDB)
 
 #### Step 4:
 
-We are going to convert our new database into several abundance matrices using the ````presenceMatrix( )```` function, where the stratigraphic units ````unit_name```` are the rows. In one version, ````GenusMatrix````, the genera will be the columns. In the second version, ````OrderMatrix````, the orders will be the columns.
+We are going to convert our new database into several community matrices using the ````presenceMatrix( )```` function from Lab 4 and Lab 5, where the stratigraphic units ````unit_name```` are the rows. In one version, ````GenusMatrix````, the genera will be the columns. In the second version, ````OrderMatrix````, the orders will be the columns.
 
 ````R
 # Stratigraphic units by genera
