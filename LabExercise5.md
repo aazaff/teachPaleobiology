@@ -84,7 +84,7 @@ You may not use ````vegan( )```` for this subsection.
 
 #### Problem Set 2
 
-Install (if you have not already) and load the vegan package into R. Read the help file for the ````diversity( )```` function - ````?diversity```` or ````help(diversity)````. You must have already loaded the vegan package in order for it to run.
+Install (if you have not already) and load the ````vegan```` package into R. Read the help file for the ````diversity( )```` function - ````?diversity```` or ````help(diversity)````. You must have already loaded the vegan package in order for it to run. If you do not remember, we used ````vegan```` in the [Ordination lab](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise4.md).
 
 1) Use the ````specnumber( )```` function (also from the ````vegan```` package) to find Bivalve richness in the Miocene. What code did you use to find out?
 
@@ -102,7 +102,7 @@ Calculate the richness (however you choose) of bivalves in each epoch. Calculate
 
 #### Step 2
 
-Put these richness values in temporal order. There are many ways to do this. Here is one way to reorder numbers.
+Put these richness values in temporal order. There are many ways to do this. Here is one way to reorder numbers - i.e., by manually subscirpting the data in order.
 
 ````R
 # A hypothetic example
