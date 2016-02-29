@@ -47,9 +47,9 @@ Bivalves<-DataPBDB[which(DataPBDB[,"class"]=="Bivalvia"),]
 If you are a bit tired of using ````which( )````, you could alternatively use the ````subset( )```` function, which is just a *slighty* more convenient version of the which syntax above.
 
 ````R
-# Create a Brachiopod matrix using the which function
+# Create a Brachiopod matrix using the subset function
 Brachiopods<-subset(DataPBDB,DataPBDB[,"phylum"]=="Brachiopoda")
-# Create a Bivalve matrix using the which function
+# Create a Bivalve matrix using the subset function
 Bivalves<-subset(DataPBDB,DataPBDB[,"class"]=="Bivalvia")
 ````
 
