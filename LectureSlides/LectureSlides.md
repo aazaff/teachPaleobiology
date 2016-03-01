@@ -12,4 +12,4 @@ Lecture | Topic
 02-17-2016 | [Biodiveristy Metrics](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Biodiversity02172016.pdf)
 02-22-2016 | [RWorkflow Review](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/RWorkflow.pdf)
 02-24-2016 | [Fossils and Fossilization](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Fossils02242016.pdf)
-02-29-2016 | [Taphonomy](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Fossils02292016.pdf)
+02-29-2016 | [Taphonomy](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Taphonomy02292016.pdf)
