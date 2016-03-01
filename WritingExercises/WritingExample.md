@@ -21,7 +21,7 @@ The total length of the document should be a minimum of one single-spaced page a
 **Chris Maxwell**
 
 **[Abundance Not Linked to Survival across the End-Cretaceous Mass Extinction: Patterns in North American Bivalves
-by Rowan Lockwood (2003)](https://github.com/aazaff/teachPaleobiology/blob/master/WritingExercises/Lockwood%202003.pdf)**
+by Rowan Lockwood (2003)](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/Lockwood%202003.pdf)**
 
 #### Article Summary
 
