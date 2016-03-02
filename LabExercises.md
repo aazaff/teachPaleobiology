@@ -12,6 +12,6 @@ Lab | Calendar | Instructions
 [Lab8](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise8.md) | March 14 | Inferring "missing" biodiversity.
 [Lab9](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise9.md) | March 28 | Using PaleoDeepDive to find dark data.
 [Lab10](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/ProposalInformation.md) | April 04 | Peer Review Grant Proposals
-[Lab11](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/LabExercise11.md) | April 06 | Diversity partitioning across mass extinction events.
-[Lab12](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise12.md) | April 11 | The Triassic and Jurassic stratigraphy of North America.
-[Lab13](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise13.md) | April 25 | Inferring the positions of ancient paleocontinents.
+[Lab11](https://github.com/aazaff/teachPaleobiology/blob/master/GSAProposals/LabExercise11.md) | April11 | Diversity partitioning across mass extinction events.
+[Lab12](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise12.md) | April 25 | The Triassic and Jurassic stratigraphy of North America.
+[Lab13](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise13.md) | May 02 | Inferring the positions of ancient paleocontinents.
