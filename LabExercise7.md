@@ -33,8 +33,8 @@ There are four columns in ````DataPBDB```` relevant to the age of an organism: `
 
 1) What do the max_ma and min_ma columns represent? If you do not intuitively know, you can always check the [Paleobiology Database API documentation](https://paleobiodb.org/data1.2/occs/list_doc.html).
 
-2) What is oldest age of each genus? [[Hint](https://github.com/aazaff/startLearn.R/blob/master/intermediateConcepts.md#L244-255): Use the ````tapply(  )```` and ````max(  )```` functions we've used in previous labs]. Show the code you would use to find out.
+2) What is oldest age of each genus? [[Hint](https://github.com/aazaff/startLearn.R/blob/master/intermediateConcepts.md#L244): Use the ````tapply(  )```` and ````max(  )```` functions we've used in previous labs]. Show the code you would use to find out.
 
-3) What is the youngest age of each genus? [[Hint](https://github.com/aazaff/startLearn.R/blob/master/intermediateConcepts.md#L244-255): Use the ````tapply(  )```` and ````max(  )```` functions we've used in previous labs]. Show the code you would use to find out.
+3) What is the youngest age of each genus? [[Hint](https://github.com/aazaff/startLearn.R/blob/master/intermediateConcepts.md#L244): Use the ````tapply(  )```` and ````max(  )```` functions we've used in previous labs]. Show the code you would use to find out.
 
 4) We probably 
