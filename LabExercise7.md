@@ -175,4 +175,20 @@ Let's take a list of bivalve genera that we know to be extant today, but are ext
 
 ````R
 # Load in a csv of extant bivalves
-ExtantBivalves<-read.csv("ExtantBiavlves"
+ExtantBivalves<-read.csv("https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab7Figures/ExtantBivalves.csv",row.names=1,header=TRUE)
+
+# Subset DataPBDB to find only occurrences of ExtantBivalves
+ExtantData<-subset(DataPBDB,DataPBDB[,"genus"]%in%ExtantBivalves[,"Extant"]==TRUE)
+````
+
+#### Problem Set 5
+
+1) How many occurrences are in ````DataPBDB````. How many are in ````ExtantData````? How many occurrences were lost by limiting our anaysis to only extant bivalves?
+
+2) How many ````unique(  )```` genera were in ````DataPBDB```` and ````ExtantData````, respectively. Using this information, what percentage of Cenozoic bivalves in the PBDB are still extant today.
+
+3) Find the stratigraphic range of fossil occurrences for each genus in the ````ExtantData```` dataset. If you do not remember how to do this, revisit [Problem Set 1](#problem-set-1) of this lab.
+
+4) Using your answer to question 3, find which genera in ````ExtantData```` are not extant according to the PBDB - i.e., do not have a minimum min_age of zero. Show your code.
+
+5) Calculate stratigraphic confidence intervals for the following genera (careful with your spelling!): *Scorbicularia*, *Meiocardia*, *Dimya*, *Digitaria*, *Cuspidaria*, *Arctica*, *Aloides*, and *Acrosterigma*. Show your code. What percentage of these taxa have confidence intervals indicating an extinction date <0?
