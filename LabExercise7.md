@@ -195,4 +195,4 @@ ExtantData<-subset(DataPBDB,DataPBDB[,"genus"]%in%ExtantBivalves[,"Extant"]==TRU
 
 4) Using your answer to question 3, find which genera in ````ExtantData```` are not extant according to the PBDB - i.e., do not have a minimum min_age of zero. Show your code.
 
-5) Calculate stratigraphic confidence intervals for the following genera (careful with your spelling!): *Scorbicularia*, *Meiocardia*, *Dimya*, *Digitaria*, *Cuspidaria*, *Arctica*, *Aloides*, *Kurtiella*, *Gouldia*, and *Acrosterigma*. Show your code. What percentage of these taxa have confidence intervals indicating that the taxon might still be extant?
+5) Calculate the confidence interval for the extinction of the following genera (careful with your spelling!): *Scrobicularia*, *Meiocardia*, *Dimya*, *Digitaria*, *Cuspidaria*, *Arctica*, *Aloides*, *Kurtiella*, *Gouldia*, and *Acrosterigma*. Show your code. What percentage of these taxa have confidence intervals indicating that the taxon might still be extant?
