@@ -135,7 +135,7 @@ estimateExtinction <- function(OccurrenceAges, ConfidenceLevel=.95)  {
   Alpha<-((1-ConfidenceLevel)^(-1/NumOccurrences))-1
   Lower<-min(OccurrenceAges)
   Upper<-min(OccurrenceAges)-(Alpha*10)
-  return(setnames(c(Lower,Upper),c("Earliest","Latest")))
+  return(setNames(c(Lower,Upper),c("Earliest","Latest")))
   }
 ````
 
