@@ -37,7 +37,7 @@ There are four columns in ````DataPBDB```` relevant to the age of an organism: `
 
 2) What is oldest age of each genus? [[Hint](https://github.com/aazaff/startLearn.R/blob/master/intermediateConcepts.md#direct-subsetting-with-functionals): Use the ````tapply(  )```` and ````max(  )```` functions we've used in previous labs]. Show the code you would use to find out.
 
-3) What is the youngest age of each genus? [[Hint](https://github.com/aazaff/startLearn.R/blob/master/intermediateConcepts.md#direct-subsetting-with-functionals): Use the ````tapply(  )```` and ````max(  )```` functions we've used in previous labs]. Show the code you would use to find out.
+3) What is the youngest age of each genus? [[Hint](https://github.com/aazaff/startLearn.R/blob/master/intermediateConcepts.md#direct-subsetting-with-functionals): Use the ````tapply(  )```` and ````min(  )```` functions we've used in previous labs]. Show the code you would use to find out.
 
 4) Find which genus has the most occurrences in the dataset [Hint: Use the ````table( )```` function!]. What code did you use?
 
