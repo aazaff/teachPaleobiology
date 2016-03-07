@@ -45,7 +45,7 @@ There are four columns in ````DataPBDB```` relevant to the age of an organism: `
 
 In statistics we like to measure uncertainty. We often do this with something called a confidence interval. Google defines a confidence interval as, "a range of values so defined that there is a specified probability that the value of a parameter lies within it." In other words, a 95% confidence interval ranging from 0-10, means that there is a 95% probability that the true value of the parameter we are measuring lies somewhere between 0 and 10.
 
-This definition and interpretation of confidence intervals has received extensive criticism in recent years. The criticism stems, partly, from a broader debate between two different statistical philosophies. Quite frankly, this debate has as much to do with semantics and polemics as it does with underlying mathematics. Because this is not a proper statistics course we will not dive into this debate, but I want to you to be aware that if you continue on as a statistician, you will likely encounter many statisticians with a deep disapproval of the definition given above. Nevertheless, it is the one we will use moving forward for this lab exercise.
+This definition/interpretation of confidence intervals has received extensive criticism in recent years. The criticism stems, partly, from a broader debate between two different statistical philosophies. Quite frankly, the debate has as much to do with semantics as it does with underlying mathematics. Because this is not a proper statistics course we will not dive into this debate, but I want you to be aware that many (probably most at this point) statisticians have a deep disapproval of the definition given above. Nevertheless, it is the one we will use moving forward for this lab exercise.
 
 ##### Step 1
 
@@ -79,7 +79,7 @@ Notice that we got a lower mean, 22.84237, this time compared to our original me
 
 ##### Step 3
 
-Now, remember the [Law of Large Numbers](https://github.com/aazaff/startLearn.R/blob/master/expertConcepts.md#the-law-of-large-numbers)? We need to repeat this process many times to converge on a long term solution. For that we'll need to use a ````for(  )```` loop.
+Now, remember the [Law of Large Numbers](https://github.com/aazaff/startLearn.R/blob/master/expertConcepts.md#the-law-of-large-numbers). We need to repeat this process many times to converge on a long term solution. For that we'll need to use a ````for(  )```` loop.
 
 ````R
 # Create a vector from 1 to 1,000, this is how many times we will repeat the resampling procedure
@@ -113,7 +113,9 @@ mean(sample(Lucina[,"paleolng"],length(Lucina[,"paleolng"]),replace=TRUE))
 
 4) Sort ````ResampledMeans```` from lowest to highest. [Hint: We learned how to sort a vector in [Lab 6](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise6.md#problem-set-2)].
 
-5) Now that you have sorted ````ResampledMeans````, what is the 2.5th percentile of ResampledMeans and what is the 97.5th percentile of Resampled means. If you do not know what a percentile is, and how to calculate it, you can use google. Show your code. These numbers are the lower and upper confidence interval of the distribution.
+5) Now that you have sorted ````ResampledMeans````, what is the 2.5th percentile of ResampledMeans and what is the 97.5th percentile of Resampled means. If you do not know what a percentile is, or how to calculate it, you can use google. Show your code. 
+
+6) Incidentally, these numbers (your answer to question 5) are the lower and upper confidence interval of the mean! Qualitatively explain why this is the case.
 
 ## Confidence intervals of stratigraphic ranges
 
@@ -137,7 +139,7 @@ estimateExtinction <- function(OccurrenceAges, ConfidenceLevel=.95)  {
 
 #### Step 1
 
-Let's find the extinction estimate extinction date for the genus *Lucina* using the ````estimateExtinction( )```` function.
+Let's find the estimated extinction date for the genus *Lucina* using the ````estimateExtinction( )```` function.
 
 ````R
 estimateExtinction(Lucina[,"min_ma"],0.95)
@@ -147,9 +149,9 @@ estimateExtinction(Lucina[,"min_ma"],0.95)
 
 #### Problem Set 3
 
-1) Based on the confidence intervals given above, do you think it likely, or unlikely that *Lucina* is still alive?
+1) Based on the confidence intervals given above, do you think it likely or unlikely that *Lucina* is still alive?
 
-2) Find the extinction confidence interval for the genus *Dallarca*.
+2) Find the extinction confidence interval for the genus *Dallarca*. Show your code.
 
 3) A pure reading of the fossil record says that *Dallarca* went extinct at the end of the Pliocene Epoch. Based on its confidence interval, do you think it is possible that *Dallarca* is still extant (alive)?
 
