@@ -1,10 +1,12 @@
 ## Introduction
 
-Calculating stratigraphic ranges
+Calculating confidence intervals for the stratigraphic ranges of taxa.
 
 ## Basic Concepts
 
 The easiest way to calculate the stratigraphic range of a fossil is to find the age of its oldest occurrence (sometimes called *First Occurrence*, **FO**) and its youngest occurrence (sometimes called *Last Occurrence*, **LO**).
+
+Today we are going to exclusively focus on calculating confidence intervals for last occurrences (time of extinction), but the principles are the same for calculating confidence intervals on origination rates.
 
 #### Step 1
 
@@ -45,7 +47,7 @@ There are four columns in ````DataPBDB```` relevant to the age of an organism: `
 
 In statistics we like to measure uncertainty. We often do this with something called a confidence interval. Google defines a confidence interval as, "a range of values so defined that there is a specified probability that the value of a parameter lies within it." In other words, a 95% confidence interval ranging from 0-10, means that there is a 95% probability that the true value of the parameter we are measuring lies somewhere between 0 and 10.
 
-This definition/interpretation of confidence intervals has received extensive criticism in recent years, though you may still see it presented in some textbooks that way. The criticism stems, partly, from a broader debate between two different statistical philosophies. Quite frankly, the debate has as much to do with semantics as it does with underlying mathematics. Because this is not a proper statistics course we will not dive into this debate, but I want you to be aware that many (probably most at this point) statisticians have a deep disapproval of the definition given above. Nevertheless, it is the one we will use moving forward for this lab exercise.
+This definition/interpretation of confidence intervals has received extensive criticism in recent years, though you may still see it presented in some textbooks that way. The criticism stems, partly, from a broader debate between two different statistical philosophies. We will not dive into this debate, but I want you to be aware that many (probably most at this point) statisticians have a deep disapproval of the definition given above. Nevertheless, it is the one we will use moving forward for this lab exercise.
 
 ##### Step 1
 
