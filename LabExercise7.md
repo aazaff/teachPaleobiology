@@ -47,7 +47,7 @@ There are four columns in ````DataPBDB```` relevant to the age of an organism: `
 
 In statistics we like to measure uncertainty. We often do this with something called a confidence interval. Google defines a confidence interval as, "a range of values so defined that there is a specified probability that the value of a parameter lies within it." Under this definition, a 95% confidence interval ranging from 0-10, means that there is a 95% probability that the true value of the parameter we are measuring lies somewhere between 0 and 10.
 
-This definition/interpretation of confidence intervals has received ***extensive criticism*** in recent years, though you may still see it presented in some textbooks that way. The criticism stems, partly, from a broader debate between two different statistical philosophies about the nature of probability. We will not dive into this debate, but I want you to be aware that many (probably most at this point) statisticians have adopted a deep disapproval of the definition given above. Nevertheless, it is the one we will use moving forward for this lab exercise.
+This definition/interpretation of confidence intervals has received ***extensive criticism*** in recent years, though you may still see it presented in some textbooks that way. The criticism stems, partly, from a broader debate between two different statistical philosophies about the nature of probability. We will not dive into this debate, but I want you to be aware that *many* statisticians have a deep disapproval of the definition given above. Nevertheless, it is the one we will use moving forward for this lab exercise.
 
 ##### Step 1
 
