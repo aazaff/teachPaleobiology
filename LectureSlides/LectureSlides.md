@@ -15,4 +15,4 @@ Lecture | Topic
 02-29-2016 | [Taphonomy](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Taphonomy02292016.pdf)
 03-02-2016 | [Stratigraphy](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Stratigraphy03022016.pdf)
 03-07-2016 | [Secular Trends I](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/SecularTrends03072016.pdf)
-03-09-2016 | [Secular Trends II](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/SecularTrends03072016.pdf)
+03-09-2016 | [Secular Trends II](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/SecularTrends03092016.pdf)
