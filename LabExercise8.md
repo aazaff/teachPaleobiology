@@ -79,7 +79,7 @@ Describe what this code is doing. A good answer will describe what each of the `
 
 4) What "geoplate" id (tectonic plate) is associated with this collection? What modern day region of the world does this geoplate id correspond to? The remaining questions will refer to this geoplate/region as region-X.
 
-5) Subset your dataset of Perissodactyla occurrences to only include occurrences that occur in region-X.
+5) Subset your dataset of Perissodactyla occurrences to only include occurrences that occur in region-X. How many occurrences are there? Show your code.
 
 6) Using the maps we have created previously, making your own new maps, or using the Paleobiology Database Navigator tool, what is the general history of region-X from the Albian through to the present day?
 
