@@ -1,6 +1,6 @@
 # The migration of paleocontinents
 
-Today we will be investigating the potential impact of paleocontinent migration on marine biotas.
+Today we will be investigating the ecological impact of paleocontinent migration.
 
 ## Visualizing the continents
 
