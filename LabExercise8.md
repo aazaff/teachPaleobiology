@@ -45,7 +45,7 @@ plot(ModernMap,col=rgb(1,0,0,0.33),lty=0.01,add=TRUE)
 ````R
 plot(ModernMap,col=rgb(1,0,0,0.33),lty=0.01,add=TRUE)
 ````
-Describe what this code is doing. A good answer will describe what each of the ````plot( )```` funciton **arguments** is doing - i.e., what is the meaning of col=, lty= and add=. As well, what does the ````rgb( )```` function do? What does it mean? Use google or the R ````help( )```` function.
+Describe what this code is doing. A good answer will describe what each of the ````plot( )```` function **arguments** is doing - i.e., what is the meaning of col=, lty= and add=. As well, what does the ````rgb( )```` function do? What does it mean? Use google or the R ````help( )```` function.
 
 3) Download a map of the middle Cretaceous (Albian Epochs ~110 mys ago). Name is ````AlbianMap````. 
 
