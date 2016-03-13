@@ -30,7 +30,7 @@ It is a data file containing shell coiling measurements traditionally used in am
 
 To load the CSV file into R you will use the ````read.csv( )```` function.
 
-````
+````R
 # First record the URL of the file as a character string - i.e., use quotes
 URL<-"https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figures/ammon_classify.csv"
 
@@ -64,7 +64,7 @@ We are going to perform a simple landmark analysis in R on pre-measured landmark
 
 We will need to install an external **package** named **geomorph** into R. A package is a set of functions that another R user wrote and released for others to use. To install geomorph we will use the ````install.packages( )```` function. You only ever need to do this step *once* per computer.
 
-````
+````R
 install.packages("geomorph")
 ````
 
@@ -74,7 +74,7 @@ Some of you may recieve a prompt asking you to choose where you want to downlod 
 
 You next need to activate the package. You only need to do installation (Step 1) once per computer, but you must load the package every new R session - i.e., every time you open R and want to use geomorph. You load packages using the ````library( )```` function.
 
-````
+````R
 library(geomorph)
 ````
 
@@ -82,7 +82,7 @@ library(geomorph)
 
 The geomorph package comes with several pre-loaded example datasets. We are going to use two of these. ````hummingbirds```` and ````plethodon````. Plethodons are a type of salamander.
 
-````
+````R
 # Load the example data in using the data( ) function
 data(hummingbirds)
 data(plethodon)
@@ -112,7 +112,7 @@ Remember that landmark analysis is concerned with **shape** and not **size**. We
 
 The mathematics behind this is fairly complex, but luckily there is a funciton in the geomorph packages that will do this for us. Let's perform a procrustes transformation on the````plethodon```` landmarks using the ````gpagen( )````  function.
 
-````
+````R
 ProcrustesPlethodon<-gpagen(plethodon[["land"]])
 ````
 
@@ -122,7 +122,7 @@ The next step we need to do is a **principle components analysis** (PCA) on the 
 
 Because it can be used for a variety of purposes, not just morphometrics, there are several packages and functions for running a PCA in R. However, we will stick with the function built into the geomorph package, ````plotTangentSpace( )````.
 
-````
+````R
 # plotTangentSpace both runs the PCA & plots it simultaneously. Other packages
 # that we will use later in the semester will not do both of these things simulateneously
 # so don't get confused. We are also going to turn of the warpgrids and verbose features,

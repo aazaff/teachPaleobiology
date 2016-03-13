@@ -4,11 +4,11 @@
 
 + LEAD INSTRUCTOR: ANDREW ZAFFOS	
 + ASST. INSTRUCTOR: SHANAN PETERS
-+ OFFICE: WEEKS HALL 487
++ OFFICE: WEEKS HALL 404
 + EMAIL: AZAFFOS@WISC.EDU
 + CLASS HOURS: 1:20-2:10 MONDAY, WEDNESDAY.
 + LAB HOURS: 4:00-6:00 MONDAY.
-+ OFFICE HOURS:	12:00-1:00 Wednesday, 1:00-3:00 Thursday, 1:00-3:00 Friday, or by appointment
++ OFFICE HOURS:	1:00-3:00 Tuesday, 1:00-3:00 Thursday, 10:00-11:00 Friday 1:00-2:00 Friday, or by appointment
 + COURSE WEBSITE: HTTPS://GITHUB.COM/AAZAFF/TEACHPALEOBIOLOGY
 
 ## COURSE PHILOSOPHY
@@ -84,10 +84,10 @@ MON: Feb 15 | [Lab 4](https://github.com/aazaff/teachPaleobiology/blob/master/La
 WED: Feb 17 | [Reading 5](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Measuring biodiversity 2. Measuring extinction 3. Measuring origination 4. Measuring evenness
 MON: Feb 22 | [Lab 5](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Review and catch-up session
 WED: Feb 24 | [Reading 6](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Types of fossils. 2. Ideal fossilization conditions (lagerstätten) 3. Fossilization processes. 4. Diagenesis
-MON: Feb 29 | [Lab 6](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Fossil transport 3. Time-averaging 4. Taphonomically active zone 5. Condensed sections
-WED: Mar 02 | [Reading 7](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Lazarus, Elvis, and Zombie taxa 2. Signore-Lipps effect 3. Holland effect 4. Common-cause hypothesis
-MON: Mar 07 | [Lab 7](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Unlithified vs. lithified sediments 3. Increased bioturbation 4. Pull-of-the Recent
-WED: Mar 09 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Siliciclastic vs. carbonate environments 2. High vs. low latitude paleocontinents 3. Epicontinental vs. open ocean 4. Ice House vs. green House
+MON: Feb 29 | [Lab 6](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1.  <strike>Review Reading</strike> Guest speaker 2. Fossil transport 3. Time-averaging 4. Taphonomically active zone 5. Condensed sections
+WED: Mar 02 | [Reading 7](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Review of basic stratigraphic concepts 2. Lazarus, Elvis, and Zombie taxa 3. Signore-Lipps effect 4. Holland effect 5. <strike>Common-cause hypothesis</strike>
+MON: Mar 07 | [Lab 7](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Unlithified vs. lithified sediments 3. Increased bioturbation 4. Pull-of-the Recent <strike>5. Common-cause hypothesis</strike>
+WED: Mar 09 | [Reading 8](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Siliciclastic vs. carbonate environments 2. Pelagic calcification 3. High vs. low latitude paleocontinents 4. Epicontinental vs. open ocean 5. Ice House vs. green House
 MON: Mar 14 | [Lab 8](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Ediacran biota 3. Cambrian Explosion 4. Ordovician Radiation
 WED: Mar 16 | [Reading 9](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | Review grant proposal instructions and grading rubric.
 | | | **BREAK FREE ON SPRING BREAK** 

@@ -1,6 +1,6 @@
 # Lab Exercise 4
 
-Modelling ecological niches using multivariate data analyses.
+Modelling ecological gradients using multivariate data analyses.
 
 ## Basic Concepts
 
@@ -25,7 +25,7 @@ source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/c
 
 #### Step 2:
 
-Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function. Next use the ````cleanGenus( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
+Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function, this function is part of the [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package that you loaded in during Step 1. Next use the ````cleanGenus( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
 
 ````R
 # Download data from the Paleobiology Database
@@ -57,7 +57,7 @@ Here are a few things to remember about community matrices.
 Let's convert our PBDB dataset into a presence-absence dataset using the ````presenceMatrix( )```` function fo the PBDB package. This function requires that you define which column will count as samples. For now, let's use ````"early_interval"```` (i.e., geologic age) as the separator.
 
 ````R
-# Create a PBDB collections by Taxa matrix
+# Create a PBDB occurrences by taxa matrix
 # This may take a couple of minutes
 PresencePBDB<-presenceMatrix(DataPBDB,SampleDefinition="early_interval")
 
@@ -69,7 +69,7 @@ PresencePBDB<-cullMatrix(PresencePBDB,minOccurrences=5,minDiversity=24)
 
 #### Problem Set I
 
-1) How many unique genera are in the Miocene,Early Jurasic, Cretaceous, and Pennsylvanian epochs (not total, each)? What code did you use to find out?
+1) How many unique genera are in the Miocene, Early Jurasic, Late Cretaceous, and Pennsylvanian epochs (not total, each)? What code did you use to find out?
 
 2) How many geologic epochs in general are in this dataset? What code did you use to find out?
 
@@ -83,26 +83,15 @@ Many ordination techniques are based (either operationally or theoretically) on 
 
 #### Problem Set II
 
-The Jaccard index is the simplest Similarity index. It is the intersection of two samples divided by the union of two samples. In other words, the number of genera shared between two samples, divided by the total number of (unique) genera in both samples. 
+The Jaccard index is the simplest Similarity index. It is the intersection of two samples divided by the union of two samples. In other words, the number of genera shared between two samples, divided by the total number of (unique) genera in both samples. Or put even another way, it is the percentage of genera shared between two samples. 
 
-1) Using your own custom R code, find the Jaccard similarity of the Pleistocene and Miocene "samples" in your PresencePBDB matrix. It is possible to code this entirely using only functions discussed in the [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md), but here are some additional functions that *may* be helpful.
-
-````R
-# The match( ) function
-VectorA<-c("Bob","John","Jane")
-VectorB<-c("Frank","Bob","Tim","Susan","John","Jose")
-match(VectorA,VectorB)
-[1]  2  5 NA
-
-# The unique( ) function
-VectorC<-c("Bob","Bob","Tim","Tim","Tim","Susan")
-unique(VectorC)
-[1] "Bob"   "Tim"   "Susan"
-````
+1) Using your own custom R code, find the Jaccard similarity of the Pleistocene and Miocene "samples" in your PresencePBDB matrix. It is possible to code this entirely using only functions discussed in the [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md). The key is to use ````apply( )````, ````sum( )````, ````table( )````, and judicious use of matrix subscriptng.
 
 2) How can you convert your similarity index into a **distance**?
 
-3) Install and load the ````vegan```` package into R. Read the help file for the ````vegdist```` function - ````?vegdist```` or ````help(vegdist)````. Again, calculate the jaccard distance of the "Miocene" and "Pleistocene" samples of ````PresencePBDB````, but this time use the ````vegdist( )```` function. This should be an identical answer to what you got in question 2.
+3) Install and load the ````vegan```` package into R. Read the help file for the ````vegdist```` function - ````?vegdist```` or ````help(vegdist)````. You must have already loaded the ````vegan```` package in order for it to run.
+
+Again, calculate the jaccard distance of the "Miocene" and "Pleistocene" samples of ````PresencePBDB````, but this time use the ````vegdist( )```` function. This should be an identical answer to what you got in question 2. [Hint: You will have to change **one** of the default settings of the function]
 
 4) Using the ````vegdist( )```` function. Calculate the Jaccard distances of all the following epochs in ````PresencePBDB```` - the "Pleistocene", "Pliocene", "Miocene", "Oligocene", "Eocene", "Paleocene". What code did you use? Which two epochs are the most dissimilar?
 
@@ -132,7 +121,7 @@ Since we already explained the basics of reciprocal averaging in class, I will n
 
 #### Step 1 (Loading and Cleaning Data)
 
-Identify which epochs of ````PresencePBDB```` belong to the Cambrian Period. Make a new copy of ````PresencePBDB```` named ````PostCambrian````, which does not include any Cambrian epochs. You also need to use ````cullMatrix( )```` on ````PostCambrian```` after you have subset the matrix, this time set minDiversty=2 and minOccurrences=2.
+Rename ````PresencePBDB```` as ````PostCambrian````.
 
 #### Step 2 (Initial Correspondence Analysis)
 
@@ -333,12 +322,12 @@ Of the ordination methods covered here, I recommend sticking with DCA. It is fai
 
 #### Problem Set IV
 
-1) Download a dataset from the paleobioogy database of all Ordovician aged animals into R, and name the object ````Ordovician````. This may take a few minutes.  What R code did you use?
+1) Download a dataset from the paleobioogy database of all Ordovician aged animals (i.e., animalia) into R, and name the object ````Ordovician````. This may take a few minutes.  What R code did you use?
 
 2) Clean up the poorly resolved genus names. What function/code did you use?
 
-3) Turn your object ````Ordovician```` into a community matrix of samples by genera, where the samples are different geoplate codes. Geoplate codes denote different ancient paleocontinents - i.e., your community matrix will list which genera were present in which ancient paleocontinent. Cull this matrix so that each sample has a minimum of 25 taxa and each taxon occurs in at least two samples. Show your code.
+3) Turn your object ````Ordovician```` into a community matrix of samples by genera, where the samples are different ````geoplate```` codes. Geoplate codes denote different ancient paleocontinents - i.e., your community matrix will list which genera were present in which ancient paleocontinent. Cull this matrix so that each sample has a minimum of 25 taxa and each taxon occurs in at least two samples. Show your code.
 
-4) Perform a DCA on your new community matrix. Analyze your new DCA with a plot. Do you think that the orientation of samples along either axis 1 or axis 2 is related to the average latitude or longitude of each plate in question? Explain how you figured this out. Show your code.
+4) Perform a DCA on your new community matrix. Analyze your new DCA with a plot. Do you think that the orientation of samples along either axis 1 or axis 2 is related to the average latitude or longitude of each plate in question? Explain how you figured this out. Show your code. [Hint: Information about the paleolatitude and paleolongitude of different geoplates is included in your originally downloaded data - i.e., the object ````Ordovician````.]
 
-5) Perform an NMDS on your community matrix. Look at the species scores of your NMDS plot. Do you think that the orientation of species along either axis 1 or axis 2 is controlled by phylum - i.e., are species of the same Phylum grouping together in the ordination? How did you determine this? Show your code.
+> I removed the former Question 5, you no longer need to do it.
