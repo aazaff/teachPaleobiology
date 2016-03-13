@@ -27,12 +27,12 @@ In particular, we will use the [R statistical software](https://github.com/aazaf
 
 ## LEARNING OUTCOMES
 
-+ Students will be able to explain and historical models of biological evolution: including, but not limited to, neo-mutationism, saltationism, genetic netural theory, and the modern synthesis.
-+ Students will be able to explain current and historical methods of quantiative ecological analysis: including, but not limited to, the appropriate calculation of abundance, geographic range size, biodiveristy, ecological similarity, sample standardized biodiversity, and evenness.
-+ Students will be able to explain current and historical models of biological extinction: including, but not limited to, common determinants of extinction, the "field of bullets" and "gambler's ruin".
++ Students will be able to explain current and historical models of biological evolution: including, but not limited to, neo-mutationism, saltationism, genetic netural theory, and the modern synthesis.
++ Students will be able to explain current methods of quantiative ecological analysis: including, but not limited to, the appropriate calculation of abundance, geographic range size, biodiveristy, ecological similarity, sample standardized biodiversity, and evenness.
++ Students will be able to explain current and historical models of biological extinction: including, but not limited to, the [International Union for the Conservation of Nature extinciton risk criteria](http://www.iucnredlist.org/), the "field of bullets" and "gambler's ruin".
 + Students will be able to explain small-scale taphonomic processes that create and destroy individual fossil specimens: including, but not limited to, post-mortem transport, the taphonomically active zone, fossilization processes, and diagenesis.
-+ Students will be able to explaim large-scale taphomoic processes that affect the fossil record as a whole: including, but not limited to, the Holland effect, the Signor-Lipps effect, and the movement of paleocontinents over the course of the Phanerozoic.
-+ Studnets will be able to identify and describe key moments in the history of life: including, but not limited to, major mass extincitons, originations, and depletions.
++ Students will be able to explain large-scale taphomoic processes that affect the fossil record as a whole: including, but not limited to, the Holland effect, the Signor-Lipps effect, and the movement of paleocontinents over the course of the Phanerozoic.
++ Students will be able to identify and describe key moments in the history of life: including, but not limited to, major mass extincitons, originations, and depletions.
 	
 ## COURSEWORK ORGANIZATION	
 
