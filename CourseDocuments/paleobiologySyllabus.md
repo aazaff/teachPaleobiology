@@ -24,6 +24,15 @@ The course is split into two phases. In the first phase, we discuss the ontogeny
 In addition to the theoretical framework discussed above, this course places a strong emphasis on practical skills, especially data analytics. This includes downloading data sets, entering and editing data, and statistical analysis of those data. Ideally, at the end of this course, you will be able to construct and test your own paleobiological hypotheses using available online databases.
 
 In particular, we will use the [R statistical software](https://github.com/aazaff/startLearn.R/blob/master/README.md), the [Paleobiology Database](https://paleobiodb.org/#/), [Github](https://github.com), and the [Macrostrat Database](https://macrostrat.org/). All of these services are free, available online, and work with Mac, Windows, or Linux systems. R is an especially powerful tool that is highly sought after in the [job market](http://www.indeed.com/jobtrends/%22R%22%2C+%22CPA%22%2C+%22Mechanic%22%2C+%22MBA%22.html). Companies like Google, Microsoft, and Amazon, as well as most major Universities and graduate programs are looking for R and Git proficiency.
+
+## LEARNING OUTCOMES
+
++ Students will be able to explain and historical models of biological evolution: including, but not limited to, neo-mutationism, saltationism, genetic netural theory, and the modern synthesis.
++ Students will be able to explain current and historical methods of quantiative ecological analysis: including, but not limited to, the appropriate calculation of abundance, geographic range size, biodiveristy, ecological similarity, sample standardized biodiversity, and evenness.
++ Students will be able to explain current and historical models of biological extinction: including, but not limited to, common determinants of extinction, the "field of bullets" and "gambler's ruin".
++ Students will be able to explain small-scale taphonomic processes that create and destroy individual fossil specimens: including, but not limited to, post-mortem transport, the taphonomically active zone, fossilization processes, and diagenesis.
++ Students will be able to explaim large-scale taphomoic processes that affect the fossil record as a whole: including, but not limited to, the Holland effect, the Signor-Lipps effect, and the movement of paleocontinents over the course of the Phanerozoic.
++ Studnets will be able to identify and describe key moments in the history of life: including, but not limited to, major mass extincitons, originations, and depletions.
 	
 ## COURSEWORK ORGANIZATION	
 
