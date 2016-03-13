@@ -14,7 +14,8 @@ source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/c
 ````
 
 #### Step 2
-Use the ````downloadPaleogeography( )```` function to download a map of end-Cretaceous paleocontinents and modern continents.
+<p>Use the ````downloadPaleogeography( )```` function to download a map of end-Cretaceous paleocontinents and modern continents. The function takes an Age in millions of years, must be a whole number where 0 &#8804; Age &#8804; 541. 
+
 
 ````R
 # Download a Cretaceous map
