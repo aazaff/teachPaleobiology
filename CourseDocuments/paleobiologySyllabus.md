@@ -66,9 +66,23 @@ You will write up the proposal following the Geological Society of America gradu
 
 You will not have to actually carry out the proposed research project, but your proposal will be evaluated based on its scientific accuracy, clarity, and feasibility. The grading rubric and further details will be disseminated once we begin the grant-writing process.
 
+#### Graduate Requirement
+
+**Graduate students** will have an additional requirement for the research proposal. Graduate students must present and defend their research proposal to the rest of the class in a 15 minute talk, following Geological Society of America conference presentation guidelines. The grading rubric and further details for this presentation will be disseminated once we begin the grant-writing process.
+
 #### FINAL GRADE
 
 Final grades are the sum total of all points you earned throughout the semester divided by the total number of possible points. Each test is worth 10 points, each reading and writing assignment is worth 10 points, each lab assignment is worth 20 points, and the research proposal is worth 60 points (30 points for the first draft, and 30 points for the final draft).
+
+Letter | Final Grade
+------ | ------ 
+A | 90-100%
+AB | 85-90%
+B | 80-85%
+BC | 75-80%
+C | 70-75%
+D | 60-70%
+F | <60%
 
 #### TEXTBOOK
 
