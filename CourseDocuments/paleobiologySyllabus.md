@@ -70,6 +70,8 @@ You will not have to actually carry out the proposed research project, but your 
 
 **Graduate students** will have an additional requirement for the research proposal. Graduate students must present and defend their research proposal to the rest of the class in a 15 minute talk, following Geological Society of America conference presentation guidelines. The grading rubric and further details for this presentation will be disseminated once we begin the grant-writing process.
 
+Undergraduate students do not have to make a proposal, and will not be graded on their critiques.
+
 #### FINAL GRADE
 
 Final grades are the sum total of all points you earned throughout the semester divided by the total number of possible points. Each test is worth 10 points, each reading and writing assignment is worth 10 points, each lab assignment is worth 20 points, and the research proposal is worth 60 points (30 points for the first draft, and 30 points for the final draft).
