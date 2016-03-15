@@ -75,7 +75,7 @@ Describe what this code is doing. A good answer will describe what each of the `
 
 1) Download a dataset of Perissodactyla occurrences from the PBDB that span the Paleogene. Show your code.
 
-2) What is the defining attribute of Perissodactyla? What are some prominent examples (e.g., lions, tigers, bears, oh my!)? [Hint: Neither lions, nor tigers, nor bears]
+2) What is the defining attribute of Perissodactyla? What are some prominent examples (e.g., lions, tigers, bears, oh my!)? [Hint: Neither lions, nor tigers, nor bears are members of Perissodactyla.]
 
 3) Find collection number 112723 in the dataset you just downloaded in Question 1. Show your code.
 
