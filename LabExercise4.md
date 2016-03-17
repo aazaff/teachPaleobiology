@@ -25,7 +25,7 @@ source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/c
 
 #### Step 2:
 
-Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function, this function is part of the [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package that you loaded in during Step 1. Next use the ````cleanGenus( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
+Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Cambrian through Pleistocene using the ````downloadPBDB( )```` function, this function is part of the [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package that you loaded in during Step 1. Next use the ````cleanRank( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
 
 ````R
 # Download data from the Paleobiology Database
@@ -33,7 +33,7 @@ Download a dataset of bivalve (clams) and gastropod (snails) fossils that range 
 DataPBDB<-downloadPBDB(Taxa=c("Bivalvia","Gastropoda"),StartInterval="Cambrian",StopInterval="Pleistocene")
 
 # Remove occurrences not properly resolved to the genus level.
-DataPBDB<-cleanGenus(DataPBDB)
+DataPBDB<-cleanRank(DataPBDB)
 
 # Download age definitions
 # A necessary step for the constrainAges( ) function

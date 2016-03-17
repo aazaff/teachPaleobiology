@@ -26,7 +26,7 @@ Download a global dataset of bivalve occurrences from the Cenozoic Eara using th
 DataPBDB<-downloadPBDB(Taxa=c("Bivalvia"),StartInterval="Cenozoic",StopInterval="Cenozoic")
 
 # Clean up bad genus names
-DataPBDB<-cleanGenus(DataPBDB)
+DataPBDB<-cleanRank(DataPBDB)
 ````
 
 #### Problem Set 1
