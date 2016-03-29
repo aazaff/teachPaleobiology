@@ -29,13 +29,13 @@ ModernMap<-downloadPaleogeography(Age=0)
 Make a plot of your maps. We will first make a plot of ````CretaceousMap````, because geologists always start from oldest to youngest.
 
 ````R
-plot(CretaceousMap,col=rgb(0,0,1,0.33),lty=0.01)
+plot(CretaceousMap,col=rgb(0,0,1,0.33),lty=0)
 ````
 
 Next, we will make a plot of ````ModernMap```` and overay it on top of ```CretaceousMap````. We will make it translucent, so that we can see the Cretaceous background.
 
 ````R
-plot(ModernMap,col=rgb(1,0,0,0.33),lty=0.01,add=TRUE)
+plot(ModernMap,col=rgb(1,0,0,0.33),lty=0,add=TRUE)
 ````
 
 #### Problem Set 1
@@ -44,7 +44,7 @@ plot(ModernMap,col=rgb(1,0,0,0.33),lty=0.01,add=TRUE)
 
 2) Look at the following line of code that you used before.
 ````R
-plot(ModernMap,col=rgb(1,0,0,0.33),lty=0.01,add=TRUE)
+plot(ModernMap,col=rgb(1,0,0,0.33),lty=0,add=TRUE)
 ````
 
 Describe what this code is doing. A good answer will describe what each of the ````plot( )```` function **arguments** is doing - i.e., what is the meaning of col=, lty= and add=. As well, what does the ````rgb( )```` function do? What does it mean? Use google or the R ````help( )```` function.
