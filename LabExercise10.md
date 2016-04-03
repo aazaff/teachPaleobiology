@@ -22,7 +22,7 @@ Does the hypothesis meet the following criteria in your estimation? If not, expl
 + Do you believe that this hypothesis is testable/feasible?
 + Do you believe that this hypothesis is scientifically or socially relevant?
 
-##### Question 4
+#### Question 4
 Summarize the areas where you felt that the proposal could be improved.
 
 #### Question 5
