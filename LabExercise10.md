@@ -31,9 +31,6 @@ What constructive criticism did you provide to your peer to address the areas th
 #### Question 6
 Did you feel that this proposal made an adequate use of citation and background research? If not, what additional information did you want to see?
 
-#### Question 7
-Of the two proposals that you reviewed, would you fund this one or the other one? Explain why. (You must pick one)
-
 ## Part II
 
 Summarize your response to your peers' reviews of your proposal. You will need to do this once for each review you recieve. State who was your reviewer.
@@ -51,7 +48,4 @@ Did the reviewer approve of your proposed analytical methods? If not, how will y
 Do you feel that your reviewer did an adequate and thorough job in their review? How could they have improved their review?
 
 #### Question 5
-Compared to the projects that you reviewed, and considering your reviewers' assesment of your proposal, do you believe that your project should be funded? Why or why not?
-
-#### Question 6
 In general, what steps will you now take to improve your proposal?
