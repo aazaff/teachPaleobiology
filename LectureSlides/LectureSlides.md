@@ -18,3 +18,4 @@ Lecture | Topic
 03-09-2016 | [Secular Trends II](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/SecularTrends03092016.pdf)
 03-14-2016 | [Cambrian Explosion](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/CambrianExplosion06142016.pdf)
 03-16-2016 | [Grant Proposal Instructions](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/GrantProposalInstruction03162016.pdf)
+03-28-2016 | [Ordovician](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Ordovician03282016.pdf) 
