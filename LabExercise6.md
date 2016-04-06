@@ -31,7 +31,7 @@ Download a global dataset of platn and animal occurrences from the Cambrian Peri
 DataPBDB<-downloadPBDB(Taxa=c("Plantae","Animalia"),StartInterval="Cambrian",StopInterval="Cambrian")
 
 # Clean up bad genus names
-DataPBDB<-cleanGenus(DataPBDB)
+DataPBDB<-cleanRank(DataPBDB)
 ````
 
 #### Step 3:

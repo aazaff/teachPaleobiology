@@ -24,6 +24,15 @@ The course is split into two phases. In the first phase, we discuss the ontogeny
 In addition to the theoretical framework discussed above, this course places a strong emphasis on practical skills, especially data analytics. This includes downloading data sets, entering and editing data, and statistical analysis of those data. Ideally, at the end of this course, you will be able to construct and test your own paleobiological hypotheses using available online databases.
 
 In particular, we will use the [R statistical software](https://github.com/aazaff/startLearn.R/blob/master/README.md), the [Paleobiology Database](https://paleobiodb.org/#/), [Github](https://github.com), and the [Macrostrat Database](https://macrostrat.org/). All of these services are free, available online, and work with Mac, Windows, or Linux systems. R is an especially powerful tool that is highly sought after in the [job market](http://www.indeed.com/jobtrends/%22R%22%2C+%22CPA%22%2C+%22Mechanic%22%2C+%22MBA%22.html). Companies like Google, Microsoft, and Amazon, as well as most major Universities and graduate programs are looking for R and Git proficiency.
+
+## LEARNING OUTCOMES
+
++ Students will be able to explain current and historical models of biological evolution: including, but not limited to, neo-mutationism, saltationism, genetic netural theory, and the modern synthesis.
++ Students will be able to perform current methods of quantiative ecological analysis: including, but not limited to, the appropriate calculation of abundance, geographic range size, biodiveristy, ecological similarity, sample standardized biodiversity, and evenness.
++ Students will be able to explain current and historical models of biological extinction: including, but not limited to, the [International Union for the Conservation of Nature extinction risk criteria](http://www.iucnredlist.org/), the "field of bullets" and "gambler's ruin".
++ Students will be able to explain small-scale taphonomic processes that create and destroy individual fossil specimens: including, but not limited to, post-mortem transport, the taphonomically active zone, fossilization processes, and diagenesis.
++ Students will be able to explain large-scale taphonomic processes that affect the fossil record as a whole: including, but not limited to, the Holland effect, the Signor-Lipps effect, and the movement of paleocontinents over the course of the Phanerozoic.
++ Students will be able to identify and describe key moments in the history of life: including, but not limited to, major mass extinctions, originations, and depletions.
 	
 ## COURSEWORK ORGANIZATION	
 
@@ -57,9 +66,25 @@ You will write up the proposal following the Geological Society of America gradu
 
 You will not have to actually carry out the proposed research project, but your proposal will be evaluated based on its scientific accuracy, clarity, and feasibility. The grading rubric and further details will be disseminated once we begin the grant-writing process.
 
+#### Graduate Student Requirement
+
+**Graduate students** will have an additional requirement for the research proposal. Graduate students must present and defend their research proposal to the rest of the class in a 15 minute talk, following Geological Society of America conference presentation guidelines. The grading rubric and further details for this presentation will be disseminated once we begin the grant-writing process.
+
+Undergraduate students do not have to make a proposal, and will not be graded on their critiques.
+
 #### FINAL GRADE
 
 Final grades are the sum total of all points you earned throughout the semester divided by the total number of possible points. Each test is worth 10 points, each reading and writing assignment is worth 10 points, each lab assignment is worth 20 points, and the research proposal is worth 60 points (30 points for the first draft, and 30 points for the final draft).
+
+Letter | Final Grade
+------ | ------ 
+A | 90-100%
+AB | 85-90%
+B | 80-85%
+BC | 75-80%
+C | 70-75%
+D | 60-70%
+F | <60%
 
 #### TEXTBOOK
 
@@ -94,9 +119,9 @@ WED: Mar 16 | [Reading 9](https://github.com/aazaff/teachPaleobiology/blob/maste
 MON: Mar 28 | [Lab 9](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading. 2. Late Ordovician extinction 
 WED: Mar 30 | [Reading 10](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Terrestrial transition 2. Late Devonian mass extinction
 MON: Apr 04 | [Lab 10](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Mid-Carboniferous Rainforest Collapse
-WED: Apr 06 | [Reading 1	](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Late Permian Mass Extinction.
+WED: Apr 06 | [Reading 11](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Late Permian Mass Extinction.
 MON: Apr 11 | [Lab 11](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Early Triassic fossil gap 3. Late Triassic Extinction
-WED: Apr 13 | [Reading 12](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Mesozoic plant and microfossil revolution 2. Dinosaurs
+WED: Apr 13 | No Reading | 1. Mesozoic plant and microfossil revolution 2. Dinosaurs
 MON: Apr 25 | [Lab 12](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) |1. Review Reading 2. End Cretaceous Mass Extinction
 WED: Apr 27 | [Reading 13](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Cenozoic biogeography 2. Cenozoic Climate Change 3. Cenozoic mass extinctions
 MON: May 02 | [Lab 13](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. The “sixth” mass extinction.

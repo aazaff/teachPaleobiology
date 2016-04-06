@@ -21,7 +21,11 @@ March 28 | You will turn in your finalized topic and hypothesis.
 April 04 | You will come to the lab period with your grant proposal rough drafts. You will break into groups and *constructively* critique your peer's proposals.
 April 11 | You will turn in your first rough draft. This draft will be worth 30 points.
 April 25 | I will return comments and grades on your first draft.
-May 4 | You will hand in your final proposal drafts.
+May 06 | You will hand in your final proposal drafts.
+
+## Submission
+
+Both your rough and final drafts should be submitted to your GitHub repository as a PDF document.
 
 ## Examples
 
