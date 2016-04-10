@@ -97,3 +97,54 @@ Hints:
 ## Part 2
 
 Another way we can approach this problem is by making maps of Triassic and Jurassic units and compare them to other Periods. 
+
+#### Step 1
+We will be using a different type of file format than the traditional CSV for this step. Instead, we will use something called geojson. Geojson is rarely used in science, but is an extremely common format for web development (think google maps). In or
+
+You need the packages ````RCurl```` and ````rgdal```` in order to download geojson files in to R. Don't worry, you already installed and loaded those packages during Step 1 of [Part 1](#part-1). If you didn't do that step, go back and do it.
+
+#### Step 2
+Let's download a geojson of all Albian columns. Note: We want to use the output format geojson_bare, not just geojson. The ````getURL( )```` function comes from the ````RCurl```` package. Notice that we also limit the data to ````project_id=1````. This limits the data to North America and excludes other smaller datasets contained in Macrostrat - e.g., New Zealand.
+
+````R
+# Write out the API route
+URL<-"https://macrostrat.org/api/columns?format=geojson_bare&interval_name=Albian&project_id=1"
+# Retrieve the URL
+GotURL<-getURL(URL)
+````
+
+#### Step 3
+We next need to convert the geojson into a shapefile. While geojson is normally used by webdevelopers, shapefiles are commonly used by scientists. Popular geospatial analysis (mapping) programs like QGIS and ArcGIS use shapefiles as their primary data format. R is not really meant for mapping, but people have tried to make packages, like ````rgdal````, to convert it to be as much like QGIS and ArcGIS as possible.
+
+````R
+# Conver the URL to a shapefile
+AlbianMap<-readOGR(GotURL,"OGRGeoJSON",verbose=FALSE)
+````
+
+#### Step 4
+Plot the map using the ```plot( )```. Notice that although we used ````col=rgb( )```` to define the plot color last week, this week we are using a [hexcode](http://www.color-hex.com/). This is because the international commission on stratigraphy has assigned each geologic interval (eon, era, period, epoch, and age) an official hexcode color. The downside of using a hexcode instead of ````rgb( )```` is that you cannot easiy change the transparency of polygons.
+
+````R
+# Plot the map
+plot(AlbianMap,col="#CCEA97")
+````
+
+![]()
+
+## Problem Set 3
+
+1) Download and plot a map of **all** North American geologic columns (no color). Show your code.
+
+2) On top of your map from Question 1, plot a map of all North American columns with Induan-Anisian sedimentary units. Use the Olenekian hexcode color for this map. You can look up the Olenekian hexcode through the /defs/intervals route. 
+
+3) Using the ````downloadPBDB( )```` function from previous labs. Download all occurrences of animal fossils in the Paleobiology Database of Induan-Anisian age. Using the ````points( )```` function, plot all of these occurrences on the map you made in question 2 as solid circles. If you do not remember how to use points, you can consult previous labs or use ````help(points)````. Show your code. Save this map for later questions.
+
+4) You can open a new plot window using ````quartz( )```` if you are on a mac or ````windows( )``` if you are on a windows machine. Download and plot a map of *all* North American geologic columns (no color) - i.e., repeat Question 1 in this new plot window. On top of this map, plot a map of all North American columns with Lopingian aged sedimentary units. Use the appropriate Lopingian hexcode color for this new map. Show your code.
+
+5) Download all occurrences of animal fossils in the Paleobiology Database of Lopingian age. Plot all of these occurrences on the map you made in question 2 as solid circles. Show your code.
+
+6) Compare and contrast your Induan-Anisian map versus your Lopingian map. Does it seem based on these maps that...
+
++ There was a substantial drop in the areal extent of North American sedimentary units across the P/T boundary.
++ There was a substantial drop in the percentage of sedimentary units with reported fossils in them aross the P/T boundary?
++ Overall, do you think there is sufficient evidence from these maps to reject or accept the hypothesis that lower diversity in the Early Triassic is an artefact of either poor fossil sampling of the available sedimentary rock ***or*** a low availablility of sedimentary rock.
