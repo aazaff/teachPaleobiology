@@ -4,7 +4,8 @@ The Early Triassic fossil record is very sparse, which is generally interpreted 
 
 Although faunas are generally considered to have "recovered" by the middle Triassic, diversity remained comparatively low for much of the rest of the Triassic and well into the Middle Jurassic.
 
-![]()
+![Range-Through Richness](https://github.com/aazaff/teachPaleobiology/raw/master/Lab11Figures/Fig1.pdf)
+> Range-through marine generic richness
 
 An alternative hypothesis is that the observed lows in biodiveristy during the period are actually a consequence of poor preservation. Specifically, low volumes of preserved sedimentary rock during this interval. Today we will explore this possibility.
 
@@ -24,7 +25,8 @@ Go to the Macrostrat API page at https://macrostrat.org/api. If you are using ch
 
 You should see a list of API routes available for you to investigate.
 
-![]()
+![Macrostrat API Home Page](https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab11Figures/Fig2.png)
+> A list of Macrostrat API routes
 
 #### Step 3
 Although there are quite a few macrostrat routes available, there are only three routes that are going to be relevant to you today. The following is a review of those three routes. Review eachroute type before moving further.
@@ -129,7 +131,7 @@ Plot the map using the ```plot( )```. Notice that although we used ````col=rgb( 
 plot(AlbianMap,col="#CCEA97")
 ````
 
-![]()
+![Albian Map](https://github.com/aazaff/teachPaleobiology/raw/master/Lab11Figures/Fig3.pdf)
 
 ## Problem Set 3
 
