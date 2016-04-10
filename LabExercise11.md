@@ -1,17 +1,17 @@
 # Lab 11: Triassic and Jurassic Macrostratigraphy
 
-The Early Triassic fossil record is very sparse, which is generally interpreted as evidence of a prolonged and weak recovery following the end-Permian mass extinction. For example, there is a prolonged absence of coral reefs across the globe for approximately 10 mys (Induan - Anisian). Similarly, there is a pronounced coal gap during this interval.
+The Early Triassic fossil record is very sparse, which is generally interpreted as evidence of a prolonged and weak recovery following the end-Permian mass extinction. For example, there is a prolonged absence of coral reefs and coal deposits across the globe for approximately 10 million years (Induan - Anisian).
 
 Although faunas are generally considered to have "recovered" by the middle Triassic, diversity remained comparatively low for much of the rest of the Triassic and well into the Middle Jurassic.
 
 ![Range-Through Richness](https://github.com/aazaff/teachPaleobiology/raw/master/Lab11Figures/Fig1.png)
 > Range-through marine generic richness
 
-An alternative hypothesis is that the observed lows in biodiveristy during the period are actually a consequence of poor preservation. Specifically, low volumes of preserved sedimentary rock during this interval. Today we will explore this possibility.
+An alternative hypothesis is that the observed lows in biodiveristy from the Early Triassic through Middle Jurassic are actually a consequence of poor preservation. Specifically, low volumes of preserved sedimentary rock available for paleontologists to sample during this interval. Today we will explore this possibility using data from the Earliest Triassic in the [Macrostrat](https://macrostrat.org) and [Paleobiology](https://paleobiodb.org) Databases.
 
 ## Part 1
 
-We are going to download some data from the Macrostrat database and make some basic maps of Triassic and Jurassic rock units in North America. We will do this by using the Macrostrat API, similar to how we used the Paleobiology Database API in [Lab 3](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise3.md#paleobiology-database-api). You can review that previous lab for a basic overview of API concepts.
+We are going to download some data from the Macrostrat database and make some basic maps of Triassic rock units in North America. We will do this by using the Macrostrat API, similar to how we used the Paleobiology Database API in [Lab 3](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise3.md#paleobiology-database-api). You can review that previous lab for a basic overview of API concepts.
 
 #### Step 1
 Load in the beta version of the [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R/blob/master/README.md#paleobiologydatabaser) package's [communityMatrix.R](https://github.com/aazaff/paleobiologyDatabase.R/blob/master/README.md#communitymatrixr) module.
@@ -29,26 +29,26 @@ You should see a list of API routes available for you to investigate.
 > A list of Macrostrat API routes
 
 #### Step 3
-Although there are quite a few macrostrat routes available, there are only three routes that are going to be relevant to you today. The following is a review of those three routes. Review eachroute type before moving further.
+Although there are quite a few macrostrat routes available, there are only three routes that are going to be relevant to you today. The following is a review of those three routes. Review each route type before moving further.
 
 ##### /units 
 This route will allow you to search for different rock units based on certain search criteria. 
 
-Units are the basic building blocks of Macrostrat, equivalent to the idea of a fossil occurrence in the Paleobiology Database. Units may exist at any level of the lithostratigraphic hierarchy - members, formations, groups, or supergroups. 
+Units are the foundation of Macrostrat, equivalent to the idea of a fossil occurrence in the Paleobiology Database. Units may exist at any level of the lithostratigraphic hierarchy - members, formations, groups, or supergroups. 
 
-Many units have additional attributes attached to them, such as whether they were deposited in a marine or terrestrial setting, whether they are carbonate or siliciclastic, or their age. 
+Many units have additional attributes attached to them, such as their age, geographic location, and lithologic attributes (e.g., igneous/metamorphic/sedimentary or terrestrial/marine) 
 
-You can therefore search for all units that matching some attribute by using the this route. For example, you can search for all units of Silurian age using the following URL: https://macrostrat.org/api/units?interval_name=Silurian
+You can therefore search for all units matching some attribute by using the this route. For example, you can search for all Silurian Units using the following API query: https://macrostrat.org/api/units?interval_name=Silurian
 
 ##### /columns 
 This route will alow you to search for different macrostrat columns based on certain serach criteria.
 
-The overarching unit of organization in Macrostrat is the column. You can think of columns as analagous to the boundaries of states. Just as states have no pre-defined size, shape, or population, columns do not not have a fixed size, shape, or number of constituent units. They are simply an arbitrary set of polygons used to divide up the Earth and broadly group units by geographic location. 
+The overarching unit of organization in Macrostrat is the column, analagous to collections in the Paleobiology Database. 
 
-We primarily use columns for organiational or plotting purposes (making maps). However, never forget that they have no inherent scientific value, they are simply an organizational convenience.
+You can think of columns as analagous to the boundaries of states. Just as states have no pre-defined size, shape, or population, columns do not not have a fixed size, shape, or number of constituent units. They are simply an *arbitrary* set of polygons used to divide up the Earth and broadly group units by geographic location. We primarily use columns for organizational or plotting purposes (making maps).
 
 ##### /defs 
-This route and its various sub-routes (e.g., /defs/intervals) will help you looks up definitions and information related to search parameters for other routes. 
+This route and its various sub-routes (e.g., /defs/intervals) will help you looks up definitions and information related to other routes. 
 
 For example, https://macrostrat.org/api/defs/intervals?timescale=international%20epochs will return basic information about all epochs used in the international time-scale (such as their upper and lower ages).
 
@@ -101,9 +101,9 @@ Hints:
 Another way we can approach this problem is by making maps of Triassic and Jurassic units and compare them to other Periods. 
 
 #### Step 1
-We will be using a different type of file format than the traditional CSV for this step. Instead, we will use something called geojson. Geojson is rarely used in science, but is an extremely common format for web development (think google maps). In or
+We will be using a different type of file format than the traditional CSV for this step. Instead, we will use something called GeoJSON. GeoJSON is rarely used in science, but is an extremely common format for web development (think google maps).
 
-You need the packages ````RCurl```` and ````rgdal```` in order to download geojson files in to R. Don't worry, you already installed and loaded those packages during Step 1 of [Part 1](#part-1). If you didn't do that step, go back and do it.
+You need the packages ````RCurl```` and ````rgdal```` in order to download GeoJSON files in to R. Don't worry, you already installed and loaded those packages during Step 1 of [Part 1](#part-1). If you didn't do that step, go back and do it.
 
 #### Step 2
 Let's download a geojson of all Albian columns. Note: We want to use the output format geojson_bare, not just geojson. The ````getURL( )```` function comes from the ````RCurl```` package. Notice that we also limit the data to ````project_id=1````. This limits the data to North America and excludes other smaller datasets contained in Macrostrat - e.g., New Zealand.
@@ -116,7 +116,7 @@ GotURL<-getURL(URL)
 ````
 
 #### Step 3
-We next need to convert the geojson into a shapefile. While geojson is normally used by webdevelopers, shapefiles are commonly used by scientists. Popular geospatial analysis (mapping) programs like QGIS and ArcGIS use shapefiles as their primary data format. R is not really meant for mapping, but people have tried to make packages, like ````rgdal````, to convert it to be as much like QGIS and ArcGIS as possible.
+We next need to convert the GeoJSON into a shapefile. While GeoJSON is normally used by web developers, shapefiles are commonly used by scientists. Popular geospatial analysis (mapping) programs like QGIS and ArcGIS use shapefiles as their primary data format. R is not really meant for mapping or web develoment, but packages, like ````rgdal````, can be used to shoehorn R into those purposes. 
 
 ````R
 # Conver the URL to a shapefile
