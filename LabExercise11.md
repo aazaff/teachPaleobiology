@@ -34,7 +34,7 @@ Although there are quite a few macrostrat routes available, there are only three
 ##### /units 
 This route will allow you to search for different rock units based on certain search criteria. 
 
-Units are the foundation of Macrostrat, equivalent to the idea of a fossil occurrence in the Paleobiology Database. Units may exist at any level of the lithostratigraphic hierarchy - members, formations, groups, or supergroups. 
+Units are the foundation of Macrostrat, equivalent to the idea of a fossil occurrence in the Paleobiology Database. Units may be classified at any level of the lithostratigraphic hierarchy - members, formations, groups, or supergroups. 
 
 Many units have additional attributes attached to them, such as their age, geographic location, and lithologic attributes (e.g., igneous/metamorphic/sedimentary or terrestrial/marine) 
 
