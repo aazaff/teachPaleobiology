@@ -43,9 +43,9 @@ You can therefore search for all units matching some attribute by using the this
 ##### /columns 
 This route will alow you to search for different macrostrat columns based on certain serach criteria.
 
-The overarching unit of organization in Macrostrat is the column, analagous to collections in the Paleobiology Database. Columns are essentially a geographic summary of a set of units at a geographic location.
+The overarching unit of organization in Macrostrat is the column, analagous to collections in the Paleobiology Database. Columns are essentially a geographic summary of a set of units within an arbitrary geographic area.
 
-You can think of columns as analagous to the boundaries of states. Just as states have no pre-defined size, shape, or population, columns do not not have a fixed size, shape, or number of constituent units. They are simply an *arbitrary* set of polygons used to divide up the Earth and broadly group units by geographic location. We primarily use columns for organizational or plotting purposes (making maps).
+You can think of columns as analagous to the boundaries of states. Just as states have no pre-defined size, shape, or population, columns do not not have a fixed size, shape, or number of constituent units. Again, they are simply an *arbitrary* set of polygons used to divide up the Earth and broadly group units by geographic location. We primarily use columns for organizational or plotting purposes (making maps).
 
 ##### /defs 
 This route and its various sub-routes (e.g., /defs/intervals) will help you looks up definitions and information related to other routes. 
