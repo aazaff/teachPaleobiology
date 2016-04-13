@@ -23,5 +23,5 @@ Link | Start Reading | Due Dates | Title
 [Reading09](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/Ecologic%20Severity.pdf) | March 16 | **March 28** | Decoupling taxonomic and ecologic severity of mass extinctions.
 [Reading10](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/Mass%20Depletion.pdf) | March 30 | April 4 | Origination, extinction, and mass depletions of marine diversity.
 [Reading11](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/Geographic%20Extinction.pdf) | April 6 | April 11 | The effect of geographic range on extincton risk.
-Reading12 | April 13 | April 25 | **TBD**
+[Reading12](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/RedQueen.pdf) | April 13 | April 25 | Red Queen and Court Jester Hypothesis
 [Reading13](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/Sixth%20Extinction.pdf) | April 27 | May 2 | Has the Earth's sixth mass extinciton already arrived?
