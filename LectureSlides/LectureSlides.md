@@ -22,5 +22,5 @@ Lecture | Topic
 03-30-2016 | [Devonian Evolution and Extinction](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Devonian03302016.pdf)
 04-04-2016 | [Carboniferous Rainforest Collapse](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Carboniferous04042016.pdf)
 04-06-2016 | [Permian Extinction](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Permian04062016.pdf)
-04-11-2016 | [First Half of Triassic-Jurassic Lecture](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/FirstHalfTriassic04112016.pdf)
+04-11-2016 | [First Half of Triassic-Jurassic Lecture](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/TriassicFirstHalf04112016.pdf)
 04-13-2016 | [Macrostrat](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Macrostrat04132016.pdf)
