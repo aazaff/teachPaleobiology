@@ -299,7 +299,7 @@ Find which Triassic genera were survivors and which were victims of the Triassic
 Find which genera of your Triassic dataset were Diapsids and which were Synapsids. Show your code.
 
 #### Question 5
-Perform a logistic regression where the outcome variable is Survivor/Victim and the input variable is the mean latitude of each genus. Show your code. Which 
+Perform a logistic regression where the outcome variable is Survivor/Victim and the input variable is the mean latitude of each genus. Show your code. Was the mean latitude of a Triassic genus a good predictor of its survival across the T/J extinction?
 
 ## Extra Credit (6 Points)
 Perform a *multiple* logistic regression where the outcome varaible is Survivor/Victim status and the input variables are the mean latitude of each genus ***and*** whether the gneus is a Diapsid/Synapsid. Is status as a Synapsid/Diapsid more or less important average paleolatitude of occurrences for survival? Show your code. 
