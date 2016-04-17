@@ -1,7 +1,7 @@
 # Lab Exercises
 
-Lab | Calendar | Instructions
---------- | ------------- | ---------- 
+Lab |   Calendar   | Instructions
+--------- | ---------- | ---------- 
 [Lab1](https://github.com/aazaff/startLearn.R/blob/master/README.md) | January 25 | An introduction to the R programming lanaguage and GitHub. 
 [Lab2](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise2.md) | February 01 | Building phylogenies and analyzing morphologies.
 [Lab3](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise3.md) | February 08 | An introduction to the Paleobiology Database.
