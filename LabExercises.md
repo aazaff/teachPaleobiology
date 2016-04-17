@@ -13,5 +13,6 @@ Lab | Calendar | Instructions
 [Lab9](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise9.md) | March 28 | <strike>Using PaleoDeepDive to find dark data.</strike> The movement of paleocontinents.
 [Lab10](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise10.md) | April 04 | Peer Review Grant Proposals
 [Lab11](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise11.md) | April 11 | <strike>Diversity partitioning across mass extinction events.</strike> Triassic and Jurassic stratigraphy of North America
-[Lab12](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise12.md) | April 25 | <strike>The Triassic and Jurassic stratigraphy of North America.</strike> Diversity partitioning across mass extinction events.
+[Lab12](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise12.md) | April 18 | Testing for selectivity at a mass extinction boundary.
+[Lab13](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise13.md) | April 25 | <strike>The Triassic and Jurassic stratigraphy of North America.</strike> Diversity partitioning across mass extinction events.
 [Lab13](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise13.md) | May 02 | <strike>Inferring the positions of ancient paleocontinents.</strike> Using PaleoDeepDive to find dark data.
