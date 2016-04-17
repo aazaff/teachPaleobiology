@@ -301,7 +301,7 @@ Find which genera of your Triassic dataset were Diapsids and which were Synapsid
 #### Question 5
 Perform a logistic regression where the outcome variable is Survivor/Victim and the input variable is the mean latitude of each genus. Show your code. Which 
 
-#### Extra Credit (6 Points)
+## Extra Credit (6 Points)
 Perform a *multiple* logistic regression where the outcome varaible is Survivor/Victim status and the input variables are the mean latitude of each genus ***and*** whether the gneus is a Diapsid/Synapsid. Is status as a Synapsid/Diapsid more or less important average paleolatitude of occurrences for survival? Show your code. 
 
 Hint:
