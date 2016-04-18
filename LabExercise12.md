@@ -68,7 +68,7 @@ ExtraOdds<- (length(ExtraSurvivors)/length(ExtraGenera)) / (length(ExtraVictims)
 
 # Find the final odds ratio
 OddsRatio<- TropicalOdds / ExtraOdds
-[1] 1.617845
+[1] 1.722222
 `````
 
 #### Step 7
@@ -77,7 +77,7 @@ Now we need to interpret our odds ratio of 1.617845. Remember that even odds rep
 Remember that we can also look at the log-odds. The benefit of this is that this converts the odds ratio into a symmetric measure. A value of zero means no difference (because log(1)=0), positive values mean an advantage for Tropical brachiopods, and negative values mean an advantage for Extratropical brachiopods. 
 ````R
 log(OddsRatio)
-[1] 0.481095
+[1] 0.5436154
 ````
 
 Of course, both the log-odds and regular odds show the same result - it is just that some people consider log-odds to be more intuitive because of their symmetry.
@@ -107,12 +107,12 @@ StandardError
 # Find the Upper 95% Confidence limit
 UpperLimit<-log(OddsRatio) + (StandardError*1.96)
 UpperLimit
-[1] 1.355537
+[1] 1.418057
 
 # Find lower Upper 95% confidence limit
 LowerLimit<-log(OddsRatio) - (StandardError*1.96)
 > LowerLimit
-[1] -0.3933466
+[1] -0.3308262
 ````
 
 Notice that the Lower Limit of our confidence interval is negative! This means that we cannot rule out the possibility that there was not actually an advantage for extratropical taxa. In other words, our result is not "statistically significant".
