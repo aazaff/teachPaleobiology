@@ -64,7 +64,7 @@ Now, let's calculate the odds ratio of tropical survival to tropical victims. Fo
 TropicalOdds<- (length(TropicalSurvivors)/length(TropicalGenera)) / (length(TropicalVictims)/length(TropicalGenera))
 
 # The odds of extratropical survival
-ExtraOdds<- (length(ExtraSurvivors)/length(ExtraVictims)) / (length(ExtraVictims)/length(ExtraGenera))
+ExtraOdds<- (length(ExtraSurvivors)/length(ExtraGenera)) / (length(ExtraVictims)/length(ExtraGenera))
 
 # Find the final odds ratio
 OddsRatio<- TropicalOdds / ExtraOdds
