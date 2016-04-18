@@ -120,9 +120,11 @@ MON: Mar 28 | [Lab 9](https://github.com/aazaff/teachPaleobiology/blob/master/La
 WED: Mar 30 | [Reading 10](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Terrestrial transition 2. Late Devonian mass extinction
 MON: Apr 04 | [Lab 10](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Mid-Carboniferous Rainforest Collapse
 WED: Apr 06 | [Reading 11](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Late Permian Mass Extinction.
-MON: Apr 11 | [Lab 11](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Early Triassic fossil gap 3. Late Triassic Extinction
-WED: Apr 13 | No Reading | 1. Mesozoic plant and microfossil revolution 2. Dinosaurs
-MON: Apr 25 | [Lab 12](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) |1. Review Reading 2. End Cretaceous Mass Extinction
-WED: Apr 27 | [Reading 13](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Cenozoic biogeography 2. Cenozoic Climate Change 3. Cenozoic mass extinctions
-MON: May 02 | [Lab 13](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. The “sixth” mass extinction.
+MON: Apr 11 | [Lab 11](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. Early Triassic fossil gap 3. Late Triassic Extinction 3. Gaps in the fossil record
+WED: Apr 13 | [Reading 12](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Macrostrat 2. Graduate presentations <strike>3. Mesozoic plant and microfossil revolution 4. Dinosaurs</strike>
+MON: APR 18 | [Lab 12](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Triassic-Jurassic Transition 2. Rise of the Dinosaurs
+WED: APR 20 | [Reading 13](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Mesozoic plant revolution 2. Mesozoic microfossil revolution.
+MON: Apr 25 | [Lab 13](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) |1. Review Reading 2. End Cretaceous Mass Extinction
+WED: Apr 27 | [Reading 14](https://github.com/aazaff/teachPaleobiology/blob/master/ReadingExercises/ReadingExercises.md) | 1. Cenozoic biogeography 2. Cenozoic Climate Change 3. Cenozoic mass extinctions
+MON: May 02 | [Lab 14](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercises.md) | 1. Review Reading 2. The “sixth” mass extinction.
 WED: May 04 | | 1. Review Class Material. 2. Class Evaluation
