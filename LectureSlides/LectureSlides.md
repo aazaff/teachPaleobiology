@@ -24,3 +24,5 @@ Lecture | Topic
 04-06-2016 | [Permian Extinction](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Permian04062016.pdf)
 04-11-2016 | [First Half of Triassic-Jurassic Lecture](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/TriassicFirstHalf04112016.pdf)
 04-13-2016 | [Macrostrat](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Macrostrat04132016.pdf)
+04-18-2016 | [Second Half of Triassic-Jurassic Lecture](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/TriassicSecondHalf04182016.pdf)
+04-20-2016 | [Mesozoic Revolutions](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/MesozoicRevolution04202016.pdf)
