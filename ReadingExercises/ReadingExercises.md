@@ -25,4 +25,4 @@ Link | Start Reading | Due Dates | Title
 [Reading11](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/Geographic%20Extinction.pdf) | April 6 | April 11 | The effect of geographic range on extincton risk.
 [Reading12](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/RedQueen.pdf) | April 13 | April 18 | Red Queen and Court Jester Hypothesis
 [Reading13](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/DinosaurExtinction.pdf) | April 20 | April 25 | Rates of Dinosaur Decline
-[Reading14](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/Sixth%20Extinction.pdf) | April 27 | May 2 | Has the Earth's sixth mass extinciton already arrived?
+[Reading14](http://teststrata.geology.wisc.edu/teachPaleobiology/ReadingExercises/Sixth%20Extinction.pdf) | April 27 | May 2 | Has the Earth's sixth mass extinction already arrived?
