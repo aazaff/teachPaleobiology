@@ -86,7 +86,7 @@ SilurianMatrix<-cullMatrix(SilurianMatrix,10,2)
 + Conceptually does this mean that Silurian faunas are more cosmopolitan (found in more places around North America) or are less cosmopolitan (found in fewer places around North America) following the Ordovician/Silurian mass extinction. 
 + Does this match what we learned about Silurian cosmpolitanism in class?
 
-6) What is one potential flaw with using percentages to compare chaging alpha, beta, and gamma biodiversity between two time intervals.
+6) What is one drawback of using percentages to compare chaging alpha, beta, and gamma biodiversity between two time intervals?
 
 ## Problem Set 2
 
