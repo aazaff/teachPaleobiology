@@ -64,8 +64,8 @@ SilurianMatrix<-presenceMatrix(EarlySilurian,SampleDefinition="unit_name",TaxonR
 Next we will cull out genera that occur in less than 2 stratigraphic units and stratigraphic units with less than 10 genera using the ````cullMatrix( )```` function.
 
 ````R
-OrdovicianMatrix<-cullMatrix(OrdovicianMatrix,10,2)
-SilurianMatrix<-cullMatrix(SilurianMatrix,10,2)
+OrdovicianMatrix<-cullMatrix(OrdovicianMatrix,2,10)
+SilurianMatrix<-cullMatrix(SilurianMatrix,2,10)
 ````
 
 ## Problem Set 1
@@ -92,7 +92,7 @@ SilurianMatrix<-cullMatrix(SilurianMatrix,10,2)
 
 1) Using what we did above as a guide, download comparable datasets for the End-Permian extinction and End-Cretaceous extinction and process them as we did above (Steps 2-5). Show your code.
 
-+ Late Permian (Lopingian)
++ Late Permian (Guadalupian-Lopingian)
 + Early Triassic (Induan-Ladinian)
 + Late Cretaceous (Santonian-Maastrichtian)
 + Early Paleogene (Danian-Lutetian)
@@ -114,7 +114,7 @@ It is also possible to measure biodiversity using metrics other than generic ric
 
 + Late Ordovician (Sandbian-Hirnantian)
 + Early Silurian (Llandovery-Wenlock)
-+ Late Permian (Lopingian)
++ Late Permian (Guadalupian-Lopingian)
 + Early Triassic (Induan-Ladinian)
 + Late Cretaceous (Santonian-Maastrichtian)
 + Early Paleogene (Danian-Lutetian)
