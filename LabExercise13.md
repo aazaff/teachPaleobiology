@@ -82,7 +82,7 @@ SilurianMatrix<-cullMatrix(SilurianMatrix,2,10)
 
 + What is the alpha diveristy of ````OrdovicianMatrix```` and ````SilurianMatrix```` as a percentage of their respective gamma diversities?
 + What is the beta diversity of ````OrdovicianMatrix```` and ````SilurianMatrix```` as a percentage of their respective gamma diversities?
-+ Does alpha increase or decrease across the Ordovician Silurian boundary when measured as a percentage?
++ Does beta increase or decrease across the Ordovician Silurian boundary when measured as a percentage?
 + Conceptually does this mean that Silurian faunas are more cosmopolitan (found in more places around North America) or are less cosmopolitan (found in fewer places around North America) following the Ordovician/Silurian mass extinction. 
 + Does this match what we learned about Silurian cosmpolitanism in class?
 
@@ -129,4 +129,4 @@ It is also possible to measure biodiversity using metrics other than generic ric
 
 ## Problem 4
 
-Based on your results across problem sets 1, 2, and 3, do you believe that beta diversity tends to increase, decrease, or neither after mass extinction events as a general rule?
+Based on your results across problem sets 1, 2, and 3, do you believe that Beta diversity tends to increase, decrease, or neither after mass extinction events as a general rule?
