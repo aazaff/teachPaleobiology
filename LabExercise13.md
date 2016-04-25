@@ -129,4 +129,4 @@ It is also possible to measure biodiversity using metrics other than generic ric
 
 ## Problem 4
 
-Based on your results across problem sets 1, 2, and 3, do you believe that beta diversity tends to increase or decrease after mass extinction events as a general rule?
+Based on your results across problem sets 1, 2, and 3, do you believe that beta diversity tends to increase, decrease, or neither after mass extinction events as a general rule?
