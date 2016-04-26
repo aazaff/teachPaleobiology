@@ -70,9 +70,9 @@ SilurianMatrix<-cullMatrix(SilurianMatrix,2,10)
 
 ## Problem Set 1
 
-1) What is the total biodiverisity (generic richness) of ````OrdovicianMatrix```` and ````SilurianMatrix````? In the alpha, beta, and gamma **ADDITIVE** diveristy partitioning paradigm, does this number represent alpha, beta, or gamma biodiversity? Show your code.
+1) What is the total biodiversity (generic richness) of ````OrdovicianMatrix```` and ````SilurianMatrix````? In the alpha, beta, and gamma **ADDITIVE** diveristy partitioning paradigm, does this number represent alpha, beta, or gamma biodiversity? Show your code.
 
-2) What is the average biodiversity of all sample (stratigraphic units) in ````Ordovicianmatrix```` and ````SilurianMatrix````? In the alpha, beta, and gamma **ADDITIVE** diveristy partitioning paradigm, does this number represent alpha, beta, or gamma biodiversity? Show your code.
+2) What is the average biodiversity of all sample (stratigraphic units) in ````Ordovicianmatrix```` and ````SilurianMatrix````? In the alpha, beta, and gamma **ADDITIVE** diversity partitioning paradigm, does this number represent alpha, beta, or gamma biodiversity? Show your code.
 
 3) What is the difference between the average biodiversity of all samples (stratigraphic units) in ````OrdovicianMatrix```` and the total biodiversity of ````OrdovicianMatrix````. What about for the Silurian? In the alpha, beta, and gamma **ADDITIVE** diveristy partitioning paradigm, does this number represent alpha, beta, or gamma biodiversity? Show your code.
 
@@ -84,7 +84,7 @@ SilurianMatrix<-cullMatrix(SilurianMatrix,2,10)
 + What is the beta diversity of ````OrdovicianMatrix```` and ````SilurianMatrix```` as a percentage of their respective gamma diversities?
 + Does beta increase or decrease across the Ordovician Silurian boundary when measured as a percentage?
 + Conceptually does this mean that Silurian faunas are more cosmopolitan (found in more places around North America) or are less cosmopolitan (found in fewer places around North America) following the Ordovician/Silurian mass extinction. 
-+ Does this match what we learned about Silurian cosmpolitanism in class?
++ Does this match what we learned about Silurian cosmopolitanism in class?
 
 6) What is one drawback of using percentages to compare chaging alpha, beta, and gamma biodiversity between two time intervals?
 
