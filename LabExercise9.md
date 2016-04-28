@@ -49,7 +49,7 @@ plot(ModernMap,col=rgb(1,0,0,0.33),lty=0,add=TRUE)
 
 Describe what this code is doing. A good answer will describe what each of the ````plot( )```` function **arguments** is doing - i.e., what is the meaning of col=, lty= and add=. As well, what does the ````rgb( )```` function do? What does it mean? Use google or the R ````help( )```` function.
 
-3) Download a map of the middle Cretaceous (Albian Epochs ~110 mys ago). Name it ````AlbianMap````. 
+3) Download a map of the middle Cretaceous (Albian, ~110 mys ago). Name it ````AlbianMap````. 
 
 4) Add ````AlbianMap```` to the plot you made earlier. The added continents should be colored green, and use the same level of opacity (translucence) as your ````CretaceousMap```` and ````ModernMap````. Show your code!
 
