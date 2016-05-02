@@ -75,5 +75,5 @@ my_counts<-count_uses(my_taxa[,"taxon_name"],0,pyr)
 my_counts[order(-my_counts[,"matches"]),]
 ````
 ##Problem Set 2:
-+ Print your list. Explain why you chose these strings.
-+ How does this compare to the results from the list of truncated formal names?
++ Print your list. Explain why you chose the string you did.
++ How does this compare to the results from the list of truncated formal names? In other words, would you trust the truncated formal names or your custom list of informal names more?
