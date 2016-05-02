@@ -17,7 +17,7 @@ What is CoreNLP doing with your sample sentence?
 ####Step 1
 Download the test data set (````pyritized.csv````) from the course page on github and load it into R:
 ````R
-pyr<-read.csv(file=“pyritized.csv”)
+pyr<-read.csv("https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab14Files/pyritized.csv")
 ````
 Look at the first few rows to get a sense of what the columns contain:
 ````R
@@ -37,7 +37,7 @@ The question we’re going to try to answer is this: What taxa are most frequent
 ####Step 3
 Download the taxon list (````taxa.csv````) for the assignment and load that as well:
 ````R
-taxa<-read.csv(“taxa.csv”)
+taxa<-read.csv("https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab14Files/taxa.csv")
 ````
 This is a list of all the taxa at family level or higher in the PBDB (data service call URL: https://paleobiodb.org/data1.2/taxa/list.csv?datainfo&rowcount&base_name=Metazoa&rank=min_family). I've trimmed down the list of columns and removed the header. We’re going to look for the list of which taxon names most frequently occur within three sentences of the words having to do with pyritization. To do this, we'll be using ````grep( )````, which looks for matches to a regular expression within a string and prints the matching row numbers.
 This function, ````count_uses( )````, takes a list of taxon names, cuts a certain number of letters off the end (useful for recognizing that "ammonites" and "Ammonoidea" are the same thing, for instance). Run the following code snippet in your R window to define the function:
@@ -69,7 +69,7 @@ Caution: the first of these commands may take a LONG time to run -- it's matchin
 +Conversely, which taxa are likely candidates for pyritization, and why?
 
 ####Step 5
-The taxon names in ````taxa.csv```` are very formal, even when we throw out the last few letters to account for Anglicizations and abbreviations of the Linnaean names. If you look through the sentences from the different documents using ````pyr[which(pyr[,"docid"]==unique(pyr[,"docid"])[n]),4]```` (replace n by various integers to look at the different documents), you'll notice that the authors don't always use formal names: they'll say "coral" rather than "Anthozoa", "worm" instead of "Annelida", etc. Try making your own list of possible names to search (for an example of what I mean, see my list at ````vjps_taxa.csv````) and importing it as ````my_taxa````. Then use ````count_uses()```` with your taxon list and ````pyr```` to see what kind of results you get with informal names:
+The taxon names in ````taxa.csv```` are very formal, even when we throw out the last few letters to account for Anglicizations and abbreviations of the Linnaean names. If you look through the sentences from the different documents using ````pyr[which(pyr[,"docid"]==unique(pyr[,"docid"])[n]),4]```` (replace n by various integers to look at the different documents), you'll notice that the authors don't always use formal names: they'll say "coral" rather than "Anthozoa", "worm" instead of "Annelida", etc. Try making your own list of possible names to search (for an example of what I mean, see my list at [vjps_taxa.csv](https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab14Files/vjps_taxa.txt)) and importing it as ````my_taxa````. Then use ````count_uses()```` with your taxon list and ````pyr```` to see what kind of results you get with informal names:
 ````R
 my_counts<-count_uses(my_taxa[,"taxon_name"],0,pyr)
 my_counts[order(-my_counts[,"matches"]),]
