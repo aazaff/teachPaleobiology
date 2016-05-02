@@ -1,5 +1,7 @@
 ## Natural language processing (NLP), PaleoDeepDive, and “dark data”
 
+This lab was conceived and composed by Dr. Valerie Syverson.
+
 ###Part 1: Introduction to NLP
 
 Go to http://nlp.stanford.edu:8080/corenlp/process. This site runs the natural language analysis program CoreNLP on any text you enter into the box and gives you visually tagged output. Enter any sentence you like and look at the result.
