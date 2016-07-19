@@ -84,7 +84,7 @@ You may not use ````vegan( )```` for this subsection.
 
 #### Problem Set 2
 
-Install (if you have not already) and load the ````vegan```` package into R. Read the help file for the ````diversity( )```` function - ````?diversity```` or ````help(diversity)````. You must have already loaded the vegan package in order for it to run. If you do not remember, we used ````vegan```` in the [Ordination lab](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise4.md).
+Install (if you have not already) and load the ````vegan```` package into R. Read the help file for the ````diversity( )```` function - ````?diversity```` or ````help(diversity)````. You must have already loaded the vegan package in order for it to run. If you do not remember, we used ````vegan```` in the [Ordination lab](/LabExercise4.md).
 
 1) Use the ````specnumber( )```` function (also from the ````vegan```` package) to find Bivalve richness in the Miocene. What code did you use to find out?
 
@@ -209,6 +209,6 @@ Pennsylvanian Middle Ordovician   Late Ordovician        Llandovery           We
 
 2) How does the standardized brachiopod richness (previous question) compare to the unstandardized brachiopod richness from Problem Set 3? Show your code. Explain your reasoning. [Hint: Don't forget to put your biodiversities in temporal order]
 
-3) Make a scatter plot of **standardized brachiopod richness** versus **standardized bivalve richness**. Make a second scatter plot of **unstandardized brachiopod richness** versus **unstandardized bivalve richness**. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the [previous lab](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise4.md#step-3-advanced-plotting)]
+3) Make a scatter plot of **standardized brachiopod richness** versus **standardized bivalve richness**. Make a second scatter plot of **unstandardized brachiopod richness** versus **unstandardized bivalve richness**. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the [previous lab](/LabExercise4.md#step-3-advanced-plotting)]
 
 4) Do you believe that there is any evidence in these analyses to support the idea that bivalves outcompeted brachiopods over time? Explain your reasoning.
