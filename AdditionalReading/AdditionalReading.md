@@ -15,6 +15,7 @@ Topics | Description
 [Small-Scale Taphonomy](http://teststrata.geology.wisc.edu/teachPaleobiology/AdditionalReading/Small%20Scale%20Taphonomy.pdf) | A classic review of various taphonomic concerns that paleontologists have to wrestle with.
 [Time Averaging](http://teststrata.geology.wisc.edu/teachPaleobiology/AdditionalReading/Time%20Averaging.pdf) | A more in depth review of the issue of time-averaging.
 [Large-Scale Taphonomy](http://teststrata.geology.wisc.edu/teachPaleobiology/AdditionalReading/Large%20Scale%20Taphonomy.pdf) | Another classic review of taphonomic concerns. There is some noticable overlap with the [Small-Scale Taphonomy](http://teststrata.geology.wisc.edu/teachPaleobiology/AdditionalReading/Small%20Scale%20Taphonomy.pdf) review, but still a great read.
+[Diversity Partitioning](http://teststrata.geology.wisc.edu/teachPaleobiology/AdditionalReading/AlphaBetaGamma.pdf) | A basic review of Alpha, Beta, and Gamma diveristy partitioning review. It gets some things about Shannon's Entropy and Gini-Simpson incorrect, but otherwise it is a very easy to read review.
 
 ## Additional readings related to specific geologic events.
 

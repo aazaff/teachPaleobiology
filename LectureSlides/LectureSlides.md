@@ -26,3 +26,6 @@ Lecture | Topic
 04-13-2016 | [Macrostrat](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Macrostrat04132016.pdf)
 04-18-2016 | [Second Half of Triassic-Jurassic Lecture](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/TriassicSecondHalf04182016.pdf)
 04-20-2016 | [Mesozoic Revolutions](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/MesozoicRevolution04202016.pdf)
+04-25-2016 | [End-Cretaceous](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/EndCretaceous04252016.pdf)
+04-27-2016 | [Escalation](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/Escalation04272016.pdf)
+05-04-2016 | [Sixth Mass Extinction](http://teststrata.geology.wisc.edu/teachPaleobiology/LectureSlides/SixthExtinction05042016.pdf)
