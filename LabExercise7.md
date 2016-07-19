@@ -113,7 +113,7 @@ mean(sample(Lucina[,"paleolng"],length(Lucina[,"paleolng"]),replace=TRUE))
 
 3) Find the mean of ````ResampledMeans````, is it similar to the mean of the original data?
 
-4) Sort ````ResampledMeans```` from lowest to highest. [Hint: We learned how to sort a vector in [Lab 6](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise6.md#problem-set-2)].
+4) Sort ````ResampledMeans```` from lowest to highest. [Hint: We learned how to sort a vector in [Lab 6](/LabExercise6.md#problem-set-2)].
 
 5) Now that you have sorted ````ResampledMeans````, what is the 2.5th percentile of ResampledMeans and what is the 97.5th percentile of Resampled means. If you do not know what a percentile is, or how to calculate it, you can use google. Show your code. 
 
@@ -179,7 +179,7 @@ Let's take a list of bivalve genera that we know to be extant today, but are ext
 
 ````R
 # Load in a csv of extant bivalves
-ExtantBivalves<-read.csv("https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab7Figures/ExtantBivalves.csv",row.names=1,header=TRUE)
+ExtantBivalves<-read.csv("https://raw.githubusercontent.com/paleobiodb/teachPaleobiology/master/Lab7Figures/ExtantBivalves.csv",row.names=1,header=TRUE)
 
 # Subset DataPBDB to find only occurrences of ExtantBivalves
 ExtantData<-subset(DataPBDB,DataPBDB[,"genus"]%in%ExtantBivalves[,"Extant"]==TRUE)
