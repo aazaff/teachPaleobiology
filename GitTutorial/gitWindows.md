@@ -1,6 +1,6 @@
 # Installing Git and Creating Your First Repository
 
-This tutorial is for Windows users. Mac users should use the [gitAppple](/gitApple.md) tutorial. Proceed in chronological order and do not deviate from the script.
+This tutorial is for Windows users. Mac users should use the [gitAppple](/GitTutorial/gitApple.md) tutorial. Proceed in chronological order and do not deviate from the script.
 
 ## Make a GitHub Account
 
@@ -59,7 +59,7 @@ Your example will be something like
 
 Step 10: Initialize git using the ````git init```` command. **LEAVE GIT BASH OPEN**.
 
-<a href="url"><img src="/gitWindows/Figure9.PNG" align="center" height="450" width="500" ></a>
+<a href="url"><img src="/GitTutorial/gitWindows/Figure9.PNG" align="center" height="450" width="500" ></a>
 
 ## Creating the GitHub copy of the repository
 
@@ -73,4 +73,4 @@ Step 12: Copy the code under the section header "...or push an existing reposito
 
 ## The End
 
-You now have a repository that is linked between GitHub and your local machine. To see how to add, edit, delete, or sync files between your local machine and GitHub, see the [gitTutorial](/gitTutorial.md).
+You now have a repository that is linked between GitHub and your local machine. To see how to add, edit, delete, or sync files between your local machine and GitHub, see the [gitTutorial](/GitTutorial/gitTutorial.md).
