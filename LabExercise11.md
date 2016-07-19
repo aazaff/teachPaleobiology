@@ -4,14 +4,14 @@ The Early Triassic fossil record is very sparse, which is generally interpreted 
 
 Although faunas are generally considered to have "recovered" by the middle Triassic, diversity remained comparatively low for much of the rest of the Triassic and well into the Middle Jurassic.
 
-![Range-Through Richness](https://github.com/aazaff/teachPaleobiology/raw/master/Lab11Figures/Fig1.png)
+![Range-Through Richness](/Lab11Figures/Fig1.png)
 > Range-through marine generic richness
 
 An alternative hypothesis is that the observed lows in biodiveristy from the Early Triassic through Middle Jurassic are actually a consequence of poor preservation. Specifically, low volumes of preserved sedimentary rock available for paleontologists to sample during this interval. Today we will explore this possibility using data from the Earliest Triassic in the [Macrostrat](https://macrostrat.org) and [Paleobiology](https://paleobiodb.org) Databases.
 
 ## Part 1
 
-We are going to download some data from the Macrostrat database and make some basic maps of Triassic rock units in North America. We will do this by using the Macrostrat API, similar to how we used the Paleobiology Database API in [Lab 3](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise3.md#paleobiology-database-api). You can review that previous lab for a basic overview of API concepts.
+We are going to download some data from the Macrostrat database and make some basic maps of Triassic rock units in North America. We will do this by using the Macrostrat API, similar to how we used the Paleobiology Database API in [Lab 3](/LabExercise3.md#paleobiology-database-api). You can review that previous lab for a basic overview of API concepts.
 
 #### Step 1
 Load in the beta version of the [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R/blob/master/README.md#paleobiologydatabaser) package's [communityMatrix.R](https://github.com/aazaff/paleobiologyDatabase.R/blob/master/README.md#communitymatrixr) module.
@@ -25,7 +25,7 @@ Go to the Macrostrat API page at https://macrostrat.org/api. If you are using ch
 
 You should see a list of API routes available for you to investigate.
 
-![Macrostrat API Home Page](https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab11Figures/Fig2.png)
+![Macrostrat API Home Page](/Lab11Figures/Fig2.png)
 > A list of Macrostrat API routes
 
 #### Step 3
@@ -131,7 +131,7 @@ Plot the map using the ```plot( )```. Notice that although we used ````col=rgb( 
 plot(AlbianMap,col="#CCEA97")
 ````
 
-![Albian Map](https://github.com/aazaff/teachPaleobiology/raw/master/Lab11Figures/Fig3.png)
+![Albian Map](/Lab11Figures/Fig3.png)
 
 ## Problem Set 3
 
