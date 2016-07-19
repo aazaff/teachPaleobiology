@@ -16,7 +16,7 @@ Resources | Description
 [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md) | Resources for developing your R skills like a pro.
 [Git Tutorial](/GitTutorial/gitTutorial.md) | Resource for developing your git skills like a pro.
 
-Additionally, the weekly tests, as oultined in the [syllabus](/CourseDocuments/PaleontologySyllabus.md), can be accessed at [learnuw.wisc.edu](https://learnuw.wisc.edu).
+Additionally, the weekly tests, as oultined in the [syllabus](/CourseDocuments/paleobiologySyllabus.md), can be accessed at [learnuw.wisc.edu](https://learnuw.wisc.edu).
 
 ### Acknowledgments
 
