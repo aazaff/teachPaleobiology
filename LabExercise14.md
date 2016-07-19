@@ -17,7 +17,7 @@ What is CoreNLP doing with your sample sentence?
 ####Step 1
 Download the test data set (````pyritized.csv````) from the course page on github and load it into R:
 ````R
-pyr<-read.csv("https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab14Files/pyritized.csv")
+pyr<-read.csv("https://raw.githubusercontent.com/paleobiodb/teachPaleobiology/master/Lab14Files/pyritized.csv")
 ````
 Look at the first few rows to get a sense of what the columns contain:
 ````R
@@ -37,7 +37,7 @@ The question we’re going to try to answer is this: What taxa are most frequent
 ####Step 3
 Download the taxon list (````taxa.csv````) for the assignment and load that as well:
 ````R
-taxa<-read.csv("https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab14Files/taxa.csv")
+taxa<-read.csv("https://raw.githubusercontent.com/paleobiodb/teachPaleobiology/master/Lab14Files/taxa.csv")
 ````
 This is a list of all the taxa at family level or higher in the PBDB (data service call URL: https://paleobiodb.org/data1.2/taxa/list.csv?datainfo&rowcount&base_name=Metazoa&rank=min_family). I've trimmed down the list of columns and removed the header. We’re going to look for the list of which taxon names most frequently occur within three sentences of the words having to do with pyritization. To do this, we'll be using ````grep( )````, which looks for matches to a regular expression within a string and prints the matching row numbers.
 This function, ````count_uses( )````, takes a list of taxon names, cuts a certain number of letters off the end (useful for recognizing that "ammonites" and "Ammonoidea" are the same thing, for instance). Run the following code snippet in your R window to define the function:
