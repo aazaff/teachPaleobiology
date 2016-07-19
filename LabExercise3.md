@@ -2,17 +2,7 @@
 
 ## Instructions
 
-<<<<<<< HEAD
-<<<<<<< HEAD:LabExercise3.md
 Complete the following lab exercise and submit your answers as a GitHub flavored markdown file to your personal GitHub repository by Febrary 15, 2016.
-=======
-Lab exercise 1 is broken into two components. The first part is an introduction to the Paleobiology Database Website. The second part is an introduction to the R computer language. The R tutorials and associated exercises are kept in a separate repository named [startLearn.R](https://github.com/aazaff/startLearn.R/blob/master/README.md).
-
-You will be able to complete the first part during lab period, but will likely have to finish the second part as homework. Both components are due at the start of the next lab period: **Monday Feb 1st**. 
->>>>>>> 2de5d4b78da48672f042293d27a6978df0d5d00d:LabExercise1.md
-=======
-Complete the following lab exercise and submit your answers to your personal GitHub repository by **February 15, 2016**.
->>>>>>> upstream/master
 
 ## Finding the Paleobiology Database Website
 
@@ -194,7 +184,7 @@ This will take you to a page that lists the different data routes. If you click 
 https://paleobiodb.org/data1.2/colls/list.csv?base_name=Mammut&interval=Pliocene
 ````
 
-1. In [Lab Exercise 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#step-2) you downloaded a csv file of ammonite sizes from a github URL directly into R. What code would you use to download the above PBDB data directly into R? 
+1. In [Lab Exercise 2](/LabExercise2.md#step-2) you downloaded a csv file of ammonite sizes from a github URL directly into R. What code would you use to download the above PBDB data directly into R? 
 
 2. Download the above data into R. What are its dimensions?
 
@@ -274,7 +264,7 @@ Some species have morphologic data attached to them in the Paleobiology Database
 
 Each of these species have morphologic data (e.g., shell width measurements) attached to them in the paleobiology database. You can search for this information by searching taxonomic names [here](https://paleobiodb.org/cgi-bin/bridge.pl?a=beginTaxonInfo).
 
-1. Each of the ammonite specimens in [Part I of Lab 2](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise2.md#part-i) belongs to one of these three species. Based on 1) the morphologic information on these three species in the Paleobiology Database and 2) the morphologic information from Lab 2, can you tell which specimens belong to which species? Explain your reasoning.
+1. Each of the ammonite specimens in [Part I of Lab 2](/LabExercise2.md#part-i) belongs to one of these three species. Based on 1) the morphologic information on these three species in the Paleobiology Database and 2) the morphologic information from Lab 2, can you tell which specimens belong to which species? Explain your reasoning.
 
 2. Look up *Xenoceltites variocostatus* in the Paleobiology Database. Find the first person (journal paper/reference) to name this species. (Hint: Both the first and second author's last names start with "B"). What is the name of the article?
 
