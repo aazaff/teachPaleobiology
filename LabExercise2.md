@@ -2,15 +2,7 @@
 
 ## Instructions
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Lab Exercise 2 is composed of three parts with several smaller parts. Write up your answers to all three parts as a GitHub flavored markdown file by the start of the next Lab on **February 8, 2016**.
-=======
-Lab Exercise 2 is composed of three parts with several smaller parts. Write up your answers to all three parts in a separate word document and turn it in, **as a hard copy**, by the start of the next Lab on **February 8, 2016**.
->>>>>>> 2de5d4b78da48672f042293d27a6978df0d5d00d
-=======
-Lab Exercise 2 is composed of four parts with several smaller parts. Write up your answers to all four parts in a text file, and submit it to GitHub by the start of the next Lab on **February 8, 2016**.
->>>>>>> upstream/master
 
 ## Part I
 
@@ -32,7 +24,7 @@ To load the CSV file into R you will use the ````read.csv( )```` function.
 
 ````R
 # First record the URL of the file as a character string - i.e., use quotes
-URL<-"https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figures/ammon_classify.csv"
+URL<-"https://Lab2Figures/ammon_classify.csv"
 
 # Save the CSV File as an object named Ammonites
 # We will also use the row.names argument to tell R that the first column of the CSV file
