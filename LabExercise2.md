@@ -2,7 +2,7 @@
 
 ## Instructions
 
-Lab Exercise 2 is composed of four parts with several smaller parts. Write up your answers to all four parts in a text file, and submit it to GitHub by the start of the next Lab on **February 8, 2016**.
+Lab Exercise 2 is composed of three parts with several smaller parts. Write up your answers to all three parts as a GitHub flavored markdown file by the start of the next Lab on **February 8, 2016**.
 
 ## Part I
 
@@ -14,7 +14,7 @@ Click [here](https://github.com/aazaff/paleobiologyWebsite/blob/master/Lab2Figur
 
 #### Step 2
 
-We are going to open the [ammonite_classify.csv](https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figures/ammon_classify.csv) file in R. CSV stands for **comma separated file**, it is one of the most common file formats used in R for storing two-dimensional arrays - i.e., matrices or data frames. You can also view, create, and edit them using a spreadsheet program like Microsoft Excel.
+We are going to open the [ammonite_classify.csv](https://raw.githubusercontent.com/paleobiodb/teachPaleobiology/master/Lab2Figures/ammon_classify.csv) file in R. CSV stands for **comma separated file**, it is one of the most common file formats used in R for storing two-dimensional arrays - i.e., matrices or data frames. You can also view, create, and edit them using a spreadsheet program like Microsoft Excel.
 
 It is a data file containing shell coiling measurements traditionally used in ammonoid classification, including diameter (D), the ratio of umbilical width U to diameter (U/D), and the ratio of shell width W to diameter (W/D). The file also contains the stratigraphic position (relative geologic age) of each specimen.
 
@@ -24,7 +24,7 @@ To load the CSV file into R you will use the ````read.csv( )```` function.
 
 ````R
 # First record the URL of the file as a character string - i.e., use quotes
-URL<-"https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figures/ammon_classify.csv"
+URL<-"https://raw.githubusercontent.com/paleobiodb/teachPaleobiology/master/Lab2Figures/ammon_classify.csv"
 
 # Save the CSV File as an object named Ammonites
 # We will also use the row.names argument to tell R that the first column of the CSV file
@@ -98,7 +98,7 @@ This is the dataset we need to conduct a landmark analysis.
 
 The first thing we need to do in a landmark analysis is a **procrustes** mathematical transformation. It takes its name from the ancient greek legend of Procrustes (Προκρούστης). Procrustes was a serial killer who would invite unsuspecting travellers to stay the night at his inn. If the travellers were too short for the bed, Procrustes would cruelly stretch out the travellers' bodies to fit the bed. If they were too tall for the bed, Procrustes would amputate their limbs until they fit.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Procrustes.jpg" align="center" height="300" width="400" ></a>
+<a href="url"><img src="/Lab2Figures/Procrustes.jpg" align="center" height="300" width="400" ></a>
 
 Remember that landmark analysis is concerned with **shape** and not **size**. We therefore apply that the procrustes transformation to shrink or enlargen the data (specifically known as scaling) in such a way that we elminate size as a factor between specimens, but still maintain appropriate information about shape - i.e., the *relative* distance of the landmarks.
 
@@ -122,7 +122,7 @@ Because it can be used for a variety of purposes, not just morphometrics, there 
 plotTangentSpace(ProcrustesPlethodon[["coords"]],warpgrids=FALSE,verbose=FALSE)
 ````
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab2Figures/Plethodon.png" align="center" height="500" width="500" ></a>
+<a href="url"><img src="/Lab2Figures/Plethodon.png" align="center" height="500" width="500" ></a>
 
 #### Step 6
 
@@ -142,7 +142,7 @@ Now that you have plotted the PCA, it should be obvious that the specimens clust
 
 Examine the following cladogram and answer the questions.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure3.png" align="center" height="300" width="650" ></a>
+<a href="url"><img src="/Lab2Figures/Figure3.png" align="center" height="300" width="650" ></a>
 
 #### Part III Questions
 
@@ -182,16 +182,16 @@ Group 5 | Species B, D, E.
 
 The following figure shows the pattern of shape change during ontogeny of the bivalve *Gryphaea arcuata*, from the early juvenile (A) to late juvenile (B) to adult (C). Note the magnification factors of the juvenile stages.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure4.png" align="center"></a>
+<a href="url"><img src="/Lab2Figures/Figure4.png" align="center"></a>
 
 Here are adults of *Gryphaea mccullochi* (D) and *Gryphaea gigantea* (E). They are shown at x1.
 
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure5.png" align="left"></a>
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure6.png" align="center"></a>
+<a href="url"><img src="/Lab2Figures/Figure5.png" align="left"></a>
+<a href="url"><img src="/Lab2Figures/Figure6.png" align="center"></a>
+
+https://raw.githubusercontent.com/paleobiodb/teachPaleobiology/master/Lab2Figures/ammon_classify.csv
 
 The following figure shows the ontogeny of the trilobite *Olenellus lapworthi* (thin vertical arrow on left) and the evolutionary relationship of five species of *Olenellus* (large diagonal arrow).
-
-<a href="url"><img src="https://raw.githubusercontent.com/aazaff/paleobiologyWebsite/master/Lab2Figures/Figure7.png" align="center" height="300" width="600" ></a>
 
 #### Part IV Questions
 

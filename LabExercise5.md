@@ -84,7 +84,7 @@ You may not use ````vegan( )```` for this subsection.
 
 #### Problem Set 2
 
-Install (if you have not already) and load the ````vegan```` package into R. Read the help file for the ````diversity( )```` function - ````?diversity```` or ````help(diversity)````. You must have already loaded the vegan package in order for it to run. If you do not remember, we used ````vegan```` in the [Ordination lab](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise4.md).
+Install (if you have not already) and load the ````vegan```` package into R. Read the help file for the ````diversity( )```` function - ````?diversity```` or ````help(diversity)````. You must have already loaded the vegan package in order for it to run. If you do not remember, we used ````vegan```` in the [Ordination lab](/LabExercise4.md).
 
 1) Use the ````specnumber( )```` function (also from the ````vegan```` package) to find Bivalve richness in the Miocene. What code did you use to find out?
 

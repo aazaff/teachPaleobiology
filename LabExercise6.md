@@ -67,7 +67,7 @@ OrderMatrix<-presenceMatrix(MacroPBDB,SampleDefinition="unit_name",TaxonRank="or
 
 ##### Hints
 1. Remember how to calculate the richness of a sample, and *apply* this to each sample of the ````OrderMatrix````.
-2. If you do not remember how to calculate richness, consult the [previous lab](https://github.com/aazaff/teachPaleobiology/blob/master/LabExercise5.md#problem-set-2).
+2. If you do not remember how to calculate richness, consult the [previous lab](/LabExercise5.md#problem-set-2).
 3. Use the ````sort( )```` function to put your richnesses in order.
 
 2) A good candidate for classification as a lagerstätten should have a large number of genera that are relatively rare. Using the ````GenusMatrix```` column to find out how many samples each genus occurs in. Show the code you used. Name your output ````GenusFrequencies````.
