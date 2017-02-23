@@ -223,7 +223,7 @@ Model1<-glm(Match~title_sim,family="binomial",data=TrainingSet)
 Model2<-glm(Match~title_sim+author_in,family="binomial",data=TrainingSet)
 Model3<-glm(Match~title_sim+author_in+year_match,family="binomial",data=TrainingSet)
 Model4<-glm(Match~title_sim+author_in+year_match+pubtitle_sim,family="binomial",data=TrainingSet)
-````
+
 # Make predictions from the basic set
 Probabilities<-round(predict(Model4,MatchReferences,type="response"),4)
     
