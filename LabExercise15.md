@@ -13,6 +13,8 @@ Many databases extract different kinds of information from the same sources. For
 
 Imagine that a worker collected both living and fossil organisms off the coast of St. Croix. She placed information on the fossil collections in the Paleobiology Databse, information on the living specimens in OBIS, physically stored the specimens in the Cincinnati Natural History Museum, and published a paper on these data in the journal *Paleobiology*. Because each of these databases holds different kinds of information that are not linked to each other, it would be very difficult to extract all the information related to this project in a single go. How can we make that process easier?
 
+![Define Problem](/Lab15Files/defineproblem.png)
+
 ## Defining a Solution
 We can create a lookup table to define the relationships of data entries among different databases. Using the above example of a study in St. Croix, we would want our table to look like this.
 
