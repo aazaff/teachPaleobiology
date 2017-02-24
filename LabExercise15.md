@@ -78,7 +78,7 @@ The iDigBio database doesn't record reference information at all!
 **Solution**: We'll need to use some intelligent regular expressions (regex) to parse citations into a *uniform* format allowing for comparison and matching.
 
 #### Data Changes Over Time
-**Problem**: Data becomes obsolete over time. For example, a fossil may be published in a paper and entered into the Paleobiology Database under the species name *Brontosaurus excelsus*, but a later paper may revise that name to *Apatosaurus excelsus*. This means that different databases may data from the same source entered under different names! Similarly, simple user error such as typos or character errors may lead to confusion when trying to match enries across databases.
+**Problem**: Data becomes obsolete over time. For example, a fossil may be published in a paper and entered into the Paleobiology Database under the species name *Brontosaurus excelsus*, but a later paper may revise that name to *Apatosaurus excelsus*. This means that different databases may enter data from the same source under different names! Similarly, simple user error such as typos or character errors may lead to confusion when trying to match enries across databases.
 
 **Solution**: The solution is to create a probabilistic model that allows "fuzzy" matching of entries across databases. We will measure a variety of factors that we think indicate a good match, then we will build a model (a multiple logistic regression) that determines how well these indicators predict whether a match is correct or false. This is essentially the precursor of machine-learning.
 
@@ -273,6 +273,6 @@ table(Probabilities)
 Your mission, if you choose to accept it, is to try and duplicate something *akin* to this process, but attempt to match references in [Neotoma](https://www.neotomadb.org) to GeoDeepDive.
 
 There are a few things you should consider.
-+ There is no "right" way to do this. There are many solutions that could be acceptable. The only criterion for success is if you have created a method that gives you correct matches when you taste it.
-+ You will want to download Neotoma references using its API, just like how we downloaded data from the PBDB using its API. You can find documentation for the Neotoma API [here](http://api.neotomadb.org/doc/resources/publications). 
-+ Neotoma references are formatted quite differently than in PBDB. This means that you could try a substantially different approach or try to convert the Neotoma data to be more like the PBDB. 
++ There is no "right" way to do this. There are many solutions that could be acceptable. The only criterion for success is if you have created a method that gives you correct matches when you test it.
++ You will want to download Neotoma references using its API, just like how we downloaded data from the PBDB using its API in the example. You can find documentation for the Neotoma API [here](http://api.neotomadb.org/doc/resources/publications). 
++ Neotoma references are formatted quite differently than in the PBDB. This means that you could try a substantially different approach or try to convert the Neotoma data to be more like the PBDB. 
