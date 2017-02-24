@@ -26,25 +26,61 @@ With this information, we can easily search those databases for all of the infor
 
 ## Identifying Obstacles and Solutions
 #### The Many-To-One Problem
-A database entry may be mapped to multiple references, or a single reference may map to multiple entries within the same database. How can we easily represent all of this information in a single lookup table?
+**Problem**: A database entry may be mapped to multiple references, or a single reference may map to multiple entries within the same database. How can we easily represent all of this information in a single lookup table?
 
-We want our data to be "tidy". This means that every entry from each database is represented by its own unique row and column - i.e., no cells have more than one id. The upside to this is that the data is substantially easier to select and work with, but the downside is that the table will have substantially larger dimensions than if we concatenated id's into cells.
+**Solution**: We want our data to be "tidy". This means that every entry from each database is represented by its own unique row and column - i.e., no cells have more than one id. The upside to this is that the data is substantially easier to select and work with, but the downside is that the table will have substantially larger dimensions than if we concatenated id's into cells.
 
 #### References may be formatted differently among databases
-The Neotoma Database stores many of its older citations as a single string formatted like most bibliographies.
+The Neotoma Database returns its references in a custom JSON format, where a lot of important information (e.g., journal name) is inconveniently hidden within a single bibliographic string.
 
+````javascript
+{
+    "Year":"1998",
+    "PubType":"Journal Article",
+    "PublicationID":7664,
+    "Authors": [
+        {
+            "ContactID":6870,
+            "Order":1,
+            "ContactName":"Eisner, Wendy R."
+        },
+        {
+            "ContactID":2874,
+            "Order":2,
+            "ContactName":"Peterson, Kim M."
+        }
+    ],
+    "Citation":"Eisner, W.R., and K.M. Peterson. 1998. High-resolution pollen analysis of tundra polygons from the North Slope of Alaska. Journal of Geopysical Research 103(28):929-937."
+}
+````
 
-The Paleobiology Database and GeoDeepDive break down the citations into separate fields.
-
+The Paleobiology Database also uses a custom JSON format, but breaks down the citation information into separate fields.
+````javascript
+{
+    "oid":"ref:13",
+    "ai1":"J. J.",
+    "al1":"Sepkoski",
+    "pby":"1998",
+    "tit":"Rates of speciation in the fossil record",
+    "pbt":"Philosophical Transaction of the Royal Society Biological Sciences",
+    "vol":"353",
+    "vno":"1366",
+    "pgf":"315",
+    "pgl":"326",
+    "pty":"journal article",
+    "lan":"English",
+    "doi":"10.1098/rstb.1998.0212"
+}
+````
 
 The iDigBio database doesn't record reference information at all!
 
-The solution is that we'll need to use some intelligent regular expressions (regex) to parse citations into a *uniform* format allowing for comparison and matching.
+**Solution**: We'll need to use some intelligent regular expressions (regex) to parse citations into a *uniform* format allowing for comparison and matching.
 
 #### Data Changes Over Time
-Data becomes obsolete over time. For example, a fossil may be published in a paper and entered into the Paleobiology Database under the species name *Brontosaurus excelsus*, but a later paper may revise that name to *Apatosaurus excelsus*. This means that different databases may data from the same source entered under different names! Similarly, simple user error such as typos or character errors may lead to confusion when trying to match enries across databases.
+**Problem**: Data becomes obsolete over time. For example, a fossil may be published in a paper and entered into the Paleobiology Database under the species name *Brontosaurus excelsus*, but a later paper may revise that name to *Apatosaurus excelsus*. This means that different databases may data from the same source entered under different names! Similarly, simple user error such as typos or character errors may lead to confusion when trying to match enries across databases.
 
-The solution is to create a probabilistic model that allows "fuzzy" matching of entries across databases. We will measure a variety of factors that we think indicate a good match, then we will build a model (a multiple logistic regression) that determines how well these indicators predict whether a match is correct or false. This is essentially the precursor of machine-learning.
+**Solution**: The solution is to create a probabilistic model that allows "fuzzy" matching of entries across databases. We will measure a variety of factors that we think indicate a good match, then we will build a model (a multiple logistic regression) that determines how well these indicators predict whether a match is correct or false. This is essentially the precursor of machine-learning.
 
 ## The Example
 Here is a fairly simple R script written with my intern, Erika Ito, that matches references in the Paleobiology Database with scientific documents in the GeoDeepDive corpus. We first determine the similarity of title, authorship, year, and publication between candidate references, then build a multiple linear logistic regression model that assigns a probability to the match.
