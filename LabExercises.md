@@ -16,3 +16,4 @@ Lab |   Calendar   | Instructions
 [Lab12](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise12.md) | April 18 | Selectivity patterns of mass extinctions.
 [Lab13](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise13.md) | April 25 | <strike>The Triassic and Jurassic stratigraphy of North America.</strike> Diversity partitioning across mass extinction events.
 [Lab14](https://github.com/aazaff/paleobiologyWebsite/blob/master/LabExercise14.md) | May 02 | <strike>Inferring the positions of ancient paleocontinents.</strike> Using PaleoDeepDive to find dark data.
+[Lab 15](/LabExercise15.md) | No Date | Creating lookup tables using fuzzy matching.
