@@ -303,7 +303,7 @@ PostCambrianNMDS<-metaMDS(PostCambrian)
 # We have to do some graphical fiddling.
 
 # Create a blank plot by setting type= to "n" (for nothing)
-plot(PostCambrianNMDS,display="sites",type="n"
+plot(PostCambrianNMDS,display="sites",type="n")
 
 # Use the text( ) function, to fill in our blank plot with the names of the samples
 # Importantly, text( ) will not work if there is not already an open plot,
