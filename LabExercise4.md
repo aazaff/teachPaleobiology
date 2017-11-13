@@ -16,11 +16,13 @@ Let us load in data from the Paleobiology Database, and convert it into an analy
 
 #### Step 1:
 
-Open R and load in the following modules of the beta version of the University of Wisconsion's [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package using the ````source( )```` function.
+Open R and load the `velociraptr` r package.
 
 ````R
-source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/communityMatrix.R")
-source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/cullMatrix.R")
+if (suppressWarnings(require("velociraptr"))==FALSE) {
+    install.packages("velociraptr",repos="http://cran.cnr.berkeley.edu/");
+    library("velociraptr");
+    }
 ````
 
 #### Step 2:
@@ -30,17 +32,17 @@ Download a dataset of bivalve (clams) and gastropod (snails) fossils that range 
 ````R
 # Download data from the Paleobiology Database
 # This may take a couple of minutes.
-DataPBDB<-downloadPBDB(Taxa=c("Bivalvia","Gastropoda"),StartInterval="Cambrian",StopInterval="Pleistocene")
+DataPBDB<-velociraptr::downloadPBDB(Taxa=c("Bivalvia","Gastropoda"),StartInterval="Cambrian",StopInterval="Pleistocene")
 
 # Remove occurrences not properly resolved to the genus level.
-DataPBDB<-cleanRank(DataPBDB)
+DataPBDB<-velociraptr::cleanTaxonomy(DataPBDB,"genus")
 
-# Download age definitions
+# Download a matrix of geologic epoch definitions and metadata
 # A necessary step for the constrainAges( ) function
-Epochs<-downloadTime(Timescale="international epochs")
+Epochs<-velociraptr::downloadTime(Timescale="international epochs")
 
 # Remove poorly constrained fossils
-DataPBDB<-constrainAges(DataPBDB,Epochs)
+DataPBDB<-velociraptr::constrainAges(DataPBDB,Epochs)
 ````
 
 #### Step 3:
@@ -59,12 +61,13 @@ Let's convert our PBDB dataset into a presence-absence dataset using the ````pre
 ````R
 # Create a PBDB occurrences by taxa matrix
 # This may take a couple of minutes
-PresencePBDB<-presenceMatrix(DataPBDB,SampleDefinition="early_interval")
+PresencePBDB<-velociraptr::presenceMatrix(DataPBDB,Rows="early_interval",Columns="genus")
 
 # In addition, let us clean up this new matrix and remove depauperate samples and rare taxa.
 # We will set it so that a sample needs at least 24 reported taxa for us to consider it reliable,
-# and each taxon must occur in at least 5 samples for us to keep it.
-PresencePBDB<-cullMatrix(PresencePBDB,minOccurrences=5,minDiversity=24)
+# and each taxon must occur in at least 5 samples for us to keep it. These are common minimums for
+# sample sizes in ordination analysis, though I've seen no quantiative proof that this is ideal.
+PresencePBDB<-velociraptr::cullMatrix(PresencePBDB,Rarity=5,Richness=24)
 ````
 
 #### Problem Set I
@@ -130,7 +133,7 @@ Use the following code to perform and plot a basic correspondence analysis on Po
 ````R
 # Run a correspondence analysis using the decorana( ) function of vegan
 # ira = 1 tells it to run a basic correspondence analysis rather than detrended correspondence analysis
-PostCambrianCA<-decorana(PostCambrian,ira=1)
+PostCambrianCA<-vegan::decorana(PostCambrian,ira=1)
 
 # Plot the inferred samples (sites).
 # If you want to see the taxa, use display="species"
@@ -261,7 +264,7 @@ You can perform a DCA in R using the ````decorana( )```` function of the ````veg
 ````R
 # Peform a DCA on the Post Cambrian Dataset
 # ira = 0 is the default, so you do not need to put that part in.
-PostCambrianDCA<-decorana(PostCambrian,ira=0)
+PostCambrianDCA<-vegan::decorana(PostCambrian,ira=0)
 
 # Plot the DCA
 plot(PostCambrianDCA,display="sites")
