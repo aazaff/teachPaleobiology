@@ -1,4 +1,4 @@
-# PALEOBIOLOGy DATABASE SHORTCOURSE 2019: BIODIVERSITY SECTION
+# PALEOBIOLOGY DATABASE SHORTCOURSE 2019: BIODIVERSITY SECTION
 
 ## Course Information
 
@@ -15,10 +15,10 @@ Unfortunately, despite its fundamental role and frequent use in ecological analy
 
 Therefore, the primary **learning objectives** for this section are to:
     
-    1. Define the many competing conceptions of biodiversity and their mathematical formalizations.
-    2. Identify the theoretical implications of each metric and when they are scientifically appropriate.
-    3. Cover additional operational considerations (e.g., sample standardization) of measuring biodiversity with different types of paleontological data.
-	  4. Have fun, maybe.
+1. Define the many competing conceptions of biodiversity and their mathematical formalizations.
+2. Identify the theoretical implications of each metric and when they are scientifically appropriate.
+3. Cover additional operational considerations (e.g., sample standardization) of measuring biodiversity with different types of paleontological data.
+4. Have fun, maybe.
   
 ## COURSEWORK ORGANIZATION	
 The course is loosely structured around two sets of approximately 1.5-hours of lecture and 2.5-hours of lab, with an hour of lunch inbetween. 
@@ -57,4 +57,4 @@ Time-Series Analysis Exercise 2 | Alpha, beta, and gamma biodiveristy lab exerci
 Topic | Definition
 ---- | ----
 Rates, Periodicity, and Basic | Limited discusion of turnover rates, Live-Death bodel, and Periodicity analysis
-Periodicity and Birth-Death Lab | Recreation of the original Raup and Sepkoski periodicity analysis, and an applied [birth-death model combined with Macrostrat time-series](https://github.com/dsilvestro/PyRate/tree/master/tutorials#birth-death-models-with-time-continuous-correlates).
+Periodicity and Birth-Death Lab | Recreation of the original [Raup and Sepkoski periodicity analysis](https://www.pnas.org/content/pnas/81/3/801.full.pdf), and an applied [birth-death model](https://github.com/dsilvestro/PyRate/tree/master/tutorials#birth-death-models-with-time-continuous-correlates) based off of a continuous, "independent" time-series of the rock-record from [Macrostrat](https://macrostrat.org/).
