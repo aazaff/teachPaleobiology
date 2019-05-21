@@ -56,5 +56,5 @@ Time-Series Analysis Exercise 2 | Alpha, beta, and gamma biodiveristy lab exerci
 ### DAY 3 - SET 2 (1:00 P.M. - 5:00 P.M.)
 Topic | Definition
 ---- | ----
-Rates, Periodicity, and Basic | Limited discusion of turnover rates, Live-Death bodel, and Periodicity analysis
+Rates, Periodicity, and Basic | Limited discusion of turnover metrics, Live-Death model, and Periodicity analysis
 Periodicity and Birth-Death Lab | Recreation of the original [Raup and Sepkoski periodicity analysis](https://www.pnas.org/content/pnas/81/3/801.full.pdf), and an applied [birth-death model](https://github.com/dsilvestro/PyRate/tree/master/tutorials#birth-death-models-with-time-continuous-correlates) based off of a continuous, "independent" time-series of the rock-record from [Macrostrat](https://macrostrat.org/).
