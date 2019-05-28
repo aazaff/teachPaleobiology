@@ -122,7 +122,7 @@ https://paleobiodb.org/data1.2/colls/list.tsv?datainfo&rowcount&base_name=Abra,A
 
 For the following questions generate the appropriate URL for the following data queries.
 
-1. What is the appropriate URL for downloading all occurrences of Ambonychia in the Lexington Limestone as a JSON?
+1. What is the appropriate URL for downloading all occurrences of *Ambonychia* in the Lexington Limestone as a JSON?
 
 2. What is the appropriate URL for downloading all occurrences of mammals present in the Paleocene through Oligocene epochs as a csv?
 
@@ -130,7 +130,7 @@ For the following questions generate the appropriate URL for the following data 
 
 4. What is the appropriate URL for downloading all collections of Aves, Marsupialia, and Sirenia in the United States as a csv?
 
-5. What is the approopriate URL for downloading all occurrences of the gastropod genus *Ficus* as a csv?
+5. What is the approopriate URL for downloading all occurrences of the gastropod genus *Ficus* as a csv (Hint: There is also a *plant* genus named *Ficus*)?
 
 #### Exercise Questions 4
 
@@ -152,11 +152,11 @@ The acronym API stands for Application Programming Interface. Technical definiti
 
 The best way to think about using an API is to imagine it as a map to all the data stored online. You need to use this map to give the computer directions on how to find the particular data you want and access it. When we give directions to a location in the real world, we generally do so in two ways. We either give geographic coordinates (i.e., latitude, longitude, elevation) that specify the destination, or a set of routes to get somewhere (e.g., Take I-90 E to Chicago, then I-80 W to Joliet).
 
-When we access data in R via **subscripting** (````Object[ ]````), we are using a coordinate system to point out the data in our object. In contrast, when we access data through an API we are defining a **route**. In fact, route is the formal terminology. Depending on the size of an API there may be dozens of routes, which may feel overwhelming at first. However, remember that a car map has thousands or hundreds of thousands of roads, most of which you will never travel upon, but you still know how to use a map. It is the same way with an API.
+When we access data in R via **subscripting** (`Object[ ]`), we are using a coordinate system to point out the data in our object. In contrast, when we access data through an API we are defining a **route**. In fact, route is the formal terminology. Depending on the size of an API there may be dozens of routes, which may feel overwhelming at first. However, remember that a car map has thousands or hundreds of thousands of roads, most of which you will never travel upon, but you still know how to use a map. It is the same way with an API.
 
 Let's deconstruct a specific API **query** (i.e., URL).
 
-````
+````R
 https://paleobiodb.org/data1.2/occs/list.csv?base_name=Smilodon&interval=Pleistocene
 ````
 
@@ -180,7 +180,7 @@ This will take you to a page that lists the different data routes. If you click 
 
 #### Exercise Questions 5
 
-````
+````R
 https://paleobiodb.org/data1.2/colls/list.csv?base_name=Mammut&interval=Pliocene
 ````
 
@@ -204,7 +204,7 @@ Specifically, your final question for this lab is to write a function in R that 
 
 Your final product should look like this:
 
-````
+````R
 # Download all instances of the genus Abra from the Pleistocene interval
 AbraData<-downloadPBDB(taxon="Abra",interval="Pleistocene")
 
@@ -234,7 +234,7 @@ TRexData[1:6,1:6]
 
 In order to achieve this you will need to use the ````paste( )```` function. Here are some examples of the paste function in use. See if you can figure out how it fits into the problem.
 
-````
+````R
 # Example 1
 paste("We","Love","R",sep=" ")
 [1] "We Love R"
