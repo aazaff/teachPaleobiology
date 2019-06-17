@@ -1,5 +1,48 @@
-# Ecological Informatics
-There are many different metrics and definitions for "biodiversity" that have been proposed. All are equally "valid", but are almost always not interchangable.
+## Section 1 Table of Contents
+- [Configuring R Environment](#configure-r)
+- [Richness: Introduction]()
+  - [Richness: "Downside"]()
+  - [Richness: Questions]()
+- [Frequency Distributions: Introduction]()
+  - [Frequency Distributions: Questions I]()
+  - [Frequency Distributions: Proper Visualization]()
+  - [Frequency Distributions: Questions II]()
+- [Evenness: Introduction]()
+  - [Evenness: Introduction Questions]()
+- [Probability of Encounter: Introduction]()
+  - [Probability of Encounter: Questions]()
+- [Entropy: Introduction]()
+  - [Entropy: Questions]()
+  - [Entropy: Evenness Redux?]()
+- [Interpreting Diversity Measures: Practical Examples]()
+
+## Section 2 Table of Contents
+- [Hill Numbers: Introduction]()
+  - [Hill Numbers: Magic Number?]()
+- [Frequency Distributions II: Nonlinear Regression]()
+  - [Frequency Distributions II: Questions I]()
+  - [Frequency Distributions II: Danger Zone]()
+- [Richness II: Nonlinearity]()
+  - [Richness II: Questions I]()
+  - [Richness II: Standardization]()
+  - [Richness II: Standardization Questions]()
+  - [Richness II: Extrapolation]()
+- [Extrapolation: Introduction]()
+  - [Extrapolation: Richness]()
+  - [Extrapolation: Frequency Distribution()
+- [Turnover Rates: Introduction()
+  - [Turnover Rates: Footeian]()
+  - [Turnover Rates: Footeian Questions]()
+- [Spatial Dynamics: Alpha, Beta, and Gamma]()
+  - [Spatial Dynamics: Questions]()
+
+## Section 3 Table of Contents
+- [Time Series: Introduction]()
+  - [Time Series: Autocorrelation]()
+  - [Time Series: Periodicity]()
+  - [Time Series: Correlation]()
+- [Birth-Death Model: Introduction]()
+- [Trajectory of Phanerozoic Biodiversity]()
 
 ## Configure R
 Download the `velociraptr` package from CRAN and change the download timeout. You can always check your currently active libraries with `installed.packages()` or `sessionInfo()`. Also, note the difference between `require()` and `library()` and how this is used in the configuration script.
@@ -28,6 +71,12 @@ if (suppressWarnings(require("DescTools"))==FALSE) {
 # Change the maximum timeout t0 300 second. This will allow you to download larger datafiles from 
 # the paleobiology database.
 options(timeout=300)
+
+# Functions are camelCase. Variables and Data Structures are PascalCase
+# Fields generally follow snake_case for better SQL compatibility
+# Dependency functions are not embedded in master functions
+# []-notation is used wherever possible, and $-notation is avoided.
+# []-notation is slower, but more explicit and works for atomic vectors
 ````
 
 ## Richness: Introduction
@@ -49,7 +98,7 @@ to an analysis. Here are some functions that you may find useful for quickly per
 5. Which family has the highest genus richness? - hint: look at the function `tapply()`
 6. Closely inspect the text values in the family, genus, and accepted_name fields. Can you see any problems with the quality of these data?
 
-## Richness: Downside
+## Richness: "Downside"
 One significant "downside" of richness is that it is very sensitive to sampling *effort*. The more effort one spends to identify species within a sample, the more species that are likely to be found. This, by itself, really isn't really a problem since this will be true for any statistical sample of a population; however, there are two properties of taxonomic data that make it difficult to correct for this problem.
 
 1. The relationship of richness to sampling effort is *non-linear* and unique to each sample. This means that it is potentially *very* inaccurate to standardize sampling effort using a constant. For example, you cannot simply divide the richness of samples by their respective weights because the expected number of new species per unit of weight is not constant within or among samples.
@@ -172,10 +221,10 @@ A Lorenz curve is essentially a special form of RAD. It shows for the bottom x% 
 2. Plot out your fictional dataset as a RAD and as a Lorenz curve.
 3. Create a perfectly equitable distribution of 100 species (discrete uniform), where every species has the same abundance. Plot it as a RAD and a Lorenz curve.
 
-## Frequency Distributions: Evenness Introduction
+## Evenness: Introduction
 It would be extremely convenient if the information contained in frequency distributions could be distilled into a single summary number. However, just like trying to describe any other distribution with a summary statistic - e.g., mean, median, variance - you need to determine what *aspect* of the distribution you are really trying to understand.
 
-In biodiversity sciences, many workers are especially concerned with the idea of *Evenness*, what would be called *Inequality* in other disciplines. An ecological example of a perfectly *even* community is one where all species have the same frequencies/abundance/population size, and a perfectly *uneven* community is one where all species are rare except one. Many workers equate the idea of evenness/inequality rather than richness, with biodiversity. We will discuss why this is in the next session.
+In biodiversity sciences, many workers are especially concerned with the idea of *Evenness*, what would be called *Inequality* in other disciplines (also rarely called Heterogeneity or Heterozygosity... don't get me started). An ecological example of a perfectly *even* community is one where all species have the same frequencies/abundance/population size, and a perfectly *uneven* community is one where all species are rare except one. Many workers equate the idea of evenness/inequality rather than richness, with biodiversity. We will discuss why this is in the next session.
 
 The most common index used to characterize Evenness/Inequality is the Gini Coefficient or Gini Index (not to be confused with the Gini-Simpson Index), which is derived from the Lorenz Curve.
 
@@ -205,11 +254,11 @@ GINI - GINI2
 
 Another popular measurement of evenness is [Pielous's Measure of Species Evenness](https://www.sciencedirect.com/science/article/pii/0022519366900130) or Pielou's J, but that metric is intimately tied to the concept of *entropy*, which we will discuss later.
 
-### Frequency Distributions: Evenness Questions
+### Evenness: Introduction Questions
 1. Download a datset of Priabonian Bivalves from the Paleobiology Database and calculate the genus-level Gini.
 2. The Gini coefficient was originally designed by economists to study income inequality. Can you see a difference between income and species abundance that might affect the calculation of Gini?
 
-## Frequency Distribution: Encounter Introduction
+## Probability of Encounter: Introduction
 Another method to try and summarize the frequency distribution in terms of the probability of a certain outcome. For example, what is the probability that if you drew any two species from your species pool that you would get two members of the same species? Two members of different species? 
 
 This is known as the Probabiliy of Interspecific Encounter, Simpson's Diversity, Gini-Simpson Index, Simpson's D, or the Herfindahl-Hirschman Index.
@@ -231,7 +280,7 @@ HillGini = sum(Proportions^2)^(1/(1-2))
 # Simply invert the result and you should get the same exact value you got from vegan.
 HillGini = 1/(1-HillGini)
 ````
-## Frequency Distribution: Entounter Questions
+## Frequency Distribution: Encounter Questions
 Let's see if we can empirically recreate this probability estimate. We can use a `for()` statement to repeatedly `sample()` from our previous distribution. This will let us collect a frequency for how often we draw two fossil occurrences of the same genus from our dataset.
 
 ````R
