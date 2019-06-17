@@ -25,7 +25,7 @@ if (suppressWarnings(require("DescTools"))==FALSE) {
     library("DescTools");
     }
 
-# Change the maximum timeout ot 300 second. This will allow you to download larger datafiles from 
+# Change the maximum timeout t0 300 second. This will allow you to download larger datafiles from 
 # the paleobiology database.
 options(timeout=300)
 ````
@@ -179,7 +179,7 @@ In biodiversity sciences, many workers are especially concerned with the idea of
 
 The most common index used to characterize Evenness/Inequality is the Gini Coefficient or Gini Index (not to be confused with the Gini-Simpson Index), which is derived from the Lorenz Curve.
 
--- Add figure of GINI calculation
+![GINI INDEX IMAGE](Lab5Figures/gini.png)
 
 There are a few different ways to calculate Gini. Let's try some.
 
@@ -259,6 +259,8 @@ Empirical = resample(Data = Bryozoa[,"genus"], Iterations = 10000)
 A similar, and very popular concept, is the idea of entropy. Entropy is another measure of "probability of encounter", but in this case, it is when *all* species are equally likely to encounter each other. The most common way to measure entropy is Shannon's Entropy, which is a specific case of the more general [Rényi Entropy](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy).
 
 The basis of Shannon's entropy is the *bit*. Just like a computer bit, an information bit has a value of **TRUE** or **FALSE**. Shannon's Entropy asks how many bits does it take to find what species we have drawn from the pool.
+
+![Huffman Coding](Lab5Figures/shannon.png)
 
 It is very easy to do this manually when your genus pool can be expressed in base-2, but it gets a lot harder to manually draw out for other distributions. Luckily, there is a formula that we can use.
 
