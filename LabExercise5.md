@@ -1,214 +1,298 @@
-# Lab Exercise 5
+# Ecological Informatics
+There are many different metrics and definitions for "biodiversity" that have been proposed. All are equally "valid", but are almost always not interchangable.
 
-Measuring biodiversity, evenness, extinction, and origination rates.
-
-## Calculating basic ecoinformatics
-
-#### Step 1
-
-Open R and load in the following modules of the beta version of the University of Wisconsion's [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package using the ````source( )```` function.
+## Configure R
+Download the `velociraptr` package from CRAN and change the download timeout. You can always check your currently active libraries with `installed.packages()` or `sessionInfo()`. Also, note the difference between `require()` and `library()` and how this is used in the configuration script.
 
 ````R
-source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/communityMatrix.R")
-source("https://raw.githubusercontent.com/aazaff/paleobiologyDatabase.R/master/cullMatrix.R")
+# This will check if you have the velociraptr package installed
+# It not, it will download, install, and activate it
+# If you already have it installed, then it will simply activate it.
+if (suppressWarnings(require("velociraptr"))==FALSE) {
+    install.packages("velociraptr",repos="http://cran.cnr.berkeley.edu/");
+    library("velociraptr");
+    }
+
+# vegan is a popular ecoinformatics package
+if (suppressWarnings(require("vegan"))==FALSE) {
+    install.packages("vegan",repos="http://cran.cnr.berkeley.edu/");
+    library("vegan");
+    }
+
+# DescTools is an extemely popular package of cross-disciplinary summary statistics
+if (suppressWarnings(require("DescTools"))==FALSE) {
+    install.packages("DescTools",repos="http://cran.cnr.berkeley.edu/");
+    library("DescTools");
+    }
+
+# Change the maximum timeout ot 300 second. This will allow you to download larger datafiles from 
+# the paleobiology database.
+options(timeout=300)
 ````
 
-#### Step 2
-
-Download a dataset of bivalve (clams) and brachiopod fossils that range from the Ordovician through Pleistocene using the ````downloadPBDB( )```` function, this function is part of the [paleobiologyDatabase.R](https://github.com/aazaff/paleobiologyDatabase.R) package that you loaded in during Step 1. Next use the ````cleanRank( )```` and ````constrainAges( )```` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
+## Richness: Introduction
+The simplest and most common biodiveristy metric is *richness*. Richness is applicable to any categorical dataset, and is simply the total number of categories. Let's begin by downloading a dataset of all Pleistocene mammal genera in the Paleobiology Database.
 
 ````R
-# Download data from the Paleobiology Database
-# This may take a couple of minutes.
-DataPBDB<-downloadPBDB(Taxa=c("Bivalvia","Brachiopoda"),StartInterval="Ordovician",StopInterval="Pleistocene")
-
-# Remove occurrences not properly resolved to the genus level.
-DataPBDB<-cleanRank(DataPBDB)
-
-# Download age definitions
-# A necessary step for the constrainAges( ) function
-Epochs<-downloadTime(Timescale="international epochs")
-
-# Remove poorly constrained fossils
-DataPBDB<-constrainAges(DataPBDB,Epochs)
+# Download all representatives of mammalia that are withint he Pleistocnee boundary
+Mammals = velociraptr::downloadPBDB(Taxa="Mammalia",StartInterval="Pleistocene",StopInterval="Pleistocene")
 ````
 
-#### Step 3
+Take some time to examine this dataset. It is always worth taking time to familiarize yourself with a dataset *before* you commit
+to an analysis. Here are some functions that you may find useful for quickly perusing the data: `head()`, `dim()`, `table()`, `subset()`, and `unique()`. Remember, you can always learn more about a particular funciton by using `help()` or `?`.
 
-Let's subset ````DataPBDB```` into a ````Brachiopod```` dataset and a ````Bivalve```` dataset.
+### Richness: Introduction Questions
+1. How many fossil occurrences are in this dataset? 
+2. How many paleobiology database collections are in this dataset?
+3. What is the species richness, genus richnss, and family richness of this dataset?
+4. What is the species richness of the family Vespertilionidae?
+5. Which family has the highest genus richness? - hint: look at the function `tapply()`
+6. Closely inspect the text values in the family, genus, and accepted_name fields. Can you see any problems with the quality of these data?
+
+## Richness: Downside
+One significant "downside" of richness is that it is very sensitive to sampling *effort*. The more effort one spends to identify species within a sample, the more species that are likely to be found. This, by itself, really isn't really a problem since this will be true for any statistical sample of a population; however, there are two properties of taxonomic data that make it difficult to correct for this problem.
+
+1. The relationship of richness to sampling effort is *non-linear* and unique to each sample. This means that it is potentially *very* inaccurate to standardize sampling effort using a constant. For example, you cannot simply divide the richness of samples by their respective weights because the expected number of new species per unit of weight is not constant within or among samples.
+2. Consistent data on the sampling effort used to collect data within samples is rarely (almost never) collected or reported. This gnerally means that an assumed proxy for sampling effort must be used (e.g., the number of individuals collected per sample, the areal extent of samples). Unfortunately, the actual relationship of these proxies to sampling effort will vary from sample to sample. For example, just because Sample A was collected over a larger area than Sample B, does not necessarily mean that more *effort* was spent cataloguing the species in Sample A than B.
+
+Let's simulate some data to understand the basic difficulties of measuring richness.
 
 ````R
-# Create a Brachiopod matrix using the which function
-Brachiopods<-DataPBDB[which(DataPBDB[,"phylum"]=="Brachiopoda"),]
-# Create a Bivalve matrix using the which function
-Bivalves<-DataPBDB[which(DataPBDB[,"class"]=="Bivalvia"),]
+# Set the seed for your randomization procedure, this way everyone will get the exact same
+# result, even though we are technically "randomly" sampling
+set.seed(42)
+
+# Use the sample() function to randomly sample letters from the alphabet
+# The letters variable comes preloaded in r.
+Fake = sample(letters, 26, replace=TRUE)
+
+# Display the unique letters sampled
+unique(Fake)
+
+# Display how many of each letter was sampled
+table(Fake)
 ````
 
-If you are a bit tired of using ````which( )````, you could alternatively use the ````subset( )```` function, which is just a *slighty* more convenient version of the which syntax above.
+Notice that even though we sampled from a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution) of letters - i.e., all letters had an equal probability of being sampled - we did not sample all 26 letters of the alphabet. Furthermore, some letters were sampled multiple times, giving the impression that some letters (species) are more abundant than others dsepite all letters actually being equally abundant.
+
+**We will revisit this problem and discuss some solution in a later exercise.**
+
+### Richness: Downside Questions
+
+Let's consider what would happen if we assumed that our sample was actually an accurate representation of the underlying frequency distribution of letters in the population, and we used that data to power an analysis.
 
 ````R
-# Create a Brachiopod matrix using the subset function
-Brachiopods<-subset(DataPBDB,DataPBDB[,"phylum"]=="Brachiopoda")
-# Create a Bivalve matrix using the subset function
-Bivalves<-subset(DataPBDB,DataPBDB[,"class"]=="Bivalvia")
+set.seed(88)
+
+# Create a new distribution to sample from, see the previous code-block to see where the object Fake comes from.
+Resample = rep(x=names(table(Fake)),times=table(Fake))
+
+# Sample 26 times from the new distribution, as we did previously
+DoubleFake = sample(Resample, 26, replace=TRUE)
 ````
 
-#### Step 4
+1. The varaible Resample was created using the functions `rep()`, `names()`, and `table()`. Additionally, the function `rep()`, used the arguuments `x` and `times`. Can you describe the role of these functions and arguments in this script?
+2. What was the richness and the frequency distribution of the new sample DoubleFake? How did this compare to the original population?
 
-Let's convert our two new datasets, ````Brachiopods```` and ````Bivalvia````, into two community matrices using the ````abundanceMatrix( )```` function of the PBDB package. This function requires that you define which column will count as samples. For now, let's use ````"early_interval"```` (i.e., geologic age) as the separator. 
+We will talk about the problem of richness more in depth in a later exercise, and ~~better~~ common methods to account for the sampling effort problem.
+
+## Frequency Distribution: Introduction
+As you may have seen from the previous exercise, even very small changes in the frequency distribution (i.e., how often each species occurs in the dataset) can dramatically impact estimated richness. More abundant taxa are more likely to be sampled and less abundant taxa are less likely to be sampled. Therefore, it is often worth analyzing the frequency distribution.
+
+Let's start by creating a few fake datasets for comparison. **We'll talk about more robust ways to create fake datasets and various random distributions in a later exercise.**
 
 ````R
-# Create an abundance community matrix
-# This may take a couple of minutes
-BrachiopodAbundance<-abundanceMatrix(Brachiopods,SampleDefinition="early_interval")
-BivalveAbundance<-abundanceMatrix(Bivalves,SampleDefinition="early_interval")
+# Discrete Uniform
+Uniform = letters
+
+# Power distribution
+Power = rep(letters, times=(1:26)^2)
+
+# Linear Distribution
+Linear = rep(letters,times=1:26)
 ````
 
-#### Problem Set 1
+### Frequency Distribution: Introduction Questions
+1. Take a randomized "samples" of each of the three populations using the `sample()` function. Let your sample size be 52 for each.
+2. Use the following functions, `density()` and `hist()` to view the [frequency distributions](https://www.statmethods.net/graphs/density.html) of each sample. Describe the general shape of each.
+3. Which of your samples gave the most accurate view of the true richness, which gave the least? Why do you think that is?
+4. Calculate basic summary statistics for each of your random samples - mean, median, standard deviation, variance, skew, and kurtosis.
+5. If you were only given the moments for each of your sampled distributions, could you infer the shape of the original distribution? Which moments would you need at minimum?
 
-You may not use ````vegan( )```` for this subsection.
+## Frequency Distribution: Proper Visualization
+Kernel density (`density()` and histograms (`hist()`) are extremely popular for analyzing frequency distributions, but suffer from some clear problems. Namely, they both apply an arbitrary binning of the data. The [most robust methods](http://brian-mcgill-4.ums.maine.edu/sad_review.pdf) for plotting frequency distribution in ecological data are Rank Abundance Diagrams (RADs) and Lorenz Curves.
 
-1) What is Bivalve generic richness in the Miocene? What code did you use to find out?
-
-2) What is the Berger-Parker Index of Brachiopods genera in the Pliocene? What code did you use to find out? [Hint: the function ````max( )```` may help you).
-
-3) What is the Gini-Simpson Index of Brachiopods during the Late Ordovician? What code did you use to find out?
-
-4) What is the Shannon's Entropy of Bivalves during the Late Cretaceous? What code did you use to find out?
-
-5) What is the Shannon's Entropy of Bivalves during the Paleocene? What code did you use to find out?
-
-6) What is the percent change in Shannon's Entropy between the Late Cretaceous and the Paleocene? Can you think of any major events that happened between the Late Cretaceous and Paleocene that might be relevant to biodiversity? [Hint: Use google if you don't know.] Is this reflected in this index?
-
-7) What if you use the ````exp( )```` function to exponentiate the Shannon's Entropies you calculated in questions 4,5, and 6 (i.e., *e*^Shannon's Entropy)? What percent of diversity is gained/lost? Does this better reflect the change between the Late Cretaceous and Paleocene? Why or why not? 
-
-#### Problem Set 2
-
-Install (if you have not already) and load the ````vegan```` package into R. Read the help file for the ````diversity( )```` function - ````?diversity```` or ````help(diversity)````. You must have already loaded the vegan package in order for it to run. If you do not remember, we used ````vegan```` in the [Ordination lab](/LabExercise4.md).
-
-1) Use the ````specnumber( )```` function (also from the ````vegan```` package) to find Bivalve richness in the Miocene. What code did you use to find out?
-
-2) Use the ````diversity( )```` function to find the Gini-Simpson Index of Brachiopods during the Late Ordovician? What code did you use to find out?
-
-3) Use the ````diversity( )```` function to find the Shannon's Entropy of Bivalves during the Late Cretaceous? What code did you use to find out?
-
-4) Use the ````diversity( )```` function to find the Shannon's Entropy of Bivalves during the Paleocene? What code did you use to find out?
-
-## Comparing Bivalves and Brachiopods
-
-#### Step 1
-
-Calculate the richness (however you choose) of bivalves in each epoch. Calculate the richness (however you choose) of brachiopods in each epoch. Ideally, these richness values should be expressed as **vectors** or as **1-dimensional arrays**.
-
-#### Step 2
-
-Put these richness values in temporal order. There are many ways to do this. Here is one way to reorder numbers - i.e., by manually subscirpting the data in order.
+Let's make a simple RAD and a simple Lorenz Curve
 
 ````R
-# A hypothetic example
-OutOrder<-array(c(5,6,7,8,9,3,10),dimnames=list(c("First","Third","Fourth","Second","Seventh","Sixth","Fifth")))
-OutOrder
-  First   Third   Fourth  Second Seventh   Sixth   Fifth 
-      5       6       7       8       9       3      10 
+# Let's use some real data this time
+Bryozoa = velociraptr::downloadPBDB(Taxa="Bryozoa",StartInterval="Bartonian",StopInterval="Priabonian")
+# Clean out the subgenera and blanks
+Bryozoa = cleanTaxonomy(Bryozoa,Taxonomy="genus")
 
-InOrder<-OutOrder[c("First","Second","Third","Fourth","Fifth","Sixth","Seventh")]
-InOrder
-  First  Second   Third   Fourth   Fifth   Sixth Seventh 
-      5       8       6       7      10       3       9 
+# Create a frequency distribution of the genus occurrences with table(), and sort() it from most abundant to 
+# least abundant. Note, that some workers prefer to sort from least abundant to most when plotting.
+Frequencies = sort(table(Bryozoa[,"genus"]),decreasing=TRUE)
+
+# Make a rank abundance diagram. 
+plot(y=as.vector(Frequencies),
+	x=1:length(Frequencies),
+	xlab="order from most abundant to least abundant",
+	ylab="genus frequency",
+	las=1,xaxs="i",yaxs="i",pch=16,cex=1.5,
+	xlim=c(0,length(Frequencies)),ylim=c(0,50)
+	)	
 ````
 
-#### Step 3
+Notice that the shape of the diagram is *strongly* non-linear. There are only a handful of very abundant genera, and many very rare genera. This distribution of few abundant taxa and many rare taxa is colloquially known as a "hollow curve" and is *ubiquitous* in ecological datasets. It can be found in almost any type of ecological data: marine, terrestrial, vertebrate, invertebrate, plant, micro, macro, fossil, modern, fine-scale, or broad-scale data. 
 
-This next step will use a **correlation coefficient** to determine whether changes in bivalve biodiversity are related to changes in brachiopod biodiversity. 
-
-At its heart, correlation asks whether two sets of **continuous data** co-vary. Co-variance means that when values fluctuate in one dataset they also fluctuate in the other data set.  Correlation is a measurement of how strong covariance is. Most correlation metrics (all of the ones we will use today) range from -1 to 1. A value of -1 means that data is **negatively** correlated, such that when values go *up* in the first dataset, they go *down* in the second dataset. In other words, the two datasets show the opposite behavior. A correlation value of 1 indicates that the data is **positively correlated**, meaning both datasets show the same behavior. A correlation value of 0 means that they show no relationship. 
-
-You can use the `cor(x, y)` function to find the correlation coefficient. Importantly, every data point in your first dataset (x) must be matched with a point in the second dataset (y). If the x coordinates and y coordinates are of unequal length, then you cannot perform a correlation.
+**We'll talk more about the theory of why this is the case in a later exercise.**
 
 ````R
-# Correlation example for two vectors that are positive correlated
-# Both vectors go up by 1 in each step
-Vector1<-c(1,2,3,4,5,6,7,8,9,10)
-Vector2<-c(11,12,13,14,15,16,17,18,19,20)
-cor(Vector1,Vector2)
-[1] 1
+# Create a Lorenz Curve of the genus occurrences
+# Unlike a RAD, the x-axis of the Lorenz is ALWAYS sorted from least to most abundant
+Frequencies = sort(table(Bryozoa[,"genus"]),decreasing=FALSE)
 
-# Correlation example for two vectors that are negatively correlated
-Vector1<-c(1,2,3,4,5,6,7,8,9,10)
-Vector2<-c(20,19,18,17,16,15,14,13,12,11)
-cor(Vector1,Vector2)
-[1] -1
+# Plot a Lorenz Curve
+plot(y=cumsum(Frequencies)/sum(Frequencies),
+	x=1:length(Frequencies)/length(Frequencies),
+	xlab="percentile",
+	ylab="cumulative frequency as percentile",
+	las=1,xaxs="i",yaxs="i",pch=16,cex=1.5,
+	xlim=c(0,1),ylim=c(0,1)
+	)
 
-# Correlation example for two vectors that are weakly correlated
-Vector1<-c(1,2,3,4,5,6,7,8,9,10)
-Vector2<-c(20,5,18,4,16,6,14,8,20,10)
-cor(Vector1,Vector2)
-[1] -0.04395502
+# Add a 45° line.
+abline(a=0,b=1,col="red",lwd=2)	
 ````
+A Lorenz curve is essentially a special form of RAD. It shows for the bottom x% of species, what percentage (y%) of the total population they have. 
 
-For a more fundamental breakdown of the math behind correlation, you can consult this tutorial by [Steven M. Holland](http://strata.uga.edu/6370/lecturenotes/correlation.html). I recommend this if you find my explanation of correlation too confusing. 
+### Frequency Distribution: Proper Visualization Questions
+1. The Lorenz curve was actually borrowed from the field of economics, where it is usually used to describe income inequality. If you've ever heard someone talk about how the X% holds Y% of the wealth, those statistics ultimately come from a Lorenz curve. Create your own fictional dataset of 100 species where the top 20% of species have 80% of the total sample population.
+2. Plot out your fictional dataset as a RAD and as a Lorenz curve.
+3. Create a perfectly equitable distribution of 100 species (discrete uniform), where every species has the same abundance. Plot it as a RAD and a Lorenz curve.
 
-#### Problem Set 3
+## Frequency Distributions: Evenness Introduction
+It would be extremely convenient if the information contained in frequency distributions could be distilled into a single summary number. However, just like trying to describe any other distribution with a summary statistic - e.g., mean, median, variance - you need to determine what *aspect* of the distribution you are really trying to understand.
 
-1) Is brachiopod richness **positively**, **negatively**, or un-correlated with bivalve richness? Show your code?
+In biodiversity sciences, many workers are especially concerned with the idea of *Evenness*, what would be called *Inequality* in other disciplines. An ecological example of a perfectly *even* community is one where all species have the same frequencies/abundance/population size, and a perfectly *uneven* community is one where all species are rare except one. Many workers equate the idea of evenness/inequality rather than richness, with biodiversity. We will discuss why this is in the next session.
 
-2) Is brachiopod biodiversity **positively**, **negatively**, or un-correlated with bivalve biodiversity when using the Gini-Simpson index? Show your code?
+The most common index used to characterize Evenness/Inequality is the Gini Coefficient or Gini Index (not to be confused with the Gini-Simpson Index), which is derived from the Lorenz Curve.
 
-3) Looking just at changes in brachiopod richness through time, when did the greatest drop in brachiopod richness occur (i.e., between what two consecutive epochs)? 
+-- Add figure of GINI calculation
 
-## Sampling standardization
-
-Remember that richness can be an innaccurate measure of biodiversity because of the species-area effect (i.e., variable sampling intensity). We can correct for this by standardizing richness.
-
-#### Step 1
-
-Open R and load in the following function.
+There are a few different ways to calculate Gini. Let's try some.
 
 ````R
-# A function for resampling by a fixed number of individuals
-subsampleIndividuals<-function(Abundance,Quota,Trials=100) {
-	  Richness<-vector("numeric",length=Trials)
-	  Abundance<-Abundance[Abundance>0]
-	  Pool<-rep(1:length(Abundance),times=Abundance)
-	  if (sum(Abundance) < Quota) {
-		    print("Fewer Individuals than Quota")
-		    return(length(unique(Pool)))
-		    }
-	  for (i in 1:Trials) {
-		    Subsample<-sample(Pool,Quota,replace=FALSE)
-		    Richness[i]<-length(unique(Subsample))
-		    }
-	  return(mean(Richness))
-	  }
+# We will use the same information we used to calculate the Lorenz Curve in the previous example
+X = 1:length(Frequencies)/length(Frequencies)
+Y = cumsum(Frequencies)/sum(Frequencies)
+
+# Remember that the area under the Lorenz Curve is B in our Gini Formulas
+# Let's use the AUC (area-under-curve) function in DescTools to find B 
+B = DescTools::AUC(X,Y,method="spline")
+
+# Calculate the GINI coefficient using the formula
+GINI = 1-2*B
+
+# Let's check our results using an analytical solution from DescTools Gini function
+GINI2 = DescTools::Gini(Freqeuncies)
+
+# The Results are slightly different because GINI2 uses an anlytical solution, whereas
+# GINI uses a geometric approximation - i.e., AUC is approximate
+GINI - GINI2
 ````
 
-#### Step 2
+Another popular measurement of evenness is [Pielous's Measure of Species Evenness](https://www.sciencedirect.com/science/article/pii/0022519366900130) or Pielou's J, but that metric is intimately tied to the concept of *entropy*, which we will discuss later.
 
-Use the ````subsampleIndividuals( )```` function included in this module to find the subsampled diversity of each epoch. Standardizing your data to a set sample size (logically) requires you to pick a fixed sample size to standardize to. This number is usually the size of your smallest sample. Therefore we must find (1) find the samples with the smallest abundance and (2) use the ````subsampleIndividuals( )```` function.
+### Frequency Distributions: Evenness Questions
+1. Download a datset of Priabonian Bivalves from the Paleobiology Database and calculate the genus-level Gini.
+2. The Gini coefficient was originally designed by economists to study income inequality. Can you see a difference between income and species abundance that might affect the calculation of Gini?
+
+## Frequency Distribution: Encounter Introduction
+Another method to try and summarize the frequency distribution in terms of the probability of a certain outcome. For example, what is the probability that if you drew any two species from your species pool that you would get two members of the same species? Two members of different species? 
+
+This is known as the Probabiliy of Interspecific Encounter, Simpson's Diversity, Gini-Simpson Index, Simpson's D, or the Herfindahl-Hirschman Index.
 
 ````R
-# Find the sample of the BivalveAbundance community matrix with the least total abundance
-SampleAbundances<-apply(BivalveAbundance,1,sum)
-SampleAbundances[which(SampleAbundances==min(SampleAbundances))]
-Early Ordovician 
-             124
+# We'll use the same Bryozoan dataset from before. First let's calcualte the Simpson diversity using
+# the vegan package. vegan is a popular (though somewhat long in the tooth) package for calcualting ecological metric.
+Simpson = vegan::diversity(Frequencies,"simpson")
 
-# Subsample each interval down to 124 observed individuals to find the standardized richness
-StandardizedRichness<-apply(BivalveAbundance,1,subsampleIndividuals,Quota=124)
+# Sometimes people prefer to express the Simpson index where 0 means no diversity and 1 means fully diverse.
+# Subtract from one to switch between scales. Just don't forget what scale you're using!
+Inverted = 1 - Simpson
 
-# View the first 6 results
-# Note, your numbers will be slightly different since subsampling is random.
-StandardizedRichness[1:6]
-Pennsylvanian Middle Ordovician   Late Ordovician        Llandovery           Wenlock            Ludlow 
-        44.09             37.33             41.90             37.50             45.86             43.03 
+# Now that we know our answer, let's try and manually calculate the data accordingly.
+# First we will need to convert our Abundances into proportions
+Proportions = Frequencies/sum(Frequencies)
+HillGini = sum(Proportions^2)^(1/(1-2))
+
+# Simply invert the result and you should get the same exact value you got from vegan.
+HillGini = 1/(1-HillGini)
+````
+## Frequency Distribution: Entounter Questions
+Let's see if we can empirically recreate this probability estimate. We can use a `for()` statement to repeatedly `sample()` from our previous distribution. This will let us collect a frequency for how often we draw two fossil occurrences of the same genus from our dataset.
+
+````R
+# A function to take 2 species from our underlying frequency distribution
+resample = function(Data, Iterations=10000) {
+	Output = matrix(NA,nrow=Iterations,ncol=2) # Create a 2-column table to to store the genera taken in each draw
+	colnames(Output) = c("genus_1","genus_2") # name the columns. Always use lower snake_case for field names
+	for (iteration in seq_len(Iterations)) {
+		Output[iteration,] = sample(Data,2,replace=TRUE)
+		}
+	return(Output)
+	}
+
+# Set the seed so we all get the same results
+set.seed(108) 
+
+# Create an empirical frequency distribution
+Empirical = resample(Data = Bryozoa[,"genus"], Iterations = 10000)
 ````
 
-#### Problem Set 4
+1. Calculate the number of times you drew 2 members of the same genus. You may find the functions `apply()` and `which()` helpful. How did this compare with the analytic solutions for Simpson's D we calculated earlier?
+2. Try running the experiment 10 times and take the average outcome, is that closer to the analytic solution we calculated? (Make sure you are *not* resetting the seed to 108 each time, or you will always get the same result.)
 
-1) Repeat the above steps, but for the ````BrachiopodAbundance```` community matrix. What is the standardized richness you got for brachiopods. Show your code.
+## Frequency Distribution: Entropy Introduction
+A similar, and very popular concept, is the idea of entropy. Entropy is another measure of "probability of encounter", but in this case, it is when *all* species are equally likely to encounter each other. The most common way to measure entropy is Shannon's Entropy, which is a specific case of the more general [Rényi Entropy](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy).
 
-2) How does the standardized brachiopod richness (previous question) compare to the unstandardized brachiopod richness from Problem Set 3? Show your code. Explain your reasoning. [Hint: Don't forget to put your biodiversities in temporal order]
+The basis of Shannon's entropy is the *bit*. Just like a computer bit, an information bit has a value of **TRUE** or **FALSE**. Shannon's Entropy asks how many bits does it take to find what species we have drawn from the pool.
 
-3) Make a scatter plot of **standardized brachiopod richness** versus **standardized bivalve richness**. Make a second scatter plot of **unstandardized brachiopod richness** versus **unstandardized bivalve richness**. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the [previous lab](/LabExercise4.md#step-3-advanced-plotting)]
+It is very easy to do this manually when your genus pool can be expressed in base-2, but it gets a lot harder to manually draw out for other distributions. Luckily, there is a formula that we can use.
 
-4) Do you believe that there is any evidence in these analyses to support the idea that bivalves outcompeted brachiopods over time? Explain your reasoning.
+````R
+# A simple formula for calculating Shannon's entropy
+shannon = function(Taxa) {
+	Frequencies = as.vector(table(Taxa))
+	Probabilities = Frequencies/sum(Frequencies)
+	Shannon = sum(Probabilities * log(1/Probabilities,2))
+	return(Shannon)
+	}
+
+# Let's calculate Shannon's H for the pool in the above figure. Let's see if we also
+# calculate Shannon's H as 2.
+shannon(Pool)
+
+# Let's try a more complex distribution of genera
+Complex = c("Hebertella","Hebertella","Hebertella","Onniella","Onniella","Turritella","Abra","Favosites","Cladopora")
+shannon(Complex)
+````
+
+### Frequency Distribution: Entropy Questions
+1. If you increase the size of the species pool - i.e., richness - will Shannon go up or go down?
+2. If you increase the inequality/unevenness of the species pool - i.e., Gini Coefficient goes up - will Shannon go up or go down?
+3. Try to manually calculate Shannon - i.e., by drawing branching diagram like the above figure - for a taxonomic pool with the following probabilities.
+
+Genus | Probabilitiy
+---- | ----
+Hebertella | 0.5
+Abra | 0.25
+Favosites | 0.125
+Chione | 0.125
+
+4. Try checking your work with `vegan::diversity(x, "shannon")`. Uh-oh! Looks like you don't get the same answer as our shannon function. Take a look at the `help()` file for `vegan::diversity()`, can you guess why our calculations come out differently?
+
+## Diversity Summary: Practical Examples
+As you may have noticed, all of the different "diversity" metrics that we have discussed today [*richness*](), [*gini coefficinet*](), [*gini-simpson*], and [*shannons H*]() are mathematically related, despite the fact that each metric is asking *very* different questions. This is because the unifying factor is that the frequency distribution will always govern [richness](), 
