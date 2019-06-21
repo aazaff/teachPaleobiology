@@ -1,32 +1,28 @@
-## Section 1 Table of Contents
+## Table of Contents
 - [Configuring R Environment](#configure-r)
 - [Richness: Introduction]()
+  - [Richness: Questions I]()
   - [Richness: "Downside"]()
-  - [Richness: Questions]()
+  - [Richness: Questions II]()
 - [Frequency Distributions: Introduction]()
   - [Frequency Distributions: Questions I]()
   - [Frequency Distributions: Proper Visualization]()
   - [Frequency Distributions: Questions II]()
 - [Evenness: Introduction]()
-  - [Evenness: Introduction Questions]()
+  - [Evenness: Questions]()
 - [Probability of Encounter: Introduction]()
   - [Probability of Encounter: Questions]()
 - [Entropy: Introduction]()
   - [Entropy: Questions]()
-  - [Entropy: Evenness Redux?]()
-- [Interpreting Diversity Measures: Practical Examples]()
-
-## Section 2 Table of Contents
 - [Hill Numbers: Introduction]()
   - [Hill Numbers: Magic Number?]()
-- [Frequency Distributions II: Nonlinear Regression]()
+- [Frequency Distributions II: Linear Models]()
+  - [Frequency Distributions II: Nonlinear Models]()
   - [Frequency Distributions II: Questions I]()
-  - [Frequency Distributions II: Danger Zone]()
 - [Richness II: Nonlinearity]()
   - [Richness II: Questions I]()
   - [Richness II: Standardization]()
   - [Richness II: Standardization Questions]()
-  - [Richness II: Extrapolation]()
 - [Extrapolation: Introduction]()
   - [Extrapolation: Richness]()
   - [Extrapolation: Frequency Distributions]()
@@ -35,8 +31,6 @@
   - [Turnover Rates: Footeian Questions]()
 - [Spatial Dynamics: Alpha, Beta, and Gamma]()
   - [Spatial Dynamics: Questions]()
-
-## Section 3 Table of Contents
 - [Time Series: Introduction]()
   - [Time Series: Autocorrelation]()
   - [Time Series: Periodicity]()
@@ -90,7 +84,7 @@ Mammals = velociraptr::downloadPBDB(Taxa="Mammalia",StartInterval="Pleistocene",
 Take some time to examine this dataset. It is always worth taking time to familiarize yourself with a dataset *before* you commit
 to an analysis. Here are some functions that you may find useful for quickly perusing the data: `head()`, `dim()`, `table()`, `subset()`, and `unique()`. Remember, you can always learn more about a particular funciton by using `help()` or `?`.
 
-### Richness: Introduction Questions
+### Richness: Questions I
 1. How many fossil occurrences are in this dataset? 
 2. How many paleobiology database collections are in this dataset?
 3. What is the species richness, genus richnss, and family richness of this dataset?
@@ -124,9 +118,9 @@ table(Fake)
 
 Notice that even though we sampled from a [discrete uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution) of letters - i.e., all letters had an equal probability of being sampled - we did not sample all 26 letters of the alphabet. Furthermore, some letters were sampled multiple times, giving the impression that some letters (species) are more abundant than others dsepite all letters actually being equally abundant.
 
-**We will revisit this problem and discuss some solution in a later exercise.**
+**We will revisit this problem and discuss some solutions in a later exercise.**
 
-### Richness: Downside Questions
+### Richness: Questions II
 
 Let's consider what would happen if we assumed that our sample was actually an accurate representation of the underlying frequency distribution of letters in the population, and we used that data to power an analysis.
 
@@ -161,7 +155,7 @@ Power = rep(letters, times=(1:26)^2)
 Linear = rep(letters,times=1:26)
 ````
 
-### Frequency Distribution: Introduction Questions
+### Frequency Distribution: Questions I
 1. Take a randomized "samples" of each of the three populations using the `sample()` function. Let your sample size be 52 for each.
 2. Use the following functions, `density()` and `hist()` to view the [frequency distributions](https://www.statmethods.net/graphs/density.html) of each sample. Describe the general shape of each.
 3. Which of your samples gave the most accurate view of the true richness, which gave the least? Why do you think that is?
@@ -216,7 +210,7 @@ abline(a=0,b=1,col="red",lwd=2)
 ````
 A Lorenz curve is essentially a special form of RAD. It shows for the bottom x% of species, what percentage (y%) of the total population they have. 
 
-### Frequency Distribution: Proper Visualization Questions
+### Frequency Distribution: Questions II
 1. The Lorenz curve was actually borrowed from the field of economics, where it is usually used to describe income inequality. If you've ever heard someone talk about how the X% holds Y% of the wealth, those statistics ultimately come from a Lorenz curve. Create your own fictional dataset of 100 species where the top 20% of species have 80% of the total sample population.
 2. Plot out your fictional dataset as a RAD and as a Lorenz curve.
 3. Create a perfectly equitable distribution of 100 species (discrete uniform), where every species has the same abundance. Plot it as a RAD and a Lorenz curve.
@@ -252,9 +246,7 @@ GINI2 = DescTools::Gini(Freqeuncies)
 GINI - GINI2
 ````
 
-Another popular measurement of evenness is [Pielous's Measure of Species Evenness](https://www.sciencedirect.com/science/article/pii/0022519366900130) or Pielou's J, but that metric is intimately tied to the concept of *entropy*, which we will discuss later.
-
-### Evenness: Introduction Questions
+### Evenness: Questions
 1. Download a datset of Priabonian Bivalves from the Paleobiology Database and calculate the genus-level Gini.
 2. The Gini coefficient was originally designed by economists to study income inequality. Can you see a difference between income and species abundance that might affect the calculation of Gini?
 
@@ -280,7 +272,7 @@ HillGini = sum(Proportions^2)^(1/(1-2))
 # Simply invert the result and you should get the same exact value you got from vegan.
 HillGini = 1/(1-HillGini)
 ````
-## Frequency Distribution: Encounter Questions
+### Probability of Encounter: Questions
 Let's see if we can empirically recreate this probability estimate. We can use a `for()` statement to repeatedly `sample()` from our previous distribution. This will let us collect a frequency for how often we draw two fossil occurrences of the same genus from our dataset.
 
 ````R
@@ -304,8 +296,8 @@ Empirical = resample(Data = Bryozoa[,"genus"], Iterations = 10000)
 1. Calculate the number of times you drew 2 members of the same genus. You may find the functions `apply()` and `which()` helpful. How did this compare with the analytic solutions for Simpson's D we calculated earlier?
 2. Try running the experiment 10 times and take the average outcome, is that closer to the analytic solution we calculated? (Make sure you are *not* resetting the seed to 108 each time, or you will always get the same result.)
 
-## Frequency Distribution: Entropy Introduction
-A similar, and very popular concept, is the idea of entropy. Entropy is another measure of "probability of encounter", but in this case, it is when *all* species are equally likely to encounter each other. The most common way to measure entropy is Shannon's Entropy, which is a specific case of the more general [Rényi Entropy](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy).
+## Entropy: Introduction
+A similar, and very popular concept, is the idea of entropy. Entropy is another measure of "probability of encounter", but in this case, it is when *all* species are equally likely to encounter each other. The most common way to measure entropy in ecological data is Shannon's Entropy, which is a specific case of the more general [Rényi Entropy](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy).
 
 The basis of Shannon's entropy is the *bit*. Just like a computer bit, an information bit has a value of **TRUE** or **FALSE**. Shannon's Entropy asks how many bits does it take to find what species we have drawn from the pool.
 
@@ -331,7 +323,9 @@ Complex = c("Hebertella","Hebertella","Hebertella","Onniella","Onniella","Turrit
 shannon(Complex)
 ````
 
-### Frequency Distribution: Entropy Questions
+You may have noticed that unlike Gini-Simpson and the Gini-Index, Shannon's H is "unbounded" in the sense that it does not always scale from 0 to 1 - instead, the maximum valude of Shannon's H will always be `log(richness,2)`. You can divide Shannon's H by `log(richness,2)` so that Entropy is expressed as a scale from 0 (no entropy) to 1 (maximum possible entropy). Rescaled Shannon's H is known as Pielous's Measure of Species Evenness or Pielou's J.
+
+### Entropy: Questions
 1. If you increase the size of the species pool - i.e., richness - will Shannon go up or go down?
 2. If you increase the inequality/unevenness of the species pool - i.e., Gini Coefficient goes up - will Shannon go up or go down?
 3. Try to manually calculate Shannon - i.e., by drawing branching diagram like the above figure - for a taxonomic pool with the following probabilities.
@@ -345,5 +339,104 @@ Chione | 0.125
 
 4. Try checking your work with `vegan::diversity(x, "shannon")`. Uh-oh! Looks like you don't get the same answer as our shannon function. Take a look at the `help()` file for `vegan::diversity()`, can you guess why our calculations come out differently?
 
-## Diversity Summary: Practical Examples
-As you may have noticed, all of the different "diversity" metrics that we have discussed today [*richness*](), [*gini coefficinet*](), [*gini-simpson*], and [*shannons H*]() are mathematically related, despite the fact that each metric is asking *very* different questions. This is because the unifying factor is that the frequency distribution will always govern [richness](), 
+5. You may have noticed that Evenness, Entropy, and Probability of Encounter are extraordinarily similar. This is becuase they are all ultimately ways of asking about the shape of the frequency distributon. If the frequency distribution is flat - i.e., discrete uniform distribution - and all species are equally abundant then Gini = 0, Gini-Simpson ≈ 0, and Pielou = 1. If the frequency distribution consists of only one species - i.e., degenerate distribution - then Gini = 1, Gini-Simpson = 1, and Pielou = 0.
+
+However, just because the maximums and minimums are the same, does not mean that they are perfectly interchangable. Calculate the Gini, Gini-Simpson (Inverse), Shannon's H, and Pielou's J for each of the following distributions, and compare how they differ (or are the same).
+
+````R
+# Set the seed
+set.seed(125)
+
+# Short Uniform
+ShortUniform = 1:10
+
+# Long Uniform
+LongUniform = 1:100
+
+# Pseudo Half-Normal
+Half = ceiling(abs(rnorm(30,mean=0,sd=10)))
+
+# Lognormal Distribution
+Lognormal = ceiling(rlnorm(30))
+
+# Another lognormal distribution
+Lognormal2 = ceiling(rlnorm(30))
+
+# Exponential Distribution - third power
+Exponential = ceiling(rexp(30,3)*10)
+````
+
+6. Last, let's try a practical example with real data from the end-Cretaceous mass extinction. Download a dataset of Maastrichtian (latest Cretaceous) Bivalves and a dataset of Danian (earliest Paleocene) Bivalves from the Paleobiology Database. Calculate the pre- and post- K/T boundary diversity in terms of Richness, Shannon's H, Pielous J, Gini, and Gini-Simpson. How did choosing different metrics of "biodiversity" shape how you viewed changes in genus diversity across this major extinction boundary?
+
+## Hill Numbers: Introduction
+The Hill Number paradigm essentially places all biodiversity indices - Richness, Shannon's H, Gini-Simpson, Berger-Parker Index - on a sliding scale from zero to infinity. When the scale is closer to 0 then the metric more closely reflects the influence of the size of a frequency distribution (richness). As the scale moves closer to infinity the metric more closely reflects the shape of the frequency distributions (evenness).
+
+![HILLNUMBERFIGURE](Lab5Figures/hill.png)
+
+````R
+Proportions = Frequencies/sum(Frequencies)
+HillGini = sum(Proportions^q)^(1/(1-q))
+````
+
+While Hill Numbers have some pretty interesting mathematical properties, and help us to put the competing influences of evenness and richness in better context, it doesn't actually solve any of the problems that come with trying to summarize all properties of a frequency distribution in a single number. Importantly, We still cannot tell, for any given metric, how much an increase or decrease in "diversity" was driven by changes in richness vs. evenness. This is an inherent difficulty of trying to summarize a non-isometric entity with only one number.
+
+![ISOMETRY_FIGURE](Lab5Figures/rectangle.png)
+
+## Frequency Distributions II: Linear Models
+Instead of applying a single summary statistics to our data, it is arguably preferable to simply provide a function that characterizes the frequency distribution. The benefit of a function is that you can derive any number of summary statistics from it. Unfortunately, there are *many* functions that roughly approximate the "hollow-curved" shape of ecological frequency distributions.
+
+The art of regression is attempting to find the function that fits our data, in this case, the shape of our frequency distribution. Let's go back to one of the frequency distribution RADs that we plotted earlier and see if we can try and fit a few different curves.
+
+````R
+# Let's use some real data this time
+Bryozoa = velociraptr::downloadPBDB(Taxa="Bryozoa",StartInterval="Bartonian",StopInterval="Priabonian")
+# Clean out the subgenera and blanks
+Bryozoa = cleanTaxonomy(Bryozoa,Taxonomy="genus")
+
+# Create a frequency distribution of the genus occurrences with table(), and sort() it from most abundant to 
+# least abundant.
+Y = as.vector(sort(table(Bryozoa[,"genus"]),decreasing=TRUE))
+X = 1:length(Y)
+
+# Let's try a straight line y=ax+b
+# Notice that you don't need to specify any constants or parameters
+# You only need to specify  predictor terms (X) and the response (Y)
+Line = lm(Y ~ X)
+
+# Let's try a quadratic equation. Notice that you have to use the I( ) function.
+Quadratic = lm(Y ~ X + I(X^2))
+
+# Let's try a loglinear equation
+Loglinear = lm(Y ~ log(X))
+
+# And finally, let's plot them all up
+plot(y=Y,x=X,xlab="order from most abundant to least abundant",ylab="genus frequency",las=1,pch=16,cex=1.5)
+
+# We can use the fitted() function to get the predicted y values of each of our models, and visually
+# analyze how they fit our original data
+lines(y=fitted(Line),x=X,col="red",lwd=3)
+lines(y=fitted(Quadratic),x=X,col="blue",lwd=3)
+lines(y=fitted(Loglinear),x=X,col="darkgreen",lwd=3)
+
+# We can also use the summary() function to get a report on the quality of our model fit
+summary(Line)
+summary(Quadratic)
+summary(Loglinear)
+````
+
+![SUMMARYOUTPUT](Lab5Figures/summary.png)
+
+You've likely noticed that all of our models are "significant" based on the p-values given in `summary()`. However, we can also easily tell that one model is substantially better than the others, just from the visual fit and also from the much better *R<sup>2</sup>* value. 
+
+## Frequency Distributions II: Nonlinear Models
+Another model that we might want to try is a power law model. Power law models are extremely popular in ecology, and are frequently proposed as one of the most common fits for RAD's and the like.
+
+A power function follows the format y = b*x<sup>z</sup>. 
+
+Unfortunately, a power function is not a linear model. A linear model has only *one parameter per term*. The power law function, however, has the predictor variable x multiplied against parameter b and raised to the exponent z - so it has two paramters. You cannot 
+
+
+
+A linear model does not mean that the plotted function is a straight line (for example, our Quadratic function earlier was curved). 
+we cannot use `lm()` (linear model) to do a power law regression because it is not a linear model! 
+
