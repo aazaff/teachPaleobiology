@@ -16,8 +16,7 @@
   - [Entropy: Questions]()
 - [Hill Numbers: Introduction]()
   - [Hill Numbers: Magic Number?]()
-- [Frequency Distributions II: Linear Models]()
-  - [Frequency Distributions II: Nonlinear Models]()
+- [Frequency Distributions II: Regression Models]()
   - [Frequency Distributions II: Questions I]()
 - [Richness II: Nonlinearity]()
   - [Richness II: Questions I]()
@@ -428,15 +427,26 @@ summary(Loglinear)
 
 You've likely noticed that all of our models are "significant" based on the p-values given in `summary()`. However, we can also easily tell that one model is substantially better than the others, just from the visual fit and also from the much better *R<sup>2</sup>* value. 
 
-## Frequency Distributions II: Nonlinear Models
-Another model that we might want to try is a power law model. Power law models are extremely popular in ecology, and are frequently proposed as one of the most common fits for RAD's and the like.
+Nevertheless, none of the models looks particularly good. Let's try a power law model. Power law models are *extremely popular* in ecology, and are frequently proposed as one of the most common fits for RAD's and other hollow-curved distributions. The one thing we have to be careful of though is that a Power Law model is non-linear (i.e., it has more than one parameter per term), so we have to use the `nls()` function instead.
 
-A power function follows the format y = b*x<sup>z</sup>. 
+````R
+# Perform a power law regression
+# Notice that for nls() you need to give some guesses for good starting values
+Power = nls(Y ~ b * X ^ Z,start=list(b=1,z=1))
 
-Unfortunately, a power function is not a linear model. A linear model has only *one parameter per term*. The power law function, however, has the predictor variable x multiplied against parameter b and raised to the exponent z - so it has two paramters. You cannot 
+# Add the power law line to the previous plot
+lines(y=fitted(Power),x=X,col="darkorange",lwd=3)
 
+# Check the model fit statistics with summary()
+summary(Power)
+````
 
+We can see right away from the plot that it is a better fit visually, and we can also see from `summary()` that our parameters are statistically significant. However, you may have noticed that the output does not give us an R<sup>2</sup> value or any kind of equivalent. This is because R<sup>2</sup> is *only valid for linear models*. There is a family of so-called pseudo-R<sup>2</sup> measures that can be used for nonlinear models, but they are not very robust and it is best to avoid them if possible. Therefore, a better work around is to try and use algebra to make our non-linear model into linear model...
 
-A linear model does not mean that the plotted function is a straight line (for example, our Quadratic function earlier was curved). 
-we cannot use `lm()` (linear model) to do a power law regression because it is not a linear model! 
+### Frequency Distributions II: Questions I
+1. Try and rexpress our power law function as a linear model, and run the regression again using `lm()`. (Hint: All you need is some clever use of `log()`). Is the result exactly the same as what you got with `nls()`?
+2. Download 10 Bryozoan datasets from PBDB for any 10 geologic stages of your choice. Calculate the Gini Coefficient, Shannon's H, and Gini-Simpson index for each.
+3. Fit a power law function to your RAD for each of your 10 intervals using the linear model form.
+4. Relate the coefficient from your power regressions to the diversity metrics you calculated.
 
+## Richness II: Nonlinearity
