@@ -477,42 +477,63 @@ We can see right away from the plot that it is a better fit visually, and we can
 3. Fit a power law function to the RAD for each Paleogene stage using the linear model form.
 4. Using `plot()`, `lm()`, `cor.test()` or other statistical methods, describe the qualitative relationship between the coefficient of your power-law function and Gini Coefficient, Pielou's J, richness, Shannon's H, and Gini-Simpson.
 
-## Sampling: Introduction
-Let us assume that now we have a sufficient understanding of many different definitions of diversity and have chosen one that we feel is appropriate for our hypothesis. The next step we have to check is whether our data is of sufficient quality for us to accurately estimate the diversity of the population. [As we discussed earlier](#richness-downside), the most common quality-control problem in diversity analysis is variable sampling effort. As a general rule, the greater the effort, the greater the diversity.
+## Accumulation Curve: Introduction
+Let us assume that now we have a sufficient understanding of many different definitions of diversity and have chosen one that we feel is appropriate for our hypothesis. The next step we have to check is whether our data is of sufficient quality for us to accurately estimate the diversity of the population. [As we discussed earlier](#richness-downside), the most common quality-control problem in *comparative diversity analysis* (i.e., comparing diversity among different samples) is variable sampling effort. As a general rule, the greater the effort, the greater the diversity.
 
-This is usually best visualized with something called an Accumulation Curve or Collector's Curve. An accumulation curve is any curve where the X-axis is some measure of sampling effort (e.g., Area Sampled, Time spent sampling, number of workers) and where the Y-axis is some measure of diversity (almost always richness). A collector's curve is a very specific type of accumulation curve where the measure of effort (i.e., the x-axis) is the number of individuals encountered. Let's try making one from Paleobiology Database data.
+This is usually best visualized with something called an Accumulation Curve or Collector's Curve. An accumulation curve is any curve where the X-axis is some measure of sampling effort (e.g., Area Sampled, Time spent sampling, number of workers) and where the Y-axis is some measure of diversity (almost always richness). A collector's curve (sometimes called a rarefaction curve) is a very specific type of accumulation curve where the measure of effort (i.e., the x-axis) is the number of individuals encountered. 
+
+![VEGANACCUMULATION](Lab5Figures/accumulation.png)
+
+Accumulation curves are mostly useful because they illustrate that expected number of species added to your pool grows non-linearly per unit effort (area). This is important when attempted to standardize for effort, because you cannot simply standardize at a constant rate because *the slope changes depending where you are on the x-axis*. Therefore, seeing if your collector's curve has begun to level off (begun to show diminishing returns) is a good way to see how thoroughly you have sampled population, and how much more effort you may need to put in. (Warning: what counts as leveled off is highly arbitrary)
+
+## Accumulation Curve: Calculation
+Let's try and derive the same curve that we did from above.
 
 ````R
-# Let's download a dataset of Silurian Anthozoans
+# Download a dataset of Silurian Anthozoans from the PBBD
 Silurian = velociraptr::downloadPBDB("Anthozoa","Silurian","Silurian")[,c("genus","paleolng","paleolat")]
+# Once again, let's clean up the taxonomy a bit
+Silurian = velociraptr::cleanTaxonomy(Silurian,"genus")
 # We can turn our dataframe into a "spatial" (GIS) object, this makes it friendlier for things like
 # map projection and other geospatial analyses
 Silurian = sf::st_as_sf(Silurian,coords=c("paleolng","paleolat"))
-# Specify the coordinate system as WGS 84, which is the lat, lng standard you will usually encounter
+# Specify the coordinate system as WGS 84, which is the lat, lng you normally encounter
 sf::st_crs(Silurian) = 4326
 
-
-# Let's plot a map of the Silurian continents
+# Let's download a paleogeographic map of the Silurian
 Map = velociraptr::downloadPaleogeography(Age=430)
+
+# When plotting maps in base r, it is often best to set the margins, plot size, and aspect ratio in advance
+Width <- Map@bbox[3] - Map@bbox[1]
+Height <- Map@bbox[4] - Map@bbox[2]
+Aspect <- Height / Width
+quartz(width = 10, height = 10*Aspect)
+par(mar = rep(0, 4), xaxs='i', yaxs='i')
+# Plot the map of Silurian continent positions
 plot(Map,col="darkgrey",lty=0)
 
 # Lets add points to represent our coral occurrences to the map
 plot(Silurian,add=TRUE,col="dodgerblue",pch=16)
 
 # Let's overlay an equal-area grid on to this map
+# This is actually a poorly made equal area grid, but let's ignore that for the moment
 Grid = sf::st_read("https://macrostrat.org/api/v2/grids/longitude?latSpacing=5&cellArea=500000&format=geojson_bare")
 plot(sf::st_cast(Grid,"MULTILINESTRING"),col="black",lwd=0.5,add=TRUE)
 ````
 
-Let's calculate which genera are in which grids.
+![SILURIANBRYOS](Lab5Figures/silurian.png)
+
+Now, we need to identify which genera occur in which grid. We can then use this information to convert our data into a standard contigency table. A contingency table is usually called a "sites x species", "samples by species", or community matrix in ecology. By convension, the rows usually refer the sites/samples, and the columns usually refer to the taxa. A community matrix can have abundance values or it can be a boolean presence/absence table.
 
 ````R
 # Let's find which Silurian genera intersect with which grids
 Intersects = which(sf::st_intersects(Silurian,Grid,sparse=FALSE),arr.ind=TRUE)
+
 # Let's create a character matrix where the first column is the fossil occurence, and the second column is the grid it occurs in
 GeneraGrids = cbind(genus=as.character(as.data.frame(Silurian)[Intersects[,"row"],"genus"]),grid=Intersects[,"col"])
 
-# Take a quick look at the output
-head(GeneraGrids)
+# Let's turn it into a presecen/absence matrix, where the columns are each a genus, the rows are an equal-area grid, and the cells are
+# the number of individuals of that genus in that grid.
+GeneraGrids = velociraptr::presence(GeneraGrids,Rows="grid",Columns="genus")
 ````
 
