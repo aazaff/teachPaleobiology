@@ -18,8 +18,8 @@
   - [Hill Numbers: Magic Number?]()
 - [Frequency Distributions II: Regression Models]()
   - [Frequency Distributions II: Questions I]()
-- [Sampling: Introduction]()
-  - [Sampling: Questions]()
+- [Accumulation Curves: Introduction]()
+  - [Accumulation Curves: Questions]()
 - [Richness II: Standardization]()
   - [Richness II: Questions]()
 - [Extrapolation: Introduction]()
@@ -344,9 +344,7 @@ Chione | 0.125
 
 4. Try checking your work with `vegan::diversity(x, "shannon")`. Uh-oh! Looks like you don't get the same answer as our shannon function. Take a look at the `help()` file for `vegan::diversity()`, can you guess why our calculations come out differently?
 
-5. You may have noticed that Evenness, Entropy, and Probability of Encounter are extraordinarily similar. This is becuase they are all ultimately ways of asking about the shape of the frequency distributon. If the frequency distribution is flat - i.e., discrete uniform distribution - and all species are equally abundant then Gini = 0, Gini-Simpson ≈ 0, and Pielou = 1. If the frequency distribution consists of only one species - i.e., degenerate distribution - then Gini = 1, Gini-Simpson = 1, and Pielou = 0.
-
-However, just because the maximums and minimums are the same, does not mean that they are perfectly interchangable. Calculate the Gini, Gini-Simpson (Inverse), Shannon's H, and Pielou's J for each of the following distributions, and compare how they differ (or are the same).
+5. You may have noticed that Evenness, Entropy, and Probability of Encounter are extraordinarily similar. This is becuase they are all ultimately ways of asking about the shape of the frequency distributon. If the frequency distribution is flat - i.e., discrete uniform distribution - and all species are equally abundant then Gini = 0, Gini-Simpson ≈ 0, and Pielou = 1. If the frequency distribution consists of only one species - i.e., degenerate distribution - then Gini = 1, Gini-Simpson = 1, and Pielou = 0. However, just because the maximums and minimums are the same, does not mean that they are perfectly interchangable. Calculate the Gini, Gini-Simpson (Inverse), Shannon's H, and Pielou's J for each of the following distributions, and compare how they differ (or are the same).
 
 ````R
 # Set the seed
@@ -480,13 +478,13 @@ We can see right away from the plot that it is a better fit visually, and we can
 ## Accumulation Curve: Introduction
 Let us assume that now we have a sufficient understanding of many different definitions of diversity and have chosen one that we feel is appropriate for our hypothesis. The next step we have to check is whether our data is of sufficient quality for us to accurately estimate the diversity of the population. [As we discussed earlier](#richness-downside), the most common quality-control problem in *comparative diversity analysis* (i.e., comparing diversity among different samples) is variable sampling effort. As a general rule, the greater the effort, the greater the diversity.
 
-This is usually best visualized with something called an Accumulation Curve or Collector's Curve. An accumulation curve is any curve where the X-axis is some measure of sampling effort (e.g., Area Sampled, Time spent sampling, number of workers) and where the Y-axis is some measure of diversity (almost always richness). A collector's curve (sometimes called a rarefaction curve) is a very specific type of accumulation curve where the measure of effort (i.e., the x-axis) is the number of individuals encountered. 
+This is usually best visualized with something called an Accumulation Curve or Collector's Curve. An accumulation curve is any curve where the X-axis is some measure of sampling effort (e.g., Area Sampled, Time spent sampling, number of workers) and where the Y-axis is the [*expected value*](https://en.wikipedia.org/wiki/Expected_value) of some measure of diversity (almost always richness) at that sampling intensity. A collector's curve (sometimes called a rarefaction curve) is a specific type of accumulation curve where the measure of effort (i.e., the x-axis) is the number of individuals encountered. 
 
 ![VEGANACCUMULATION](Lab5Figures/accumulation.png)
 
 Accumulation curves are mostly useful because they illustrate that expected number of species added to your pool grows non-linearly per unit effort (area). This is important when attempted to standardize for effort, because you cannot simply standardize at a constant rate because *the slope changes depending where you are on the x-axis*. Therefore, seeing if your collector's curve has begun to level off (begun to show diminishing returns) is a good way to see how thoroughly you have sampled population, and how much more effort you may need to put in. (Warning: what counts as leveled off is highly arbitrary)
 
-## Accumulation Curve: Calculation
+## Accumulation Curve: Questions
 Let's try and derive the same curve that we did from above.
 
 ````R
@@ -532,8 +530,15 @@ Intersects = which(sf::st_intersects(Silurian,Grid,sparse=FALSE),arr.ind=TRUE)
 # Let's create a character matrix where the first column is the fossil occurence, and the second column is the grid it occurs in
 GeneraGrids = cbind(genus=as.character(as.data.frame(Silurian)[Intersects[,"row"],"genus"]),grid=Intersects[,"col"])
 
-# Let's turn it into a presecen/absence matrix, where the columns are each a genus, the rows are an equal-area grid, and the cells are
+# Let's turn it into a presence/absence matrix, where the columns are each a genus, the rows are an equal-area grid, and the cells are
 # the number of individuals of that genus in that grid.
-GeneraGrids = velociraptr::presence(GeneraGrids,Rows="grid",Columns="genus")
+GeneraGrids = velociraptr::presenceMatrix(GeneraGrids,Rows="grid",Columns="genus")
+# Then we will want to cull out grids where there are no genera found
+GeneraGrids = velociraptr::cullMatrix(GeneraGrids,1,1)
+
+# Finally, we can use the specaccum() function from the vegan package to calculate and plot our accumulation curve
+plot(vegan::specaccum(GeneraGrids,"random"))
 ````
 
+## Accumulation Curve: Question
+1. Use the `GeneraGrids` contingency table that we created in the previous section. Create your *own* function that calculates expected diversity.
