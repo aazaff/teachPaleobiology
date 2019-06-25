@@ -1,9 +1,9 @@
 ## Table of Contents
 - [Configuring R Environment](#configure-r)
-- [Richness: Introduction]()
-  - [Richness: Questions I]()
-  - [Richness: "Downside"]()
-  - [Richness: Questions II]()
+- [Richness I: Introduction]()
+  - [Richness I: Questions I]()
+  - [Richness I: "Downside"]()
+  - [Richness I: Questions II]()
 - [Frequency Distributions: Introduction]()
   - [Frequency Distributions: Questions I]()
   - [Frequency Distributions: Proper Visualization]()
@@ -18,10 +18,10 @@
   - [Hill Numbers: Magic Number?]()
 - [Frequency Distributions II: Regression Models]()
   - [Frequency Distributions II: Questions I]()
-- [Richness II: Nonlinearity]()
-  - [Richness II: Questions I]()
-  - [Richness II: Standardization]()
-  - [Richness II: Standardization Questions]()
+- [Sampling: Introduction]()
+  - [Sampling: Questions]()
+- [Richness II: Standardization]()
+  - [Richness II: Questions]()
 - [Extrapolation: Introduction]()
   - [Extrapolation: Richness]()
   - [Extrapolation: Frequency Distributions]()
@@ -59,6 +59,12 @@ if (suppressWarnings(require("vegan"))==FALSE) {
 if (suppressWarnings(require("DescTools"))==FALSE) {
     install.packages("DescTools",repos="http://cran.cnr.berkeley.edu/");
     library("DescTools");
+    }
+
+# sf is an extemely popular package for geographic (GIS) analysis
+if (suppressWarnings(require("sf"))==FALSE) {
+    install.packages("sf",repos="http://cran.cnr.berkeley.edu/");
+    library("sf");
     }
 
 # Change the maximum timeout t0 300 second. This will allow you to download larger datafiles from 
@@ -373,6 +379,8 @@ The Hill Number paradigm essentially places all biodiversity indices - Richness,
 ![HILLNUMBERFIGURE](Lab5Figures/hill.png)
 
 ````R
+# The basic Hill-Number formula, where Frequencies is a frequency distribution
+# q = 0, richness, q->1 is Shannon's H, q=2 is Gini Simpson, q=inf is Berger-Parker.
 Proportions = Frequencies/sum(Frequencies)
 HillGini = sum(Proportions^q)^(1/(1-q))
 ````
@@ -380,6 +388,25 @@ HillGini = sum(Proportions^q)^(1/(1-q))
 While Hill Numbers have some pretty interesting mathematical properties, and help us to put the competing influences of evenness and richness in better context, it doesn't actually solve any of the problems that come with trying to summarize all properties of a frequency distribution in a single number. Importantly, We still cannot tell, for any given metric, how much an increase or decrease in "diversity" was driven by changes in richness vs. evenness. This is an inherent difficulty of trying to summarize a non-isometric entity with only one number.
 
 ![ISOMETRY_FIGURE](Lab5Figures/rectangle.png)
+
+## Hill Numbers: Questions
+1. Consider the following five ecological communities. Without running any calculations, can you intuitively order them from least to most diverse?
+
+````R
+# 99 species with an abundance of 10, and one species with an abundance of 30
+First = c(rep(10, times=99),30)
+# 98 species with an abundance of 10, and two species with an abundance of 15 each
+Second = c(rep(10,times=98),15,15)
+# 97 species with an abundance of 10, and one species with an abundance of 11
+Third = c(rep(10,times=97),11)
+# 97 species with an abundance of 10, and three species with an abundance of 5
+Fourth = c(rep(10,times=97),5,5,5)
+# 100 species with an abundance of 10, and one species with an abundance of 50
+Fifth = c(rep(10,times=100),50)
+````
+
+2. Calculate the Hill Number Diversity for each of the five distributions where q = 0, q = 0.99, q=2, q=3, q=5, q=10, q=100 and store the results.
+3. Create a plot where the x-axis is q and the y-axis is the Hill number diversity. Add curves for each of the above five distributions to this plot. How does the diversity order compare with your original guess?
 
 ## Frequency Distributions II: Linear Models
 Instead of applying a single summary statistics to our data, it is arguably preferable to simply provide a function that characterizes the frequency distribution. The benefit of a function is that you can derive any number of summary statistics from it. Unfortunately, there are *many* functions that roughly approximate the "hollow-curved" shape of ecological frequency distributions.
@@ -444,9 +471,48 @@ summary(Power)
 We can see right away from the plot that it is a better fit visually, and we can also see from `summary()` that our parameters are statistically significant. However, you may have noticed that the output does not give us an R<sup>2</sup> value or any kind of equivalent. This is because R<sup>2</sup> is *only valid for linear models*. There is a family of so-called pseudo-R<sup>2</sup> measures that can be used for nonlinear models, but they are not very robust and it is best to avoid them if possible. Therefore, a better work around is to try and use algebra to make our non-linear model into linear model...
 
 ### Frequency Distributions II: Questions I
-1. Try and rexpress our power law function as a linear model, and run the regression again using `lm()`. (Hint: All you need is some clever use of `log()`). Is the result exactly the same as what you got with `nls()`?
-2. Download 10 Bryozoan datasets from PBDB for any 10 geologic stages of your choice. Calculate the Gini Coefficient, Shannon's H, and Gini-Simpson index for each.
-3. Fit a power law function to your RAD for each of your 10 intervals using the linear model form.
-4. Relate the coefficient from your power regressions to the diversity metrics you calculated.
+1. Try and re-express our power law function as a linear model, and run the regression again using `lm()`. (Hint: All you need is some clever use of `log()`). Is the result exactly the same as what you got with `nls()`?
+2. Download a Bryozoan datasets for each [stage in the Paleogene](https://en.wikipedia.org/wiki/Paleogene). 
+3. Calculate the Gini Coefficient, Pielou's J, Shannon's H, richness, and Gini-Simpson index for the genus frequency distribution of each dataset.
+3. Fit a power law function to the RAD for each Paleogene stage using the linear model form.
+4. Using `plot()`, `lm()`, `cor.test()` or other statistical methods, describe the qualitative relationship between the coefficient of your power-law function and Gini Coefficient, Pielou's J, richness, Shannon's H, and Gini-Simpson.
 
-## Richness II: Nonlinearity
+## Sampling: Introduction
+Let us assume that now we have a sufficient understanding of many different definitions of diversity and have chosen one that we feel is appropriate for our hypothesis. The next step we have to check is whether our data is of sufficient quality for us to accurately estimate the diversity of the population. [As we discussed earlier](#richness-downside), the most common quality-control problem in diversity analysis is variable sampling effort. As a general rule, the greater the effort, the greater the diversity.
+
+This is usually best visualized with something called an Accumulation Curve or Collector's Curve. An accumulation curve is any curve where the X-axis is some measure of sampling effort (e.g., Area Sampled, Time spent sampling, number of workers) and where the Y-axis is some measure of diversity (almost always richness). A collector's curve is a very specific type of accumulation curve where the measure of effort (i.e., the x-axis) is the number of individuals encountered. Let's try making one from Paleobiology Database data.
+
+````R
+# Let's download a dataset of Silurian Anthozoans
+Silurian = velociraptr::downloadPBDB("Anthozoa","Silurian","Silurian")[,c("genus","paleolng","paleolat")]
+# We can turn our dataframe into a "spatial" (GIS) object, this makes it friendlier for things like
+# map projection and other geospatial analyses
+Silurian = sf::st_as_sf(Silurian,coords=c("paleolng","paleolat"))
+# Specify the coordinate system as WGS 84, which is the lat, lng standard you will usually encounter
+sf::st_crs(Silurian) = 4326
+
+
+# Let's plot a map of the Silurian continents
+Map = velociraptr::downloadPaleogeography(Age=430)
+plot(Map,col="darkgrey",lty=0)
+
+# Lets add points to represent our coral occurrences to the map
+plot(Silurian,add=TRUE,col="dodgerblue",pch=16)
+
+# Let's overlay an equal-area grid on to this map
+Grid = sf::st_read("https://macrostrat.org/api/v2/grids/longitude?latSpacing=5&cellArea=500000&format=geojson_bare")
+plot(sf::st_cast(Grid,"MULTILINESTRING"),col="black",lwd=0.5,add=TRUE)
+````
+
+Let's calculate which genera are in which grids.
+
+````R
+# Let's find which Silurian genera intersect with which grids
+Intersects = which(sf::st_intersects(Silurian,Grid,sparse=FALSE),arr.ind=TRUE)
+# Let's create a character matrix where the first column is the fossil occurence, and the second column is the grid it occurs in
+GeneraGrids = cbind(genus=as.character(as.data.frame(Silurian)[Intersects[,"row"],"genus"]),grid=Intersects[,"col"])
+
+# Take a quick look at the output
+head(GeneraGrids)
+````
+
