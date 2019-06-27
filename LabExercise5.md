@@ -18,10 +18,11 @@
   - [Hill Numbers: Questions](#hill-numbers-questions)
 - [Frequency Distributions II: Linear Models](#frequency-distributions-ii-linear-models)
   - [Frequency Distributions II: Questions I](#frequency-distributions-ii-questions-i)
-- [Accumulation Curve: Introduction](#accumulation-curve-introduction)
-  - [Accumulation Curve: Questions](#accumulation-curve-questions)
-- [Richness II: Standardization]()
-  - [Richness II: Questions]()
+- [Sampling Issues: Introduction]()
+  -[Sampling Issues: Questions I]()
+  -[Sampling Issues: Area Revisited]()
+  -[Sampling Issues: Standardization]()
+  -[Sampling Issues: Questions II]()
 - [Extrapolation: Introduction]()
   - [Extrapolation: Richness]()
   - [Extrapolation: Frequency Distributions]()
@@ -475,17 +476,91 @@ We can see right away from the plot that it is a better fit visually, and we can
 3. Fit a power law function to the RAD for each Paleogene stage using the linear model form.
 4. Using `plot()`, `lm()`, `cor.test()` or other statistical methods, describe the qualitative relationship between the coefficient of your power-law function and Gini Coefficient, Pielou's J, richness, Shannon's H, and Gini-Simpson.
 
-## Accumulation Curve: Introduction
+## Sampling Issues: Introduction
 Let us assume that now we have a sufficient understanding of many different definitions of diversity and have chosen one that we feel is appropriate for our hypothesis. The next step we have to check is whether our data is of sufficient quality for us to accurately estimate the diversity of the population. [As we discussed earlier](#richness-downside), the most common quality-control problem in *comparative diversity analysis* (i.e., comparing diversity among different samples) is variable sampling effort. As a general rule, the greater the effort, the greater the diversity.
 
 This is usually best visualized with something called an Accumulation Curve or Collector's Curve. An accumulation curve is any curve where the X-axis is some measure of sampling effort (e.g., Area Sampled, Time spent sampling, number of workers) and where the Y-axis is the [*expected value*](https://en.wikipedia.org/wiki/Expected_value) of some measure of diversity (almost always richness) at that sampling intensity. A collector's curve (sometimes called a rarefaction curve) is a specific type of accumulation curve where the measure of effort (i.e., the x-axis) is the number of individuals encountered. 
 
 ![VEGANACCUMULATION](Lab5Figures/accumulation.png)
 
-Accumulation curves are mostly useful because they illustrate that expected number of species added to your pool grows non-linearly per unit effort (area). This is important when attempted to standardize for effort, because you cannot simply standardize at a constant rate because *the slope changes depending where you are on the x-axis*. Therefore, seeing if your collector's curve has begun to level off (begun to show diminishing returns) is a good way to see how thoroughly you have sampled population, and how much more effort you may need to put in. (Warning: what counts as leveled off is highly arbitrary)
+Accumulation curves are mostly useful because they illustrate that expected number of species added to your pool grows non-linearly per unit effort (area). This is important when attempted to standardize for effort, because you cannot simply standardize at a constant rate because *the slope changes depending where you are on the x-axis*. Therefore, seeing if your collector's curve has begun to level off (begun to show diminishing returns) is a good way to see how thoroughly you have sampled the population, and how much more effort you may need to put in. (Warning: what counts as leveled off is highly arbitrary... and we will see the consequences of this [later]())
 
-## Accumulation Curve: Questions
-Let's try and derive the same curve that we did from above.
+## Sampling Issues: Accumulation Curves
+Let's try and build an accumulation curve that measures expected richness as a function of number of samples. Download a dataset of bivalve (clams) and gastropod (snails) fossils that range from the Eocene through Oligocene using the `downloadPBDB( )`. Next use the `cleanRank( )` and `constrainAges( )` function to clean up the data. These are simply pre-made functions that automatically clean up data errors, and fossil occurrences that have poor temporal constraint (i.e., are of unceratain age).
+
+````R
+# Download data from the Paleobiology Database
+# This may take a couple of minutes.
+ClamSnails = velociraptr::downloadPBDB(Taxa=c("Bivalvia","Gastropoda"),StartInterval="Eocene",StopInterval="Oligocene")
+ 
+# Remove occurrences not properly resolved to the genus level.
+ClamSnails = velociraptr::cleanTaxonomy(ClamSnails,"genus")
+
+# Download a matrix of geologic epoch definitions and metadata
+# A necessary step for the constrainAges( ) function
+Epochs = velociraptr::downloadTime(Timescale="international epochs")
+
+# Remove fossils with poorly constrained temporal resolution - i.e., the age uncertainty is greater than the epoch level.
+ClamSnails = velociraptr::constrainAges(ClamSnails,Epochs)
+````
+
+Let's turn our newly downloaded and cleaned PBDB data into a community matrix. A community matrix is one of the most fundamental data formats in ecology. In such a matrix, the rows represent different samples, the columns represent different taxa, and the cell valuess represent the abundance of the species in that sample.
+
+Here are a few things to remember about community matrices.
+
+1. Samples are sometimes called sites or quadrats, but those are sub-discipline specific terms that should be avoided. Stick with samples because it is universally applicable.
+2. By unspoken convention, the rows are always the samples/sites/quadrats and the columns are always the species/genera/taxa.
+3. The columns do not have to be species per se. Columns could be other levels of the Linnean Hierarchy (e.g., genera, families) or some other ecological grouping (e.g., different habits, different morphologies).
+4. Since there is no such thing as a negative abundance, there should be no negative data in a Community Matrix.
+5. Sometimes we may not have abundance data, in which case we can substitute presence-absence data - i.e, is the taxon present or absent in the sample. This is usually represented with a 0 for absent and a 1 for present.
+
+Let's convert our PBDB dataset into a community matrix using `abundanceMatrix()`. This function requires that you define which column will count as samples. For now, let's use `"collection_no"` (i.e., a paleobiology database sample) as as our sample.
+
+````R
+# Create a PBDB occurrences by taxa matrix
+# This may take a couple of minutes
+Community = velociraptr::abundanceMatrix(ClamSnails,Rows="collection_no",Columns="genus")
+
+# In addition, let us clean up this new matrix and remove depauperate samples and rare taxa.
+# We will set it so that a sample needs at least 24 reported taxa for us to consider it reliable,
+# and each taxon must occur in at least 5 samples for us to keep it. These are common minimums for validating the
+# sample size in a community matrix, though I've seen no quantitative proof that this is necessary or even beneficial.
+Community = velociraptr::cullMatrix(Community,Rarity=5,Richness=24)
+````
+
+Now, we want to begin plotting our collector's curve. Remember that the x-axis is number of sampls, and y-axis the average diversity found in x-sample (i.e., the expected value). We can empirically derive this by *randomly* taking *n* samples and calculating the diversity of those samples. Let's try it now, and try to find the average expected richness if we took three samples at random.
+
+````R
+# Set a seed so that we get the same result
+set.seed(888)
+
+# Create a vector from 1 to 1,000, this is how many times we will repeat the resampling procedure
+Repeat = seq_len(1000)
+
+# Create a blank array to store our answers in.
+Expected = array(NA,dim=length(Repeat))
+
+# Use a for( ) loop to repeat the procedure
+for (counter in Repeat) {
+    # Randomly select 3 samples from the community matrix
+    Draw = Community[sample(1:nrow(Community),3,replace=TRUE),]
+    # Calculate the richness of all three samples
+    Expected[counter] = length(unique(which(Draw>0,arr.ind=TRUE)[,"col"]))
+    }
+
+# Find the average expected number of samples for three samples
+mean(Expected)
+````
+### Sampling Issues: Questions I
+1. Create a function or script that will calculate an accumulation curve for the ClamSnails dataset. Make it into a plot.
+2. Modify your script/workflow so that the measure of effort (x-axis) is the number of individuals sampled.
+3. Modify your script/workflow so that the measure of effort (x-axis) is the number of references (`reference_no`). Make it into a plot.
+4. Modify your script/workflow so that the measure of effort (x-axis) is the number of tectonic plates sampled (`geoplate`). Make it into a plot.
+5. Contrast all your different accumulation curves, which measure of effort most rapidly "levels off"?
+6. Verify that your accumulation curves were correct using `vegan::specaccum()` (Hint: Don't forget you can use `help()`)
+
+## Sampling Issues: Area Revisited
+-- Species-area is important, but is not the same
 
 ````R
 # Download a dataset of Silurian Anthozoans from the PBBD
@@ -521,8 +596,6 @@ plot(sf::st_cast(Grid,"MULTILINESTRING"),col="black",lwd=0.5,add=TRUE)
 
 ![SILURIANBRYOS](Lab5Figures/silurian.png)
 
-Now, we need to identify which genera occur in which grid. We can then use this information to convert our data into a standard contigency table. A contingency table is usually called a "sites x species", "samples by species", or community matrix in ecology. By convension, the rows usually refer the sites/samples, and the columns usually refer to the taxa. A community matrix can have abundance values or it can be a boolean presence/absence table.
-
 ````R
 # Let's find which Silurian genera intersect with which grids
 Intersects = which(sf::st_intersects(Silurian,Grid,sparse=FALSE),arr.ind=TRUE)
@@ -540,5 +613,5 @@ GeneraGrids = velociraptr::cullMatrix(GeneraGrids,1,1)
 plot(vegan::specaccum(GeneraGrids,"random"))
 ````
 
-## Accumulation Curve: Question
-1. Use the `GeneraGrids` contingency table that we created in the previous section. Create your *own* function that calculates expected diversity.
+## Sampling Issues: Standardization
+The same resampling principles used to generate accumulation curves can be leveraged to help "standardize" effort among samples. In this case, we ask whether 
