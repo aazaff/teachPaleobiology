@@ -23,9 +23,10 @@
   -[Sampling Standardization: Area Revisited](#sampling-standardization-area-revisited)
   -[Sampling Standardization: Subsampling](#sampling-tandardization-Subsampling)
   -[Sampling Standardization: Questions II](#sampling-standardization-questions-ii)
-- [Extrapolation: Introduction]()
-  - [Extrapolation: Richness]()
-  - [Extrapolation: Frequency Distributions]()
+  -[Sampling Standardization: Extrapolation](#sampling-standardization-extrapolation)
+  -[Sampling Standardization: Questions III](#sampling-standardization-questions-iii)
+- [Frequency Distributions III: Extrapolation]()
+  - [Frequency Distributions III: Questions I]()
 - [Temporal Dynamics: Introduction]()
   - [Temporal Dynamics: Boundary Categories]()
   - [Temporal Dynamics: Turnover Rates]()
@@ -36,8 +37,6 @@
   - [Time Series: Autocorrelation]()
   - [Time Series: Periodicity]()
   - [Time Series: Correlation]()
-- [Birth-Death Model: Introduction]()
-- [Trajectory of Phanerozoic Biodiversity]()
 
 ## Configure R
 Download the `velociraptr` package from CRAN and change the download timeout. You can always check your currently active libraries with `installed.packages()` or `sessionInfo()`. Also, note the difference between `require()` and `library()` and how this is used in the configuration script.
@@ -627,3 +626,71 @@ Using individuals as the measure of effort for subsampling procedures is by-and-
 3. Calculate the Gini coefficient for each of your time-intervals and compare that with your accumulation curves, is there any relationship between accumulation curve shape and Gini?
 
 ## Sampling Standardization: Extrapolation
+Rather than subsampling all acumulation curves *down* to a uniform size, you might consider extrapolating all accumulation curve *out* to some uniform sample size. In other words, you might want to build a regression model that fits your accumulation curve, then predict the value for some larger sample size. This has been a dream among ecologists for a long time, but unfortunately it doesn't really work.
+
+````R
+# Let's download a dataset of Lower Miocene gastropods
+LowerMiocene = velociraptr::downloadPBDB("gastropoda","Aquitanian","Burdigalian")
+# Clean up that nasty genus column
+LowerMiocene = velociraptr::cleanTaxonomy(LowerMiocene,"genus")
+
+# Extrapolation test, create two versions of the dataset, one that includes all of the data, and one that includes only 75%
+Smaller = LowerMiocene[1:ceiling(0.8*nrow(LowerMiocene)),]
+All = LowerMiocene
+
+# Turn each into a community matrix with abundance values
+Smaller = velociraptr::abundanceMatrix(Smaller,"class","genus")
+All = velociraptr::abundanceMatrix(All,"class","genus")
+
+# Plot up the rarefation curve for all of the data
+plot(y=vegan::rarefy(All,seq_len(ncol(All))),x=seq_len(ncol(All)),xlab="randomly sampled individuals",ylab="expected richness",col="darkblue",lwd=5,type="l",las=1)
+# Plot up the rarefaction curve for the smaller dataset
+lines(y=vegan::rarefy(Smaller,seq_len(ncol(Smaller))),x=seq_len(ncol(Smaller)),lwd=5,col="darkgreen")
+# Plot up the "extrapolated" rarefaction of the smaller dataset
+lines(y=vegan::rarefy(Smaller,seq_len(ncol(All))),x=seq_len(ncol(All)),lwd=2,col="darkgreen",lty=3)
+````
+
+-- Explain Chao
+
+Another family of extrapolation methods is centred around the idea of "singletons" and "doubletons". A singleton is a taxon that is only observed once, and a doubleton is a taxon that is observed at least twice.
+
+
+Despite the fact that extrapolation generally underestimates diversity (often by A LOT) they remain popular in some sub-circles within ecology. In contrast, extrapolation methods are *rarely* used in paleontology, mostly because paleontologists are rarely concerned with estimating the *actual* number of species. Rather, most paleobiological questions are about *comparative* or *relative* changes in diversity between two populations - e.g., does diversity go up, down, or stay the same from an older geologic interval to a younger geologic interval. 
+
+### Sampling Standardization: Questions III
+1. Revisit the same datasets of Paleozoic trilobites that you used in [Sampling Standardization: Questions II](#sampling-standardization-questions-ii), but this time create two plots. One plot where you've subsampled down to a common smaller sample size (Hint: use `rarefy()`), and one plot where you've extrapolated the accumulation curves out to a common larger sample size (Hint: use `rarefy()`). How does the relative diveristy among geologic intervals compare when calculated among these two methods.
+2. Use the `vegan::estimateR()` to get the Chao1 extrapolated diversity estimate. How does the relative diversity among geologic intervals compare to what you observed with the accumulation curves?
+3. In the Chao equation, what is a singleton and what is a doubleton. Why are the numbers of singletons and doubletons important for extrapolating diversity? (Hint: see `help(estimateR)` to start off).
+
+## Frequency Distributions III: Extrapolation
+Although not truly "extrapolation" there are models for simulating frequency distributions. Let's go through some of the most common and how you can use them in R to generate a RAD.
+
+#### Uniform 
+A discrete uniform distribution assumes that  species are using resources independently of one another and to an equal degree. In other words, species are completely interchangable from an ecological/functional sense. This is a 
+
+````R
+# You can derive a discrete uniform RAD for N species using sample()
+Uniform = sample(1:N,replace=TRUE)
+````
+Be warned that you should NOT use `runif()`, which is a continuous uniform distribution, not a discrete uniform distribution. ~~`Uniform = runif(5,1,5)`~~
+
+#### Geometric Series
+A geometric series assumes that each species arrives at regular time intevals and claims a constant proportion (k) of the total number of individuals in the community. Thus if k is 0.5 (e.g., think about half-life), the most common species would represent half of the individuals in the community (50%), the second most common species would represent half of the remaining half (25%), the third, half of the remaining quarter (12.5%) and so forth. This is good for modelling expected diversity relative to some limiting resource. 
+
+````R
+# The specific formula for a geometric series is kind of complicated, but you can easily approximate it for N taxa as 
+# an exponential decay function, which is any exponential funciton y=k^t, where k is the propotion (0<k<1) and t is a 
+# series of integers that that run from 1:N, where N is richness. This is lazy, and won't be preciesely correct compared
+# to the true formula, because once again I am using a continuous formula to approxiamte a discrete distribution, but
+# it doesn't matter for our purposes. 
+Geometric = k ^ (1:N)
+````
+
+Be warned that the `rgeom()` (random geometric) is a completely different function and unrelated.
+
+#### Broken Stick
+A one dimensional resource axis is simultaneously and randomly partioned by N species. There are many ways that you could implement this, because the underlying distribution that determines the random portion of the whole.
+
+````R
+
+````
