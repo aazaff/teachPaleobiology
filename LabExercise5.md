@@ -663,34 +663,55 @@ Despite the fact that extrapolation generally underestimates diversity (often by
 3. In the Chao equation, what is a singleton and what is a doubleton. Why are the numbers of singletons and doubletons important for extrapolating diversity? (Hint: see `help(estimateR)` to start off).
 
 ## Frequency Distributions III: Extrapolation
-Although not truly "extrapolation" there are models for simulating frequency distributions. Let's go through some of the most common and how you can use them in R to generate a RAD.
+Although not truly "extrapolation" there are models for simulating frequency distributions. Let's go through some of the most common and how you can use them in R to generate a RAD based on a theoretical model.
 
 #### Uniform 
-A discrete uniform distribution assumes that  species are using resources independently of one another and to an equal degree. In other words, species are completely interchangable from an ecological/functional sense. This is a 
+![uniform](/Lab5Figures/uniform.png)
+
+A discrete uniform distribution assumes that species are using resources independently of one another and to an equal degree. In other words, species are completely interchangable from an ecological/functional sense. Be warned that you should NOT use `runif()`, which is a continuous uniform distribution, not a discrete uniform distribution. ~~`Uniform = runif(5,1,5)`~~
 
 ````R
 # You can derive a discrete uniform RAD for N species using sample()
 Uniform = sample(1:N,replace=TRUE)
 ````
-Be warned that you should NOT use `runif()`, which is a continuous uniform distribution, not a discrete uniform distribution. ~~`Uniform = runif(5,1,5)`~~
 
 #### Geometric Series
-A geometric series assumes that each species arrives at regular time intevals and claims a constant proportion (k) of the total number of individuals in the community. Thus if k is 0.5 (e.g., think about half-life), the most common species would represent half of the individuals in the community (50%), the second most common species would represent half of the remaining half (25%), the third, half of the remaining quarter (12.5%) and so forth. This is good for modelling expected diversity relative to some limiting resource. 
+![geometric](/Lab5Figures/geometric.png)
+
+A geometric series assumes that each species arrives at regular time intevals and claims a constant proportion (k) of the total number of individuals in the community. Thus if k is 0.5 (e.g., think about half-life), the most common species would represent half of the individuals in the community (50%), the second most common species would represent half of the remaining half (25%), the third, half of the remaining quarter (12.5%) and so forth. This is good for modelling expected diversity relative to some limiting resource. Be warned that the `rgeom()` (random geometric) is a completely different geometric function and unrelated.
 
 ````R
 # The specific formula for a geometric series is kind of complicated, but you can easily approximate it for N taxa as 
-# an exponential decay function, which is any exponential funciton y=k^t, where k is the propotion (0<k<1) and t is a 
-# series of integers that that run from 1:N, where N is richness. This is lazy, and won't be preciesely correct compared
-# to the true formula, because once again I am using a continuous formula to approxiamte a discrete distribution, but
-# it doesn't matter for our purposes. 
-Geometric = k ^ (1:N)
+# an exponential decay function, which is any exponential funciton y=k^i, where k is the propotion (0<k<1) and i the
+# the species number. So for 5 species, the geometric distribution is. 
+Geometric = k ^ (1:5)
 ````
-
-Be warned that the `rgeom()` (random geometric) is a completely different function and unrelated.
 
 #### Broken Stick
-A one dimensional resource axis is simultaneously and randomly partioned by N species. There are many ways that you could implement this, because the underlying distribution that determines the random portion of the whole.
+![broken](/Lab5Figures/broken.png)
+
+A one dimensional resource axis is simultaneously and randomly partioned by N species. Notice that this is essentially a variation of the [discrete uniform distribution](#uniform). 
+
+Broken stick refers to a very specific equation (as seen above), but you can create many "broken-stick variants" by altering the underlying probability distribution for the draws. Its flexibility and simplicity tends to make it very popular for modelling experiments, and it dovetails very nicely with single axis gradient analyses (see Ordination), but nobody seriously argues that it is actually how the real world works.
 
 ````R
-
+# Assuming we divide a population of 100 intervals into 12 species we would get the following abundances for species 1-10
+Broken = (100/12)*cumsum(1/12:1)
 ````
+
+#### Log Series
+![logseries](/Lab5Figures/logseries.png)
+
+Logseries is a big deal, and is one of the most popular/studied/used models for explaining the frequency distribution of an ecological community. Unlike the other functions that we covered above, it does not give an estimated abundance for an individual species. Instead, it gives an estimate for how many species are expected to have a particular abundance. For example, how many species do we expect to have 10 individuals?
+
+The theory behind this is that each species arrives at random time intervals and seizes control of a *constant* fraction of the remaining resources - similar in concept to the broken stick model.
+
+Although there is no analytic solution for calculating x, it can usually be approximated as 0.9 < x < 1 when used with empirical ecological data.
+
+#### Lognormal 
+
+
+## Sampling Standardization: Extrapolation II
+-- Fisher's Alpha
+-- Preston's Lognormal
+-- Liow probabiilty
