@@ -19,14 +19,14 @@
 - [Frequency Distributions II: Linear Models](#frequency-distributions-ii-linear-models)
   - [Frequency Distributions II: Questions I](#frequency-distributions-ii-questions-i)
 - [Sampling Standardization: Introduction](#sampling-standardization-introduction)
-  -[Sampling Standardization: Questions I](#sampling-standardization-questions-i)
-  -[Sampling Standardization: Area Revisited](#sampling-standardization-area-revisited)
-  -[Sampling Standardization: Subsampling](#sampling-tandardization-Subsampling)
-  -[Sampling Standardization: Questions II](#sampling-standardization-questions-ii)
-  -[Sampling Standardization: Extrapolation](#sampling-standardization-extrapolation)
-  -[Sampling Standardization: Questions III](#sampling-standardization-questions-iii)
-- [Frequency Distributions III: Extrapolation]()
-  - [Frequency Distributions III: Questions I]()
+  - [Sampling Standardization: Questions I](#sampling-standardization-questions-i)
+  - [Sampling Standardization: Area Revisited](#sampling-standardization-area-revisited)
+  - [Sampling Standardization: Subsampling](#sampling-tandardization-Subsampling)
+  - [Sampling Standardization: Questions II](#sampling-standardization-questions-ii)
+  - [Sampling Standardization: Extrapolation](#sampling-standardization-extrapolation)
+  - [Sampling Standardization: Questions III](#sampling-standardization-questions-iii)
+- [Frequency Distributions III: Extrapolation](#frequency-distributions-iii-extrapolation)
+  - [Frequency Distributions III: Questions I](#frequency-distributions-iii-questions-i)
 - [Temporal Dynamics: Introduction]()
   - [Temporal Dynamics: Boundary Categories]()
   - [Temporal Dynamics: Turnover Rates]()
@@ -665,20 +665,20 @@ Despite the fact that extrapolation generally underestimates diversity (often by
 ## Frequency Distributions III: Extrapolation
 Although not truly "extrapolation" there are models for simulating frequency distributions. Let's go through some of the most common and how you can use them in R to generate a RAD based on a theoretical model.
 
-#### Uniform 
-![uniform](/Lab5Figures/uniform.png)
-
+### Uniform 
 A discrete uniform distribution assumes that species are using resources independently of one another and to an equal degree. In other words, species are completely interchangable from an ecological/functional sense. Be warned that you should NOT use `runif()`, which is a continuous uniform distribution, not a discrete uniform distribution. ~~`Uniform = runif(5,1,5)`~~
 
+![uniform](/Lab5Figures/uniform.png)
+
 ````R
-# You can derive a discrete uniform RAD for N species using sample()
-Uniform = sample(1:N,replace=TRUE)
+# You can create a RAD from a discrete uniform distribution by using sample(),
+Uniform = sample(1:5,replace=TRUE)
 ````
 
-#### Geometric Series
-![geometric](/Lab5Figures/geometric.png)
-
+### Geometric Series
 A geometric series assumes that each species arrives at regular time intevals and claims a constant proportion (k) of the total number of individuals in the community. Thus if k is 0.5 (e.g., think about half-life), the most common species would represent half of the individuals in the community (50%), the second most common species would represent half of the remaining half (25%), the third, half of the remaining quarter (12.5%) and so forth. This is good for modelling expected diversity relative to some limiting resource. Be warned that the `rgeom()` (random geometric) is a completely different geometric function and unrelated.
+
+![geometric](/Lab5Figures/geometric.png)
 
 ````R
 # The specific formula for a geometric series is kind of complicated, but you can easily approximate it for N taxa as 
@@ -687,31 +687,76 @@ A geometric series assumes that each species arrives at regular time intevals an
 Geometric = k ^ (1:5)
 ````
 
-#### Broken Stick
-![broken](/Lab5Figures/broken.png)
-
+### Broken Stick
 A one dimensional resource axis is simultaneously and randomly partioned by N species. Notice that this is essentially a variation of the [discrete uniform distribution](#uniform). 
 
 Broken stick refers to a very specific equation (as seen above), but you can create many "broken-stick variants" by altering the underlying probability distribution for the draws. Its flexibility and simplicity tends to make it very popular for modelling experiments, and it dovetails very nicely with single axis gradient analyses (see Ordination), but nobody seriously argues that it is actually how the real world works.
+
+![broken](/Lab5Figures/broken.png)
+
 
 ````R
 # Assuming we divide a population of 100 intervals into 12 species we would get the following abundances for species 1-10
 Broken = (100/12)*cumsum(1/12:1)
 ````
 
-#### Log Series
-![logseries](/Lab5Figures/logseries.png)
-
+### Fisher's Log Series
 Logseries is a big deal, and is one of the most popular/studied/used models for explaining the frequency distribution of an ecological community. Unlike the other functions that we covered above, it does not give an estimated abundance for an individual species. Instead, it gives an estimate for how many species are expected to have a particular abundance. For example, how many species do we expect to have 10 individuals?
 
 The theory behind this is that each species arrives at random time intervals and seizes control of a *constant* fraction of the remaining resources - similar in concept to the broken stick model.
 
-Although there is no analytic solution for calculating x, it can usually be approximated as 0.9 < x < 1 when used with empirical ecological data.
+Although there is no analytic solution for calculating x, it is almost always 0.9 < x < 1.
 
-#### Lognormal 
+![logseries](/Lab5Figures/logseries.png)
 
+````R
+# You can use vegan::fisherfit to get a logseries estiamte for your data
+help(vegan::fisherfit)
+
+````
+
+### Preston's Lognormal 
+The lognormal function is also extremely popular in ecology, and fights over whether logseries or lognormal better describe empirical data are still somewhat common - though ultimately irrelevant, as we will discuss later.
+
+The general theory behind this model is that the most rare taxa are usually unobserved, thus truncating the bell-curve predicted by the [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem) and making it appear to be a "hollow-curve". The prediction is that if we continued sampling until all species were observed, the distribution would indeed be (log)normal.
+
+![lognormal](/Lab5Figures/lognormal.png)
+
+````R
+# You can use vegan::prestonfit to get a logseries estiamte for your data
+help(vegan::prestonfit)
+
+
+# You can also get random lognormal values using the build int rlnorm() function
+help(rlnorm)
+````
+
+### Yule-Simpson Model
+Sometimes called the Galton-Watson branching process, this model estimates the number of species based on the number of genera. This is essentially a model of evolution, more so than it is a model of RADS, but it does also predict a hollow-curve RAD, so can be used in that context. 
+
+The assumptions of the Yule-Simpson model are as follows.
+1. Always start with one genus.
+2. Every time-step adds one new species.
+3. A new species either founds a new genus with probability (g) or joins an existing genus with probability (1-g).
+4. IF: a new species is NOT a new genus, it is assigned to an existing genus with a probability proporitional to the number of species already within that genus - i.e., more speciose genera are more likely to get additional species.
+
+![YULE](/Lab5Figures/yule.png)
+
+We've only covered a*small* portion of all hypothesized models for generating RADs. [Brian Mcgill](http://brian-mcgill-4.ums.maine.edu/sad_review.pdf) named at least 27 different models in his excellent review paper. The major reason why so many different models persist is because they all produce similar results (i.e., a hollow-curved shape of some kind), and it is impossible to go backwards from the outcome to mechanism when multiple mechanisms predict the same outcome. The issue of what dynamics (if any) generate RADs remains unsolved, and is possibly unsolvable. There is a good quote from Jeff Gore at MIT, "This is maybe one of those patterns in ecology that tells us more about math than biology." Indeed, a hollow-curved distribution is actually predicted in ecological data purely by the [Central Limit Theorem](https://projecteuclid.org/download/pdf_1/euclid.ss/1177009869), and is sometimes called the Significant-Digit Law, Benford's Law, or the Newcomb-Benford's law.
+
+### Frequency Distributions III: Questions I
+1. Qualitatively explain why the Yule-Simpson birth-process model will eventually converge on a power-law distribution after a large number of species are added?
+2. Download a dataset of Jurassic dinosaurs and Cretaceous dinosaurs from the paleobiology database. Crate and plot family-level RADs for both the Jurassic and Cretaceous data.
+3. Create a function or script that will iteratively solve for the Fisher's logseries *x* for the Jurassic and Cretaceous RADs.
+4. Try fitting your Jurassic and Cretaceous RADS to any of the various models we have discussed thus far. Which models give the best fit? is it the same model for both the Jurassic and Cretaceous?
 
 ## Sampling Standardization: Extrapolation II
--- Fisher's Alpha
+
 -- Preston's Lognormal
+-- Yule Model
+-- Hubbel's Neutral Theory
+-- Fisher's Alpha
+
+
+
 -- Liow probabiilty
