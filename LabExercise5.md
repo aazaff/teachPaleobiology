@@ -23,10 +23,12 @@
   - [Sampling Standardization: Area Revisited](#sampling-standardization-area-revisited)
   - [Sampling Standardization: Subsampling](#sampling-tandardization-Subsampling)
   - [Sampling Standardization: Questions II](#sampling-standardization-questions-ii)
-  - [Sampling Standardization: Extrapolation](#sampling-standardization-extrapolation)
-  - [Sampling Standardization: Questions III](#sampling-standardization-questions-iii)
-- [Frequency Distributions III: Extrapolation](#frequency-distributions-iii-extrapolation)
-  - [Frequency Distributions III: Questions I](#frequency-distributions-iii-questions-i)
+- [Extrapolation: Richness](#extrapolation-richness)
+  - [Extrapolation: Questions I](#extrapolation-questions-i)
+  - [Extrapolation: Frequency Distributions](#extrapolation-frequency-distributions)
+  - [Extrapolation: Questions II](#extrapolation-questions-ii)
+  - [Extrapolation: Richness](#extrapolation-richness-ii)
+  - [Extrapolation: Questions III](#extrapolation-questions-iii)
 - [Temporal Dynamics: Introduction]()
   - [Temporal Dynamics: Boundary Categories]()
   - [Temporal Dynamics: Turnover Rates]()
@@ -551,6 +553,9 @@ for (counter in Repeat) {
 # Find the average expected number of samples for three samples
 mean(Expected)
 ````
+
+It's worth noting that it is not always advantageous to randomize the order of the samples, particularly if the order of your samples has some ecological or environmental meaning. For example, if you collect samples along an onshore-offshore or ubran-rural gradient.
+
 ### Sampling Standardization: Questions I
 1. Create a function or script that will calculate an accumulation curve for the ClamSnails dataset. Make it into a plot.
 2. Modify your script/workflow so that the measure of effort (x-axis) is the number of individuals sampled.
@@ -560,7 +565,9 @@ mean(Expected)
 6. Verify that your accumulation curves were correct using `vegan::specaccum()` (Hint: Don't forget you can use `help()`)
 
 ## Sampling Standardization: Area Revisited
--- Species-area is important, but is not the same
+You will frequently see people refer to accumulation curves with are on the x-axis as reffering to a "Species-Area-Curve" or the "Species-Area-Effect" or the "Species-Area-Relationship". However, the species-area-effect *specifically* refers to a hypothesis in [Island Biogeography](https://en.wikipedia.org/wiki/The_Theory_of_Island_Biogeography) that islands accumulate species faster (proportionally to area) than equivalently sized portions of the mainlaind. A species-area-effect can be *demonstrated* by contrasting the shape of mainland vs. island accumulation curves, but the curve itself is *not* the effect. This is important because this has led to the false impression that if there are two samples of unequal size, the larger sample will always have more species - this is *not* correct. Consider for example the plant diversity of 10 Hectares of Saharan desert versus 1 Hectare of the Malaysian rainforest.
+
+That said, the area and richness relationship is probably the most theoretically important of all possible relationships you might want to illustrate with an accumulation curve. To that end, let's try and make somem more area-richness plots.
 
 ````R
 # Download a dataset of Silurian Anthozoans from the PBBD
@@ -625,7 +632,7 @@ Using individuals as the measure of effort for subsampling procedures is by-and-
 2. Recreate the accumulation curves, but this time add 95% confidence intervals to the curves. Which intervals can be said to have statistically different trilobite richness?
 3. Calculate the Gini coefficient for each of your time-intervals and compare that with your accumulation curves, is there any relationship between accumulation curve shape and Gini?
 
-## Sampling Standardization: Extrapolation
+## Extrapolation: Introduction
 Rather than subsampling all acumulation curves *down* to a uniform size, you might consider extrapolating all accumulation curve *out* to some uniform sample size. In other words, you might want to build a regression model that fits your accumulation curve, then predict the value for some larger sample size. This has been a dream among ecologists for a long time, but unfortunately it doesn't really work.
 
 ````R
@@ -650,19 +657,10 @@ lines(y=vegan::rarefy(Smaller,seq_len(ncol(Smaller))),x=seq_len(ncol(Smaller)),l
 lines(y=vegan::rarefy(Smaller,seq_len(ncol(All))),x=seq_len(ncol(All)),lwd=2,col="darkgreen",lty=3)
 ````
 
--- Explain Chao
-
-Another family of extrapolation methods is centred around the idea of "singletons" and "doubletons". A singleton is a taxon that is only observed once, and a doubleton is a taxon that is observed at least twice.
-
-
-Despite the fact that extrapolation generally underestimates diversity (often by A LOT) they remain popular in some sub-circles within ecology. In contrast, extrapolation methods are *rarely* used in paleontology, mostly because paleontologists are rarely concerned with estimating the *actual* number of species. Rather, most paleobiological questions are about *comparative* or *relative* changes in diversity between two populations - e.g., does diversity go up, down, or stay the same from an older geologic interval to a younger geologic interval. 
-
-### Sampling Standardization: Questions III
+### Extrapolation: Questions I
 1. Revisit the same datasets of Paleozoic trilobites that you used in [Sampling Standardization: Questions II](#sampling-standardization-questions-ii), but this time create two plots. One plot where you've subsampled down to a common smaller sample size (Hint: use `rarefy()`), and one plot where you've extrapolated the accumulation curves out to a common larger sample size (Hint: use `rarefy()`). How does the relative diveristy among geologic intervals compare when calculated among these two methods.
-2. Use the `vegan::estimateR()` to get the Chao1 extrapolated diversity estimate. How does the relative diversity among geologic intervals compare to what you observed with the accumulation curves?
-3. In the Chao equation, what is a singleton and what is a doubleton. Why are the numbers of singletons and doubletons important for extrapolating diversity? (Hint: see `help(estimateR)` to start off).
 
-## Frequency Distributions III: Extrapolation
+## Extrapolation: Frequency Distributions
 Although not truly "extrapolation" there are models for simulating frequency distributions. Let's go through some of the most common and how you can use them in R to generate a RAD based on a theoretical model.
 
 ### Uniform 
@@ -750,13 +748,41 @@ We've only covered a*small* portion of all hypothesized models for generating RA
 3. Create a function or script that will iteratively solve for the Fisher's logseries *x* for the Jurassic and Cretaceous RADs.
 4. Try fitting your Jurassic and Cretaceous RADS to any of the various models we have discussed thus far. Which models give the best fit? is it the same model for both the Jurassic and Cretaceous?
 
-## Sampling Standardization: Extrapolation II
+## Extrapolation: Richness II
+Although using accumulation curves to extrapolate diversity [doesn't work](#extrapolation-introduction). There are other ways to extrapolate "missing" diversity. Many of these are built upon the same theoretical models for generating RADs taht we just discussed. 
 
--- Preston's Lognormal
--- Yule Model
--- Hubbel's Neutral Theory
--- Fisher's Alpha
+### Fisher's Alpha
+Fisher's Alpha is actually a parameter of the log-series equation we used earlier. Where `alpha = richness*(1-x)/x`. I won't say much about this other than that it has some interesting relationships to the Zero-Sum Multinomial distribution predicted by Hubell's Unified Neutral Theory. It is much less frequently used than other diversity metrics these days, though it will still crop up from time to time. One thing to watch out for from a theoretical standpoint is that you might want to at least check if the underlying Frequency Distribution is log-series before using this as a measure of diversity. You may also hear occasional outlandish claims that Fisher's Alpha is insensitive to unequal sampling, but that is not correct.
+
+````R
+# You can calculate Fisher's alpha through the vegan package
+help(vegan::fisher.alpha)
+````
+
+### Preston's Lognormal
+Just as Fisher's Alpha estimate of diversity is based on the asusumption that the underlying frequency distribution is logseries, the Preson's estimate is based on the assumption that the observed Frequency Distribution is a truncated lognormal. This is exceedingly rare in paleobiology (I've never seen it used in an actual study), though it comes up in ecology from time to time. I'm not even going to bother with the derivation because it is so rare.
+
+### Chao Estimators
+Another family of extrapolation methods is centred around the idea of "singletons" and "doubletons". A singleton is a taxon that is only observed once, and a doubleton is a taxon that is observed at least twice. The most popular of these is the Chao equation. The idea behind the estimator is that if a community is being sampled, and rare species (singletons) are still being discovered, then there are no more rare species to be found. If all species have been recovered at least twice, then there are likely no more rare species left. In other words, the Chao is basically just a weight proportion of singletons to doubletons.
+
+![CHAO](/Lab5Figures/chao.png)
+
+A few warnings: 
+
+1. It is debatable whether the theoretical assumption that complete sampling would result in doubletons is justified in studies of the fossil record. A completely sampled area may still result in left-over singletons.
+2. Chao is strongly downwards biased and almost always underestiamtes diversity.
+3. There are quite a few variations of the Chao formula, and the appropriate one to use depends on certain properties of the data. I've only discussed the basic formula here.
+
+````R
+# You can use vegan::estimateR to get Chao extrapolated diversity estimate
+# Vegan also supports other variants of Chao
+help(vegan::estimateR)
+````
+
+### Capture-Mark-Recapture Approaches
 
 
 
--- Liow probabiilty
+
+### Extrapolation: Questions III
+2. Use the `vegan::estimateR()` to get the Chao1 extrapolated diversity estimate. How does the relative diversity among geologic intervals compare to what you observed with the accumulation curves?
