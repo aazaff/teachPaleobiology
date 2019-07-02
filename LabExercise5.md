@@ -783,14 +783,14 @@ help(vegan::estimateR)
 ````
 
 ### Capture-Mark-Recapture Approaches
-Most of the metrics we have discussed are trying to get around the problem of unequal sampling effort among multiple samples. What if, however, we feel confident that we have equally and thoroughly sampled a fossil locality? Even in these cases, the nature of the fossil record is such that we are *guaranteed* to miss some taxa that lived at that location, either because they were not preserved or because we simply did not find them. 
+Most of the metrics we have discussed are trying to get around the problem of unequal sampling effort among multiple samples. What if, however, we feel confident that we have fairly sampled among fossil localities? Even in these cases, the nature of the fossil record is such that we are *guaranteed* to miss some taxa that lived at that location, either because they were not preserved or because we simply did not find them. 
 
 Capture-mark-recapture (CMR) methods attempt to address this issue probabilistically. Let's say that **Taxon X** is not found in **Location A**. We know that taxon X occurs in similar, nearby fossil localities. What is the probability, then, that Taxon X did live at Location A, and we have simply failed to sample it due to random chance? (Note, you could theoretically do this in reverse and calculate the probability that observed taxa do not really belong in a locality (misidenitfied? transported?), but nobody seems interested in that.)
 
 In order to do this, you need some measure of the relative probability of failed sampling. Luckily, this is relatively easy to calculate in the fossil record when dealing with temporal intervals thanks to the concept of a Lazarus taxon. We know, logically, that if a taxon is observed in an earlier interval and again in a later interval, then it had to have lived through all of the intervening intervals, regardless of whether we observed it or not. Therefore, the number of taxa known to range through an interval that are *not* observed in that interval gives us an estimate how poorly we are sampling that inteval. Let's try an calculate this as a hypothetical example.
 
 Geologic Stage | *Gengar* | *Haunter* | *Ghastly* | *Alakazam* | *Kadabra* | *Abra* | *Geodude* |
-| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 Alola | 0 | 1 | 1 | 1 | 1 | 1 | 0 |
 Johto | 1 | 1 | 0 | 1 | 0 | 0 | 0 |
 Kanto | 1 | 1 | 1 | 0 | 0 | 1 | 1 |
