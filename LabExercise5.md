@@ -34,6 +34,7 @@
   - [Temporal Dynamics: Turnover Rates]()
   - [Temporal Dynamics: Questions](#temporal-dynamics-questions)
 - [Spatial Dynamics: Alpha, Beta, and Gamma]()
+  - [Spatial Dynamics: Similarity]()
   - [Spatial Dynamics: Questions]()
 - [Time Series: Introduction]()
   - [Time Series: Autocorrelation]()
@@ -78,7 +79,9 @@ options(timeout=300)
 # Fields generally follow snake_case for better SQL compatibility
 # Dependency functions are not embedded in master functions
 # []-notation is used wherever possible, and $-notation is avoided.
-# []-notation is slower, but more explicit and works for atomic vectors
+# []-notation is slower, but is explicit about dimension and works for atomic vectors
+# External packages are explicitly invoked per function with :: operator
+# Explict package calls are not required in most cases, but are helpful in tutorials
 ````
 
 ## Richness: Introduction
@@ -763,14 +766,14 @@ help(vegan::fisher.alpha)
 Just as Fisher's Alpha estimate of diversity is based on the asusumption that the underlying frequency distribution is logseries, the Preson's estimate is based on the assumption that the observed Frequency Distribution is a truncated lognormal. This is exceedingly rare in paleobiology (I've never seen it used in an actual study), though it comes up in ecology from time to time. I'm not even going to bother with the derivation because it is so rare.
 
 ### Chao Estimators
-Another family of extrapolation methods is centred around the idea of "singletons" and "doubletons". A singleton is a taxon that is only observed once, and a doubleton is a taxon that is observed at least twice. The most popular of these is the Chao equation. The idea behind the estimator is that if a community is being sampled, and rare species (singletons) are still being discovered, then there are no more rare species to be found. If all species have been recovered at least twice, then there are likely no more rare species left. In other words, the Chao is basically just a weight proportion of singletons to doubletons.
+Another family of extrapolation methods is centred around the idea of "singletons" and "doubletons". A singleton is a taxon that is only observed once, and a doubleton is a taxon that is observed at least twice. The idea behind these estimator is that if a community is being sampled, and rare species (singletons) are still being discovered, then there are no more rare species to be found. If all species have been recovered at least twice, then there are likely no more rare species left. In other words, the Chao is basically just a weight proportion of singletons to doubletons.
 
 ![CHAO](/Lab5Figures/chao.png)
 
 A few warnings: 
 
 1. It is debatable whether the theoretical assumption that complete sampling would result in doubletons is justified in studies of the fossil record. A completely sampled area may still result in left-over singletons.
-2. Chao is strongly downwards biased and almost always underestiamtes diversity.
+2. ~~Chao is strongly downwards biased and almost always underestimates diversity.~~ (This is often brought up as a drawback of the Chao family, but it is true of the majority of diversity metrics, so it comes off as a bit of cheap shot.)
 3. There are quite a few variations of the Chao formula, and the appropriate one to use depends on certain properties of the data. I've only discussed the basic formula here.
 
 ````R
@@ -780,9 +783,62 @@ help(vegan::estimateR)
 ````
 
 ### Capture-Mark-Recapture Approaches
+Most of the metrics we have discussed are trying to get around the problem of unequal sampling effort among multiple samples. What if, however, we feel confident that we have equally and thoroughly sampled a fossil locality? Even in these cases, the nature of the fossil record is such that we are *guaranteed* to miss some taxa that lived at that location, either because they were not preserved or because we simply did not find them. 
 
+Capture-mark-recapture (CMR) methods attempt to address this issue probabilistically. Let's say that **Taxon X** is not found in **Location A**. We know that taxon X occurs in similar, nearby fossil localities. What is the probability, then, that Taxon X did live at Location A, and we have simply failed to sample it due to random chance? (Note, you could theoretically do this in reverse and calculate the probability that observed taxa do not really belong in a locality (misidenitfied? transported?), but nobody seems interested in that.)
 
+In order to do this, you need some measure of the relative probability of failed sampling. Luckily, this is relatively easy to calculate in the fossil record when dealing with temporal intervals thanks to the concept of a Lazarus taxon. We know, logically, that if a taxon is observed in an earlier interval and again in a later interval, then it had to have lived through all of the intervening intervals, regardless of whether we observed it or not. Therefore, the number of taxa known to range through an interval that are *not* observed in that interval gives us an estimate how poorly we are sampling that inteval. Let's try an calculate this as a hypothetical example.
 
+Geologic Stage | *Gengar* | *Haunter* | *Ghastly* | *Alakazam* | *Kadabra* | *Abra* | *Geodude* |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+Alola | 0 | 1 | 1 | 1 | 1 | 1 | 0 |
+Johto | 1 | 1 | 0 | 1 | 0 | 0 | 0 |
+Kanto | 1 | 1 | 1 | 0 | 0 | 1 | 1 |
+
+In the above example, we see that *Ghastly* and *Abra* were not observed during the Johto stage; however, we see that these two taxa *are* observed during the preceding Kanto stage and succeeding Alola stage. Therefore, we *know* that these taxa must have been present during Johto - i.e., they are Lazarus taxa. We can use this information to calcualate an estimated detection probability where:
+
+````R
+# Taxa actually observed/sampled during the Johto interval
+Johto = c("Gengar","Haunter","Alakazam","Kadabra")
+
+# Taxa that range through from the Alola to the Kanto stage
+RangeThrough = c("Haunter","Ghastly","Abra")
+
+# The number of Lazarus taxa (will always be equal to or a subset of RangeThrough)
+Lazarus = c("Ghastly","Abra")
+
+# Estimate the probability  of detection
+Detection = 1 - (length(Lazarus)/length(RangeThrough))
+
+# Use the probability of detection to estimate actual diversity
+Richness = length(Johto)/Detection
+````
+
+There are actually many variations that you can do of CMR, and this is only the most basic example.
 
 ### Extrapolation: Questions III
-2. Use the `vegan::estimateR()` to get the Chao1 extrapolated diversity estimate. How does the relative diversity among geologic intervals compare to what you observed with the accumulation curves?
+1. Download six datasets: Kungurian Brachiopods, Roadian Brachiopods, Wordian Brachiopods, Capitanian Brachiopods, Wuchapingian brachiopods, and Changhsingian brachiopods.
+2. Would it be reasonable/appropriate to use Fisher's Alpha to measure Roadian brachipods biodiversity (genus-level)?
+3. Use  `vegan::estimateR()` to get the Chao1 extrapolated diversity estimate for each stage and use rarefy to get estimated genus richness for a common number of sampled individuals. How does the relative change in diversity from interval to interval differ between these two methods?
+4. Using all six datasets, identify the porportion of Lazarus taxa vs Observed taxa in the Roadian, Wordian, Capitanian, and Wuchiapingian datasets. Using this to determine probabilities of encounter, use capture-mark-recapture to estimate the "true" richness of each interval. How does this compare the results you got from previous estiamtes?
+5. Calculate a modified version of the Chao diversity estimate (you'll need to write a custom script, vegan doesn't have this) where `"True Richness" = Observed Richness + (Singletons)^2/(2*Doubletons) + (Lazarus)^2/(range_through)` for the Roadian, Wordian, Capitanian and Wuchiapingian. How does that compare to your previous results? I suspect this question will be hard to understand... remind me to explain it on the white board.
+6. Given the information available, is there any way you can determine which metric is the most likely to be "correct", or at least which one is the least likely to be correct?
+
+## Temporal Dynamics: Introduction
+
+
+Many ordination techniques are based (either operationally or theoretically) on the use of **similarity indices**. Such indices generally range from 0 to 1. In a **similarity index**, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity.
+
+#### Problem Set II
+
+The Jaccard index is the simplest Similarity index. It is the intersection of two samples divided by the union of two samples. In other words, the number of genera shared between two samples, divided by the total number of (unique) genera in both samples. Or put even another way, it is the percentage of genera shared between two samples. 
+
+1) Using your own custom R code, find the Jaccard similarity of the Pleistocene and Miocene "samples" in your PresencePBDB matrix. It is possible to code this entirely using only functions discussed in the [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md). The key is to use ````apply( )````, ````sum( )````, ````table( )````, and judicious use of matrix subscriptng.
+
+2) How can you convert your similarity index into a **distance**?
+
+3) Install and load the ````vegan```` package into R. Read the help file for the ````vegdist```` function - ````?vegdist```` or ````help(vegdist)````. You must have already loaded the ````vegan```` package in order for it to run.
+
+Again, calculate the jaccard distance of the "Miocene" and "Pleistocene" samples of ````PresencePBDB````, but this time use the ````vegdist( )```` function. This should be an identical answer to what you got in question 2. [Hint: You will have to change **one** of the default settings of the function]
+
+4) Using the ````vegdist( )```` function. Calculate the Jaccard distances of all the following epochs in ````PresencePBDB```` - the "Pleistocene", "Pliocene", "Miocene", "Oligocene", "Eocene", "Paleocene". What code did you use? Which two epochs are the most dissimilar?
