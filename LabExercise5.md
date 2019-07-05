@@ -856,11 +856,16 @@ This is, again, not surprising given what we have discussed thus far about the p
 ![Boundary](/Lab5Figures/survivorship.png)
 
 -- benefit, time does not increase linearly
--- downside, is it really exponential?
+-- downside, is it really exponential? sampling?
 
 ### Temporal Dynamics: Questions II
-1.  Download a clade, see if log-linear is really the best fit
-2.  Calculate extinciton rate from macrostrat
+1.  Go back to the Late Jurassic Dinosaur and Early Cenozoic mammals datasets from the [previous round of questions](#temporal-dynamics-question-i). Thinking back to the various mdoels (e.g., exponential, power-law) that we reviewed when studying RADs, can you confirm that an exponential decay function is really the best fit for these survivorship curves? (Hint: remember `nls()` and `lm()`)
+2.  I have created a matrix for you of Geologic Formations (rows) and time in 1-myr increments (columns). I have flagged each formations status during that interval with a 0 (not present), 1 (range-through, Cr), 2 (extinction, Cb), 3 (origination, Ct), and 4 (contained-within, Cw). Calculate the "slope extinction rate" (more properly the truncation rate, or unconformity rate in this context) of sedimentary units for each 1-myr increment of the Phanerozoic. (Hint: you may find `apply()` useful)
+3. Make a plot with x-axis as time and y-axis as the sediment truncation rate. Visually, do peaks in truncation rate align with the big-5 mass extinction events?
+
+````R
+Formations = read.csv("")
+````
 
 ## Spatial Dynamics: Introduction
 Distance-decay
