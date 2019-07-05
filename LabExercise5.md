@@ -39,6 +39,7 @@
 - [Time Series: Introduction]()
   - [Time Series: Autocorrelation]()
   - [Time Series: Periodicity]()
+- [Final Project](#final-project)
 
 ## Configure R
 Download the `velociraptr` package from CRAN and change the download timeout. You can always check your currently active libraries with `installed.packages()` or `sessionInfo()`. Also, note the difference between `require()` and `library()` and how this is used in the configuration script.
@@ -567,9 +568,9 @@ It's worth noting that it is not always advantageous to randomize the order of t
 6. Verify that your accumulation curves were correct using `vegan::specaccum()` (Hint: Don't forget you can use `help()`)
 
 ## Sampling Standardization: Area Revisited
-You will frequently see people refer to accumulation curves with area on the x-axis as an "Species-Area-Curve", "Species-Area-Effect", or "Species-Area-Relationship". While technically correct, the species-area-effect is most appropriately used in reference to a *specific* hypothesis in [Island Biogeography](https://en.wikipedia.org/wiki/The_Theory_of_Island_Biogeography) that islands accumulate species faster as the area of the island increases than equivalently area increases on the mainlaind. A species-area-effect can be *demonstrated* by contrasting the shape of mainland vs. island accumulation curves, but the curve itself is *not* the effect. This is important because this has led to the false impression that if there are two samples of unequal size, the larger sample will always have more species - this is *not* correct. Consider for example the plant diversity of 10 Hectares of Saharan desert versus 1 Hectare of the Malaysian rainforest.
+You will frequently see people refer to accumulation curves with area on the x-axis as an "Species-Area-Curve", "Species-Area-Effect", or "Species-Area-Relationship". While technically correct, the species-area-effect is most appropriately used in reference to a *specific* hypothesis in [Island Biogeography](https://en.wikipedia.org/wiki/The_Theory_of_Island_Biogeography) that islands accumulate species faster as the area of the island increases than equivalent area increases on the mainlaind. A species-area-effect can be *demonstrated* by contrasting the shape of mainland vs. island accumulation curves, but the curve itself is *not* the effect. This is important because this has led to the false impression that if there are two samples of unequal size, the larger sample will always have more species - this is *not* correct. Consider for example the plant diversity of 10 Hectares of Saharan desert versus 1 Hectare of the Malaysian rainforest.
 
-That said, the area and richness relationship is probably the most theoretically important of all possible relationships you might want to illustrate with an accumulation curve. To that end, let's try and make somem more area-richness plots.
+That said, the area and richness relationship is probably the most theoretically important of all possible relationships you might want to illustrate with an accumulation curve. To that end, let's try and make some more area-richness plots.
 
 ````R
 # Download a dataset of Silurian Anthozoans from the PBBD
@@ -797,14 +798,14 @@ In the above example, we see that *Ghastly* and *Abra* were not observed during 
 # Taxa actually observed/sampled during the Johto interval
 Johto = c("Gengar","Haunter","Alakazam")
 
-# Taxa that range through from the Alola to the Kanto stage
-RangeThrough = c("Haunter","Ghastly","Abra")
+# Taxa that occur in both the Alola to the Kanto stage
+Crossers = c("Haunter","Ghastly","Abra")
 
-# The number of Lazarus taxa (will always be equal to or a subset of RangeThrough)
+# The number of Lazarus taxa (will always be equal to or a subset of Crossers)
 Lazarus = c("Ghastly","Abra")
 
 # Estimate the probability  of detection
-Detection = 1 - (length(Lazarus)/length(RangeThrough))
+Detection = 1 - (length(Lazarus)/length(Crossers))
 
 # Use the probability of detection to estimate actual diversity
 Richness = length(Johto)/Detection
@@ -834,67 +835,39 @@ One popular way to visually analyse temporal patterns of diversity is through a 
 
 The simplest kind of cohort anlaysis is a *survivorship curve*. A survivorship curve plots the proportion of cohort remaining (relative to its original size) over time. It should be 100% at time 0 and then monotonically decrease until reaching zero (when no members of the cohort remain).
 
-![Boundary](/Lab5Figures/survivorship.png)
-
 ### Temporal Dynamics: Questions I
 1. Using the Paleobiology Database, identify the cohort of Late Jurassic Dinosaur families (originated in the Oxfordian, Kimmeridgian, or Tithonian). Plot out the survivorship curve for this group until all members of the cohort are extinct. Use Stages for the time-scale.
 2. Is the rate of decay best described as hollow-curved, piece-wise, or linear?
 3. Repeat this process for  Early Cenozoic (Paleocene) mammals. Comparing the survivorship of Late Jurassic Dinosaurs and Early Cenozoic Mammals, can you infer anything about their respective evolutionary histories?
 
-## Temporal Dynamics: Boundary Categories
-To help orient ourselves, it'll be helpful to start using a particular set of terminology that is frequently used when analyzing the temporal trajectory of diversity.
+## Temporal Dynamics: Turnover Rates
+Another way for us to analyze changes in diversity over time is by breaking it down into its constituent components of origination and extinction (we can ignore immigration and emigration since most paleobiology is conducted at a global scale) and how those change through time. This is an increasingly popular way of analyzing diversity, and is probably a more precise way of analyzing evolutionary dynamics if your research question has to do with extinction or origination, specifically.
+
+There are, broadly speaking, three ways to calculate extinction and origination rates. A raw rate based on simply tabulating the number of observed taxa that go extinct over a certain period of time. This raw rate is sometimes divided by the total richness of that interval (per taxon extinction rate), but that is unnecessary for reasons we will see later. The second method utilizes the slope of survivorship curves (more on this later), and is probably the most common way to calculate extinciton rates in the paleobiology literature (though there has been quite a bit of noise in the past few years to move away from this). Last, there are various formulas for estimating extinction rates that go with the [Capture-Mark-Recapture](#capture-mark-recapture-approaches) approaches we discussed earlier.
 
 ![Boundary](/Lab5Figures/boundary.png)
 
-The exact notation and name of each of these five boundary-crossing scenarios varies from paper to paper, but the basic idea remains the same.
+Today, let's focus mostly on the second method that is derived from survivorship curves. You may (should) have noticed in the previous exercise that the survivorship curves you generated for both mammals and dinosaurs were "hollow-curved". This is not only extremely common, it has been argued (somewhat controversially) that it is an evolutionary ***law*** ([Van Valen's Law](https://www.mn.uio.no/cees/english/services/van-valen/evolutionary-theory/volume-1/vol-1-no-1-pages-1-30-l-van-valen-a-new-evolutionary-law.pdf)) that can be observed in the vast majority of clades. 
 
-1. **Contained-Within** taxon is only found within that geologic interval. It originates and goes extinct within that geologic interval.
-2. **Crosses-the-Bottom** originated *before* the start of a geologic interval, but went extinct at or before the end of that geologic interval. 
-3. **Crosses-the-Top** originated at or after the start of a geologic interval, and *continue* into one or more subsequent intervals. 
-4. **Cross Through** taxa that originate and go extinct entirely outside of the interval.
-5. **Lazarus** taxa that are not observed within the interval, but are observed in both earlier and later intervals
+![Boundary](/Lab5Figures/vanvalen.png)
 
-Formula | Description | Commonly Called
-| ---- | ---- | ---- |
-Total Observed Richness | `Cw + Cb + Ct + Cr` | Sampled-in-Bin, In-Bin
-Total Inferred Richness | `Cw + Cb + Ct + Cr + L` | Range-Through
-Total Observed Extinction | `Cw + Cb` | 
-Total Observed Origination | `Cw + Ct` |
-Percent Observed Extinction | `(Cw + Cb) / (Cw + Cb + Ct + Cr)` |
-Percent Observed Origiantion | `(Cw + Ct) / (Cw + Cb + Ct + Cr)` |
-Probability of Detection | `Cr / (Cr+L)` | Gap Percentage
+This is, again, not surprising given what we have discussed thus far about the prevalence of hollow-curves in ecology. However, what *is* surprising is it has been argued that not only do most curves exhibit a hollow-curved shape, but that they are, specificially, exponential decay functions. If true, then the *decay rate* or *slope* of the exponential decay function can be interpreted as the *extinction rate*. This is where the "Slope Extinction Rate" formula comes from, and is why, unlike the other two methods, it does not have a time component included. Time is a variable, not a parameter, in an exponential decay function. 
 
-## Temporal Dynamics: Turnover Rates
-The basic metrics discussed above are fairly straightforward, so we won't discuss them too much, but what about if we want to go a little further and compare *rates* of extinction or origination, as opposed to some estimate of the aboslute number of extinct or originating taxa?
+![Boundary](/Lab5Figures/survivorship.png)
 
-The simplest method would obviously be to just divide our diversity, extinction, or origination metric by the duration of the geologic interval of interest. However, this is known to give bad results because sampled extinctions/originations do not grow linearly with time. Sounds familiar, right?
+-- benefit, time does not increase linearly
+-- downside, is it really exponential?
 
-Luckily, a brilliant solution to this problem emerged thanks to a (semi-robust) empirical observation by Leigh Van Valen, (sometimes called Van Valen's Law). Van Valen 
-
-![SURVIVORSHIP](/Lab5Figures/survivorship.png)
-
--- plot of cohort analysis/survivorship curve non-log scale, then log scale, side by side.
-
--- Aside about Red Queen, actually 2 parts, is extinction rate constant on log-scale (exponential decay, hard to prove definitively) 
--- If it is constant, maye it is because of an evolutionary arms race
--- can be genreated through various mechanisms - this is another example of it is wrong to infer process from a distribution.
-
--- foote turnover formula, don't bother with Alroy versions.
+### Temporal Dynamics: Questions II
+1.  Download a clade, see if log-linear is really the best fit
+2.  Calculate extinciton rate from macrostrat
 
 ## Spatial Dynamics: Introduction
+Distance-decay
+In a **similarity index**, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity.
 
-Many ordination techniques are based (either operationally or theoretically) on the use of **similarity indices**. Such indices generally range from 0 to 1. In a **similarity index**, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity.
-
-#### Problem Set II
-
+### Jaccard Index
 The Jaccard index is the simplest Similarity index. It is the intersection of two samples divided by the union of two samples. In other words, the number of genera shared between two samples, divided by the total number of (unique) genera in both samples. Or put even another way, it is the percentage of genera shared between two samples. 
 
-1) Using your own custom R code, find the Jaccard similarity of the Pleistocene and Miocene "samples" in your PresencePBDB matrix. It is possible to code this entirely using only functions discussed in the [R Tutorial](https://github.com/aazaff/startLearn.R/blob/master/README.md). The key is to use ````apply( )````, ````sum( )````, ````table( )````, and judicious use of matrix subscriptng.
+### Bray-Curtis Index
 
-2) How can you convert your similarity index into a **distance**?
-
-3) Install and load the ````vegan```` package into R. Read the help file for the ````vegdist```` function - ````?vegdist```` or ````help(vegdist)````. You must have already loaded the ````vegan```` package in order for it to run.
-
-Again, calculate the jaccard distance of the "Miocene" and "Pleistocene" samples of ````PresencePBDB````, but this time use the ````vegdist( )```` function. This should be an identical answer to what you got in question 2. [Hint: You will have to change **one** of the default settings of the function]
-
-4) Using the ````vegdist( )```` function. Calculate the Jaccard distances of all the following epochs in ````PresencePBDB```` - the "Pleistocene", "Pliocene", "Miocene", "Oligocene", "Eocene", "Paleocene". What code did you use? Which two epochs are the most dissimilar?
