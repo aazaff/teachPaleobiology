@@ -39,7 +39,6 @@
 - [Time Series: Introduction]()
   - [Time Series: Autocorrelation]()
   - [Time Series: Periodicity]()
-  - [Time Series: Correlation]()
 
 ## Configure R
 Download the `velociraptr` package from CRAN and change the download timeout. You can always check your currently active libraries with `installed.packages()` or `sessionInfo()`. Also, note the difference between `require()` and `library()` and how this is used in the configuration script.
@@ -568,7 +567,7 @@ It's worth noting that it is not always advantageous to randomize the order of t
 6. Verify that your accumulation curves were correct using `vegan::specaccum()` (Hint: Don't forget you can use `help()`)
 
 ## Sampling Standardization: Area Revisited
-You will frequently see people refer to accumulation curves with are on the x-axis as reffering to a "Species-Area-Curve" or the "Species-Area-Effect" or the "Species-Area-Relationship". However, the species-area-effect *specifically* refers to a hypothesis in [Island Biogeography](https://en.wikipedia.org/wiki/The_Theory_of_Island_Biogeography) that islands accumulate species faster (proportionally to area) than equivalently sized portions of the mainlaind. A species-area-effect can be *demonstrated* by contrasting the shape of mainland vs. island accumulation curves, but the curve itself is *not* the effect. This is important because this has led to the false impression that if there are two samples of unequal size, the larger sample will always have more species - this is *not* correct. Consider for example the plant diversity of 10 Hectares of Saharan desert versus 1 Hectare of the Malaysian rainforest.
+You will frequently see people refer to accumulation curves with area on the x-axis as an "Species-Area-Curve", "Species-Area-Effect", or "Species-Area-Relationship". While technically correct, the species-area-effect is most appropriately used in reference to a *specific* hypothesis in [Island Biogeography](https://en.wikipedia.org/wiki/The_Theory_of_Island_Biogeography) that islands accumulate species faster as the area of the island increases than equivalently area increases on the mainlaind. A species-area-effect can be *demonstrated* by contrasting the shape of mainland vs. island accumulation curves, but the curve itself is *not* the effect. This is important because this has led to the false impression that if there are two samples of unequal size, the larger sample will always have more species - this is *not* correct. Consider for example the plant diversity of 10 Hectares of Saharan desert versus 1 Hectare of the Malaysian rainforest.
 
 That said, the area and richness relationship is probably the most theoretically important of all possible relationships you might want to illustrate with an accumulation curve. To that end, let's try and make somem more area-richness plots.
 
@@ -762,9 +761,6 @@ Fisher's Alpha is actually a parameter of the log-series equation we used earlie
 help(vegan::fisher.alpha)
 ````
 
-### Preston's Lognormal
-Just as Fisher's Alpha estimate of diversity is based on the asusumption that the underlying frequency distribution is logseries, the Preson's estimate is based on the assumption that the observed Frequency Distribution is a truncated lognormal. This is exceedingly rare in paleobiology (I've never seen it used in an actual study), though it comes up in ecology from time to time. I'm not even going to bother with the derivation because it is so rare.
-
 ### Chao Estimators
 Another family of extrapolation methods is centred around the idea of "singletons" and "doubletons". A singleton is a taxon that is only observed once, and a doubleton is a taxon that is observed at least twice. The idea behind these estimator is that if a community is being sampled, and rare species (singletons) are still being discovered, then there are no more rare species to be found. If all species have been recovered at least twice, then there are likely no more rare species left. In other words, the Chao is basically just a weight proportion of singletons to doubletons.
 
@@ -773,7 +769,7 @@ Another family of extrapolation methods is centred around the idea of "singleton
 A few warnings: 
 
 1. It is debatable whether the theoretical assumption that complete sampling would result in doubletons is justified in studies of the fossil record. A completely sampled area may still result in left-over singletons.
-2. ~~Chao is strongly downwards biased and almost always underestimates diversity.~~ (This is often brought up as a drawback of the Chao family, but it is true of the majority of diversity metrics, so it comes off as a bit of cheap shot.)
+2. ~~Chao is strongly downwards biased and almost always underestimates diversity.~~ (This is often brought up as a drawback of the Chao family, but it is true of most, or even all, diversity metrics, so this complaint comes off as a bit of a cheap shot.)
 3. There are quite a few variations of the Chao formula, and the appropriate one to use depends on certain properties of the data. I've only discussed the basic formula here.
 
 ````R
@@ -785,7 +781,7 @@ help(vegan::estimateR)
 ### Capture-Mark-Recapture Approaches
 Most of the metrics we have discussed are trying to get around the problem of unequal sampling effort among multiple samples. What if, however, we feel confident that we have fairly sampled among fossil localities? Even in these cases, the nature of the fossil record is such that we are *guaranteed* to miss some taxa that lived at that location, either because they were not preserved or because we simply did not find them. 
 
-Capture-mark-recapture (CMR) methods attempt to address this issue probabilistically. Let's say that **Taxon X** is not found in **Location A**. We know that taxon X occurs in similar, nearby fossil localities. What is the probability, then, that Taxon X did live at Location A, and we have simply failed to sample it due to random chance? (Note, you could theoretically do this in reverse and calculate the probability that observed taxa do not really belong in a locality (misidenitfied? transported?), but nobody seems interested in that.)
+Capture-mark-recapture (CMR) methods attempt to address this issue probabilistically. Let's say that **Taxon X** is not found in **Location A**. We know that **Taxon X** occurs in similar, nearby fossil localities. What is the probability, then, that **Taxon X** did live at **Location A**, and we have simply failed to sample it due to random chance? (Note, you could theoretically do this in reverse and calculate the probability that observed taxa do not really belong in a locality (misidenitfied? transported?), but nobody seems interested in that.)
 
 In order to do this, you need some measure of the relative probability of failed sampling. Luckily, this is relatively easy to calculate in the fossil record when dealing with temporal intervals thanks to the concept of a Lazarus taxon. We know, logically, that if a taxon is observed in an earlier interval and again in a later interval, then it had to have lived through all of the intervening intervals, regardless of whether we observed it or not. Therefore, the number of taxa known to range through an interval that are *not* observed in that interval gives us an estimate how poorly we are sampling that inteval. Let's try an calculate this as a hypothetical example.
 
@@ -799,7 +795,7 @@ In the above example, we see that *Ghastly* and *Abra* were not observed during 
 
 ````R
 # Taxa actually observed/sampled during the Johto interval
-Johto = c("Gengar","Haunter","Alakazam","Kadabra")
+Johto = c("Gengar","Haunter","Alakazam")
 
 # Taxa that range through from the Alola to the Kanto stage
 RangeThrough = c("Haunter","Ghastly","Abra")
@@ -813,19 +809,79 @@ Detection = 1 - (length(Lazarus)/length(RangeThrough))
 # Use the probability of detection to estimate actual diversity
 Richness = length(Johto)/Detection
 ````
-
-There are actually many variations that you can do of CMR, and this is only the most basic example.
+There are actually many variations that you can do of CMR, and this is only the most basic example. 
 
 ### Extrapolation: Questions III
 1. Download six datasets: Kungurian Brachiopods, Roadian Brachiopods, Wordian Brachiopods, Capitanian Brachiopods, Wuchapingian brachiopods, and Changhsingian brachiopods.
 2. Would it be reasonable/appropriate to use Fisher's Alpha to measure Roadian brachipods biodiversity (genus-level)?
 3. Use  `vegan::estimateR()` to get the Chao1 extrapolated diversity estimate for each stage and use rarefy to get estimated genus richness for a common number of sampled individuals. How does the relative change in diversity from interval to interval differ between these two methods?
 4. Using all six datasets, identify the porportion of Lazarus taxa vs Observed taxa in the Roadian, Wordian, Capitanian, and Wuchiapingian datasets. Using this to determine probabilities of encounter, use capture-mark-recapture to estimate the "true" richness of each interval. How does this compare the results you got from previous estiamtes?
-5. Calculate a modified version of the Chao diversity estimate (you'll need to write a custom script, vegan doesn't have this) where `"True Richness" = Observed Richness + (Singletons)^2/(2*Doubletons) + (Lazarus)^2/(range_through)` for the Roadian, Wordian, Capitanian and Wuchiapingian. How does that compare to your previous results? I suspect this question will be hard to understand... remind me to explain it on the white board.
-6. Given the information available, is there any way you can determine which metric is the most likely to be "correct", or at least which one is the least likely to be correct?
+5. Given the information available, is there any way you can determine whether CMR, Rarefaction, or Chao is the most likely to give the "correct" change in relative diversity between intervals, or at least which one is the least likely to be correct?
+6. Can you think of any weaknesses/flaws that might be arise from using Lazarus taxa to calculate detection probabilities?
 
 ## Temporal Dynamics: Introduction
+Despite all the effort we have spent covering various ways to estimate standing diversity, paleobiologists are actually rarely concerned with the "true" diversity of a sample (how many species were actually alive at a particular point in time). Instead, we generally want robust estimates of *relative* changes in diversity among samples - e.g., was diversity in Sample A higher or lower than in Sample B? 
 
+Some famous questions of this type are:
+1. Has total global diversity remained relatively flat throughout the Phanerozoic, or has diversity gradually increased over time?
+2. Was the diversity of Dinosaurs on a long-term decline on the way to the K/Pg boundary?
+3. Was the diversity drop from the K/Pg or the P/T mass extinction larger?
+
+Of course, it is difficult to make a fair comparison among geologic intervals if the sampling effort was unequal (as we've discussed at length). But, assuming that we're comfortable with our data, what are some different ways that we can look at temporal changes in diversity/extinction/origination?
+
+## Temporal Dynamics: Cohort Analysis
+One popular way to visually analyse temporal patterns of diversity is through a family of analyses known as cohort analysis (also, demographic analysis). A *cohort* is group of taxa that originate at the same time (or, more loosely, within the same time-interval). This can be thought of as analagous to how we use "generation" in colloquial speech - e.g., Gen X are a cohort, Millenials are a Cohort, etc. Similarly, a grduating high-school or college class could also be considered a cohort. A cohort *analysis* examines how the diversty/size of a cohort has changed through time. Importantly, a cohort can only ever shrink or stay the same through time, because new members will never be added. 
+
+The simplest kind of cohort anlaysis is a *survivorship curve*. A survivorship curve plots the proportion of cohort remaining (relative to its original size) over time. It should be 100% at time 0 and then monotonically decrease until reaching zero (when no members of the cohort remain).
+
+![Boundary](/Lab5Figures/survivorship.png)
+
+### Temporal Dynamics: Questions I
+1. Using the Paleobiology Database, identify the cohort of Late Jurassic Dinosaur families (originated in the Oxfordian, Kimmeridgian, or Tithonian). Plot out the survivorship curve for this group until all members of the cohort are extinct. Use Stages for the time-scale.
+2. Is the rate of decay best described as hollow-curved, piece-wise, or linear?
+3. Repeat this process for  Early Cenozoic (Paleocene) mammals. Comparing the survivorship of Late Jurassic Dinosaurs and Early Cenozoic Mammals, can you infer anything about their respective evolutionary histories?
+
+## Temporal Dynamics: Boundary Categories
+To help orient ourselves, it'll be helpful to start using a particular set of terminology that is frequently used when analyzing the temporal trajectory of diversity.
+
+![Boundary](/Lab5Figures/boundary.png)
+
+The exact notation and name of each of these five boundary-crossing scenarios varies from paper to paper, but the basic idea remains the same.
+
+1. **Contained-Within** taxon is only found within that geologic interval. It originates and goes extinct within that geologic interval.
+2. **Crosses-the-Bottom** originated *before* the start of a geologic interval, but went extinct at or before the end of that geologic interval. 
+3. **Crosses-the-Top** originated at or after the start of a geologic interval, and *continue* into one or more subsequent intervals. 
+4. **Cross Through** taxa that originate and go extinct entirely outside of the interval.
+5. **Lazarus** taxa that are not observed within the interval, but are observed in both earlier and later intervals
+
+Formula | Description | Commonly Called
+| ---- | ---- | ---- |
+Total Observed Richness | `Cw + Cb + Ct + Cr` | Sampled-in-Bin, In-Bin
+Total Inferred Richness | `Cw + Cb + Ct + Cr + L` | Range-Through
+Total Observed Extinction | `Cw + Cb` | 
+Total Observed Origination | `Cw + Ct` |
+Percent Observed Extinction | `(Cw + Cb) / (Cw + Cb + Ct + Cr)` |
+Percent Observed Origiantion | `(Cw + Ct) / (Cw + Cb + Ct + Cr)` |
+Probability of Detection | `Cr / (Cr+L)` | Gap Percentage
+
+## Temporal Dynamics: Turnover Rates
+The basic metrics discussed above are fairly straightforward, so we won't discuss them too much, but what about if we want to go a little further and compare *rates* of extinction or origination, as opposed to some estimate of the aboslute number of extinct or originating taxa?
+
+The simplest method would obviously be to just divide our diversity, extinction, or origination metric by the duration of the geologic interval of interest. However, this is known to give bad results because sampled extinctions/originations do not grow linearly with time. Sounds familiar, right?
+
+Luckily, a brilliant solution to this problem emerged thanks to a (semi-robust) empirical observation by Leigh Van Valen, (sometimes called Van Valen's Law). Van Valen 
+
+![SURVIVORSHIP](/Lab5Figures/survivorship.png)
+
+-- plot of cohort analysis/survivorship curve non-log scale, then log scale, side by side.
+
+-- Aside about Red Queen, actually 2 parts, is extinction rate constant on log-scale (exponential decay, hard to prove definitively) 
+-- If it is constant, maye it is because of an evolutionary arms race
+-- can be genreated through various mechanisms - this is another example of it is wrong to infer process from a distribution.
+
+-- foote turnover formula, don't bother with Alroy versions.
+
+## Spatial Dynamics: Introduction
 
 Many ordination techniques are based (either operationally or theoretically) on the use of **similarity indices**. Such indices generally range from 0 to 1. In a **similarity index**, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity.
 
