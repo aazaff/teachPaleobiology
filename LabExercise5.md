@@ -911,6 +911,28 @@ plotWalk = function(Walk=RandomWalk,Height=300) {
 5. Using `apply()`, `length()`, and `na.omit()`, calculate the duration of each genus (how long each genus lived from its time of origination).
 6. Make a survivorship curve for this random-walk dataset. Make a linear, log-linear, and log-log version. Which is a better fit - linear, exponential, or power?
 
+````R
+set.seed(888)
+
+# Let's try a "memoryless" stochastic model instead of a random walk
+# In this model, there is a random probability that a taxon survives
+# which is redrawn each time-step. Each taxon makes a "roll" against that
+# probability. If it "fails" the roll, - i.e., rolls less than the
+# number needed to survive, it goes extinct.
+binaryStep = function(Richness=1000,Duration=541) {
+	Lifespan = vector("numeric",length=Duration)
+    for (i in seq_len(Richness)) {
+        Survive = runif(Duration,0,1)
+        Roll = runif(Duration,0,1)
+        Lifespan[i] = which(Roll<Survive)[1]
+        }
+	return(Lifespan)
+    }
+````
+
+7. Make a survivorship curve for this binary-step model. Make a linear, log-linear, and log-log version. Which is a better fit - linear, exponential, or power?
+8. You may have noticed that the binaryStep model as parameterized tends to create *very* short durations, with an average 'species' lifespan of about 2 million years. This doesn't jive with the actual average lifespan for most species, which tends to be aroudn 5-10 myrs depending on the group. Download a dataset of Cenozoic Gastropods from the paleobiology database. Calculate the average duration of genera (Hint: `tapply()` or `velociraptr::ageRanges()` may be helpful here), and then take the logarithm of this value. Rewrite the binaryStep Model so that the probability of "survival" matches this value, and so that the model is generating the same number of genera as in the PBDB dataset. Compare your empirical distribuiton to your new model distributions, did parameterizing the model with the empirical value make your predicted longevities more reasonable?
+
 ## Spatial Dynamics: Introduction
 The [species-area-effect](#sampling-standardization-area-revisited) is sometimes called the most fundamental pattern in ecology, or at least the most fundamental in spatial ecology. It could be argued, however, that the distance-decay relationship is probably even more fundamental. The distance-decay relationship states that geographically closer ecological communities will be more similar (share more species in similar abundances) than more distantly related ones, where distance can be measured environmentally or spatially.
 
