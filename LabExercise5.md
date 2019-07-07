@@ -855,19 +855,65 @@ This is, again, not surprising given what we have discussed thus far about the p
 
 ![Boundary](/Lab5Figures/survivorship.png)
 
--- benefit, time does not increase linearly
--- downside, is it really exponential? sampling?
+Of course, this raises the question of whether survivorship cureves are truly exponential decay functions. As we saw when discussing RADs, there are *lots* of ways to generate approximately hollow-curved shapes.
 
 ### Temporal Dynamics: Questions II
-1.  Go back to the Late Jurassic Dinosaur and Early Cenozoic mammals datasets from the [previous round of questions](#temporal-dynamics-question-i). Thinking back to the various mdoels (e.g., exponential, power-law) that we reviewed when studying RADs, can you confirm that an exponential decay function is really the best fit for these survivorship curves? (Hint: remember `nls()` and `lm()`)
+1.  Go back to the Late Jurassic Dinosaur and Early Cenozoic mammals datasets from the [previous round of questions](#temporal-dynamics-question-i). Fit an exponential decay function to your surviviorshop curves. Are these strong fits? (Hint: remember `nls()` and `lm()`)
+
+````R
+Formations = read.csv("https://raw.githubusercontent.com/aazaff/teachPaleobiology/master/Lab5Figures/sediment_boundaries.csv")
+````
+
 2.  I have created a matrix for you of Geologic Formations (rows) and time in 1-myr increments (columns). I have flagged each formations status during that interval with a 0 (not present), 1 (range-through, Cr), 2 (extinction, Cb), 3 (origination, Ct), and 4 (contained-within, Cw). Calculate the "slope extinction rate" (more properly the truncation rate, or unconformity rate in this context) of sedimentary units for each 1-myr increment of the Phanerozoic. (Hint: you may find `apply()` useful)
 3. Make a plot with x-axis as time and y-axis as the sediment truncation rate. Visually, do peaks in truncation rate align with the big-5 mass extinction events?
 
+Perhaps the most interesting part of Van Valen's "Law" is that he argued it could be explained by an evolutionary-arms race - the so-called [Red Queen Hypothesis](https://en.wikipedia.org/wiki/Red_Queen_hypothesis). However, as we have discussed multiple times already, there are many different ways to generate a distribution, and it is very hard to infer process from a distribution. Is it possible that we could get log-linear/expoential decay survivorship curves from a strictly stochastic model like a Gaussian random walk?
+
 ````R
-Formations = read.csv("")
+# Set a seed
+set.seed(541)
+
+# A variety of random walk models with an absorbing boundary (extinction)
+# The default dispersal constant is calibrated to empirical data (unpublished)
+absorbingWalk = function(Richness=1000,Duration=541,Boundary=0,Dispersal=3.65,Model="Gaussian") {
+	FinalMatrix = matrix(NA,nrow=Richness,ncol=Duration,dimnames=list(seq_len(Richness),seq_len(Duration)))
+	for (i in seq_len(Richness)) {
+		# One of four different ways to determine the initial range size of each taxon
+		InitialRange = switch(Model,
+			"Gaussian"=abs(rnorm(1,sd=Dispersal)),
+			"Uniform"=runif(1,1,3),
+			"Degenerate"=1,
+			"Galton"=abs(rlnorm(1,sdlog=log(Dispersal)))
+			)
+		# Generate taxon walk
+		Walk = cumsum(c(InitialRange,rnorm(Duration-1,sd=Dispersal)))
+		# Convert post-extinction values to NA if taxon goes extinct
+		Extinct = which(Walk<=Boundary)[1]
+		if (is.na(Extinct)!=TRUE) {
+			Walk[Extinct:length(Walk)]<-NA
+			}
+		FinalMatrix[i,] = Walk
+		}
+	return(FinalMatrix)
+	}
+
+
+# Plot function for plotting the random walks Walk
+plotWalk = function(Walk=RandomWalk,Height=300) {
+	plot(y=Walk[1,],x=1:ncol(Walk),ylim=c(0,Height),xlim=c(0,541),type="n",ylab="geographic range size",xlab="time from initiation",yaxs="i",xaxs="i")
+	for (i in 1:nrow(Walk)) {
+		points(y=Walk[i,],x=1:ncol(Walk),type="l",col="grey",lwd=0.25)
+		}
+	}
 ````
 
+4. Use the above `absorbingWalk()` function to generate a matrix where the rows are species, the columns are myr-increments, and the cell-values are geographic range size. Plot the walk using `plotWalk()`
+5. Using `apply()`, `length()`, and `na.omit()`, calculate the duration of each genus (how long each genus lived from its time of origination).
+6. Make a survivorship curve for this random-walk dataset. Make a linear, log-linear, and log-log version. Which is a better fit - linear, exponential, or power?
+
 ## Spatial Dynamics: Introduction
+The [species-area-effect](#sampling-standardization-area-revisited) is sometimes called the most fundamental pattern in ecology, or at least the most fundamental in spatial ecology. It could be argued, however, that the distance-decay relationship is probably even more fundamental. The distance-decay relationship states that geographically closer ecological communities will be more similar (share more species in similar abundances) than more distantly related ones, where distance can be measured environmentally or spatially.
+
 Distance-decay
 In a **similarity index**, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity.
 
