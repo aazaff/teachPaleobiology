@@ -867,6 +867,9 @@ Formations = read.csv("https://raw.githubusercontent.com/aazaff/teachPaleobiolog
 2.  I have created a matrix for you of Geologic Formations (rows) and time in 1-myr increments (columns). I have flagged each formations status during that interval with a 0 (not present), 1 (range-through, Cr), 2 (extinction, Cb), 3 (origination, Ct), and 4 (contained-within, Cw). Calculate the "slope extinction rate" (more properly the truncation rate, or unconformity rate in this context) of sedimentary units for each 1-myr increment of the Phanerozoic. (Hint: you may find `apply()` useful)
 3. Make a plot with x-axis as time and y-axis as the sediment truncation rate. Visually, do peaks in truncation rate align with the big-5 mass extinction events?
 
+![TRUNCATION](/Lab5Figures/truncation.png)
+> Your plot should look like this... minus the fancy colors for the time-scale. Notice that time always runs from oldest to youngest
+
 Perhaps the most interesting part of Van Valen's "Law" is that he argued it could be explained by an evolutionary-arms race - the so-called [Red Queen Hypothesis](https://en.wikipedia.org/wiki/Red_Queen_hypothesis). However, as we have discussed multiple times already, there are many different ways to generate a distribution, and it is very hard to infer process from a distribution. Is it possible that we could get log-linear/expoential decay survivorship curves from a strictly stochastic model like a Gaussian random walk?
 
 ````R
@@ -931,16 +934,86 @@ binaryStep = function(Richness=1000,Duration=541) {
 ````
 
 7. Make a survivorship curve for this binary-step model. Make a linear, log-linear, and log-log version. Which is a better fit - linear, exponential, or power?
-8. You may have noticed that the binaryStep model as parameterized tends to create *very* short durations, with an average 'species' lifespan of about 2 million years. This doesn't jive with the actual average lifespan for most species, which tends to be aroudn 5-10 myrs depending on the group. Download a dataset of Cenozoic Gastropods from the paleobiology database. Calculate the average duration of genera (Hint: `tapply()` or `velociraptr::ageRanges()` may be helpful here), and then take the logarithm of this value. Rewrite the binaryStep Model so that the probability of "survival" matches this value, and so that the model is generating the same number of genera as in the PBDB dataset. Compare your empirical distribuiton to your new model distributions, did parameterizing the model with the empirical value make your predicted longevities more reasonable?
+8. You may have noticed that the binaryStep model as parameterized tends to create *very* short durations, with an average 'species' lifespan of ~2 million years. This doesn't jive with the actual average lifespan for most species, which tends to be aroudn 5-10 myrs depending on the group. Download a dataset of Cenozoic Gastropods from the paleobiology database. Calculate the average duration of genera (Hint: `tapply()` or `velociraptr::ageRanges()` may be helpful here), and then take the logarithm of this value. Rewrite the binaryStep Model so that the probability of "survival" matches this value, and so that the model is generating the same number of genera as in the PBDB dataset. Compare your empirical distribuiton to your new model distributions, did parameterizing the model with the empirical value make your predicted longevities more reasonable?
 
 ## Spatial Dynamics: Introduction
 The [species-area-effect](#sampling-standardization-area-revisited) is sometimes called the most fundamental pattern in ecology, or at least the most fundamental in spatial ecology. It could be argued, however, that the distance-decay relationship is probably even more fundamental. The distance-decay relationship states that geographically closer ecological communities will be more similar (share more species in similar abundances) than more distantly related ones, where distance can be measured environmentally or spatially.
 
-Distance-decay
-In a **similarity index**, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity.
+Before we can calculate a full distance-decay relationship, we will need to have some basic measure of similarity or dissimilarity. More precisely, in a **similarity** index, zero indicates complete dissimilarity and 1 indicates complete similarity. In a **dissimilarity** or **distance** index, zero indicates complete similarity and 1 indicates complete dissimilarity. This distinction is pretty trivial because to move back and forth between similarity and dissimilarity only requires for you to subtract the index from 1 - just don't get confused which one you're using.
+
+Just as we saw with the biodiversity metrics, there are a large number of metrics for measuring the similarity of ecological communities. We won't go into these nearly as in depth as we did for biodiversity, largely because there are *no* good ones and also becuase I'm exhausted.
 
 ### Jaccard Index
 The Jaccard index is the simplest Similarity index. It is the intersection of two samples divided by the union of two samples. In other words, the number of genera shared between two samples, divided by the total number of (unique) genera in both samples. Or put even another way, it is the percentage of genera shared between two samples. 
 
-### Bray-Curtis Index
+````R
+# Calculate jaccard coefficinet
+calcJaccard<-function(First,Second) {
+	Numerator = length(intersect(First,Second))
+    Denominator = length(union(First,Second))
+    Jaccard = Numerator/Denominator
+	return(Jaccard)
+	}
 
+# A rarely used variant of jaccard is the Dice Index
+# Which is just the Jaccard index, but instead of using the union
+# of both collections, it uses the size of the smaller sample
+# in other words it is askign what percentage of hte smaller
+# sample is found in the larger.
+calcDice = function(First,Second) {
+	Numerator = length(intersect(First,Second))
+    Denominator = (length(First),length(Second))
+	Jaccard = Numerator/Denominator
+    return(Jaccard)
+	}
+````
+
+As you may have gleaned from my inclusion of the "dice index", the issue of unequal sample-size once again rears its ugly head. Unfortunately, similarity indexes are even *more* sensitive and distorted by unequal sample size than diversity metrics. There's really no good solution for this yet, but you could probably get reasonably far using some sort of resampling/subsampling procedure. If you're interested in a list of other metrics, check out the `vegan::vegdist()` function in the vegan package.
+
+### Spatial Dynamics: Questions
+All right, let's try and make a demonstration distance-decay relationship. 
+
+````R
+# Download a dataset of the canonical marine taxa for the Pleistocene
+CanonicalTaxa = c("Bivalvia","Gastropoda","Anthozoa","Bryozoa")
+Pleistocene = velociraptr::downloadPBDB(CanonicalTaxa,"Pleistocene","Pleistocene")
+
+# Run some basic cleaning
+Pleistocene = velociraptr::cleanTaxonomy(Pleistocene,"genus")
+Pleistocene = subset(Pleistocene,is.na(Pleistocene[,"paleolat"])!=TRUE)
+# Find the richness of the PBDB collections
+CollectionsSize = tapply(Pleistocene[,"genus"],Pleistocene[,"collection_no"],function(x) length(unique(x)))
+# Limit the comparisons to only collections betwee 10 and 50 genera
+Pleistocene = subset(Pleistocene,Pleistocene[,"collection_no"]%in%names(which(CollectionsSize>50)))
+
+# A function for converting degrees to radians! You need this!!!
+convertRadians = function(Degrees) {
+	return(Degrees*pi/180)
+	}
+
+# Calculates the geodesic distance between two points specified by 
+# radian Latitude/Longitude using the Haversine formula - r-bloggers.com
+# The Haversine formula is a special case of the spherical law
+# of cosines, which is a special case of the law of cosines.
+calcHaversine = function(Long1,Lat1,Long2,Lat2) {
+	Radius = 6371 # radius of the Earth (km)
+	DeltaLong = (Long2 - Long1)
+	DeltaLat = (Lat2 - Lat1)
+	A = sin(DeltaLat/2)^2+cos(Lat1)*cos(Lat2)*sin(DeltaLong/2)^2
+	C = 2*asin(min(1,sqrt(A)))
+	Distance = Radius*C
+	return(Distance) # Distance in km
+	}
+````
+
+1. Calculate the similarity of each PBDB collection in `Pleistocene` to every other collection. Calculate the distance of every collection to every other collection using the `paleolng`, `paleolat` and the `calcHaversine()` function. Make a scatter plot of similarity vs. distance. (Hint: You MAY find the `combn()` function useful and the `by()` function useful, but there are many ways to code this. The key is to make one matrix of Jaccard similarity for collection_no by collection_no, and another matrix of Haversine distance for collection_no by collection_no, then to bind the two matrices together based on the collection_no by collection_no id pairs).
+2. Using `lm()` determine if a linear, exponential, or power-law function is a better fit for your distance-decay relationship.
+
+## Spatial Dynamics: Beta Diversity
+The slope of the distance-decay relationship is commonly referred to as *beta* diversity or the *spatial turnover* of diversity. Importantly, this is **NOT** correct. Please, as a personal favour to me, never do this.
+
+Beta diversity actually refers to a different way of predicting/describing the spatial relationship of diversity among sampled localities. This paradigm goes back to Robert Harding Whittaker (not to be confused with the Mixed martial artist of the same name). Whittaker introduced (among many others) who wanted to understand how the spatial hierarchy of sampling affects how we perceived diversity.
+
+![ADPFIGURE](/Lab5Figures/zaffosfeser.png)
+
+> The above figure shows a sampling hierarchy for a study I've been working on with my colleague Kelsey Arkle. 
