@@ -29,13 +29,15 @@
   - [Extrapolation: Questions II](#extrapolation-questions-ii)
   - [Extrapolation: Richness](#extrapolation-richness-ii)
   - [Extrapolation: Questions III](#extrapolation-questions-iii)
-- [Temporal Dynamics: Introduction]()
-  - [Temporal Dynamics: Boundary Categories]()
-  - [Temporal Dynamics: Turnover Rates]()
-  - [Temporal Dynamics: Questions](#temporal-dynamics-questions)
-- [Spatial Dynamics: Alpha, Beta, and Gamma]()
-  - [Spatial Dynamics: Similarity]()
-  - [Spatial Dynamics: Questions]()
+- [Temporal Dynamics: Introduction](#temporal-dynamics-introduction)
+  - [Temporal Dynamics: Cohort Analysis](#temporal-dynamics-cohort-analysis)
+  - [Temporal Dynamics: Questions I](#temporal-dynamics-questions-i)
+  - [Temporal Dynamics: Turnover Rates](#temporal-dynamics-turnover-rates)
+  - [Temporal Dynamics: Questions II](#temporal-dynamics-questions-ii)
+- [Spatial Dynamics: Introduction](#spatial-dynamics-introduction)
+  - [Spatial Dynamics: Questions I](#spatial-dynamics-questions-i)
+  - [Spatial Dynamics: Beta Diversity](#spatial-dynamics-beta-diversity)
+  - [Spatial Dynamics: Questions II](#spatial-dynamics-beta-diversity)
 - [Time Series: Introduction]()
   - [Time Series: Autocorrelation]()
   - [Time Series: Periodicity]()
@@ -923,13 +925,13 @@ set.seed(888)
 # probability. If it "fails" the roll, - i.e., rolls less than the
 # number needed to survive, it goes extinct.
 binaryStep = function(Richness=1000,Duration=541) {
-	Lifespan = vector("numeric",length=Duration)
+    Lifespan = vector("numeric",length=Duration)
     for (i in seq_len(Richness)) {
         Survive = runif(Duration,0,1)
         Roll = runif(Duration,0,1)
         Lifespan[i] = which(Roll<Survive)[1]
         }
-	return(Lifespan)
+    return(Lifespan)
     }
 ````
 
@@ -970,7 +972,7 @@ calcDice = function(First,Second) {
 
 As you may have gleaned from my inclusion of the "dice index", the issue of unequal sample-size once again rears its ugly head. Unfortunately, similarity indexes are even *more* sensitive and distorted by unequal sample size than diversity metrics. There's really no good solution for this yet, but you could probably get reasonably far using some sort of resampling/subsampling procedure. If you're interested in a list of other metrics, check out the `vegan::vegdist()` function in the vegan package.
 
-### Spatial Dynamics: Questions
+### Spatial Dynamics: Questions I
 All right, let's try and make a demonstration distance-decay relationship. 
 
 ````R
@@ -1016,4 +1018,27 @@ Beta diversity actually refers to a different way of predicting/describing the s
 
 ![ADPFIGURE](/Lab5Figures/zaffosfeser.png)
 
-> The above figure shows a sampling hierarchy for a study I've been working on with my colleague Kelsey Arkle. 
+> The above figure shows a sampling hierarchy for a study I've been working on with my colleague Kelsey Arkle. If you think of the smallest unit of analysis as an individual sample (alpha<sub>1</sub>), then you can group your samples together to form some larger unit of analysis (alpha<sub>n</sub>). In this case, we have our individual samples (a<sub>1</sub>) as sediment cores. We collect three cores together in an onshore-offshore transect (a<sub>2</sub>) in the shallow subtidal zone. We collect three transects per locality around the island (a<sub>3</sub>), from three localities per island (a<sub>4</sub>) from three islands in the region (a<sub>5</sub>). By convention the largest spatial partition is usually referred to as ***gamma*** diversity - but we will use the alpha<sub>n</sub> notation here.
+
+The relationship of a finer-scale in the hierarchy (alpha<sub>n</sub>) to a broader-scale (alpha<sub>n+1</sub>) is called (you guessed it) ***beta diversity***. There are *many* ways to calculate beta diversity, but the most common three are pictured below. In the first, known as the additive method, beta diversity is the *premium* or how much new diversity is expected to be added to the community if a new sample was collected. The other methods, known as multiplicative, express the relationship as a ratio - i.e., is the larger scale double the size of a smaller scale. Again, despite what the proponents of each would have you believe, neither metric is superior to the other on mathematical or conceptual grounds. It is a question of what you are interested in.
+
+![ADPFIGURE](/Lab5Figures/adp.png)
+
+One important mathematical caveat, however, that is important to know is that it is probably wrong, or at least are not useful, to use biodiversity measures other than richness when studying beta diversity. You will find many articles saying otherwise out in the literature. This stems back to a paper in the mid-90s that claimed you only needed metrics that obey *concavity* - i.e., increase if diversity increases. While it is true that concavity is *necessary* for beta diversity analysis, it is not *sufficient*.
+
+### Questions II
+
+
+## Final Project: Has alpha diversity increased over the course of the Phanerozoic?
+A longstanding question in Paleobiology is whether the trajectory of Phanerozoic biodiversity has been exponential (increasing diversity over time) or logistic (briefly increasing then stable). Although this debate continues unresoled, proponents of an exponential growth model have since moved on to trying to test why and how growth has occurred. One common hypothesis is that not only has total global biodiveristy been increasing throughout the Phanerozoic, but that this increase is largely attributed to an increase at the alpha-level, rather some type of increase in beta-diversity.
+
+For this project, you will break up into teams of 2-4 and attempt to answer this questions. You will have complete freedom in methodology. You may use any of the methods we have discussed thus far... or even invent some of your own. Be prepared to present graphical versions of your results to the rest of hte class, and to be able to justify your particular methodology.
+
+A few *basic* things to consider for this project are...
+
+1. What taxonomic groups are the most appropriate for this type of analysis? What taxonomic ranks?
+2. What is the appropriate temporal resolution?
+3. What is the appropriate measure of "diversity"?
+4. How will you standardize or cull or otherwise clean the data?
+5. What is the appropriate definition of a "sample"?
+6. Many occurrences in the Paleobiology Database comes with a great deal of environmental, spatial, and lithological information. Can any of this be levereged to answer this question?
