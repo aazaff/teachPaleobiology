@@ -149,6 +149,7 @@ DoubleFake = sample(Resample, 26, replace=TRUE)
 
 1. The varaible Resample was created using the functions `rep()`, `names()`, and `table()`. Additionally, the function `rep()`, used the arguuments `x` and `times`. Can you describe the role of these functions and arguments in this script?
 2. What was the richness and the frequency distribution of the new sample DoubleFake? How did this compare to the original population?
+3. What is the probability that if we sample 26 letters with replacement, that we will sample all 26 letters?
 
 We will talk about the problem of richness more in depth in a later exercise, and ~~better~~ common methods to account for the sampling effort problem.
 
@@ -936,7 +937,7 @@ binaryStep = function(Richness=1000,Duration=541) {
 ````
 
 7. Make a survivorship curve for this binary-step model. Make a linear, log-linear, and log-log version. Which is a better fit - linear, exponential, or power?
-8. You may have noticed that the binaryStep model as parameterized tends to create *very* short durations, with an average 'species' lifespan of ~2 million years. This doesn't jive with the actual average lifespan for most species, which tends to be aroudn 5-10 myrs depending on the group. Download a dataset of Cenozoic Gastropods from the paleobiology database. Calculate the average duration of genera (Hint: `tapply()` or `velociraptr::ageRanges()` may be helpful here), and then take the logarithm of this value. Rewrite the binaryStep Model so that the probability of "survival" matches this value, and so that the model is generating the same number of genera as in the PBDB dataset. Compare your empirical distribuiton to your new model distributions, did parameterizing the model with the empirical value make your predicted longevities more reasonable?
+8. You may have noticed that the binaryStep model as parameterized tends to create *very* short durations, with an average 'species' lifespan of ~2 million years. This doesn't jive with the actual average lifespan for most species, which tends to be aroudn 5-10 myrs depending on the group. Download a dataset of Cenozoic Gastropods from the paleobiology database. Calculate the average duration of genera (Hint: `tapply()` or `velociraptr::ageRanges()` may be helpful here), invert it (1/x), and then take the logarithm of this value. Rewrite the binaryStep Model so that the probability of "survival" matches this value, and so that the model is generating the same number of genera as in the PBDB dataset. Compare your empirical distribuiton to your new model distributions, did parameterizing the model with the empirical value make your predicted longevities more reasonable?
 
 ## Spatial Dynamics: Introduction
 The [species-area-effect](#sampling-standardization-area-revisited) is sometimes called the most fundamental pattern in ecology, or at least the most fundamental in spatial ecology. It could be argued, however, that the distance-decay relationship is probably even more fundamental. The distance-decay relationship states that geographically closer ecological communities will be more similar (share more species in similar abundances) than more distantly related ones, where distance can be measured environmentally or spatially.
@@ -1027,7 +1028,12 @@ The relationship of a finer-scale in the hierarchy (alpha<sub>n</sub>) to a broa
 One important mathematical caveat, however, that is important to know is that it is probably wrong, or at least are not useful, to use biodiversity measures other than richness when studying beta diversity. You will find many articles saying otherwise out in the literature. This stems back to a paper in the mid-90s that claimed you only needed metrics that obey *concavity* - i.e., increase if diversity increases. While it is true that concavity is *necessary* for beta diversity analysis, it is not *sufficient*.
 
 ### Questions II
-
+1. Just to make sure you understand the hierarchy, explain how many samples (sediment cores) need to be collected in total according to the schema described in the above figure of the Caribbean?
+2. Download a dataset of Late Ordovician and Early Silurian Brachiopods, Anthozoans, Gastropods, Bivalves, Bryozoans, Crinoids, and Trilobites.
+3. Organize the data into 5°x5° paleongitude by paleolatitude bins. You can do this by rounding each paleolatitude and paleolongitude coordinate down to its nearest x/5 %% 0. Calculate the alpha, beta, and gamma diversity for each time-interval
+using both additive and multiplicative approaches. What can you infer about the ecological/spatial effects of the the end-Ordovician extinction? (Hint: `round_5 = function(x) {floor(x/5)*5}`).
+4. You can use the `geoplate` field to find the tectonic plate that an occurrence occurs within, use this to expand your spatial hierarchy to alpha<sub>1</sub> as 5°x5° cell, alpha<sub>2</sub> as geoplate, and alpha<sub>3</sub>/gamma as global. How does this change your ecological story about the end-Ordovician extinction?
+5. Instead of calculating alpha, beta, and gamma, calculate the average Jacard coefficient among cells and the average Jaccard among tectonic plates. Does this match what you saw with beta diversity?
 
 ## Final Project: Has alpha diversity increased over the course of the Phanerozoic?
 A longstanding question in Paleobiology is whether the trajectory of Phanerozoic biodiversity has been exponential (increasing diversity over time) or logistic (briefly increasing then stable). Although this debate continues unresoled, proponents of an exponential growth model have since moved on to trying to test why and how growth has occurred. One common hypothesis is that not only has total global biodiveristy been increasing throughout the Phanerozoic, but that this increase is largely attributed to an increase at the alpha-level, rather some type of increase in beta-diversity.
