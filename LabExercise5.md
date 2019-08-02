@@ -38,10 +38,11 @@
   - [Spatial Dynamics: Questions I](#spatial-dynamics-questions-i)
   - [Spatial Dynamics: Beta Diversity](#spatial-dynamics-beta-diversity)
   - [Spatial Dynamics: Questions II](#spatial-dynamics-beta-diversity)
-- [Time Series: Introduction]()
-  - [Time Series: Autocorrelation]()
-  - [Time Series: Periodicity]()
-- [Final Project](#final-project)
+  - [Spatial Dynamics: Polar Ordination](#spatial-dynamics-polar-ordination)
+  - [Spatial Dynamics: Questions III](#spatial-dynamics-questions-iii)
+  - [Spatial Dynamics: Correspondence Analysis](#spatial-dynamics-correspondence-analysis)
+  - [Spatial Dynamics: Detrended Correspondence Analysis](#spatial-dynamics-detrended-correspondence-analysis)
+  - [Spatial Dynamics: Multi-Dimensional Scaling](#spatial-dynamics-multi-dimensional-scaling)
 
 ## Configure R
 Download the `velociraptr` package from CRAN and change the download timeout. You can always check your currently active libraries with `installed.packages()` or `sessionInfo()`. Also, note the difference between `require()` and `library()` and how this is used in the configuration script.
@@ -1040,7 +1041,7 @@ Polar ordination is the simplest form of ordination, and was originally invented
 
 The definition of the poles can be based on the calculation of a simlarity index (e.g., Jaccard) or could be two samples you hypothesize are at the ends of a gradient. Both approaches are fairly crude, so this method of ordination has largely been abandoned. As far as I know, there are no longer any working functions in R for calculating polar ordination.
 
-#### Spatial Dynamics: Questions I
+#### Spatial Dynamics: Questions III
 
 1) Create a subset of the `PresencePBDB` matrix which contains just the following rows - "Pliocene", "Oligocene", "Paleocene", "Early Cretaceous", "Late Jurassic", and "Middle Jurassic". Convert this into a presence-absence community matrix AND a separate abundance matrix (i.e., rows = times, columns = genera, cells = abundance or presence/absence).
 
@@ -1208,7 +1209,7 @@ plot(DetrendedCorrespondence,display="sites",choices=c(1,3))
 ````
 <a href="url"><img src="/Lab4Figures/Figure3.png" align="center" height="500" width="500" ></a>
 
-## Multi-dimensional Scaling
+## Spatial Dynamics: Multi-dimensional Scaling
 
 Because correspondence analysis suffers from the arch and detrended correspondence analysis can suffer from the wedge, many ecologists favour a completely different technique known as non-metric multi-dimensional scaling (NMDS). The underlying theory behind NMDS is quite different from correspondence analysis. If you want to learn more there is a good introduction by [Steven M. Holland](http://strata.uga.edu/software/pdf/mdsTutorial.pdf).
 
