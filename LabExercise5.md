@@ -1035,16 +1035,215 @@ using both additive and multiplicative approaches. What can you infer about the 
 4. You can use the `geoplate` field to find the tectonic plate that an occurrence occurs within, use this to expand your spatial hierarchy to alpha<sub>1</sub> as 5°x5° cell, alpha<sub>2</sub> as geoplate, and alpha<sub>3</sub>/gamma as global. How does this change your ecological story about the end-Ordovician extinction?
 5. Instead of calculating alpha, beta, and gamma, calculate the average Jacard coefficient among cells and the average Jaccard among tectonic plates. Does this match what you saw with beta diversity?
 
-## Final Project: Has alpha diversity increased over the course of the Phanerozoic?
-A longstanding question in Paleobiology is whether the trajectory of Phanerozoic biodiversity has been exponential (increasing diversity over time) or logistic (briefly increasing then stable). Although this debate continues unresoled, proponents of an exponential growth model have since moved on to trying to test why and how growth has occurred. One common hypothesis is that not only has total global biodiveristy been increasing throughout the Phanerozoic, but that this increase is largely attributed to an increase at the alpha-level, rather some type of increase in beta-diversity.
+## Spatial Dynamics: Polar Ordination
+Polar ordination is the simplest form of ordination, and was originally invented  at the University of Wisconsin in the late 50s. In polar ordination you define two "poles" of the gradient - i.e., the two samples that you think are the most dissimilar. You then order the samples into a gradient based on how similar they are to each "pole". 
 
-For this project, you will break up into teams of 2-4 and attempt to answer this questions. You will have complete freedom in methodology. You may use any of the methods we have discussed thus far... or even invent some of your own. Be prepared to present graphical versions of your results to the rest of hte class, and to be able to justify your particular methodology.
+The definition of the poles can be based on the calculation of a simlarity index (e.g., Jaccard) or could be two samples you hypothesize are at the ends of a gradient. Both approaches are fairly crude, so this method of ordination has largely been abandoned. As far as I know, there are no longer any working functions in R for calculating polar ordination.
 
-A few *basic* things to consider for this project are...
+#### Spatial Dynamics: Questions I
 
-1. What taxonomic groups are the most appropriate for this type of analysis? What taxonomic ranks?
-2. What is the appropriate temporal resolution?
-3. What is the appropriate measure of "diversity"?
-4. How will you standardize or cull or otherwise clean the data?
-5. What is the appropriate definition of a "sample"?
-6. Many occurrences in the Paleobiology Database comes with a great deal of environmental, spatial, and lithological information. Can any of this be levereged to answer this question?
+1) Create a subset of the `PresencePBDB` matrix which contains just the following rows - "Pliocene", "Oligocene", "Paleocene", "Early Cretaceous", "Late Jurassic", and "Middle Jurassic". Convert this into a presence-absence community matrix AND a separate abundance matrix (i.e., rows = times, columns = genera, cells = abundance or presence/absence).
+
+2) Using `vegan::vegdist()` find the dissimilarities of all the epochs in relation to time. Use "jaccard" for your presence-absence matrix and "bray-curtis" for your abundance matrix. (Hint: `help(vegan::vegdist)`)
+
+3) Find the two epochs that are the most dissimilar and make them the poles. Now, using the dissimilarities, order (ordinate) the remaining epochs based on their similarity to the poles. State the order of your inferred gradient.
+
+4) Can you deduce what "variable" is controlling this gradient (e.g., temperature, water depth, geographic distance)? [Hint: Check the [geologic timescale](https://en.wikipedia.org/wiki/Geologic_time_scale#Table_of_geologic_time)].
+
+5). There is a relatively high dissimilarity between the Early Cretaceous and Paleocene epochs. Can you hypothesize why this is? Google these epochs if you need to.
+
+6) Was gradient order affected by 
+
+## Spatial Dynamics: Correspondence Analysis
+The next form of ordination is known as corresponence analysis, also known as reciprocal averaging. There are three primary varietys of correspondence analysis: correspondence analysis, detrended correspondence analysis, and canonical (constrained) correspondence analysis. 
+
+Since we already explained the basics of reciprocal averaging in class, I will not go into further detail on the underlying theory behind correspondence analysis. Instead, let us examine the difference between correspondence analysis and detrended correspondence analysis. We will use the same presence-absence matrix you created in the previous [polar ordination](#spatial-dynamics-polar-ordination) section.
+
+````R
+# Run a correspondence analysis using the decorana( ) function of vegan
+# ira = 1 tells it to run a basic correspondence analysis rather than detrended correspondence analysis
+CorrespondenceAnalysis = vegan::decorana(CommunityMatrix,ira=1)
+
+# Plot the inferred samples (sites).
+# If you want to see the taxa, use display="species"
+plot(CorrespondenceAnalysis,display="sites")
+````
+
+Your final product should look like this.
+
+<a href="url"><img src="/Lab4Figures/Figure1.png" align="center" height="500" width="500" ></a>
+
+You may also wish to make a more complex/detailed plot. R has a dizzying variety of plotting functions, but today we will only need two of the basic functions.
+
+The first function is `plot( )`, which you have used earlier in this lab and elsewhere in the course. It is a very versatile and easy to use function because it has many **methods** attached to it. Putting the technical definition of a **method** aside, a method is a set of pre-programmed settings or templates, that will make a different type of plot depending on what kind of data you give the function.
+
+````R
+# Use methods plot to see all the different types of methods
+# You don't interact with the methods, the basic plot( ) function does it for you.
+methods(plot)
+````
+
+The **generic** version of plot (i.e, the version of plot that does not use any methods) produces a basic [scatter plot](http://www.statmethods.net/graphs/scatterplot.html) - i.e., points along an x and y axis. The ordination plots we used above are an example of a scatter plot. What if we want more customization than the basic `plot.decorana` method/template gives us?
+
+````R
+# Use the scores( ) function if you want to see/use the numerical values of the inferred gradient scores
+# Note that by scores we mean gradient values - e.g., a temperature of 5 degrees or a depth of 10m
+SpeciesScores<-scores(CorrespondenceAnalysis,display="species")
+
+# This shows the weighted average of all species abundances along each inferred gradient axis.
+# i.e., The weight-average of Amphiscapha is 5.22 along axis 1, and -3.799 along axis 2.
+head(SpeciesScores)
+                    RA1       RA2       RA3        RA4
+Amphiscapha    5.221689 -3.799051 -2.998689 1.27944155
+Donaldina      5.460634 -1.936823 -1.439545 0.77634443
+Euphemites     5.472197 -2.781106 -2.433943 0.04989632
+Glabrocingulum 4.270209 -3.789545 -1.794858 1.37530975
+Palaeostylus   5.322415 -3.151507 -2.536464 0.60251234
+Meekospira     5.322415 -3.151507 -2.536464 0.60251234
+
+# You can also do this for sample ("sites") scores as well.
+SampleScores<-scores(SpeciesScores,display="sites")
+
+# Now that we know the [x,y] values of each point, we can plot them.
+plot(x=SampleScores[,"RA1"],y=SampleScores[,"RA2"])
+````
+
+<a href="url"><img src="/Lab4Figures/Figure5.png" align="center" height="500" width="500" ></a>
+
+It certainly works, but is a lot uglier than what the `plot.decorana` method came up with. Here are a few things that we can do to improve the plot.
+
+````R
+plot(x=SampleScores[,"RA1"],y=SampleScores[,"RA2"],pch=16,las=1,xlab="Gradient Axis 1",ylab="Gradient Axis 2",cex=2)
+````
+
+Plotting Arguments | Description
+----- | -----
+````pch=```` | Dictates the symbol used for the points - e.g., ````pch = 16```` gives a solid circle, ````pch = 15```` gives a solid square. Try out different numbers.
+````cex=```` | Dictates the size of the points, the larger cex value the larger the points. Try out different values.
+````xlab=```` | Dictates the x-axis label, takes a **character** string.
+````ylab=```` | Dictates the y-axis label, takes a **character** string.
+````las=```` | Rotates the y-axis or x-axis tick marks. Play around with it.
+````col=```` | The col function sets the color of the points. This will take either a [hexcode](http://www.color-hex.com/) as a character string, ````col="#010101"```` or a [named color](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) in R, ````col="red"````
+
+There are a great many other arguments that can be given to the `plot( )` function, but we will discuss those as we need them.
+
+Although this plot is prettier than what we had before, it would probably be better to have text names for the points, stating which point is which epoch (i.e., like in the ````plot.decorana```` method). To do this we can use the `text( )` function. Importantly, you cannot use `text( )` without making a `plot( )` first.
+
+````R
+# Create plot empty of points (but scaled to the data) by adding the type="n" argument.
+plot(x=SampleScores[,"RA1"],y=SampleScores[,"RA2"],pch=16,las=1,xlab="Gradient Axis 1",ylab="Gradient Axis 2",type="n")
+
+# The text( ) function takes [x,y] coordinates just like plot
+# You also give it a labels= defintion, which states what text you want shown at those coordinates
+# In this case, the rownames of the PostCambrianSamples matrix - i.e., the epoch names
+text(x=SampleScores[,"RA1"],y=SampleScores[,"RA2"],labels=dimnames(SampleScores)[[1]])
+
+# You can also give the text function many of the arguments that you give to plot( )
+# Like cex= to increase the size or col= to change the color
+text(x=SampleScores[,"RA1"],y=SampleScores[,"RA2"],labels=dimnames(SampleScores)[[1]],cex=1.5,col="dodgerblue3")
+````
+
+Coloring is a very powerful visual aid. We might want to subset the data into different groupings, and color those grouping differently to look for clusters in the ordination space. Let's try splitting the dataset into three parts: Cenozoic Epochs (1-66 mys ago), Mesozoic Epochs (66-252 mys), and the Paleozoic (252-541 mys), and plot each with a different color.
+
+````R
+# Create plot empty of points (but scaled to the data) by adding the type="n" argument.
+plot(x=SampleScores[,"RA1"],y=SampleScores[,"RA2"],pch=16,las=1,xlab="Gradient Axis 1",ylab="Gradient Axis 2",type="n")
+
+# Separate out the epochs
+Cenozoic<-SampleScores[c("Pleistocene","Pliocene","Miocene","Oligocene","Eocene","Paleocene"),]
+Mesozoic<-SampleScores[c("Late Cretaceous","Early Cretaceous","Late Jurassic","Early Jurassic","Late Triassic","Middle Triassic","Early Triassic"),]
+Paleozoic<-SampleScores[c("Lopingian","Guadalupian","Cisuralian","Pennsylvanian","Mississippian","Late Devonian","Middle Devonian","Early Devonian","Pridoli","Ludlow","Wenlock","Llandovery","Late Ordovician","Middle Ordovician","Early Ordovician"),]
+
+# Plot Cenozoic in gold
+text(x=Cenozoic[,"RA1"],y=Cenozoic[,"RA2"],labels=dimnames(Cenozoic)[[1]],col="gold")
+# Plot Mesozoic in blue
+text(x=Mesozoic[,"RA1"],y=Mesozoic[,"RA2"],labels=dimnames(Mesozoic)[[1]],col="blue")
+# Plot Paleozoic in dark green
+text(x=Paleozoic[,"RA1"],y=Paleozoic[,"RA2"],labels=dimnames(Paleozoic)[[1]],col="darkgreen")
+````
+
+Your final output should look like this.
+
+<a href="url"><img src="/Lab4Figures/Figure7.png" align="center" height="500" width="500" ></a>
+
+There are a few things you should notice about the above graph. First, the first axis (i.e, the horizontal axis, the x-axis) of the ordination has ordered the samples in terms of their age. On the far right of the x-axis is the Ordovician (the oldest epoch) and on the far left is the Pleistocene (the youngest epoch). Therefore, we can infer that *time* is the primary gradient.
+
+However, you may have also noticed two other patterns in the data. 
+
+First, when the second axis (i.e., the vertical axis, the y-axis) is taken into account, an interesting **Arch** shape is apparent. This arch does not represent a true ecological phenomenon, per se, but is actually a mathematical artefact of the correspondence analysis method. Brocard et al. (2013) describe the formation of the arch thusly,
+
+> Long environmental gradients often support a succession of species. [Since species tend to have unimodal distributions along gradients], a long gradient may encompass sites that, at both ends of the gradient, have no species in common; thus, their distance reaches a maximum value (or their simi-larity is 0). But if one looks at either side of the succession, contiguous sites continue to grow more different from each other. Therefore, instead of a linear trend, the gradient is represented on a pair of CA axes as an arch.
+
+In other words, the Pleistocene and Early Ordovician have no species in common, thus they are on opposite ends of the first axis. However, they do share something in common, which is that they become progressively dissimilar from epochs further away from them. For this reason, the correspondence analysis plots them on the same end of the second axis, and the epochs that are at the midpoint between them (i.e., the Permo-Trissic boundary) on the other end of the second axis. This is not helpful information (in fact, it is just a geometrically warped restatement of the information conveyed in the first axis) and we want to eliminate it for something more useful.
+
+The other thing you may have noticed is **compression** towards the ends of the gradient. Meaning that most of the Cenozoic epochs (i.e., Pleistocene, Pliocene, Miocene, Oligocene, and Eocene) are overlain closely on top of each other. So much so that you probably have a hard time reading their text. This is also an artefact of correspondence analysis, and not necessarily an indication that those epochs are more similar to each other, than say the (more legible) Early and Late Cretaceous epochs.
+
+For these reasons, it is rare for people to still use correspondence analysis (reciprocal averaging). Though some scientists argue you should at least try correspondence analysis before turning to another technique (I am not one of them).
+
+## Spatial Dynamics: Detrended Correspondence Analysis
+The Arch effect and compression are both ameliorated by detrended correspondence analysis (DCA). DCA divides the first axis into a number of smaller segments. Within each segment it recalculates the second axis scores such that they have an average of zero.
+
+You can perform a DCA in R using the `decorana( )` function of the `vegan` package.
+
+````R
+# Peform a DCA on the Post Cambrian Dataset
+# ira = 0 is the default, so you do not need to put that part in.
+DetrendedCorrespondence<-vegan::decorana(CommunityMatrix,ira=0)
+
+# Plot the DCA
+plot(DetrendedCorrespondence,display="sites")
+````
+
+Your final product should look like this.
+
+<a href="url"><img src="/Lab4Figures/Figure2.png" align="center" height="500" width="500" ></a>
+
+You will notice that the arch effect is gone! This is good, but the DCA is suffering from a new problem known as the **Wedge** effect. You can envision the wedge effect by taking a piece of paper and twisting it, such that axis 1 is preserved reasonably undistorted, but the second axis of variation is expressed on DCA axis 2 on one end and on DCA axis 3 at the opposite end. This produces a pattern consisting of a tapering of sample points in axis 1-2 space and an opposing wedge in axis 1-3 space.
+
+Here, let's contrast our above DCA plot by plotting DCA Axis 1 and DCA Axis 3. Do you see another wedge running in the opposite direction?
+
+````R
+# Use the choices= argument to pick which ordination axes you want plotted.
+plot(DetrendedCorrespondence,display="sites",choices=c(1,3))
+````
+<a href="url"><img src="/Lab4Figures/Figure3.png" align="center" height="500" width="500" ></a>
+
+## Multi-dimensional Scaling
+
+Because correspondence analysis suffers from the arch and detrended correspondence analysis can suffer from the wedge, many ecologists favour a completely different technique known as non-metric multi-dimensional scaling (NMDS). The underlying theory behind NMDS is quite different from correspondence analysis. If you want to learn more there is a good introduction by [Steven M. Holland](http://strata.uga.edu/software/pdf/mdsTutorial.pdf).
+
+However, if you just want the highlights, here is what you need to know.
+
+1. Most ordination methods result in a single unique solution. In contrast, NMDS is a brute force technique that iteratively seeks a solution via repeated trial and error, which means running the NMDS again will likely result in a somewhat different ordination.
+2. This effect is, in particular, especially sensitive to your initila "guess" as to the configuration. A different starting point will often result in a different answer. 
+3. NMDS, unlike correspondence analysis, is not based on weighted-averaging, but on the ecological distances (e.g., jaccard) of samples, similar to polar ordination.
+4. The species scores presented by NMDS are just the weighted-average of the final NMDS sample scores - just as in Correspondence Analysis.
+
+Here is how you run an NMDS in R using the `vegan` package.
+
+````R
+MultiScaling<-vegan::metaMDS(CommunityMatric)
+
+# The plotting defaults for metaMDS output is not as good as for decorana( )
+# We have to do some graphical fiddling.
+
+# Create a blank plot by setting type= to "n" (for nothing)
+plot(MultiScaling,display="sites",type="n")
+
+# Use the text( ) function, to fill in our blank plot with the names of the samples
+# Importantly, text( ) will not work if there is not already an open plot,
+# hence why we needed to make the blank plot first. Notice that we did not define the coordinates for
+# text( ). This is because by giving the text( ) function an NMDS output, 
+# it knows to use the text.metaMDS method/template.
+text(MultiScaling,display="sites")
+````
+
+Your final product should look like this.
+
+<a href="url"><img src="/Lab4Figures/Figure4.png" align="center" height="500" width="500" ></a>
+
+It's the Arch Effect again, just like in correspondence analysis!!! Despite the fact that many ecologists like to praise NMDS over CA and DCA, the differences between them are exaggerated. The reason for this is that all three are unreliable when there isn't a strong gradient to pick up in the first place.
+
+In these data, there is a very strong "time" gradient that is picked up in the first axis of all four ordination (polar, corresondence, detrended, and multidimensional) techniques that we've used so far. However, there is no secondary gradient (or tertiary etc.) that is obvious in these data, hence why all of the methods make up these (ecologically) meaningless wedges and arches along the second, third, and so on axes.
+
+Of the ordination methods covered here, I recommend sticking with DCA. It is fairly robust and easy to interpret, though *watch out for those wedges*!
